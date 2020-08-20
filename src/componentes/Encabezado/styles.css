@@ -1,0 +1,100 @@
+.icon-head {
+  font-size: 40px;
+}
+.head {
+  padding: 50px 0;
+  background-color: white;
+  font-size: 13px;
+  font-weight: bold;
+}
+.head .icons {
+  font-size: 35px !important;
+}
+.head .logo {
+  height: 64px;
+  background-color: var(--color-secundario);
+  padding: 0;
+  margin: 0;
+}
+.head .logo img {
+  position: absolute;
+  top: -30px;
+  left: 30px;
+  z-index: 99;
+}
+
+/*menu*/
+.ant-layout-header .ant-menu {
+  background-color: var(--color-secundario);
+  color: var(--color-primario);
+  border: 0 !important;
+}
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:not(:focus),
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected {
+  border: 0 !important;
+  height: 68px !important;
+}
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:not(:focus),
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+  border: 0 !important;
+  color: var(--color-primari o) !important;
+}
+
+.ant-menu-item .ant-menu-item-only-child {
+  height: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head .items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.head .items code:hover,
+.head .items code:active,
+.head .items code:focus,
+.head .items code:visited {
+  display: flex;
+  align-items: center;
+  justify-content: cente5;
+  border: 0;
+  padding-top: 0;
+  padding-bottom: 2px;
+  border-bottom: 2px solid var(--color-primario) !important;
+  color: var(--color-primario) !important;
+  font-size: 14px !important;
+}
+
+.ant-typography code {
+  border: 0 !important;
+  background-color: transparent !important;
+  font-size: 14px !important;
+}
+
+h4.ant-typography {
+  height: 100% !important;
+}
+
+.head .icons:hover,
+.head .icons:active,
+.head .icons:focus,
+.head .icons::selection {
+  border-bottom: 2px solid var(--color-primario) !important;
+  color: var(--color-primario) !important;
+}
+.head .icons:not(:focus) {
+  color: var(--color-primario) !important;
+}
+.head .item-menu {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;}
+.head .item-menu::selection {
+  color: var(--color-primario) !important;
+}
