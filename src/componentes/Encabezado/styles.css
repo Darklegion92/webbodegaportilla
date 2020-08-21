@@ -71,14 +71,16 @@
   font-size: 14px !important;
 }
 
-.ant-typography code {
+.head .ant-typography code {
   border: 0 !important;
   background-color: transparent !important;
   font-size: 14px !important;
+  color: var(--color-primario) !important;
 }
 
-h4.ant-typography {
+.head h4.ant-typography {
   height: 100% !important;
+  color: var(--color-primario) !important;
 }
 
 .head .icons:hover,
@@ -94,7 +96,8 @@ h4.ant-typography {
 .head .item-menu {
   display: flex !important;
   align-items: center;
-  justify-content: center;}
+  justify-content: center;
+}
 .head .item-menu::selection {
   color: var(--color-primario) !important;
 }

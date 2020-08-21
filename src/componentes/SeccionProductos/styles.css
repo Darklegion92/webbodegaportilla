@@ -1,0 +1,42 @@
+.seccionproductos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 40px;
+  padding: 0 12%;
+  min-height: 300px;
+  text-align: center;
+  font-size: 16px;
+  border-bottom: 2px solid var(--color-primario) !important;
+}
+.seccionproductos .agrupaciones {
+  display: flex;
+  flex-direction: row;
+}
+
+.seccionproductos h3.ant-typography {
+  color: var(--color-primario) !important;
+}
+/*Styles seccion*/
+
+.seccionproductos .agrupacion h4.ant-typography {
+  display: flex;
+  align-items: center;
+  color: white !important;
+  background-color: var(--color-primario) !important;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 14px;
+  min-height: 70px;
+  justify-content: center;
+}
+
+.seccionproductos .agrupacion {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 250px;
+  margin: 0 0 50px 50px;
+}

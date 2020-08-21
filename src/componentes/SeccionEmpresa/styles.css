@@ -1,0 +1,19 @@
+.seccionempresa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 40px;
+  padding: 0 12%;
+  min-height: 300px;
+
+  text-align: center;
+  font-size: 16px;
+  border-bottom: 2px solid var(--color-primario) !important;
+}
+
+.seccionempresa h3.ant-typography,
+.seccionempresa .ant-typography {
+  color: var(--color-primario) !important;
+}
