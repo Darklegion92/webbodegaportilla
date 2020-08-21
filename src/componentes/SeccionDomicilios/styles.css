@@ -1,5 +1,5 @@
 .secciondomicilios {
-  background-image: url("http://localhost:3000/img/bg/fondo-pe.png");
+  background-image: url("/img/bg/fondo-pe.png");
   background-size: 100%;
   background-color: white;
   background-repeat: no-repeat;
