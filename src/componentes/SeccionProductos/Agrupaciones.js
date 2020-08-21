@@ -4,11 +4,11 @@ import { Typography } from "antd";
 
 const { Title } = Typography;
 
-function Agrupaciones({ titulo, urlImg }) {
+function Agrupaciones({ titulo, urlImage }) {
   return (
     <div className="agrupacion">
       <Title level={4}>{titulo}</Title>
-      <img src={urlImg} alt={urlImg} />
+      <img src={urlImage} alt={urlImage} />
     </div>
   );
 }

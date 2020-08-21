@@ -12,16 +12,25 @@ function SeccionEmpresa() {
       <Title>PRODUCTOS</Title>
       <div className="agrupaciones">
         <div>
-          <Agrupaciones titulo="PANADERIA Y POSTRERIA" urlImage="" />
-          <Agrupaciones titulo="SUPER ALIMENTOS" urlImage="" />
+          <Agrupaciones titulo="FRUTOS SECOS" urlImage="img/frutossecos.jpeg" />
+          <Agrupaciones
+            titulo="PANADERIA Y POSTRERIA"
+            urlImage="img/panaderiaypostreria.jpeg"
+          />
         </div>
         <div>
-          <Agrupaciones titulo="UTENSILIOS" urlImage="" />
-          <Agrupaciones titulo="FRUTOS SECOS" urlImage="" />
+          <Agrupaciones
+            titulo="FRUTOS DESHIDRATADOS"
+            urlImage="img/deshidratados.jpeg"
+          />
+          <Agrupaciones
+            titulo="SUPER ALIMENTOS"
+            urlImage="img/superalimentos.jpeg"
+          />
         </div>
         <div>
-          <Agrupaciones titulo="FRUTOS DESHIDRATADOS" urlImage="" />
-          <Agrupaciones titulo="SEMILLAS" urlImage="" />
+          <Agrupaciones titulo="SEMILLAS" urlImage="img/semillas.jpeg" />
+          <Agrupaciones titulo="UTENSILIOS" urlImage="img/utencilios.jpeg" />
         </div>
       </div>
     </div>
