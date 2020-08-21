@@ -8,10 +8,10 @@ const { Title } = Typography;
 function SeccionDomicilios() {
   return (
     <div className="secciondomicilios">
-      <FaTruck size={70} />
-      <Title level={2}>
+     
+      <Title level={1}>
         POR COMPRAS MAYORES A $ 50.000 EL DOMICILIO ES GRATIS
-      </Title>
+      </Title> <FaTruck size={70} />
     </div>
   );
 }
