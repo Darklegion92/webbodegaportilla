@@ -1,0 +1,21 @@
+.recomendaciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 150px;
+}
+
+.recomendaciones .imagenes {
+  max-width: 100%;
+}
+.recomendaciones .imagenes img {
+  object-fit: cover;
+  height: 150px;
+  width: 100%;
+  margin-top: 16px;
+}
+.recomendaciones .ant-typography {
+  color: var(--color-primario) !important;
+  margin: 0 10px !important;
+  font-size: 100px;
+}

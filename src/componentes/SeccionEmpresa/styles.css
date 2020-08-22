@@ -13,7 +13,6 @@
   border-bottom: 2px solid var(--color-primario) !important;
 }
 
-.seccionempresa h3.ant-typography,
 .seccionempresa .ant-typography {
   color: var(--color-primario) !important;
 }

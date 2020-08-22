@@ -31,6 +31,13 @@ function Carrusel_principal() {
             alt="Third slide"
           />
         </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="img/slider3.jpeg"
+            alt="Third slide"
+          />
+        </Carousel.Item>
       </Carousel>
     </div>
   );

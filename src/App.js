@@ -7,6 +7,8 @@ import SeccionDomicilios from "./componentes/SeccionDomicilios";
 import SeccionEmpresa from "./componentes/SeccionEmpresa";
 import SeccionProductos from "./componentes/SeccionProductos";
 import SeccionExtra from "./componentes/SeccionExtra";
+import SeccionRecomendaciones from "./componentes/SeccionRecomendaciones";
+import Pie from "./componentes/Pie";
 import "bootstrap/dist/css/bootstrap.min.css";
 const { Header, Footer, Content } = Layout;
 
@@ -129,8 +131,24 @@ function App() {
             },
           ]}
         />
+        <SeccionRecomendaciones
+          imagenes={[
+            { imagen: "img/articulodefecto.jpeg" },
+            { imagen: "img/deshidratados.jpeg" },
+            { imagen: "img/frutossecos.jpeg" },
+            { imagen: "img/logo.png" },
+            { imagen: "img/panaderiaypostreria.jpeg" },
+            { imagen: "img/semillas.jpeg" },
+            { imagen: "img/slider1.jpeg" },
+            { imagen: "img/slider2.jpeg" },
+            { imagen: "img/superalimentos.jpeg" },
+            { imagen: "img/utencilios.jpeg" },
+          ]}
+        />
       </Content>
-      <Footer></Footer>
+      <Footer>
+        <Pie />
+      </Footer>
     </Layout>
   );
 }
