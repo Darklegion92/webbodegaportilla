@@ -1,0 +1,41 @@
+.seccion-extra {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.seccion-extra .carrousel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 25px;
+  border-bottom: 2px solid var(--color-primario) !important;
+  padding-bottom: 80px;
+}
+.seccion-extra .multi-carrousel {
+  display: block;
+  width: 1150px;
+}
+.seccion-extra .anticon {
+  font-size: 50px;
+}
+
+.seccion-extra .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 1px 1px gray;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 15px;
+  margin: 10px !important;
+  padding-top: 25px;
+}
+.seccion-extra .ant-typography {
+  color: var(--color-primario) !important;
+  margin: 40px 10px !important;
+}
