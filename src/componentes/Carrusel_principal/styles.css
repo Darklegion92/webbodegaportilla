@@ -1,3 +1,6 @@
-.carrousel {
-  padding: 0 3%;
+.carrousel .carousel-control-next {
+  justify-content: flex-end;
+}
+.carrousel .carousel-control-prev {
+  justify-content: flex-start;
 }

@@ -19,68 +19,77 @@ function App() {
         <Encabezado />
       </Header>
       <Content>
-        <Carrusel_principal />
+        <div id="home">
+          <Carrusel_principal />
+        </div>
         <SeccionDomicilios />
-        <SeccionEmpresa />
-        <SeccionProductos />
-        <SeccionExtra
-          items={4}
-          texto={{
-            texto: "PRODUCTOS NUEVOS",
-            fondo: "var(--color-primario)",
-            color: "white",
-          }}
-          articulos={[
-            {
-              imagen: "img/articulodefecto.jpeg",
-              codigo: "0",
-              enlace: "##",
-              nombre: "ARTICULO UNO DE LOS UNOS UNOS",
-            },
-            {
-              imagen: "img/articulodefecto.jpeg",
-              codigo: "0",
-              enlace: "##",
-              nombre: "ARTICULO UNO DE LOS UNOS UNOS",
-            },
-            {
-              imagen: "img/articulodefecto.jpeg",
-              codigo: "0",
-              enlace: "##",
-              nombre: "ARTICULO UNO DE LOS UNOS UNOS",
-            },
-            {
-              imagen: "img/articulodefecto.jpeg",
-              codigo: "0",
-              enlace: "##",
-              nombre: "ARTICULO UNO DE LOS UNOS UNOS",
-            },
-            {
-              imagen: "img/articulodefecto.jpeg",
-              codigo: "0",
-              enlace: "##",
-              nombre: "ARTICULO UNO DE LOS UNOS UNOS",
-            },
-            {
-              imagen: "img/articulodefecto.jpeg",
-              codigo: "0",
-              enlace: "##",
-              nombre: "ARTICULO UNO DE LOS UNOS UNOS",
-            },
-            {
-              imagen: "img/articulodefecto.jpeg",
-              codigo: "0",
-              enlace: "##",
-              nombre: "ARTICULO UNO DE LOS UNOS UNOS",
-            },
-            {
-              imagen: "img/articulodefecto.jpeg",
-              codigo: "0",
-              enlace: "##",
-              nombre: "ARTICULO UNO DE LOS UNOS UNOS",
-            },
-          ]}
-        />
+        <div id="quienessomos">
+          <SeccionEmpresa />
+        </div>
+        <div id="productos">
+          <SeccionProductos />
+        </div>
+        <div id="nuevo">
+          <SeccionExtra
+            items={4}
+            texto={{
+              texto: "PRODUCTOS NUEVOS",
+              fondo: "var(--color-primario)",
+              color: "white",
+            }}
+            articulos={[
+              {
+                imagen: "img/articulodefecto.jpeg",
+                codigo: "0",
+                enlace: "##",
+                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+              },
+              {
+                imagen: "img/articulodefecto.jpeg",
+                codigo: "0",
+                enlace: "##",
+                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+              },
+              {
+                imagen: "img/articulodefecto.jpeg",
+                codigo: "0",
+                enlace: "##",
+                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+              },
+              {
+                imagen: "img/articulodefecto.jpeg",
+                codigo: "0",
+                enlace: "##",
+                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+              },
+              {
+                imagen: "img/articulodefecto.jpeg",
+                codigo: "0",
+                enlace: "##",
+                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+              },
+              {
+                imagen: "img/articulodefecto.jpeg",
+                codigo: "0",
+                enlace: "##",
+                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+              },
+              {
+                imagen: "img/articulodefecto.jpeg",
+                codigo: "0",
+                enlace: "##",
+                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+              },
+              {
+                imagen: "img/articulodefecto.jpeg",
+                codigo: "0",
+                enlace: "##",
+                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+              },
+            ]}
+          />
+        </div>
+        <div id="regalos"></div>
         <SeccionExtra
           items={3}
           texto={{
@@ -131,20 +140,22 @@ function App() {
             },
           ]}
         />
-        <SeccionRecomendaciones
-          imagenes={[
-            { imagen: "img/articulodefecto.jpeg" },
-            { imagen: "img/deshidratados.jpeg" },
-            { imagen: "img/frutossecos.jpeg" },
-            { imagen: "img/logo.png" },
-            { imagen: "img/panaderiaypostreria.jpeg" },
-            { imagen: "img/semillas.jpeg" },
-            { imagen: "img/slider1.jpeg" },
-            { imagen: "img/slider2.jpeg" },
-            { imagen: "img/superalimentos.jpeg" },
-            { imagen: "img/utencilios.jpeg" },
-          ]}
-        />
+        <div id="recomendaciones">
+          <SeccionRecomendaciones
+            imagenes={[
+              { imagen: "img/articulodefecto.jpeg" },
+              { imagen: "img/deshidratados.jpeg" },
+              { imagen: "img/frutossecos.jpeg" },
+              { imagen: "img/logo.png" },
+              { imagen: "img/panaderiaypostreria.jpeg" },
+              { imagen: "img/semillas.jpeg" },
+              { imagen: "img/slider1.jpeg" },
+              { imagen: "img/slider2.jpeg" },
+              { imagen: "img/superalimentos.jpeg" },
+              { imagen: "img/utencilios.jpeg" },
+            ]}
+          />
+        </div>
       </Content>
       <Footer>
         <Pie />

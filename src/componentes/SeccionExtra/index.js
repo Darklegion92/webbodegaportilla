@@ -37,7 +37,7 @@ function SeccionExtra({ items, articulos, texto }) {
           alignItems: "center",
           "font-size": "120px",
           fontWeight: "bold",
-          marginBottom: "110px",
+          marginBottom: "50px",
         }}
       >
         {texto.texto}

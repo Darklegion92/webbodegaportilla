@@ -49,7 +49,7 @@ function Pie() {
             <Text>
               <WhatsAppOutlined
                 style={{ fontSize: "40px", marginRight: "10px" }}
-              />{" "}
+              />
               314 3529702
             </Text>
           </Row>

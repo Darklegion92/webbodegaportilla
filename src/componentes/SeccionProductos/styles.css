@@ -4,20 +4,22 @@
   justify-content: center;
   align-items: center;
   max-width: 100%;
-  margin: 0 40px;
+  margin: 40px 0;
   padding: 0 12%;
   min-height: 300px;
   text-align: center;
-  font-size: 16px;
 }
 .seccionproductos .agrupaciones {
   display: flex;
   flex-direction: row;
+  margin-top: 30px;
 }
 
-.seccionproductos h3.ant-typography {
+.seccionproductos h1.ant-typography {
   color: var(--color-primario) !important;
+  font-size: 100px;
 }
+
 /*Styles seccion*/
 
 .seccionproductos .agrupacion h4.ant-typography {

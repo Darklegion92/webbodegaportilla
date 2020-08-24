@@ -47,27 +47,27 @@ function Encabezado() {
           >
             <Menu.Item key="inicio">
               <Title level={4} className="items" code={true}>
-                INICIO
+                <a href="#home">INICIO</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="quienes">
               <Title level={4} className="items" code={true}>
-                QUIENES SOMOS
+                <a href="#quienessomos"> QUIENES SOMOS</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="productos">
               <Title level={4} className="items" code={true}>
-                PRODUCTOS
+                <a href="#productos">PRODUCTOS</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="nuevo">
               <Title level={4} className="items" code={true}>
-                NUEVO
+                <a href="#nuevo">NUEVO</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="reco">
               <Title level={4} className="items" code={true}>
-                RECOMENDACIONES
+                <a href="#recomendaciones"> RECOMENDACIONES</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="contacto">
@@ -75,7 +75,7 @@ function Encabezado() {
                 CONTACTO
               </Title>
             </Menu.Item>
-            <SubMenu icon={<UserOutlined className="icons" />}>
+            <SubMenu icon={<UserOutlined className="icons" />} class>
               <Menu.Item
                 className="item-menu"
                 key="1"

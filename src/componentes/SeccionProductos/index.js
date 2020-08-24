@@ -9,7 +9,7 @@ const { Title } = Typography;
 function SeccionEmpresa() {
   return (
     <div className="seccionproductos">
-      <Title>PRODUCTOS</Title>
+      <Title lvl={1}>PRODUCTOS</Title>
       <div className="agrupaciones">
         <div>
           <Agrupaciones titulo="FRUTOS SECOS" urlImage="img/frutossecos.jpeg" />
@@ -27,6 +27,10 @@ function SeccionEmpresa() {
             titulo="SUPER ALIMENTOS"
             urlImage="img/superalimentos.jpeg"
           />
+        </div>
+        <div>
+          <Agrupaciones titulo="SEMILLAS" urlImage="img/semillas.jpeg" />
+          <Agrupaciones titulo="UTENSILIOS" urlImage="img/utencilios.jpeg" />
         </div>
         <div>
           <Agrupaciones titulo="SEMILLAS" urlImage="img/semillas.jpeg" />

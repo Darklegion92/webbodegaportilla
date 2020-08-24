@@ -1,19 +1,21 @@
 .secciondomicilios {
-  background-image: url("/img/bg/fondo-pe.png");
   background-size: 100%;
-  background-color: white;
+  background-color: var(--color-fondo1);
   background-repeat: no-repeat;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
   min-width: 100%;
-  min-height: 320px;
-  padding-bottom: 70px;
+  padding: 30px;
   color: white;
+  margin-top: 30px;
 }
 
 .secciondomicilios .ant-typography {
   margin-right: 40px;
   color: white;
+}
+.secciondomicilios svg {
+  height: 100px;
 }
