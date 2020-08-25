@@ -13,7 +13,7 @@ function Pie() {
     <div className="pie">
       <Divider
         style={{
-          backgroundColor: "white",
+          backgroundColor: "var(--color-primario)",
           height: "0.1rem",
         }}
       />
@@ -30,8 +30,8 @@ function Pie() {
       </Row>
       <Divider
         style={{
-          backgroundColor: "white",
-          height: "0.1rem",
+          backgroundColor: "var(--color-primario)",
+          height: "2px",
         }}
       />
       <Row gutter={20} className="otros">

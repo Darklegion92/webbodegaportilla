@@ -2,11 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 150px;
+  justify-content: center;
+  margin-left: 3%;
+  text-align: center;
+  margin-right: 3%;
 }
 
 .recomendaciones .imagenes {
   max-width: 100%;
+  margin-top: 30px;
 }
 .recomendaciones .imagenes img {
   object-fit: cover;
@@ -15,12 +19,16 @@
   margin-top: 16px;
 }
 .recomendaciones .imagenes img:hover {
-  transform: scale(1.1)!important;
+  transform: scale(1.1) !important;
   cursor: pointer;
 }
 
 .recomendaciones .ant-typography {
   color: var(--color-primario) !important;
   margin: 0 10px !important;
-  font-size: 100px;
+  font-size: 50px;
+  width: 100%;
+  border-bottom: 1px solid var(--color-primario) !important;
+  border-top: 1px solid var(--color-primario) !important;
+  padding:30px;
 }

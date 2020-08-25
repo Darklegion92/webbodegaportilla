@@ -11,7 +11,6 @@
   justify-content: center;
   padding-left: 20px;
   padding-right: 25px;
-  border-bottom: 2px solid var(--color-primario) !important;
   padding-bottom: 80px;
 }
 .seccion-extra .multi-carrousel {
@@ -32,9 +31,8 @@
   font-weight: bold;
   border-radius: 15px;
   margin: 10px !important;
-  padding-top: 25px;
 }
 .seccion-extra .ant-typography {
   color: var(--color-primario) !important;
-  margin: 40px 10px !important;
+ 
 }

@@ -7,17 +7,17 @@ const { Title, Text } = Typography;
 function SeccionEmpresa() {
   return (
     <div className="seccionempresa">
-      <Title level={3}>QUIENES SOMOS</Title>
+      <Title>EL CAMINO DE BODEGA PORTILLA</Title>
       <Text>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
+        Somos una empresa dedicada al bienestar en general de nuestros clientes
+        , brindándole nuestro mejor servicio y conocimientos en panadería y
+        repostería , además de ofrecerle nuestro lema principal " Bienestar y
+        salud " esto es lo que la humanidad busca y prefiere hoy en día .!
+        <br />
+        Las condiciones , bondades y beneficios que tiene de productos secos ,
+        semillas , súper alimentos y sus derivados harán que en muy poco tiempo
+        sea la revolución alimenticia del mundo ya que dichos productos no
+        tienen ni un solo químico , son productos 100% naturales!
       </Text>
     </div>
   );

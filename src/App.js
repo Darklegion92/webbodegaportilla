@@ -34,8 +34,8 @@ function App() {
             items={4}
             texto={{
               texto: "PRODUCTOS NUEVOS",
-              fondo: "var(--color-primario)",
-              color: "white",
+              fondo: "invisible",
+              color: "var(--color-primario)",
             }}
             articulos={[
               {

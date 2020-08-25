@@ -4,7 +4,7 @@ import { Typography } from "antd";
 import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
 import "./styles.css";
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 function SeccionExtra({ items, articulos, texto }) {
   const settings = {
     dots: true,
@@ -29,15 +29,20 @@ function SeccionExtra({ items, articulos, texto }) {
       <div
         style={{
           backgroundColor: texto.fondo,
-          "min-width": "100%",
           color: texto.color,
           textAlign: "center",
           display: "flex",
           "justify-content": "center",
           alignItems: "center",
-          "font-size": "120px",
+          "font-size": "50px",
+          marginLeft: "3%",
+          marginRight: "3%",
           fontWeight: "bold",
           marginBottom: "50px",
+          borderBottom: "1px solid var(--color-primario) ",
+          borderTop: "1px solid var(--color-primario)",
+          paddingTop:"20px",
+          paddingBottom:"20px"
         }}
       >
         {texto.texto}

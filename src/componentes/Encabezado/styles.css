@@ -2,7 +2,7 @@
   font-size: 40px;
 }
 .head {
-  padding: 50px 0 40px 0;
+  padding: 50px 0 0 0;
   background-color: white;
   font-size: 13px;
   font-weight: bold;
@@ -11,8 +11,8 @@
   font-size: 35px !important;
 }
 .head .logo {
-  height: 67px;
-  background-color: var(--color-fondo1);
+  height: 50px;
+  background-color: white;
   padding: 0;
   margin: 0;
 }
@@ -25,7 +25,7 @@
 
 /*menu*/
 .ant-layout-header .ant-menu {
-  background-color: var(--color-fondo1);
+  background-color: white;
   border: 0 !important;
 }
 .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover,
@@ -65,7 +65,7 @@
   padding-top: 0;
   padding-bottom: 2px;
   border-bottom: 2px solid var(--color-primario) !important;
-  color: var(--color-texto) !important;
+  color: var(--color-terciario) !important;
   font-size: 14px !important;
 }
 
@@ -73,7 +73,7 @@
   border: 0 !important;
   background-color: transparent !important;
   font-size: 14px !important;
-  color: white !important;
+  color: var(--color-primario) !important;
 }
 
 .head h4.ant-typography {
@@ -84,12 +84,12 @@
 .head .icons:active,
 .head .icons:focus,
 .head .icons::selection {
-  border-bottom: 2px solid var(--color-texto) !important;
-
+  border-bottom: 2px solid var(--color-terciario) !important;
+  color: var(--color-terciario) !important;
   transform: scale(1.1);
 }
 .head .icons:not(:focus) {
-  color: white !important;
+  color: var(--color-primario) !important;
 }
 .head .item-menu {
   display: flex !important;
@@ -102,12 +102,12 @@
   padding-left: 12px !important;
 }
 .head a {
-  color: white !important;
+  color: var(--color-primario) !important;
 }
 .head a:hover {
-  color: var(--color-texto) !important;
+  color: var(--color-terciario) !important;
 }
 
 .head svg:hover {
-  color: var(--color-texto);
+  color: var(--color-terciario);
 }

@@ -8,13 +8,6 @@ function SeccionRecomendaciones({ imagenes }) {
   return (
     <div className="recomendaciones">
       <Title>RECOMENDACIONES</Title>
-      <Divider
-        style={{
-          backgroundColor: "var(--color-primario)",
-          width: "1250px",
-          height: "0.15rem",
-        }}
-      />
       <div className="imagenes">
         <Row gutter={16}>
           <Col span={12}>

@@ -1,13 +1,13 @@
 .pie {
-  background-image: url("/img/bg/fondo-gra.png");
   background-size: 100%;
-  background-color: white;
+  background-color: var(--color-secundario);
   background-repeat: no-repeat;
-  padding: 170px 60px 20px 60px;
-  color: white;
+  padding: 20px 60px 20px 60px;
+  color: var(--color-primario);
+  margin-top:50px
 }
 .pie .ant-typography {
-  color: white;
+  color: var(--color-primario);;
   margin-left: 20px;
   margin-bottom: 10px;
 }
@@ -16,9 +16,8 @@
 }
 .pie .otros .ant-col.ant-col-8 {
   border-left: solid;
-
 }
 
 .pie .sinborde {
-  border-left: none!important;
+  border-left: none !important;
 }

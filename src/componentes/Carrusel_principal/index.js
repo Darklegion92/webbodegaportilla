@@ -10,12 +10,8 @@ function Carrusel_principal() {
   return (
     <div className="carrousel">
       <Carousel
-        prevIcon={
-          <IoIosArrowDropleftCircle size={70} color="var(--color-primario)" />
-        }
-        nextIcon={
-          <IoIosArrowDroprightCircle size={70} color="var(--color-primario)" />
-        }
+        prevIcon={<IoIosArrowDropleftCircle size={70} color="white" />}
+        nextIcon={<IoIosArrowDroprightCircle size={70} color="white" />}
       >
         <Carousel.Item>
           <img

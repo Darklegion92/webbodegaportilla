@@ -3,21 +3,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
+  margin:0;
   margin: 40px 0;
-  padding: 0 12%;
+  padding: 0 0;
   min-height: 300px;
   text-align: center;
+  width: 100%;
 }
 .seccionproductos .agrupaciones {
   display: flex;
   flex-direction: row;
+ justify-content: space-around;
   margin-top: 30px;
+  width: 100%;
 }
 
 .seccionproductos h1.ant-typography {
   color: var(--color-primario) !important;
-  font-size: 100px;
+  font-size: 50px;
 }
 
 /*Styles seccion*/
@@ -25,11 +28,11 @@
 .seccionproductos .agrupacion h4.ant-typography {
   display: flex;
   align-items: center;
-  color: white !important;
-  background-color: var(--color-primario) !important;
+  color: var(--color-primario) !important;
+  background-color: white!important;
   border-radius: 15px;
   padding: 10px;
-  font-size: 14px;
+  font-size: 18px;
   min-height: 70px;
   justify-content: center;
 }
@@ -39,5 +42,5 @@
   flex-direction: column;
   width: 200px;
   height: 250px;
-  margin: 0 0 50px 50px;
+  margin: 0 0 50px 0;
 }
