@@ -58,3 +58,7 @@
   height: 300px;
   margin: 0 0 50px 0;
 }
+.seccionproductos .agrupacion img:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
