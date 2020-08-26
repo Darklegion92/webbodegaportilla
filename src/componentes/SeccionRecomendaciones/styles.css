@@ -38,5 +38,6 @@
 
 .recomendaciones .row img:hover{
   cursor: pointer;
+  transition-duration: 2s;
   transform: scale(1.1);
 }

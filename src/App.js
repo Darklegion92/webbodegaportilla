@@ -144,8 +144,8 @@ function App() {
           <SeccionRecomendaciones
             imagenes={[
               { imagen: "img/articulodefecto.jpeg" },
-              { imagen: "img/deshidratados.jpeg" },
-              { imagen: "img/frutossecos.jpeg" },
+              { imagen: "img/imgreco1.jpeg" },
+              { imagen: "img/imgreco2.jpeg" },
               { imagen: "img/logo.png" },
               { imagen: "img/panaderiaypostreria.jpeg" },
               { imagen: "img/semillas.jpeg" },

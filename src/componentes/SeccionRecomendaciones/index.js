@@ -9,23 +9,23 @@ function SeccionRecomendaciones({ imagenes }) {
     <div className="recomendaciones">
       <Title>RECOMENDACIONES</Title>
       <div className="row">
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="cuadrado"/>
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="rectangular"/>
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="cuadrado"/>
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="cuadrado"/>
+        <img src={imagenes[1].imagen} alt={imagenes[1].imagen} className="cuadrado"/>
+        <img src={imagenes[2].imagen} alt={imagenes[2].imagen} className="rectangular"/>
+        <img src={imagenes[1].imagen} alt={imagenes[1].imagen} className="cuadrado"/>
+        <img src={imagenes[1].imagen} alt={imagenes[1].imagen} className="cuadrado"/>
       </div>
       <div className="row">
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="rectangular"/>
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="cuadrado"/>
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="rectangular"/>
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="cuadrado"/>
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="rectangular"/>
+        <img src={imagenes[2].imagen} alt={imagenes[2].imagen} className="rectangular"/>
+        <img src={imagenes[1].imagen} alt={imagenes[1].imagen} className="cuadrado"/>
+        <img src={imagenes[2].imagen} alt={imagenes[2].imagen} className="rectangular"/>
+        <img src={imagenes[1].imagen} alt={imagenes[1].imagen} className="cuadrado"/>
+        <img src={imagenes[2].imagen} alt={imagenes[2].imagen} className="rectangular"/>
       </div>
       <div className="row">
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="cuadrado"/>
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="cuadrado"/>
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="rectangular"/>
-        <img src={imagenes[0].imagen} alt={imagenes[0].imagen} className="cuadrado"/>
+        <img src={imagenes[1].imagen} alt={imagenes[1].imagen} className="cuadrado"/>
+        <img src={imagenes[1].imagen} alt={imagenes[1].imagen} className="cuadrado"/>
+        <img src={imagenes[2].imagen} alt={imagenes[2].imagen} className="rectangular"/>
+        <img src={imagenes[1].imagen} alt={imagenes[1].imagen} className="cuadrado"/>
       </div>
     </div>
   );
