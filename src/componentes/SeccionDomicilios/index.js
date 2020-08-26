@@ -11,7 +11,7 @@ function SeccionDomicilios() {
      
       <Title level={2}>
         POR COMPRAS MAYORES A $ 50.000 EL DOMICILIO ES GRATIS
-      </Title> <FaTruck size={60} />
+      </Title> <FaTruck size={50} />
     </div>
   );
 }

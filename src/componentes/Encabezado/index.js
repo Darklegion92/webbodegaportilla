@@ -82,32 +82,32 @@ function Encabezado() {
             mode="horizontal"
           >
             <Menu.Item key="inicio">
-              <Title level={4} className="items" code={true}>
+              <Title level={3} className="items" code={true}>
                 <a href="#home">INICIO</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="quienes">
-              <Title level={4} className="items" code={true}>
+              <Title level={3} className="items" code={true}>
                 <a href="#quienessomos"> QUIENES SOMOS</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="productos">
-              <Title level={4} className="items" code={true}>
+              <Title level={3} className="items" code={true}>
                 <a href="#productos">PRODUCTOS</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="nuevo">
-              <Title level={4} className="items" code={true}>
+              <Title level={3} className="items" code={true}>
                 <a href="#nuevo">NUEVO</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="reco">
-              <Title level={4} className="items" code={true}>
+              <Title level={3} className="items" code={true}>
                 <a href="#recomendaciones"> RECOMENDACIONES</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="contacto">
-              <Title level={4} className="items" code={true}>
+              <Title level={3} className="items" code={true}>
                 CONTACTO
               </Title>
             </Menu.Item>

@@ -1,5 +1,4 @@
 .pie {
-  background-size: 100%;
   background-color: var(--color-secundario);
   background-repeat: no-repeat;
   padding: 20px 60px 20px 60px;
@@ -8,9 +7,17 @@
 }
 .pie .ant-typography {
   color: var(--color-primario);;
-  margin-left: 20px;
+  
   margin-bottom: 10px;
 }
 .pie span.ant-typography {
   font-size: 21px;
+}
+.pie .ant-row{
+  display: flex!important;
+  justify-content: space-around!important;
+}
+.pie .otros .ant-row{
+  display: flex!important;
+  justify-content:flex-start!important;
 }

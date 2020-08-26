@@ -3,24 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 3%;
   text-align: center;
-  margin-right: 3%;
-}
-
-.recomendaciones .imagenes {
-  max-width: 100%;
-  margin-top: 30px;
-}
-.recomendaciones .imagenes img {
-  object-fit: cover;
-  height: 150px;
-  width: 100%;
-  margin-top: 16px;
-}
-.recomendaciones .imagenes img:hover {
-  transform: scale(1.1) !important;
-  cursor: pointer;
+  width: 1080px;
+  margin: auto;
 }
 
 .recomendaciones .ant-typography {
@@ -30,5 +15,28 @@
   width: 100%;
   border-bottom: 1px solid var(--color-primario) !important;
   border-top: 1px solid var(--color-primario) !important;
-  padding:30px;
+  padding: 30px;
+}
+.recomendaciones .row {
+  display: flex;
+  flex-direction: row;
+}
+
+.recomendaciones .row .rectangular {
+  width: 150px;
+  height: 300px;
+  margin: 5px;
+  
+}
+
+.recomendaciones .row .cuadrado {
+  width: 300px;
+  height: 300px;
+  margin: 5px;
+  
+}
+
+.recomendaciones .row img:hover{
+  cursor: pointer;
+  transform: scale(1.1);
 }

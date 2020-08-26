@@ -18,18 +18,18 @@ function Pie() {
         }}
       />
       <Row gutter={0}>
-        <img src="img/p-01.png" height="38px" />
-        <img src="img/p-02.png" height="38px" />
-        <img src="img/p-03.png" height="38px" />
-        <img src="img/p-04.png" height="38px" />
-        <img src="img/p-05.png" height="38px" />
-        <img src="img/p-06.png" height="38px" />
-        <img src="img/p-07.png" height="38px" />
-        <img src="img/p-08.png" height="38px" />
-        <img src="img/p-09.png" height="38px" />
-        <img src="img/p-10.png" height="38px" />
-        <img src="img/p-11.png" height="38px" />
-        <img src="img/p-12.png" height="38px" />
+        <img src="img/p-01.png" height="30px" />
+        <img src="img/p-02.png" height="30px" />
+        <img src="img/p-03.png" height="30px" />
+        <img src="img/p-04.png" height="30px" />
+        <img src="img/p-05.png" height="30px" />
+        <img src="img/p-06.png" height="30px" />
+        <img src="img/p-07.png" height="30px" />
+        <img src="img/p-08.png" height="30px" />
+        <img src="img/p-09.png" height="30px" />
+        <img src="img/p-10.png" height="30px" />
+        <img src="img/p-11.png" height="30px" />
+        <img src="img/p-12.png" height="30px" />
       </Row>
       <Divider
         style={{
@@ -38,7 +38,7 @@ function Pie() {
         }}
       />
       <Row gutter={20} className="otros">
-        <Col span={8} className="sinborde">
+        <Col >
           <Row>
             <Title level={3}>SERVICIO AL CLIENTE</Title>
           </Row>
@@ -58,7 +58,7 @@ function Pie() {
           </Row>
         </Col>
 
-        <Col span={8}>
+        <Col >
           <Row>
             <Title level={3}>COLOMBIA</Title>
           </Row>
@@ -78,7 +78,7 @@ function Pie() {
           </Row>
         </Col>
 
-        <Col span={8}>
+        <Col >
           <Row>
             <Title level={1}>SIGUENOS</Title>
           </Row>

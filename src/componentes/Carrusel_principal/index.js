@@ -19,6 +19,7 @@ function Carrusel_principal() {
             color="var(--color-secundario)"
           />
         }
+        interval={7000}
       >
         <Carousel.Item>
           <img

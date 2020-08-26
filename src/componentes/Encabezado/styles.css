@@ -2,6 +2,7 @@
   background-color: white;
   font-size: 13px;
   font-weight: bold;
+  padding-top:20px ;
   padding-bottom: 30px;
 }
 .head .icons {
@@ -73,17 +74,8 @@
   color: var(--color-primario) !important;
 }
 
-.head h4.ant-typography {
+.head h3.ant-typography {
   height: 100% !important;
-}
-
-.head .icons:hover,
-.head .icons:active,
-.head .icons:focus,
-.head .icons::selection {
-  border-bottom: 2px solid var(--color-terciario) !important;
-  color: var(--color-terciario) !important;
-  transform: scale(1.1);
 }
 .head .icons:not(:focus) {
   color: var(--color-primario) !important;
@@ -96,6 +88,7 @@
 
 .head a {
   color: var(--color-primario) !important;
+  font-size: 17px !important;
 }
 .head a:hover {
   color: var(--color-terciario) !important;
@@ -103,9 +96,11 @@
 
 .head svg:hover {
   color: var(--color-primario);
+  border-bottom: 2px solid var(--color-terciario) !important;
+  transform: scale(1.1);
 }
 
 .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item {
   margin: 0!important;
-  padding-left: 40px!important;
+  padding-left: 20px!important;
 }
