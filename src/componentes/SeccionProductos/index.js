@@ -21,7 +21,7 @@ function SeccionEmpresa() {
         <div>
           <Agrupaciones
             titulo="FRUTOS DESHIDRATADOS"
-            urlImage="img/deshidratados.jpeg"
+            urlImage="img/deshidratados.png"
           />
           <Agrupaciones
             titulo="SUPER ALIMENTOS"
