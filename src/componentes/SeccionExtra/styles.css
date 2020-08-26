@@ -37,13 +37,18 @@
   justify-content: center;
   align-items: center;
   padding-top: 20px;
-  -webkit-box-shadow: 4px 4px 10px -3px rgba(0,0,0,0.35);
-  -moz-box-shadow: 4px 4px 10px -3px rgba(0,0,0,0.35);
-  box-shadow: 4px 4px 10px -3px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.35);
+  box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.35);
   text-align: center;
   font-weight: bold;
   border-radius: 15px;
   margin: 10px !important;
+}
+
+.seccion-extra .item:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
 .seccion-extra .ant-typography {
   color: var(--color-primario) !important;

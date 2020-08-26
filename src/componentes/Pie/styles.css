@@ -6,8 +6,7 @@
   margin-top:50px
 }
 .pie .ant-typography {
-  color: var(--color-primario);;
-  
+  color: var(--color-primario); 
   margin-bottom: 10px;
 }
 .pie span.ant-typography {
@@ -20,4 +19,5 @@
 .pie .otros .ant-row{
   display: flex!important;
   justify-content:flex-start!important;
+  width: 400px;
 }

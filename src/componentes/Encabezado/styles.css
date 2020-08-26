@@ -4,6 +4,9 @@
   font-weight: bold;
   padding-top:20px ;
   padding-bottom: 30px;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
 }
 .head .icons {
   margin-right: 100px !important;

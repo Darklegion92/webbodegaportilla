@@ -17,7 +17,7 @@ function Pie() {
           height: "1px",
         }}
       />
-      <Row gutter={0}>
+      <Row >
         <img src="img/p-01.png" height="30px" />
         <img src="img/p-02.png" height="30px" />
         <img src="img/p-03.png" height="30px" />
@@ -37,7 +37,7 @@ function Pie() {
           height: "1px",
         }}
       />
-      <Row gutter={20} className="otros">
+      <Row className="otros">
         <Col >
           <Row>
             <Title level={3}>SERVICIO AL CLIENTE</Title>
