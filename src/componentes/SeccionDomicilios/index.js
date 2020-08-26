@@ -9,9 +9,9 @@ function SeccionDomicilios() {
   return (
     <div className="secciondomicilios">
      
-      <Title level={1}>
+      <Title level={2}>
         POR COMPRAS MAYORES A $ 50.000 EL DOMICILIO ES GRATIS
-      </Title> <FaTruck size={70} />
+      </Title> <FaTruck size={60} />
     </div>
   );
 }

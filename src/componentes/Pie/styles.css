@@ -14,10 +14,3 @@
 .pie span.ant-typography {
   font-size: 21px;
 }
-.pie .otros .ant-col.ant-col-8 {
-  border-left: solid;
-}
-
-.pie .sinborde {
-  border-left: none !important;
-}

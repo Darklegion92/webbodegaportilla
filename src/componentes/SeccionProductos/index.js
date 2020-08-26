@@ -33,10 +33,14 @@ function SeccionEmpresa() {
           <Agrupaciones titulo="UTENSILIOS" urlImage="img/utencilios.jpeg" />
         </div>
         <div>
-          <Agrupaciones titulo="SEMILLAS" urlImage="img/semillas.jpeg" />
-          <Agrupaciones titulo="UTENSILIOS" urlImage="img/utencilios.jpeg" />
+          <Agrupaciones titulo="ACEITES" urlImage="img/salsas.png" />
+          <Agrupaciones
+            titulo="TOPPINGS Y SPRINGLESS"
+            urlImage="img/salsas.png"
+          />
         </div>
       </div>
+      <Title level={2}>VER MAS</Title>
     </div>
   );
 }

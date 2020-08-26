@@ -14,24 +14,27 @@ function Pie() {
       <Divider
         style={{
           backgroundColor: "var(--color-primario)",
-          height: "0.1rem",
+          height: "1px",
         }}
       />
-      <Row gutter={16}>
-        <Col span={8}>
-          <img src="img/mediospago1.png" width="100%" />
-        </Col>
-        <Col span={8}>
-          <img src="img/mediospago2.png" width="100%" />
-        </Col>
-        <Col span={8}>
-          <img src="img/mediospago3.png" width="100%" />
-        </Col>
+      <Row gutter={0}>
+        <img src="img/p-01.png" height="38px" />
+        <img src="img/p-02.png" height="38px" />
+        <img src="img/p-03.png" height="38px" />
+        <img src="img/p-04.png" height="38px" />
+        <img src="img/p-05.png" height="38px" />
+        <img src="img/p-06.png" height="38px" />
+        <img src="img/p-07.png" height="38px" />
+        <img src="img/p-08.png" height="38px" />
+        <img src="img/p-09.png" height="38px" />
+        <img src="img/p-10.png" height="38px" />
+        <img src="img/p-11.png" height="38px" />
+        <img src="img/p-12.png" height="38px" />
       </Row>
       <Divider
         style={{
           backgroundColor: "var(--color-primario)",
-          height: "2px",
+          height: "1px",
         }}
       />
       <Row gutter={20} className="otros">

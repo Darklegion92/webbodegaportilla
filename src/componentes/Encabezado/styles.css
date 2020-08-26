@@ -1,14 +1,11 @@
-.icon-head {
-  font-size: 40px;
-}
 .head {
-  padding: 50px 0 0 0;
   background-color: white;
   font-size: 13px;
   font-weight: bold;
+  padding-bottom: 30px;
 }
 .head .icons {
-  font-size: 35px !important;
+  margin-right: 100px !important;
 }
 .head .logo {
   height: 50px;
@@ -18,8 +15,8 @@
 }
 .head .logo img {
   position: absolute;
-  top: -30px;
-  left: 30px;
+  top: -10px;
+  left: 60px;
   z-index: 99;
 }
 
@@ -97,10 +94,6 @@
   justify-content: center;
 }
 
-.head .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item,
-.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
-  padding-left: 12px !important;
-}
 .head a {
   color: var(--color-primario) !important;
 }
@@ -109,5 +102,10 @@
 }
 
 .head svg:hover {
-  color: var(--color-terciario);
+  color: var(--color-primario);
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item {
+  margin: 0!important;
+  padding-left: 40px!important;
 }

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import { Typography } from "antd";
-import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import "./styles.css";
 
 const { Text } = Typography;
@@ -48,7 +48,7 @@ function SeccionExtra({ items, articulos, texto }) {
         {texto.texto}
       </div>
       <div className="carrousel">
-        <LeftCircleOutlined onClick={next} />
+        <LeftOutlined  onClick={next} className="icons-left"/>
         <div className="multi-carrousel">
           <Slider ref={(c) => (slider = c)} {...settings}>
             {articulos.map((articulo, i) => {
@@ -76,7 +76,7 @@ function SeccionExtra({ items, articulos, texto }) {
           </Slider>
         </div>
 
-        <RightCircleOutlined color="black" onClick={previous} />
+        <RightOutlined color="black" onClick={previous} className="icons-right"/>
       </div>
     </div>
   );

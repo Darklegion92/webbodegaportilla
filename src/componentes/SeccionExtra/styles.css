@@ -9,10 +9,20 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-left: 20px;
-  padding-right: 25px;
+
   padding-bottom: 80px;
 }
+
+.seccion-extra .carrousel .icons-left {
+  font-size: 30px !important;
+  margin-right: 30px;
+}
+
+.seccion-extra .carrousel .icons-right {
+  font-size: 30px !important;
+  margin-left: 30px;
+}
+
 .seccion-extra .multi-carrousel {
   display: block;
   width: 1150px;
@@ -34,5 +44,4 @@
 }
 .seccion-extra .ant-typography {
   color: var(--color-primario) !important;
- 
 }
