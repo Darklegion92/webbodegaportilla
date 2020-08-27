@@ -61,6 +61,6 @@
 }
 .seccionproductos .agrupacion img:hover {
   cursor: pointer;
-  transition-duration: 2s;
-  transform: scale(1.1);
+  transition-duration: 1s;
+  transform: scale(1.05);
 }

@@ -49,7 +49,7 @@
 .seccion-extra .item:hover {
   cursor: pointer;
   transition-duration: 1s;
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 .seccion-extra .ant-typography {
   color: var(--color-primario) !important;
