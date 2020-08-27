@@ -9,13 +9,14 @@ import SeccionProductos from "./componentes/SeccionProductos";
 import SeccionExtra from "./componentes/SeccionExtra";
 import SeccionRecomendaciones from "./componentes/SeccionRecomendaciones";
 import Pie from "./componentes/Pie";
+import { ImWhatsapp } from "react-icons/im";
 import "bootstrap/dist/css/bootstrap.min.css";
 const { Header, Footer, Content } = Layout;
 
 function App() {
   return (
     <Layout>
-      <div
+      <ImWhatsapp color="white" size={70} className="whats-icon" />      <div
         id="quienessomos"
         style={{
           minHeight: "40px",
