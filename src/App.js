@@ -15,21 +15,62 @@ const { Header, Footer, Content } = Layout;
 function App() {
   return (
     <Layout>
-      <Header>
+      <Header id="home">
         <Encabezado />
       </Header>
       <Content>
-        <div id="home">
+        <div>
           <Carrusel_principal />
         </div>
+        <div
+          id="quienessomos"
+          style={{
+            minHeight: "40px",
+            width: "100%",
+            position: "absolute",
+          }}
+        />
         <SeccionDomicilios />
-        <div id="quienessomos">
+        <div>
+          <div
+            id="productos"
+            style={{
+              minHeight: "118px",
+              width: "100%",
+              marginBottom: "118px",
+              position: "absolute",
+              top:"930px",
+              zIndex: 98,
+            }}
+          />
+          <div
+          id="nuevo"
+          style={{
+            minHeight: "118px",
+            width: "100%",
+            marginBottom: "118px",
+            position: "absolute",
+            top:"2000px",
+            zIndex: 98,
+          }}
+        />
+        <div
+        id="recomendaciones"
+        style={{
+          minHeight: "118px",
+          width: "100%",
+          marginBottom: "118px",
+          position: "absolute",
+          top:"3100px",
+          zIndex: 98,
+        }}
+      />
           <SeccionEmpresa />
         </div>
-        <div id="productos">
+        <div>
           <SeccionProductos />
         </div>
-        <div id="nuevo">
+        <div >
           <SeccionExtra
             items={4}
             texto={{
@@ -89,7 +130,6 @@ function App() {
             ]}
           />
         </div>
-        <div id="regalos"></div>
         <SeccionExtra
           items={3}
           texto={{
@@ -140,7 +180,7 @@ function App() {
             },
           ]}
         />
-        <div id="recomendaciones">
+        <div>
           <SeccionRecomendaciones
             imagenes={[
               { imagen: "img/articulodefecto.jpeg" },
