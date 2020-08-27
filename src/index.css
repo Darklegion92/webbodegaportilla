@@ -19,6 +19,7 @@
 }
 .ant-layout-content {
   background-color: white !important;
+  z-index: 98;
 }
 .ant-layout-footer {
   padding: 0 !important;

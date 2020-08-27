@@ -15,6 +15,47 @@ const { Header, Footer, Content } = Layout;
 function App() {
   return (
     <Layout>
+      <div
+        id="quienessomos"
+        style={{
+          minHeight: "40px",
+          width: "100%",
+          position: "absolute",
+          top: "530px",
+        }}
+      />
+      <div
+        id="productos"
+        style={{
+          minHeight: "118px",
+          width: "100%",
+          marginBottom: "118px",
+          position: "absolute",
+          top: "930px",
+        }}
+      />
+      <div
+        id="nuevo"
+        style={{
+          minHeight: "118px",
+          backgroundColor: "black",
+          width: "100%",
+          marginBottom: "118px",
+          position: "absolute",
+          top: "2000px",
+          zIndex: 1,
+        }}
+      />
+      <div
+        id="recomendaciones"
+        style={{
+          minHeight: "118px",
+          width: "100%",
+          marginBottom: "118px",
+          position: "absolute",
+          top: "3100px",
+        }}
+      />
       <Header id="home">
         <Encabezado />
       </Header>
@@ -22,55 +63,14 @@ function App() {
         <div>
           <Carrusel_principal />
         </div>
-        <div
-          id="quienessomos"
-          style={{
-            minHeight: "40px",
-            width: "100%",
-            position: "absolute",
-          }}
-        />
         <SeccionDomicilios />
         <div>
-          <div
-            id="productos"
-            style={{
-              minHeight: "118px",
-              width: "100%",
-              marginBottom: "118px",
-              position: "absolute",
-              top:"930px",
-              zIndex: 98,
-            }}
-          />
-          <div
-          id="nuevo"
-          style={{
-            minHeight: "118px",
-            width: "100%",
-            marginBottom: "118px",
-            position: "absolute",
-            top:"2000px",
-            zIndex: 98,
-          }}
-        />
-        <div
-        id="recomendaciones"
-        style={{
-          minHeight: "118px",
-          width: "100%",
-          marginBottom: "118px",
-          position: "absolute",
-          top:"3100px",
-          zIndex: 98,
-        }}
-      />
           <SeccionEmpresa />
         </div>
         <div>
           <SeccionProductos />
         </div>
-        <div >
+        <div>
           <SeccionExtra
             items={4}
             texto={{
