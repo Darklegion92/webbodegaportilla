@@ -43,7 +43,7 @@
 .seccionproductos .agrupacion h4.ant-typography {
   display: flex;
   align-items: center;
-  color: var(--color-primario) !important;
+  color: var(--color-cuaternario) !important;
   background-color: white !important;
   border-radius: 15px;
   padding: 10px;
