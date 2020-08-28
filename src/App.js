@@ -1,7 +1,6 @@
 import React from "react";
 import { Layout } from "antd";
 import Encabezado from "./componentes/Encabezado";
-import "antd/dist/antd.css";
 import Carrusel_principal from "./componentes/Carrusel_principal";
 import SeccionDomicilios from "./componentes/SeccionDomicilios";
 import SeccionEmpresa from "./componentes/SeccionEmpresa";
@@ -10,13 +9,15 @@ import SeccionExtra from "./componentes/SeccionExtra";
 import SeccionRecomendaciones from "./componentes/SeccionRecomendaciones";
 import Pie from "./componentes/Pie";
 import { ImWhatsapp } from "react-icons/im";
+import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 const { Header, Footer, Content } = Layout;
 
-function App() {
+function App(props) {
   return (
     <Layout>
-      <ImWhatsapp color="white" size={70} className="whats-icon" />      <div
+      <ImWhatsapp color="white" size={70} className="whats-icon" />{" "}
+      <div
         id="quienessomos"
         style={{
           minHeight: "40px",
@@ -58,7 +59,7 @@ function App() {
         }}
       />
       <Header id="home">
-        <Encabezado />
+        <Encabezado/>
       </Header>
       <Content>
         <div>

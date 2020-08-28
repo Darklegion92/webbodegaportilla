@@ -14,10 +14,21 @@
 
 .seccionempresa .ant-typography {
   color: var(--color-primario) !important;
-
 }
 
 .seccionempresa h1.ant-typography {
   font-size: 45px!important;
   max-width: 40%;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .seccionempresa{
+    padding: 10px 50px;
+    font-size: 9px;
+  }
+  .seccionempresa h1.ant-typography {
+    font-size: 18px!important;
+    max-width: 80%;
+  }
 }

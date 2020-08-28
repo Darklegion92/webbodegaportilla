@@ -2,7 +2,7 @@
   background-color: white;
   font-size: 13px;
   font-weight: bold;
-  padding-top:20px ;
+  padding-top: 20px;
   padding-bottom: 30px;
   width: 100%;
   position: fixed;
@@ -104,6 +104,54 @@
 }
 
 .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item {
-  margin: 0!important;
-  padding-left: 20px!important;
+  margin: 0 !important;
+  padding-left: 20px !important;
+}
+
+/*movile*/
+.head-movil {
+  padding: 20px 0;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  background-color: white;
+}
+
+.ant-divider-horizontal {
+  margin: 10px 0 2px 0 !important;
+  background-color: var(--color-primario);
+}
+.head-movil .ant-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-menu-vertical .ant-typography {
+  color: var(--color-primario) !important;
+  font-weight: bold;
+}
+
+.ant-menu-vertical> .botones{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.head-movil svg {
+  color: var(--color-primario) !important;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.head-movil svg:hover {
+  cursor: pointer;
+}
+
+.ant-menu-vertical {
+  border-right: none !important;
+}
+.ant-menu-vertical > .ant-menu-item {
+  border-bottom: solid 1px black;
 }

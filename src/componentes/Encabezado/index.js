@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Row, Col, Menu, Typography } from "antd";
-import Icon from "@ant-design/icons";
+import { Row, Col, Menu, Typography, Drawer, Button } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
 import { ImTruck, ImExit } from "react-icons/im";
+import { withGetScreen } from "react-getscreen";
 import "./styles.css";
 
 const { SubMenu } = Menu;
@@ -42,33 +43,104 @@ const Car = () => (
     ></path>
   </svg>
 );
-function Encabezado() {
-  const [ancho, setAncho] = useState();
+function Encabezado(props) {
   const [current, setCurrent] = useState();
-
-  const mounted = useRef();
-
-  useEffect(() => {});
-
-  useEffect(() => {
-    if (!mounted.current) {
-      resize();
-      mounted.current = true;
-    } else {
-      // do componentDidUpdate logic
-    }
-  });
-
-  const resize = () => {
-    setAncho(window.innerWidth);
-    console.log(window.innerWidth);
-  };
-
+  const [visible, setVisible] = useState(false);
   const handleClick = (e) => {
     console.log("click ", e);
     setCurrent(e.key);
   };
 
+  if (props.isMobile() || props.isTablet()) {
+    return (
+      <Row className="head-movil">
+        <Col span={6}>
+          <MenuOutlined
+            onClick={() => {
+              setVisible(!visible);
+            }}
+          />
+          <Drawer
+            style={{ marginTop: "92px" }}
+            placement="left"
+            closable={false}
+            onClose={() => {
+              setVisible(!visible);
+            }}
+            visible={visible}
+            key="left"
+          >
+            <Menu>
+              <Menu.Item>
+                <ImTruck
+                  size={20}
+                  color="var(--color-primario)"
+                  style={{ marginRight: "10px" }}
+                />
+                <Text>PEDIDOS</Text>
+              </Menu.Item>
+              <Menu.Item>
+                <Text>INICIO</Text>
+              </Menu.Item>
+              <Menu.Item>
+                <Text>QUIENES SOMOS</Text>
+              </Menu.Item>
+              <Menu.Item>
+                <Text>PRODUCTOS</Text>
+              </Menu.Item>
+              <Menu.Item>
+                <Text>NUEVO</Text>
+              </Menu.Item>
+              <Menu.Item>
+                <Text>RECOMENDACIONES</Text>
+              </Menu.Item>
+              <Menu.Item>
+                <Text>CONTACTO</Text>
+              </Menu.Item>
+              <div className="botones">
+                <Button
+                  style={{
+                    color: "white",
+                    backgroundColor: "var(--color-primario)",
+                    fontSize: "20px",
+                    borderRadius: "10px",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    padding: "0",
+                    width: "100%",
+                    margin: "20px 0 10px 0",
+                  }}
+                >
+                  INICIAR SESION
+                </Button>
+                <Button
+                  style={{
+                    color: "var(--color-primario)",
+                    backgroundColor: "white",
+                    border: "2px solid var(--color-terciario)",
+                    fontSize: "15px",
+                    borderRadius: "10px",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    padding: "0",
+                    width: "75%",
+                  }}
+                >
+                  REGISTRARSE
+                </Button>
+              </div>
+            </Menu>
+          </Drawer>
+        </Col>
+        <Col span={12}>
+          <img src="img/logo.png" alt="LOGO" width="100px" />
+        </Col>
+        <Col span={6}>
+          <Car className="icons" />
+        </Col>
+      </Row>
+    );
+  }
   return (
     <div className="head">
       <Row align="middle" justify="center">
@@ -144,4 +216,4 @@ function Encabezado() {
     </div>
   );
 }
-export default Encabezado;
+export default withGetScreen(Encabezado);
