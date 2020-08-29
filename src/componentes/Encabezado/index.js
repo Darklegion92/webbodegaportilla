@@ -51,6 +51,9 @@ function Encabezado() {
     setCurrent(e.key);
   };
 
+  const onClick = (e) => {
+    setVisible(false);
+  };
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
 
@@ -73,7 +76,7 @@ function Encabezado() {
             visible={visible}
             key="left"
           >
-            <Menu>
+            <Menu onClick={onClick}>
               <Menu.Item>
                 <ImTruck
                   size={20}
@@ -83,19 +86,31 @@ function Encabezado() {
                 <Text>PEDIDOS</Text>
               </Menu.Item>
               <Menu.Item>
-                <Text>INICIO</Text>
+                <a href="#home">
+                  <Text>INICIO</Text>
+                </a>
               </Menu.Item>
               <Menu.Item>
-                <Text>QUIENES SOMOS</Text>
+                <a href="#quienessomos">
+                  <Text>QUIENES SOMOS</Text>
+                </a>
               </Menu.Item>
               <Menu.Item>
-                <Text>PRODUCTOS</Text>
+                <a href="#productos">
+                  {" "}
+                  <Text>PRODUCTOS</Text>
+                </a>
               </Menu.Item>
               <Menu.Item>
-                <Text>NUEVO</Text>
+                <a href="#nuevo">
+                  {" "}
+                  <Text>NUEVO</Text>
+                </a>
               </Menu.Item>
               <Menu.Item>
-                <Text>RECOMENDACIONES</Text>
+                <a href="#recomendaciones">
+                  <Text>RECOMENDACIONES</Text>
+                </a>
               </Menu.Item>
               <Menu.Item>
                 <Text>CONTACTO</Text>

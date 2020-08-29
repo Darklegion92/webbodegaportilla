@@ -20,14 +20,14 @@ function App() {
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   return (
     <Layout>
-      {/* <ImWhatsapp color="white" size={70} className="whats-icon" />{" "}
+      <ImWhatsapp color="white" size={70} className="whats-icon" />{" "}
       <div
         id="quienessomos"
         style={{
           minHeight: "40px",
           width: "100%",
           position: "absolute",
-          top: "530px",
+          top: isTabletOrMobile || isTabletOrMobileDevice ? "300px" : "550px",
         }}
       />
       <div
@@ -37,7 +37,7 @@ function App() {
           width: "100%",
           marginBottom: "118px",
           position: "absolute",
-          top: "930px",
+          top: isTabletOrMobile || isTabletOrMobileDevice ? "620px":"960px",
         }}
       />
       <div
@@ -48,7 +48,7 @@ function App() {
           width: "100%",
           marginBottom: "118px",
           position: "absolute",
-          top: "2000px",
+          top: isTabletOrMobile || isTabletOrMobileDevice ? "1600px" :"2030px",
           zIndex: 1,
         }}
       />
@@ -59,9 +59,9 @@ function App() {
           width: "100%",
           marginBottom: "118px",
           position: "absolute",
-          top: "3100px",
+          top: isTabletOrMobile || isTabletOrMobileDevice ? "2150px" : "3130px",
         }}
-      />*/}
+      />
       <Header id="home">
         <Encabezado />
       </Header>
