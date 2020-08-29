@@ -20,7 +20,7 @@ function App() {
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   return (
     <Layout>
-      <ImWhatsapp color="white" size={70} className="whats-icon" />{" "}
+      <ImWhatsapp color="white" size={70} className="whats-icon" />
       <div
         id="quienessomos"
         style={{
@@ -37,7 +37,7 @@ function App() {
           width: "100%",
           marginBottom: "118px",
           position: "absolute",
-          top: isTabletOrMobile || isTabletOrMobileDevice ? "620px":"960px",
+          top: isTabletOrMobile || isTabletOrMobileDevice ? "620px" : "960px",
         }}
       />
       <div
@@ -48,7 +48,7 @@ function App() {
           width: "100%",
           marginBottom: "118px",
           position: "absolute",
-          top: isTabletOrMobile || isTabletOrMobileDevice ? "1600px" :"2030px",
+          top: isTabletOrMobile || isTabletOrMobileDevice ? "1600px" : "2030px",
           zIndex: 1,
         }}
       />
@@ -86,52 +86,70 @@ function App() {
             }}
             articulos={[
               {
-                imagen: "img/articulodefecto.jpeg",
+                imagen: "img/nuevos/nuevo (1).png",
                 codigo: "0",
                 enlace: "##",
-                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+                nombre: "PERLAS ARCOIRIS",
               },
               {
-                imagen: "img/articulodefecto.jpeg",
+                imagen: "img/nuevos/nuevo (2).png",
                 codigo: "0",
                 enlace: "##",
-                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+                nombre: "PERLAS MORADA",
               },
               {
-                imagen: "img/articulodefecto.jpeg",
+                imagen: "img/nuevos/nuevo (3).png",
                 codigo: "0",
                 enlace: "##",
-                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+                nombre: "PERLAS X",
               },
               {
-                imagen: "img/articulodefecto.jpeg",
+                imagen: "img/nuevos/nuevo (5).png",
                 codigo: "0",
                 enlace: "##",
-                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+                nombre: "CHIPS CHOCOLATE",
               },
               {
-                imagen: "img/articulodefecto.jpeg",
+                imagen: "img/nuevos/nuevo (6).png",
                 codigo: "0",
                 enlace: "##",
-                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+                nombre: "CHISPAS",
               },
               {
-                imagen: "img/articulodefecto.jpeg",
+                imagen: "img/nuevos/nuevo (7).png",
                 codigo: "0",
                 enlace: "##",
-                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+                nombre: "COLORES",
               },
               {
-                imagen: "img/articulodefecto.jpeg",
+                imagen: "img/nuevos/nuevo (8).png",
                 codigo: "0",
                 enlace: "##",
-                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+                nombre: "CORAZONES",
               },
               {
-                imagen: "img/articulodefecto.jpeg",
+                imagen: "img/nuevos/nuevo (9).png",
                 codigo: "0",
                 enlace: "##",
-                nombre: "ARTICULO UNO DE LOS UNOS UNOS",
+                nombre: "ESCARCHA",
+              },
+              {
+                imagen: "img/nuevos/nuevo (10).png",
+                codigo: "0",
+                enlace: "##",
+                nombre: "ESTRELLAS",
+              },
+              {
+                imagen: "img/nuevos/nuevo (11).png",
+                codigo: "0",
+                enlace: "##",
+                nombre: "GUSANITOS",
+              },
+              {
+                imagen: "img/nuevos/nuevo (12).png",
+                codigo: "0",
+                enlace: "##",
+                nombre: "COLORES",
               },
             ]}
           />

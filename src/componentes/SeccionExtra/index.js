@@ -54,10 +54,11 @@ function SeccionExtra({ items, articulos, texto }) {
         {texto.texto}
       </div>
       <div className="carrousel">
-        {!isTabletOrMobile ||
-          (!isTabletOrMobileDevice && (
-            <LeftOutlined onClick={next} className="icons-left" />
-          ))}
+        {isTabletOrMobile || isTabletOrMobileDevice ? (
+          <></>
+        ) : (
+          <LeftOutlined onClick={next} className="icons-left" />
+        )}
         <div className="multi-carrousel">
           <Slider ref={(c) => (slider = c)} {...settings}>
             {articulos.map((articulo, i) => {
@@ -84,14 +85,15 @@ function SeccionExtra({ items, articulos, texto }) {
             })}
           </Slider>
         </div>
-        {!isTabletOrMobile ||
-          (!isTabletOrMobileDevice && (
-            <RightOutlined
-              color="black"
-              onClick={previous}
-              className="icons-right"
-            />
-          ))}
+        {isTabletOrMobile || isTabletOrMobileDevice ? (
+          <></>
+        ) : (
+          <RightOutlined
+            color="black"
+            onClick={previous}
+            className="icons-right"
+          />
+        )}
       </div>
     </div>
   );

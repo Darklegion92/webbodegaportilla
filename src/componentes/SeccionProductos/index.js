@@ -36,7 +36,7 @@ function SeccionEmpresa() {
           <Agrupaciones titulo="ACEITES" urlImage="img/salsas.png" />
           <Agrupaciones
             titulo="TOPPINGS Y SPRINGLESS"
-            urlImage="img/salsas.png"
+            urlImage="img/topping.png"
           />
         </div>
       </div>
