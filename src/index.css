@@ -7,7 +7,7 @@
 
 * {
   font-family: "Lato" !important;
-  scroll-behavior: smooth;
+
 }
 
 .whats-icon {
@@ -40,4 +40,9 @@
 .ant-layout-footer {
   padding: 0 !important;
   background-color: white !important;
+}
+@media only screen and (max-width: 600px) {
+  .ant-layout-header {
+    height: 100px !important;
+  }
 }

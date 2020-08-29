@@ -2,10 +2,14 @@ import React, { useRef } from "react";
 import Slider from "react-slick";
 import { Typography } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { useMediaQuery } from "react-responsive";
 import "./styles.css";
 
 const { Text } = Typography;
 function SeccionExtra({ items, articulos, texto }) {
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+
   const settings = {
     dots: true,
     infinite: true,
@@ -34,21 +38,22 @@ function SeccionExtra({ items, articulos, texto }) {
           display: "flex",
           "justify-content": "center",
           alignItems: "center",
-          "font-size": "50px",
+          "font-size":
+            isTabletOrMobile || isTabletOrMobileDevice ? "18px" : "50px",
           marginLeft: "3%",
           marginRight: "3%",
           fontWeight: "bold",
-          marginBottom: "50px",
+          marginBottom: isTabletOrMobile || isTabletOrMobileDevice ? "20px":"50px",
           borderBottom: "1px solid var(--color-primario) ",
           borderTop: "1px solid var(--color-primario)",
-          paddingTop:"20px",
-          paddingBottom:"20px"
+          padding:
+            isTabletOrMobile || isTabletOrMobileDevice ? "5px 0" : "20px 0",
         }}
       >
         {texto.texto}
       </div>
       <div className="carrousel">
-        <LeftOutlined  onClick={next} className="icons-left"/>
+        <LeftOutlined onClick={next} className="icons-left" />
         <div className="multi-carrousel">
           <Slider ref={(c) => (slider = c)} {...settings}>
             {articulos.map((articulo, i) => {
@@ -76,7 +81,11 @@ function SeccionExtra({ items, articulos, texto }) {
           </Slider>
         </div>
 
-        <RightOutlined color="black" onClick={previous} className="icons-right"/>
+        <RightOutlined
+          color="black"
+          onClick={previous}
+          className="icons-right"
+        />
       </div>
     </div>
   );

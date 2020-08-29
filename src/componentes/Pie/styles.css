@@ -1,23 +1,62 @@
 .pie {
   background-color: var(--color-secundario);
-  background-repeat: no-repeat;
   padding: 20px 60px 20px 60px;
   color: var(--color-primario);
-  margin-top:50px
+  margin-top: 50px;
 }
 .pie .ant-typography {
-  color: var(--color-primario); 
+  color: var(--color-primario);
   margin-bottom: 10px;
 }
 .pie span.ant-typography {
   font-size: 21px;
 }
-.pie .ant-row{
-  display: flex!important;
-  justify-content: space-around!important;
+.pie .ant-row {
+  display: flex !important;
+  justify-content: space-around !important;
 }
-.pie .otros .ant-row{
-  display: flex!important;
-  justify-content:flex-start!important;
+.pie .otros .ant-row {
+  display: flex !important;
+  justify-content: flex-start !important;
   width: 400px;
+}
+
+@media only screen and (max-width: 600px) {
+  .pie {
+    padding: 10px;
+    margin-top: 30px;
+  }
+  .pie span.ant-typography {
+    font-size: 17px;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center;
+    text-align: center;
+  }
+  .pie .ant-row {
+    align-items: center;
+    padding: 0;
+    width: 100%;
+  }
+  .pie .otros .ant-row {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .pie .otros .ant-col {
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-primario);
+    width: 100%;
+  }
+  .pie .ant-typography {
+    margin-bottom: 0;
+  }
+  .pie h3.ant-typography {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+  .pie h1.ant-typography {
+    font-size: 32px;
+  }
 }

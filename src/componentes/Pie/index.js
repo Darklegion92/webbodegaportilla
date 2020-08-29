@@ -6,9 +6,13 @@ import {
   FacebookOutlined,
   InstagramOutlined,
 } from "@ant-design/icons";
+import { useMediaQuery } from "react-responsive";
 
 const { Title, Text } = Typography;
 function Pie() {
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+
   return (
     <div className="pie">
       <Divider
@@ -17,28 +21,64 @@ function Pie() {
           height: "1px",
         }}
       />
-      <Row >
-        <img src="img/p-01.png" height="30px" />
-        <img src="img/p-02.png" height="30px" />
-        <img src="img/p-03.png" height="30px" />
-        <img src="img/p-04.png" height="30px" />
-        <img src="img/p-05.png" height="30px" />
-        <img src="img/p-06.png" height="30px" />
-        <img src="img/p-07.png" height="30px" />
-        <img src="img/p-08.png" height="30px" />
-        <img src="img/p-09.png" height="30px" />
-        <img src="img/p-10.png" height="30px" />
-        <img src="img/p-11.png" height="30px" />
-        <img src="img/p-12.png" height="30px" />
+      <Row>
+        <img
+          src="img/p-01.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
+        <img
+          src="img/p-02.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
+        <img
+          src="img/p-03.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
+        <img
+          src="img/p-04.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
+        <img
+          src="img/p-05.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
+        <img
+          src="img/p-06.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
+        <img
+          src="img/p-07.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
+        <img
+          src="img/p-08.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
+        <img
+          src="img/p-09.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
+        <img
+          src="img/p-10.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
+        <img
+          src="img/p-11.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
+        <img
+          src="img/p-12.png"
+          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+        />
       </Row>
       <Divider
         style={{
           backgroundColor: "var(--color-primario)",
-          height: "1px",
+          height: "1.5px",
         }}
       />
       <Row className="otros">
-        <Col >
+        <Col>
           <Row>
             <Title level={3}>SERVICIO AL CLIENTE</Title>
           </Row>
@@ -49,16 +89,30 @@ function Pie() {
             <Text>servicioalcliente@bodegaportilla.com</Text>
           </Row>
           <Row>
-            <Text>
+            <Text
+              style={
+                isTabletOrMobile || isTabletOrMobileDevice
+                  ? {}
+                  : { fontSize: "25px" }
+              }
+            >
               <WhatsAppOutlined
-                style={{ fontSize: "40px", marginRight: "10px" }}
+                style={
+                  isTabletOrMobile || isTabletOrMobileDevice
+                    ? {
+                        fontSize: "20px",
+                        marginRight: "10px",
+                        marginBottom: "10px",
+                      }
+                    : { fontSize: "40px", marginRight: "10px" }
+                }
               />
               314 3529702
             </Text>
           </Row>
         </Col>
 
-        <Col >
+        <Col>
           <Row>
             <Title level={3}>COLOMBIA</Title>
           </Row>
@@ -78,14 +132,20 @@ function Pie() {
           </Row>
         </Col>
 
-        <Col >
+        <Col>
           <Row>
             <Title level={1}>SIGUENOS</Title>
           </Row>
           <Row>
             <Text>
               <FacebookOutlined
-                style={{ fontSize: "40px", marginRight: "10px" }}
+                style={
+                  isTabletOrMobile || isTabletOrMobileDevice
+                    ? {
+                        fontSize: "20px",marginRight: "10px"
+                      }
+                    : { fontSize: "40px", marginRight: "10px" }
+                }
               />
               BODEGA PORTILLA
             </Text>
@@ -93,7 +153,13 @@ function Pie() {
           <Row>
             <Text>
               <InstagramOutlined
-                style={{ fontSize: "40px", marginRight: "10px" }}
+                style={
+                  isTabletOrMobile || isTabletOrMobileDevice
+                    ? {
+                        fontSize: "20px",marginRight: "10px"
+                      }
+                    : { fontSize: "40px", marginRight: "10px" }
+                }
               />
               @BODEGAPORTILLA
             </Text>

@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import { Row, Col, Menu, Typography, Drawer, Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import { ImTruck, ImExit } from "react-icons/im";
-import { withGetScreen } from "react-getscreen";
+import { useMediaQuery } from "react-responsive";
 import "./styles.css";
 
 const { SubMenu } = Menu;
@@ -43,7 +43,7 @@ const Car = () => (
     ></path>
   </svg>
 );
-function Encabezado(props) {
+function Encabezado() {
   const [current, setCurrent] = useState();
   const [visible, setVisible] = useState(false);
   const handleClick = (e) => {
@@ -51,7 +51,10 @@ function Encabezado(props) {
     setCurrent(e.key);
   };
 
-  if (props.isMobile() || props.isTablet()) {
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+
+  if (isTabletOrMobile || isTabletOrMobileDevice) {
     return (
       <Row className="head-movil">
         <Col span={6}>
@@ -216,4 +219,4 @@ function Encabezado(props) {
     </div>
   );
 }
-export default withGetScreen(Encabezado);
+export default Encabezado;
