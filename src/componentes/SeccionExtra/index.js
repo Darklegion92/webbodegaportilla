@@ -39,11 +39,12 @@ function SeccionExtra({ items, articulos, texto }) {
           "justify-content": "center",
           alignItems: "center",
           "font-size":
-            isTabletOrMobile || isTabletOrMobileDevice ? "18px" : "50px",
+            isTabletOrMobile || isTabletOrMobileDevice ? "25px" : "50px",
           marginLeft: "3%",
           marginRight: "3%",
           fontWeight: "bold",
-          marginBottom: isTabletOrMobile || isTabletOrMobileDevice ? "20px":"50px",
+          marginBottom:
+            isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "50px",
           borderBottom: "1px solid var(--color-primario) ",
           borderTop: "1px solid var(--color-primario)",
           padding:
@@ -53,7 +54,10 @@ function SeccionExtra({ items, articulos, texto }) {
         {texto.texto}
       </div>
       <div className="carrousel">
-        <LeftOutlined onClick={next} className="icons-left" />
+        {!isTabletOrMobile ||
+          (!isTabletOrMobileDevice && (
+            <LeftOutlined onClick={next} className="icons-left" />
+          ))}
         <div className="multi-carrousel">
           <Slider ref={(c) => (slider = c)} {...settings}>
             {articulos.map((articulo, i) => {
@@ -80,12 +84,14 @@ function SeccionExtra({ items, articulos, texto }) {
             })}
           </Slider>
         </div>
-
-        <RightOutlined
-          color="black"
-          onClick={previous}
-          className="icons-right"
-        />
+        {!isTabletOrMobile ||
+          (!isTabletOrMobileDevice && (
+            <RightOutlined
+              color="black"
+              onClick={previous}
+              className="icons-right"
+            />
+          ))}
       </div>
     </div>
   );

@@ -19,6 +19,7 @@ function Pie() {
         style={{
           backgroundColor: "var(--color-primario)",
           height: "1px",
+          marginBottom: "20px",
         }}
       />
       <Row>
@@ -74,7 +75,7 @@ function Pie() {
       <Divider
         style={{
           backgroundColor: "var(--color-primario)",
-          height: "1.5px",
+          height: "1px"
         }}
       />
       <Row className="otros">
@@ -142,7 +143,8 @@ function Pie() {
                 style={
                   isTabletOrMobile || isTabletOrMobileDevice
                     ? {
-                        fontSize: "20px",marginRight: "10px"
+                        fontSize: "20px",
+                        marginRight: "10px",
                       }
                     : { fontSize: "40px", marginRight: "10px" }
                 }
@@ -156,7 +158,8 @@ function Pie() {
                 style={
                   isTabletOrMobile || isTabletOrMobileDevice
                     ? {
-                        fontSize: "20px",marginRight: "10px"
+                        fontSize: "20px",
+                        marginRight: "10px",
                       }
                     : { fontSize: "40px", marginRight: "10px" }
                 }

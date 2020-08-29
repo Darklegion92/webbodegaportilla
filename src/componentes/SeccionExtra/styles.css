@@ -62,7 +62,7 @@
     padding-bottom: 50px;
   }
   .seccion-extra .multi-carrousel {
-    width: 68%;
+    width: 100%;
   }
   .seccion-extra .carrousel .icons-left {
     margin-right: 15px;
@@ -72,8 +72,9 @@
     margin-left: 15px;
   }
   .seccion-extra .item {
-    padding-top: 5px;
+    padding-top: 10px;
     margin: 5px !important;
+    border-radius: 5px;
   }
   .seccion-extra .ant-typography {
     font-size: 8px !important;

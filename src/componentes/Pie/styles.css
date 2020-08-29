@@ -38,6 +38,9 @@
     padding: 0;
     width: 100%;
   }
+  .pie .ant-row img{
+    margin: 10px 0;
+  }
   .pie .otros .ant-row {
     display: flex !important;
     justify-content: center !important;
