@@ -59,7 +59,7 @@
   justify-content: center;
   padding: 10px 0;
 }
-/*FormularioRegistro*/
+/*FormularioS*/
 
 .validacion .body .ant-input {
   border-radius: 5px;
@@ -154,4 +154,8 @@
 
 .validacion .body .ant-tabs-tabpane button:hover {
   zoom: 105%;
+}
+
+.validacion .body a {
+  padding: 10px 0 50px 0;
 }
