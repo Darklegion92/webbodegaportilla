@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Menu, Typography, Drawer, Button } from "antd";
+import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
 import { ImTruck, ImExit } from "react-icons/im";
 import { useMediaQuery } from "react-responsive";
@@ -212,19 +213,21 @@ function Encabezado() {
             style={{ alignItems: "flex-end" }}
           >
             <SubMenu icon={<Person className="icons" />}>
-              <Menu.Item
+            {/*  <Menu.Item
                 className="item-menu"
                 key="1"
                 icon={<ImTruck size={30} />}
               >
                 <Text>Pedidos</Text>
-              </Menu.Item>
+            </Menu.Item>*/}
               <Menu.Item
                 key="2"
                 className="item-menu"
                 icon={<ImExit size={30} />}
               >
-                <Text className="item-menu">Salir</Text>
+                <Link to="/validacion">
+                  <Text className="item-menu">Ingresar</Text>
+                </Link>
               </Menu.Item>
             </SubMenu>
             <SubMenu title="" icon={<Car className="icons" />}></SubMenu>

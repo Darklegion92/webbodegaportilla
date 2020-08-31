@@ -8,14 +8,11 @@
 * {
   font-family: "Lato" !important;
 }
-html {
-  --antd-wave-shadow-color: var(--color-primario) !important;
-}
-
 .whats-icon {
   position: fixed;
   z-index: 99;
   bottom: 30px;
+  color: white;
   right: 30px;
   background-color: #31c76a;
   padding: 15px;

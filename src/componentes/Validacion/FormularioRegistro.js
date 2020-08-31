@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Form, Input, Button, Checkbox, Col, Row } from "antd";
+import { Form, Input, Button, Checkbox, Col, Row,Typography } from "antd";
+
+const {Text} = Typography
 
 const Shield = () => (
   <svg
@@ -25,6 +27,7 @@ const FormularioRegistro = () => {
   return (
     <>
       <Form onValuesChange={onFormLayoutChange} layout="vertical" size="small">
+        <Form.Item>
         <Row gutter={16}>
           <Col span={12}>
             <Form.Item label="Nombres">
@@ -45,7 +48,7 @@ const FormularioRegistro = () => {
           </Col>
           <Col span={12}>
             <Form.Item label="Contraseña">
-              <Input />
+              <Input.Password style={{ borderRadius: "5px", backgroundColor:"var(--color-secundario)" }} />
             </Form.Item>
           </Col>
         </Row>
@@ -56,8 +59,9 @@ const FormularioRegistro = () => {
             </Form.Item>
           </Col>
         </Row>
-        <Form.Item>
-          <Checkbox checked>
+        </Form.Item>
+        <Col span={24}> <Form.Item>
+          <Checkbox checked={true}>
             Me gustaría recibir comunicaciones promocionales (Recibirás un
             e-mail de confirmación)
           </Checkbox>
@@ -77,12 +81,13 @@ const FormularioRegistro = () => {
           <Checkbox>
             Declaro que he leido y acepto la nueva{" "}
             <a href="">Política de Privacidad</a> y los{" "}
-            <a>Términos y Condiciones</a> de bodega portilla
+            <a href="">Términos y Condiciones</a> de bodega portilla
           </Checkbox>
         </Form.Item>
+        </Col>
         <Form.Item>
           <Button>
-            Completar Registro
+            COMPLETAR REGISTRO
             <Shield />
           </Button>
         </Form.Item>

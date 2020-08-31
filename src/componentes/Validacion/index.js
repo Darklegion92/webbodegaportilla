@@ -1,6 +1,7 @@
 import React from "react";
-import { Row, Col, Typography, Tabs } from "antd";
-
+import { Row, Col, Typography, Tabs, Button } from "antd";
+import { AiFillFacebook } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import FormularioRegistro from "./FormularioRegistro";
 
 import "./styles.css";
@@ -34,7 +35,9 @@ const Validacion = () => {
     <Col span={24} className="validacion">
       <Row align="center" className="head">
         <Col span={12}>
-          <img src="img/logo.png" width="150px" />
+          <Link to="/">
+            <img src="img/logo.png" width="150px" />
+          </Link>
         </Col>
         <Col span={12} className="texto">
           <Title level="4">
@@ -53,6 +56,20 @@ const Validacion = () => {
               <FormularioRegistro />
             </TabPane>
           </Tabs>
+          <Title level={3}>O ingresa con</Title>
+        </Col>
+      </Row>
+      <Row align="center" justify="center" className="footer">
+        <Col span={4}>
+          <Button>
+            <AiFillFacebook className="icon" size={30} /> FACEBOOK
+          </Button>
+        </Col>
+        <Col span={4}>
+          <Button>
+            <img src="img/logo-google.png" width="35px" />
+            GOOGLE
+          </Button>
         </Col>
       </Row>
     </Col>

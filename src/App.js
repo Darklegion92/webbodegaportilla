@@ -26,7 +26,7 @@ function App() {
     <Router>
       <Switch>
         <Layout>
-          <ImWhatsapp color="white" size={70} className="whats-icon" />
+          <ImWhatsapp  size={70} className="whats-icon"/>
           <Route path="/validacion">
               <Validacion />
           </Route>
