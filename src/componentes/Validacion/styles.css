@@ -1,0 +1,61 @@
+.validacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.validacion .head {
+  padding: 30px 40px 0px 50px;
+  position: relative;
+}
+.validacion .head .texto {
+  text-align: end;
+}
+
+.validacion .head svg:hover {
+  border: none !important;
+}
+
+.validacion .body {
+  background-color: white;
+}
+
+/*FormularioRegistro*/
+.validacion .body .ant-input {
+  border-radius: 5px;
+  background-color: var(--color-secundario);
+}
+
+.validacion .body .ant-input:focus,
+.validacion .body .ant-input:hover {
+  border-color: var(--color-primario);
+  box-shadow: none;
+}
+.validacion .body .ant-tabs-large > .ant-tabs-nav .ant-tabs-tab {
+  font-size: 21px;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 16px 10px;
+}
+
+.validacion .body .ant-tabs-nav-list {
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start !important;
+}
+.validacion .body .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--color-primario);
+  font-weight: bold;
+}
+.validacion .body .ant-tabs-tab-btn:hover,
+.validacion .body .ant-tabs-tab-btn::before,
+.validacion .body .ant-tabs-tab-btn::before {
+  color: var(--color-primario);
+}
+.validacion .body .ant-tabs-ink-bar {
+  background: var(--color-primario) !important;
+}
+
+.validacion .body .ant-tabs-nav-operations {
+  display: none !important;
+}

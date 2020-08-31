@@ -7,7 +7,9 @@
 
 * {
   font-family: "Lato" !important;
-
+}
+html {
+  --antd-wave-shadow-color: var(--color-primario) !important;
 }
 
 .whats-icon {
