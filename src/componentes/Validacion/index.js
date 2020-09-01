@@ -40,7 +40,7 @@ const Validacion = () => {
   return (
     <Col span={24} className="validacion">
       <Row align="center" className="head">
-        <Col span={10}>
+        <Col span={9}>
           <Link to="/">
             <img
               src="img/logo.png"
@@ -50,7 +50,7 @@ const Validacion = () => {
             />
           </Link>
         </Col>
-        <Col span={14} className="texto">
+        <Col span={15} className="texto">
           <Title level="4">
             <Shield />
             COMPRA SEGURA
@@ -70,7 +70,12 @@ const Validacion = () => {
           <Title level={3}>O ingresa con</Title>
         </Col>
       </Row>
-      <Row align="center" justify="center" className="footer">
+      <Row
+        align="center"
+        justify="center"
+        className="footer"
+        gutter={isTabletOrMobile || isTabletOrMobileDevice ? 50 : 0}
+      >
         <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 6 : 4}>
           <Button>
             <AiFillFacebook

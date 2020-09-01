@@ -26,11 +26,11 @@ function App() {
     <Router>
       <Switch>
         <Layout>
-          <ImWhatsapp  size={70} className="whats-icon"/>
           <Route path="/validacion">
-              <Validacion />
+            <Validacion />
           </Route>
           <Route path="/" exact>
+            <ImWhatsapp size={70} className="whats-icon" />
             <Header id="home">
               <Encabezado />
             </Header>
