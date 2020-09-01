@@ -78,14 +78,14 @@ function Encabezado() {
             key="left"
           >
             <Menu onClick={onClick}>
-              <Menu.Item>
+              {/*<Menu.Item>
                 <ImTruck
                   size={20}
                   color="var(--color-primario)"
                   style={{ marginRight: "10px" }}
                 />
                 <Text>PEDIDOS</Text>
-              </Menu.Item>
+              </Menu.Item>*/}
               <Menu.Item>
                 <a href="#home">
                   <Text>INICIO</Text>
@@ -117,36 +117,41 @@ function Encabezado() {
                 <Text>CONTACTO</Text>
               </Menu.Item>
               <div className="botones">
-                <Button
-                  style={{
-                    color: "white",
-                    backgroundColor: "var(--color-primario)",
-                    fontSize: "20px",
-                    borderRadius: "10px",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    padding: "0",
-                    width: "100%",
-                    margin: "20px 0 10px 0",
-                  }}
-                >
-                  INICIAR SESION
-                </Button>
-                <Button
-                  style={{
-                    color: "var(--color-primario)",
-                    backgroundColor: "white",
-                    border: "2px solid var(--color-terciario)",
-                    fontSize: "15px",
-                    borderRadius: "10px",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    padding: "0",
-                    width: "75%",
-                  }}
-                >
-                  REGISTRARSE
-                </Button>
+                <Link to="/validacion">
+                  {" "}
+                  <Button
+                    style={{
+                      color: "white",
+                      backgroundColor: "var(--color-primario)",
+                      fontSize: "20px",
+                      borderRadius: "10px",
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      padding: "0",
+                      width: "100%",
+                      margin: "20px 0 10px 0",
+                    }}
+                  >
+                    INICIAR SESION
+                  </Button>
+                </Link>
+                <Link to="/validacion">
+                  <Button
+                    style={{
+                      color: "var(--color-primario)",
+                      backgroundColor: "white",
+                      border: "2px solid var(--color-terciario)",
+                      fontSize: "15px",
+                      borderRadius: "10px",
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      padding: "0",
+                      width: "75%",
+                    }}
+                  >
+                    REGISTRARSE
+                  </Button>
+                </Link>
               </div>
             </Menu>
           </Drawer>
@@ -213,7 +218,7 @@ function Encabezado() {
             style={{ alignItems: "flex-end" }}
           >
             <SubMenu icon={<Person className="icons" />}>
-            {/*  <Menu.Item
+              {/*  <Menu.Item
                 className="item-menu"
                 key="1"
                 icon={<ImTruck size={30} />}
