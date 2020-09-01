@@ -117,41 +117,37 @@ function Encabezado() {
                 <Text>CONTACTO</Text>
               </Menu.Item>
               <div className="botones">
-                <Link to="/validacion">
-                  {" "}
-                  <Button
-                    style={{
-                      color: "white",
-                      backgroundColor: "var(--color-primario)",
-                      fontSize: "20px",
-                      borderRadius: "10px",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      padding: "0",
-                      width: "100%",
-                      margin: "20px 0 10px 0",
-                    }}
-                  >
-                    INICIAR SESION
-                  </Button>
-                </Link>
-                <Link to="/validacion">
-                  <Button
-                    style={{
-                      color: "var(--color-primario)",
-                      backgroundColor: "white",
-                      border: "2px solid var(--color-terciario)",
-                      fontSize: "15px",
-                      borderRadius: "10px",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      padding: "0",
-                      width: "75%",
-                    }}
-                  >
-                    REGISTRARSE
-                  </Button>
-                </Link>
+                {" "}
+                <Button
+                  style={{
+                    color: "white",
+                    backgroundColor: "var(--color-primario)",
+                    fontSize: "20px",
+                    borderRadius: "10px",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    padding: "0",
+                    width: "100%",
+                    margin: "20px 0 10px 0",
+                  }}
+                >
+                  <Link to="/validacion"> INICIAR SESION</Link>
+                </Button>
+                <Button
+                  style={{
+                    color: "var(--color-primario)",
+                    backgroundColor: "white",
+                    border: "2px solid var(--color-terciario)",
+                    fontSize: "15px",
+                    borderRadius: "10px",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    padding: "0",
+                    width: "75%",
+                  }}
+                >
+                  <Link to="/validacion">REGISTRARSE </Link>
+                </Button>
               </div>
             </Menu>
           </Drawer>
