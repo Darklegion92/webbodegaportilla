@@ -13,6 +13,7 @@ import SeccionExtra from "./componentes/SeccionExtra";
 import SeccionRecomendaciones from "./componentes/SeccionRecomendaciones";
 import Pie from "./componentes/Pie";
 import Validacion from "./componentes/Validacion";
+import Tienda from "./componentes/Tienda";
 
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -26,6 +27,18 @@ function App() {
     <Router>
       <Switch>
         <Layout>
+          <Route path="/shopping">
+            <ImWhatsapp size={70} className="whats-icon" />
+            <Header id="home">
+              <Encabezado />
+            </Header>
+            <Content>
+              <Tienda />
+            </Content>
+            <Footer>
+              <Pie />
+            </Footer>
+          </Route>
           <Route path="/validacion">
             <Validacion />
           </Route>
@@ -34,7 +47,6 @@ function App() {
             <Header id="home">
               <Encabezado />
             </Header>
-
             <div
               id="quienessomos"
               style={{

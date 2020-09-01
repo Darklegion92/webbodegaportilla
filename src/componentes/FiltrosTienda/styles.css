@@ -1,0 +1,24 @@
+.filtros-tienda {
+  margin-left: 50px;
+  padding: 20px;
+  border-left: solid 1px var(--color-primario);
+  border-right: solid 1px var(--color-primario);
+}
+.filtros-tienda * {
+  color: var(--color-primario) !important;
+}
+.filtros-tienda .ant-row{
+    align-items: center;
+    justify-content: center;
+} 
+
+.filtros-tienda .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  border: solid 1px var(--color-primario);
+  padding: 2px 15px;
+  border-radius: 10px;
+  margin: 5px
+}
