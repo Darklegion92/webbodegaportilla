@@ -16,6 +16,9 @@
   text-align: end;
 }
 
+.validacion .head .texto .ant-typography {
+  color: var(--color-primario) !important;
+}
 .validacion .head svg:hover {
   border: none !important;
 }
@@ -52,6 +55,8 @@
   margin-right: 10px;
 }
 
+/*FormularioS*/
+
 .validacion h3.ant-typography {
   color: var(--color-primario) !important;
   display: flex;
@@ -59,7 +64,6 @@
   justify-content: center;
   padding: 10px 0;
 }
-/*FormularioS*/
 
 .validacion .body .ant-input {
   border-radius: 5px;
@@ -158,4 +162,75 @@
 
 .validacion .body a {
   padding: 10px 0 50px 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .validacion .head .texto .ant-typography {
+    font-size: 20px;
+  }
+
+  .validacion .head {
+    padding: 20px 15px 0px 15px;
+  }
+
+  .validacion .body .ant-tabs-large > .ant-tabs-nav .ant-tabs-tab,
+  .validacion
+    .body
+    .ant-tabs-large
+    > .ant-tabs-nav
+    .ant-tabs-tab
+    .ant-tabs-tab-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .validacion .body .ant-row {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .validacion .body .ant-col .ant-col-24,
+  .validacion .body .ant-row .ant-form-item,
+  .validacion .body .ant-form-item .ant-form-item-control {
+    width: 100%;
+  }
+  .validacion .body .ant-form-item .ant-form-item-control label,
+  .validacion .body .ant-form-item .ant-form-item-control input,
+  .validacion .body .ant-form-item .ant-form-item-control svg {
+    font-size: 28px;
+  }
+  .validacion .body .ant-typography {
+    font-size: 24px;
+  }
+  .validacion .body .ant-tabs-tabpane button {
+    min-width: 90%;
+    margin: 0 5%;
+    font-size: 25px;
+    font-weight: bold;
+    height: auto;
+    background-color: var(--color-primario);
+    border-radius: 10px;
+  }
+
+  .validacion .body .ant-tabs-tabpane button span {
+    color: white;
+  }
+
+  .validacion .footer svg {
+    margin-left: 10px;
+  }
+
+  .validacion .footer img {
+    margin-right: 0px;
+  }
+
+  .validacion .body span .ant-checkbox-inner {
+    transform: scale(3);
+    margin-left: 30px;
+  }
+  .validacion .body .ant-checkbox + span {
+    margin-left:40px;
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
 }
