@@ -1,9 +1,23 @@
 import React from "react";
-import { Typography, Divider, Row } from "antd";
+import { Typography, Divider, Row, List } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import "./styles.css";
 
 const { Text, Title } = Typography;
+
+const data = [
+  "GRUPO 1",
+  "GRUPO 1",
+  "GRUPO 1",
+  "GRUPO 1",
+  "GRUPO 1",
+  "GRUPO 1",
+  "GRUPO 1",
+  "GRUPO 1",
+  "GRUPO 1",
+  "GRUPO 1",
+  "GRUPO 1",
+];
 
 const FiltrosTienda = () => {
   return (
@@ -29,12 +43,21 @@ const FiltrosTienda = () => {
       </Row>
 
       <Divider />
-      <div className="Grupos">
+      <div className="grupos">
         <Title level={4}>GRUPOS</Title>
         <Divider />
+        <List
+          scroll={{ x: 400 }}
+          dataSource={data}
+          renderItem={(item) => (
+            <List.Item>
+              <Typography.Text mark>[ITEM]</Typography.Text> {item}
+            </List.Item>
+          )}
+        />
         <Divider />
       </div>
-      <div className="Marcas">
+      <div className="marcas">
         <Title level={4}>MARCAS</Title>
         <Divider />
         <Divider />

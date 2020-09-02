@@ -27,7 +27,7 @@ function App() {
     <Router>
       <Switch>
         <Layout>
-          <Route path="/shopping">
+          {/*} <Route path="/shop">
             <ImWhatsapp size={70} className="whats-icon" />
             <Header id="home">
               <Encabezado />
@@ -38,227 +38,235 @@ function App() {
             <Footer>
               <Pie />
             </Footer>
-          </Route>
+  </Route>*/}
           <Route path="/validacion">
             <Validacion />
           </Route>
-          <Route path="/" exact>
-            <ImWhatsapp size={70} className="whats-icon" />
+          <Route path="/">
             <Header id="home">
               <Encabezado />
             </Header>
-            <div
-              id="quienessomos"
-              style={{
-                minHeight: "40px",
-                width: "100%",
-                position: "absolute",
-                top:
-                  isTabletOrMobile || isTabletOrMobileDevice
-                    ? "300px"
-                    : "550px",
-              }}
-            />
-            <div
-              id="productos"
-              style={{
-                minHeight: "118px",
-                width: "100%",
-                marginBottom: "118px",
-                position: "absolute",
-                top:
-                  isTabletOrMobile || isTabletOrMobileDevice
-                    ? "620px"
-                    : "960px",
-              }}
-            />
-            <div
-              id="nuevo"
-              style={{
-                minHeight: "118px",
-                backgroundColor: "black",
-                width: "100%",
-                marginBottom: "118px",
-                position: "absolute",
-                top:
-                  isTabletOrMobile || isTabletOrMobileDevice
-                    ? "1600px"
-                    : "2030px",
-                zIndex: 1,
-              }}
-            />
-            <div
-              id="recomendaciones"
-              style={{
-                minHeight: "118px",
-                width: "100%",
-                marginBottom: "118px",
-                position: "absolute",
-                top:
-                  isTabletOrMobile || isTabletOrMobileDevice
-                    ? "2150px"
-                    : "3130px",
-              }}
-            />
-            <Content>
-              <div>
-                <Carrusel_principal />
-              </div>
-              <SeccionDomicilios />
-              <div>
-                <SeccionEmpresa />
-              </div>
-              <div>
-                <SeccionProductos />
-              </div>
-              <div>
+            <ImWhatsapp size={70} className="whats-icon" />
+            <Route path="/shop" exact>
+              <ImWhatsapp size={70} className="whats-icon" />
+              <Content>
+                <Tienda />
+              </Content>
+            </Route>
+
+            <Route path="/inicio" exact>
+              <div
+                id="quienessomos"
+                style={{
+                  minHeight: "40px",
+                  width: "100%",
+                  position: "absolute",
+                  top:
+                    isTabletOrMobile || isTabletOrMobileDevice
+                      ? "300px"
+                      : "550px",
+                }}
+              />
+              <div
+                id="productos"
+                style={{
+                  minHeight: "118px",
+                  width: "100%",
+                  marginBottom: "118px",
+                  position: "absolute",
+                  top:
+                    isTabletOrMobile || isTabletOrMobileDevice
+                      ? "620px"
+                      : "960px",
+                }}
+              />
+              <div
+                id="nuevo"
+                style={{
+                  minHeight: "118px",
+                  backgroundColor: "black",
+                  width: "100%",
+                  marginBottom: "118px",
+                  position: "absolute",
+                  top:
+                    isTabletOrMobile || isTabletOrMobileDevice
+                      ? "1600px"
+                      : "2030px",
+                  zIndex: 1,
+                }}
+              />
+              <div
+                id="recomendaciones"
+                style={{
+                  minHeight: "118px",
+                  width: "100%",
+                  marginBottom: "118px",
+                  position: "absolute",
+                  top:
+                    isTabletOrMobile || isTabletOrMobileDevice
+                      ? "2150px"
+                      : "3130px",
+                }}
+              />
+              <Content>
+                <div>
+                  <Carrusel_principal />
+                </div>
+                <SeccionDomicilios />
+                <div>
+                  <SeccionEmpresa />
+                </div>
+                <div>
+                  <SeccionProductos />
+                </div>
+                <div>
+                  <SeccionExtra
+                    items={isTabletOrMobile || isTabletOrMobileDevice ? 3 : 4}
+                    texto={{
+                      texto: "PRODUCTOS NUEVOS",
+                      fondo: "invisible",
+                      color: "var(--color-primario)",
+                    }}
+                    articulos={[
+                      {
+                        imagen: "img/nuevos/nuevo (1).png",
+                        codigo: "0",
+                        enlace: "##",
+                        nombre: "PERLAS ARCOIRIS",
+                      },
+                      {
+                        imagen: "img/nuevos/nuevo (2).png",
+                        codigo: "0",
+                        enlace: "##",
+                        nombre: "PERLAS MORADA",
+                      },
+                      {
+                        imagen: "img/nuevos/nuevo (3).png",
+                        codigo: "0",
+                        enlace: "##",
+                        nombre: "PERLAS X",
+                      },
+                      {
+                        imagen: "img/nuevos/nuevo (5).png",
+                        codigo: "0",
+                        enlace: "##",
+                        nombre: "CHIPS CHOCOLATE",
+                      },
+                      {
+                        imagen: "img/nuevos/nuevo (6).png",
+                        codigo: "0",
+                        enlace: "##",
+                        nombre: "CHISPAS",
+                      },
+                      {
+                        imagen: "img/nuevos/nuevo (7).png",
+                        codigo: "0",
+                        enlace: "##",
+                        nombre: "COLORES",
+                      },
+                      {
+                        imagen: "img/nuevos/nuevo (8).png",
+                        codigo: "0",
+                        enlace: "##",
+                        nombre: "CORAZONES",
+                      },
+                      {
+                        imagen: "img/nuevos/nuevo (9).png",
+                        codigo: "0",
+                        enlace: "##",
+                        nombre: "ESCARCHA",
+                      },
+                      {
+                        imagen: "img/nuevos/nuevo (10).png",
+                        codigo: "0",
+                        enlace: "##",
+                        nombre: "ESTRELLAS",
+                      },
+                      {
+                        imagen: "img/nuevos/nuevo (11).png",
+                        codigo: "0",
+                        enlace: "##",
+                        nombre: "GUSANITOS",
+                      },
+                      {
+                        imagen: "img/nuevos/nuevo (12).png",
+                        codigo: "0",
+                        enlace: "##",
+                        nombre: "COLORES",
+                      },
+                    ]}
+                  />
+                </div>
                 <SeccionExtra
-                  items={isTabletOrMobile || isTabletOrMobileDevice ? 3 : 4}
+                  items={isTabletOrMobile || isTabletOrMobileDevice ? 2 : 3}
                   texto={{
-                    texto: "PRODUCTOS NUEVOS",
+                    texto: "REGALOS",
                     fondo: "invisible",
                     color: "var(--color-primario)",
                   }}
                   articulos={[
                     {
-                      imagen: "img/nuevos/nuevo (1).png",
+                      imagen: "img/articulodefecto.jpeg",
                       codigo: "0",
                       enlace: "##",
-                      nombre: "PERLAS ARCOIRIS",
                     },
                     {
-                      imagen: "img/nuevos/nuevo (2).png",
+                      imagen: "img/articulodefecto.jpeg",
                       codigo: "0",
                       enlace: "##",
-                      nombre: "PERLAS MORADA",
                     },
                     {
-                      imagen: "img/nuevos/nuevo (3).png",
+                      imagen: "img/articulodefecto.jpeg",
                       codigo: "0",
                       enlace: "##",
-                      nombre: "PERLAS X",
                     },
                     {
-                      imagen: "img/nuevos/nuevo (5).png",
+                      imagen: "img/articulodefecto.jpeg",
                       codigo: "0",
                       enlace: "##",
-                      nombre: "CHIPS CHOCOLATE",
                     },
                     {
-                      imagen: "img/nuevos/nuevo (6).png",
+                      imagen: "img/articulodefecto.jpeg",
                       codigo: "0",
                       enlace: "##",
-                      nombre: "CHISPAS",
                     },
                     {
-                      imagen: "img/nuevos/nuevo (7).png",
+                      imagen: "img/articulodefecto.jpeg",
                       codigo: "0",
                       enlace: "##",
-                      nombre: "COLORES",
                     },
                     {
-                      imagen: "img/nuevos/nuevo (8).png",
+                      imagen: "img/articulodefecto.jpeg",
                       codigo: "0",
                       enlace: "##",
-                      nombre: "CORAZONES",
                     },
                     {
-                      imagen: "img/nuevos/nuevo (9).png",
+                      imagen: "img/articulodefecto.jpeg",
                       codigo: "0",
                       enlace: "##",
-                      nombre: "ESCARCHA",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (10).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "ESTRELLAS",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (11).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "GUSANITOS",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (12).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "COLORES",
                     },
                   ]}
                 />
-              </div>
-              <SeccionExtra
-                items={isTabletOrMobile || isTabletOrMobileDevice ? 2 : 3}
-                texto={{
-                  texto: "REGALOS",
-                  fondo: "invisible",
-                  color: "var(--color-primario)",
-                }}
-                articulos={[
+                <div>
                   {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                ]}
-              />
-              <div>
-                {
-                  <SeccionRecomendaciones
-                    imagenes={[
-                      { imagen: "img/articulodefecto.jpeg" },
-                      { imagen: "img/imgreco1.jpeg" },
-                      { imagen: "img/imgreco2.jpeg" },
-                      { imagen: "img/logo.png" },
-                      { imagen: "img/panaderiaypostreria.jpeg" },
-                      { imagen: "img/semillas.jpeg" },
-                      { imagen: "img/slider1.jpeg" },
-                      { imagen: "img/slider2.jpeg" },
-                      { imagen: "img/superalimentos.jpeg" },
-                      { imagen: "img/utencilios.jpeg" },
-                    ]}
-                  />
-                }
-              </div>
-            </Content>
-
+                    <SeccionRecomendaciones
+                      imagenes={[
+                        { imagen: "img/articulodefecto.jpeg" },
+                        { imagen: "img/imgreco1.jpeg" },
+                        { imagen: "img/imgreco2.jpeg" },
+                        { imagen: "img/logo.png" },
+                        { imagen: "img/panaderiaypostreria.jpeg" },
+                        { imagen: "img/semillas.jpeg" },
+                        { imagen: "img/slider1.jpeg" },
+                        { imagen: "img/slider2.jpeg" },
+                        { imagen: "img/superalimentos.jpeg" },
+                        { imagen: "img/utencilios.jpeg" },
+                      ]}
+                    />
+                  }
+                </div>
+              </Content>
+            </Route>
             <Footer>
               <Pie />
             </Footer>
