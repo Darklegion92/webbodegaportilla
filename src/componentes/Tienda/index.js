@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
 import FiltrosTienda from "../FiltrosTienda";
+import ArticulosTienda from "../ArticulosTienda";
 
 const Tienda = () => {
   return (
@@ -8,7 +9,9 @@ const Tienda = () => {
       <Col span={6}>
         <FiltrosTienda />
       </Col>
-      <Col span={18}>tienda</Col>
+      <Col span={18}>
+        <ArticulosTienda />
+      </Col>
     </Row>
   );
 };

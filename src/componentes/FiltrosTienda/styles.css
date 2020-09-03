@@ -22,27 +22,20 @@
   border-radius: 5px;
   margin: 5px;
 }
-.filtros-tienda .grupos ul.ant-list-items {
+.filtros-tienda .agrupaciones{
+  padding-top: 10px;
+}
+.filtros-tienda .agrupaciones ul.ant-list-items {
   max-height: 200px;
   overflow-y: scroll;
 }
 
-.filtros-tienda .grupos ul.ant-list-items::-webkit-scrollbar {
+.filtros-tienda .agrupaciones ul.ant-list-items::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  display: none;
 }
 
-.filtros-tienda .grupos ul.ant-list-items::-webkit-scrollbar-thumb {
-  background: #ccc;
+.filtros-tienda .agrupaciones ul.ant-list-items::-webkit-scrollbar-thumb {
+  background: var(--color-primario);
   border-radius: 4px;
-}
-
-.filtros-tienda .grupos ul.ant-list-items::-webkit-scrollbar-thumb:hover {
-  background: #b3b3b3;
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-.filtros-tienda .grupos ul.ant-list-items::-webkit-scrollbar-thumb:active {
-  background-color: #999999;
 }

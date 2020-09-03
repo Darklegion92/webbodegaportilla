@@ -43,23 +43,22 @@ const FiltrosTienda = () => {
       </Row>
 
       <Divider />
-      <div className="grupos">
+      <div className="agrupaciones">
         <Title level={4}>GRUPOS</Title>
         <Divider />
         <List
-          scroll={{ x: 400 }}
           dataSource={data}
-          renderItem={(item) => (
-            <List.Item>
-              <Typography.Text mark>[ITEM]</Typography.Text> {item}
-            </List.Item>
-          )}
+          renderItem={(item) => <List.Item>{item}</List.Item>}
         />
         <Divider />
       </div>
-      <div className="marcas">
+      <div className="agrupaciones">
         <Title level={4}>MARCAS</Title>
         <Divider />
+        <List
+          dataSource={data}
+          renderItem={(item) => <List.Item>{item}</List.Item>}
+        />
         <Divider />
       </div>
     </div>

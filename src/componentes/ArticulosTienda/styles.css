@@ -1,0 +1,26 @@
+.articulos-tienda .head {
+  display: flex;
+  margin: 0 50px;
+  border-bottom: solid 1px var(--color-primario);
+  padding: 0;
+  position: absolute;
+  max-width: 90%;
+  align-items: center;
+}
+.articulos-tienda .head * {
+  color: var(--color-primario);
+}
+
+.articulos-tienda .head .ant-select {
+  width: 100%;
+  height: auto;
+}
+.articulos-tienda .head .ant-select .ant-select-selector,
+.articulos-tienda .head .ant-select .ant-select-selector:hover,
+.articulos-tienda .head .ant-select .ant-select-selector:focus,
+.articulos-tienda .head .ant-select .ant-select-selector:target {
+  border-color: var(--color-primario) !important;
+  box-shadow: none;
+  background-color: var(--color-secundario) !important;
+  border-radius: 10px;
+}
