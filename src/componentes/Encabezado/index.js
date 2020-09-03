@@ -87,37 +87,35 @@ function Encabezado() {
                 <Text>PEDIDOS</Text>
               </Menu.Item>*/}
               <Menu.Item>
-                <Link to="/inicio#home">
+                <Link to="/">
                   <Text>INICIO</Text>
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                <Link to="/inicio#quienessomos">
+                <a href="#quienessomos">
                   <Text>QUIENES SOMOS</Text>
-                </Link>
+                </a>
               </Menu.Item>
               <Menu.Item>
-                <Link to="/inicio#productos">
-                  {" "}
+                <a href="#productos">
                   <Text>PRODUCTOS</Text>
-                </Link>
+                </a>
               </Menu.Item>
               <Menu.Item>
-                <Link to="/inicio#nuevo">
+                <a href="#nuevo">
                   {" "}
                   <Text>NUEVO</Text>
-                </Link>
+                </a>
               </Menu.Item>
               <Menu.Item>
-                <Link to="/inicio#recomendaciones">
+                <a href="#recomendaciones">
                   <Text>RECOMENDACIONES</Text>
-                </Link>
+                </a>
               </Menu.Item>
               <Menu.Item>
                 <Text>CONTACTO</Text>
               </Menu.Item>
               <div className="botones">
-                {" "}
                 <Button
                   style={{
                     color: "white",
@@ -131,7 +129,7 @@ function Encabezado() {
                     margin: "20px 0 10px 0",
                   }}
                 >
-                  <Link to="/validacion"> INICIAR SESION</Link>
+                  <Link to="/login"> INICIAR SESION</Link>
                 </Button>
                 <Button
                   style={{
@@ -146,14 +144,16 @@ function Encabezado() {
                     width: "75%",
                   }}
                 >
-                  <Link to="/validacion">REGISTRARSE </Link>
+                  <Link to="/login">REGISTRARSE </Link>
                 </Button>
               </div>
             </Menu>
           </Drawer>
         </Col>
         <Col span={12}>
-          <img src="img/logo.png" alt="LOGO" width="100px" />
+          <Link to="/">
+            <img src="img/logo.png" alt="LOGO" width="100px" />
+          </Link>
         </Col>
         <Col span={6}>
           <Car className="icons" />
@@ -165,7 +165,9 @@ function Encabezado() {
     <div className="head">
       <Row align="middle" justify="center">
         <Col span={4} className="logo">
-          <img src="img/logo.png" alt="logo.png" width="150px" />
+          <Link to="/">
+            <img src="img/logo.png" alt="logo.png" width="150px" />
+          </Link>
         </Col>
         <Col span={17}>
           <Menu
@@ -175,31 +177,27 @@ function Encabezado() {
           >
             <Menu.Item key="inicio">
               <Title level={3} className="items" code={true}>
-                <a href="#home">
-                  <Link to={{ pathname: "/inicio", hash: "#home" }}>
-                    INICIO
-                  </Link>
-                </a>
+                <Link to={{ pathname: "/", hash: "#home" }}>INICIO</Link>
               </Title>
             </Menu.Item>
             <Menu.Item key="quienes">
               <Title level={3} className="items" code={true}>
-                <Link to="/inicio#quienessomos"> QUIENES SOMOS</Link>
+                <a href="#quienessomos"> QUIENES SOMOS</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="productos">
               <Title level={3} className="items" code={true}>
-                <Link to="/inicio#productos">PRODUCTOS</Link>
+                <a href="#productos">PRODUCTOS</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="nuevo">
               <Title level={3} className="items" code={true}>
-                <Link to="/inicio#nuevo">NUEVO</Link>
+                <a href="#nuevo">NUEVO</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="reco">
               <Title level={3} className="items" code={true}>
-                <Link to="/inicio#recomendaciones"> RECOMENDACIONES</Link>
+                <a href="#recomendaciones"> RECOMENDACIONES</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="contacto">
@@ -210,7 +208,6 @@ function Encabezado() {
           </Menu>
         </Col>
         <Col span={3}>
-          {" "}
           <Menu
             onClick={handleClick}
             selectedKeys={[current]}
@@ -230,7 +227,7 @@ function Encabezado() {
                 className="item-menu"
                 icon={<ImExit size={30} />}
               >
-                <Link to="/validacion">
+                <Link to="/login">
                   <Text className="item-menu">Ingresar</Text>
                 </Link>
               </Menu.Item>
