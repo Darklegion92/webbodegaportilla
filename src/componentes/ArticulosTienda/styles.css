@@ -1,10 +1,13 @@
+.articulos-tienda {
+  margin: 0 50px;
+}
+
+/*HEAD*/
 .articulos-tienda .head {
   display: flex;
-  margin: 0 50px;
   border-bottom: solid 1px var(--color-primario);
   padding: 0;
-  position: absolute;
-  max-width: 90%;
+  position: relative;
   align-items: center;
 }
 .articulos-tienda .head * {
@@ -15,6 +18,7 @@
   width: 100%;
   height: auto;
 }
+
 .articulos-tienda .head .ant-select .ant-select-selector,
 .articulos-tienda .head .ant-select .ant-select-selector:hover,
 .articulos-tienda .head .ant-select .ant-select-selector:focus,
@@ -23,4 +27,68 @@
   box-shadow: none;
   background-color: var(--color-secundario) !important;
   border-radius: 10px;
+}
+.articulos-tienda .ant-col .ant-col-8 {
+  z-index: 1;
+}
+.articulos-tienda .head input {
+  border: none;
+  background-color: var(--color-secundario);
+  border-radius: 10px;
+  margin-left: -20px;
+  padding-left: 30px;
+  font-size: 16px;
+}
+.articulos-tienda .head input:hover,
+.articulos-tienda .head input:focus,
+.articulos-tienda .head input:target {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.articulos-tienda .head .ant-col-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 0 0;
+  border: solid 1px var(--color-primario);
+  margin-left: -25px;
+  background-color: var(--color-secundario);
+}
+.articulos-tienda .head .ant-col-2:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.articulos-tienda .head .ant-col-2 svg {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.articulos-tienda .head .ant-col-2 svg:hover {
+  border: none !important;
+  zoom: normal !important;
+  transform: none !important;
+}
+
+/*ITEM*/
+
+.articulos-tienda .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 18%;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  border: solid 1px var(--color-secundario);
+  margin: 1%;
+  border-radius: 10px;
+}
+
+.articulos-tienda .item img {
+  margin: 10% 2%;
+  width: 80%;
 }

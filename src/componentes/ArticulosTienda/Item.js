@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Typography } from "antd";
+const Item = ({ articulo }) => {
+  return (
+    <div className="item">
+      <img src={articulo.img} />
+      <Text></Text>
+    </div>
+  );
+};
 
-const Item = () => {
-    return (
-        <div>
-            item
-        </div>
-    )
-}
-
-export default Item
+export default Item;

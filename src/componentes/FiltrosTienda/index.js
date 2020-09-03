@@ -24,7 +24,7 @@ const FiltrosTienda = () => {
     <div className="filtros-tienda">
       <Title level={4}>FILTROS</Title>
       <Divider />
-      <Row>
+      <Row className="filtros">
         <Text className="item">
           Filtreg 1 <CloseOutlined />
         </Text>

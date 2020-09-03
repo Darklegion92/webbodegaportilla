@@ -6,10 +6,10 @@ import ArticulosTienda from "../ArticulosTienda";
 const Tienda = () => {
   return (
     <Row>
-      <Col span={6}>
+      <Col span={5}>
         <FiltrosTienda />
       </Col>
-      <Col span={18}>
+      <Col span={19}>
         <ArticulosTienda />
       </Col>
     </Row>
