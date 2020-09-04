@@ -5,7 +5,7 @@ import "./styles.css";
 
 const { Text } = Typography;
 
-const Comprado = ({ articulo }) => {
+const Comprado = ({ articulo, onOk }) => {
   return (
     <div className="articulo-comprado-tag">
       <Row className="fila1">
@@ -22,16 +22,14 @@ const Comprado = ({ articulo }) => {
             <Text>{articulo.nombre}</Text>
           </Row>
           <Row className="fila3">
+            <Text className="sinformato">{articulo.precio}</Text>
             <Text>{articulo.precio}</Text>
           </Row>
           <Row className="fila4">
-            <Text>{articulo.precio}</Text>
-          </Row>
-          <Row className="fila5" gutter={20}>
             <Button>IR AL CARRITO</Button>
-          </Row>
-          <Row className="fila6" gutter={20}>
-            <Button>SEGUIR COMPRANDO</Button>
+            <Button className="contrario" onClick={() => onOk(false)}>
+              SEGUIR COMPRANDO
+            </Button>
           </Row>
         </Col>
       </Row>

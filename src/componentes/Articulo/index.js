@@ -5,7 +5,7 @@ import "./styles.css";
 
 const { Text } = Typography;
 
-const Articulo = ({ articulo }) => {
+const Articulo = ({ articulo, onOk }) => {
   return (
     <Row className="articulo-tag" gutter={25}>
       <Col span={14}>
@@ -33,7 +33,7 @@ const Articulo = ({ articulo }) => {
             </Row>
           </Col>
           <Col span={14}>
-            <Button>AÑADIR AL CARRITO</Button>
+            <Button onClick={onOk}>AÑADIR AL CARRITO</Button>
           </Col>
         </Row>
       </Col>

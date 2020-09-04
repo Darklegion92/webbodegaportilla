@@ -204,10 +204,23 @@ const articulos = [
 ];
 
 const Tienda = () => {
-  const [modalArticulo, setModalArticulo] = useState(true);
-
+  const [modalArticulo, setModalArticulo] = useState(false);
+  const [modalComprado, setModalComprado] = useState(false);
+  const [articuloSeleccionado, setArticuloSeleccionado] = useState();
   const cerrarArticulo = () => {
     setModalArticulo(false);
+  };
+
+  const agregarArticulo = (e) => {
+    setArticuloSeleccionado(articulos[e]);
+    setModalArticulo(true);
+  };
+  const agregarCantidad = () => {
+    setModalArticulo(false);
+    setModalComprado(true);
+  };
+  const cerrarComprado = () => {
+    setModalComprado(false);
   };
   return (
     <Row>
@@ -215,16 +228,25 @@ const Tienda = () => {
         <FiltrosTienda />
       </Col>
       <Col span={19}>
-        <ArticulosTienda articulos={articulos} />
+        <ArticulosTienda articulos={articulos} onClick={agregarArticulo} />
       </Col>
       <Modal
-        width={700 || 900}
+        width={900}
         visible={modalArticulo}
         onCancel={cerrarArticulo}
         footer={null}
         style={{ borderRadius: "50px" }}
       >
-        <Comprado articulo={articulos[0]} />
+        <Articulo articulo={articuloSeleccionado} onOk={agregarCantidad} />
+      </Modal>
+      <Modal
+        width={700}
+        visible={modalComprado}
+        onCancel={cerrarComprado}
+        footer={null}
+        style={{ borderRadius: "50px" }}
+      >
+        <Comprado articulo={articuloSeleccionado} onOk={setModalComprado} />
       </Modal>
     </Row>
   );

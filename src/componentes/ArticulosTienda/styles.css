@@ -87,6 +87,10 @@
   margin: 1%;
   border-radius: 10px;
 }
+.articulos-tienda .item:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
 
 .articulos-tienda .item img {
   margin: 10% 2%;
@@ -141,7 +145,7 @@
   align-items: center;
   justify-content: center;
 }
-.articulos-tienda .paginacion{
+.articulos-tienda .paginacion {
   margin-top: 30px;
 }
 .articulos-tienda .paginacion .ant-pagination * {
@@ -160,7 +164,7 @@
   .ant-pagination-item-1
   .ant-pagination-item-active
   a:hover,
-.articulos-tienda .paginacion .ant-pagination .ant-pagination-item-active  {
+.articulos-tienda .paginacion .ant-pagination .ant-pagination-item-active {
   border: none !important;
   font-weight: bold;
 }

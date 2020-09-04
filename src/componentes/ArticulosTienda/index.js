@@ -4,7 +4,7 @@ import Head from "./Head";
 import Item from "./Item";
 
 import "./styles.css";
-const ArticulosTienda = ({ articulos }) => {
+const ArticulosTienda = ({ articulos, onClick }) => {
   const [pagina, setPagina] = useState(1);
   const onChange = (e) => {
     setPagina(e);
@@ -18,7 +18,7 @@ const ArticulosTienda = ({ articulos }) => {
       <Row>
         {articulos.map((articulo, i) => {
           if (i < 20 * pagina && i >= 20 * (pagina - 1))
-            return <Item articulo={articulo} />;
+            return <Item articulo={articulo} onClick={onClick} id={i} />;
         })}
       </Row>
       <Row className="paginacion">
