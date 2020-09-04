@@ -1,115 +1,33 @@
-import React from "react";
-import { Row, Col } from "antd";
+import React, { useState } from "react";
+import { Row, Col, Pagination } from "antd";
 import Head from "./Head";
 import Item from "./Item";
 
 import "./styles.css";
-const ArticulosTienda = () => {
+const ArticulosTienda = ({ articulos }) => {
+  const [pagina, setPagina] = useState(1);
+  const onChange = (e) => {
+    setPagina(e);
+  };
+
   return (
     <Col className="articulos-tienda" span={24}>
       <Row>
         <Head />
       </Row>
       <Row>
-        <Item
-          articulo={{
-            img: "img/articulodefecto.jpeg",
-            nombre: "PRODUCTO 1",
-            descripcion:
-              "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
-            precio: "$ 5.000 COP",
-            embalaje: "100 Gr",
-          }}
-        />
-        <Item
-          articulo={{
-            img: "img/articulodefecto.jpeg",
-            nombre: "PRODUCTO 1",
-            descripcion:
-              "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
-            precio: "$ 5.000 COP",
-            embalaje: "100 Gr",
-          }}
-        />
-        <Item
-          articulo={{
-            img: "img/articulodefecto.jpeg",
-            nombre: "PRODUCTO 1",
-            descripcion:
-              "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
-            precio: "$ 5.000 COP",
-            embalaje: "100 Gr",
-          }}
-        />
-        <Item
-          articulo={{
-            img: "img/articulodefecto.jpeg",
-            nombre: "PRODUCTO 1",
-            descripcion:
-              "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
-            precio: "$ 5.000 COP",
-            embalaje: "100 Gr",
-          }}
-        />
-        <Item
-          articulo={{
-            img: "img/articulodefecto.jpeg",
-            nombre: "PRODUCTO 1",
-            descripcion:
-              "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
-            precio: "$ 5.000 COP",
-            embalaje: "100 Gr",
-          }}
-        />
-        <Item
-          articulo={{
-            img: "img/articulodefecto.jpeg",
-            nombre: "PRODUCTO 1",
-            descripcion:
-              "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
-            precio: "$ 5.000 COP",
-            embalaje: "100 Gr",
-          }}
-        />
-        <Item
-          articulo={{
-            img: "img/articulodefecto.jpeg",
-            nombre: "PRODUCTO 1",
-            descripcion:
-              "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
-            precio: "$ 5.000 COP",
-            embalaje: "100 Gr",
-          }}
-        />
-        <Item
-          articulo={{
-            img: "img/articulodefecto.jpeg",
-            nombre: "PRODUCTO 1",
-            descripcion:
-              "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
-            precio: "$ 5.000 COP",
-            embalaje: "100 Gr",
-          }}
-        />
-        <Item
-          articulo={{
-            img: "img/articulodefecto.jpeg",
-            nombre: "PRODUCTO 1",
-            descripcion:
-              "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
-            precio: "$ 5.000 COP",
-            embalaje: "100 Gr",
-          }}
-        />
-        <Item
-          articulo={{
-            img: "img/articulodefecto.jpeg",
-            nombre: "PRODUCTO 1",
-            descripcion:
-              "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
-            precio: "$ 5.000 COP",
-            embalaje: "100 Gr",
-          }}
+        {articulos.map((articulo, i) => {
+          if (i < 20 * pagina && i >= 20 * (pagina - 1))
+            return <Item articulo={articulo} />;
+        })}
+      </Row>
+      <Row className="paginacion">
+        <Pagination
+          size="small"
+          onChange={onChange}
+          total={articulos.length}
+          hideOnSinglePage
+          pageSize={20}
         />
       </Row>
     </Col>
