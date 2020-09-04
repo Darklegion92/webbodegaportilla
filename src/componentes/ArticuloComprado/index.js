@@ -1,0 +1,42 @@
+import React from "react";
+import { Typography, InputNumber, Button, Row, Col, Divider } from "antd";
+
+import "./styles.css";
+
+const { Text } = Typography;
+
+const Comprado = ({ articulo }) => {
+  return (
+    <div className="articulo-comprado-tag">
+      <Row className="fila1">
+        <Text>TU PRODUCTO SE AGREGO AL CARRITO</Text>
+        <Divider />
+      </Row>
+
+      <Row gutter={25}>
+        <Col span={8}>
+          <img src={articulo.img} width="100%" />
+        </Col>
+        <Col span={16}>
+          <Row className="fila2">
+            <Text>{articulo.nombre}</Text>
+          </Row>
+          <Row className="fila3">
+            <Text>{articulo.precio}</Text>
+          </Row>
+          <Row className="fila4">
+            <Text>{articulo.precio}</Text>
+          </Row>
+          <Row className="fila5" gutter={20}>
+            <Button>IR AL CARRITO</Button>
+          </Row>
+          <Row className="fila6" gutter={20}>
+            <Button>SEGUIR COMPRANDO</Button>
+          </Row>
+        </Col>
+      </Row>
+    </div>
+  );
+};
+
+export default Comprado;

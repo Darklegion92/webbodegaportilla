@@ -1,0 +1,69 @@
+.articulo-tag *.ant-typography {
+  color: var(--color-primario);
+}
+
+.articulo-tag .fila1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.articulo-tag .fila2 .cuerpo {
+  font-size: 14px;
+  height: 150px;
+  margin-bottom: 20px;
+  line-height: 15px;
+  overflow-y: scroll;
+  margin-top: 5px;
+}
+.articulo-tag .fila2 .titulo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.articulo-tag .fila2 .cuerpo::-webkit-scrollbar {
+  display: none;
+}
+
+.articulo-tag .fila3 .ant-typography {
+  text-align: center;
+  width: 100%;
+}
+
+.articulo-tag .fila4 .ant-typography {
+  text-align: center;
+  width: 100%;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.articulo-tag .fila5 .ant-typography {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.articulo-tag .fila5 .ant-input-number {
+  color: var(--color-primario);
+  margin-right: 20px;
+  border-color: var(--color-primario) !important;
+}
+.articulo-tag .fila5 .ant-input-number:hover,
+.articulo-tag .fila5 .ant-input-number-focused {
+  box-shadow: none;
+  border-color: var(--color-primario) !important;
+}
+.articulo-tag .fila5 .ant-typography {
+  font-weight: bold;
+}
+
+.articulo-tag .fila5 button {
+  background-color: var(--color-primario);
+  color: white;
+  border-radius: 10px;
+}
+
+.articulo-tag .fila5 button:hover,
+.articulo-tag .fila5 button:focus {
+  box-shadow: none;
+  border-color: var(--color-primario) !important;
+}
