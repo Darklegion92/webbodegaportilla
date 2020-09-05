@@ -1,0 +1,76 @@
+.contacto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+.contacto * {
+  color: var(--color-primario) !important;
+  box-shadow: none;
+}
+.contacto .ant-row {
+  text-align: center;
+  justify-content: center;
+}
+
+.contacto .ant-row span {
+  font-size: 20px;
+  line-height: 1px;
+}
+.contacto input.ant-input.ant-input-lg,
+.contacto input.ant-input.ant-input-lg :hover,
+.contacto input.ant-input.ant-input-lg :focus {
+  background-color: var(--color-secundario);
+  border: none;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.contacto div.ant-col.ant-form-item-label {
+  margin: auto;
+}
+
+.contacto .ant-col.ant-form-item-label label {
+  font-size: 20px;
+}
+
+.contacto .ant-col .ant-col-24 {
+  margin: 20px 0 20px 0;
+}
+.contacto .ant-col .ant-col-24 a {
+  font-weight: bold;
+}
+.contacto .ant-form-item-explain > div {
+  color: red !important;
+}
+
+.contacto .ant-row span {
+  text-align: start;
+  font-size: 15px;
+  border-color: var(--color-primario) !important;
+}
+
+.contacto .ant-checkbox-checked .ant-checkbox-inner,
+.contacto .ant-checkbox:focus {
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
+  box-shadow: none;
+}
+.contacto button {
+  margin: 0 5%;
+  font-size: 25px;
+  font-weight: bold;
+  height: auto;
+  background-color: white;
+  border-color: var(--color-primario);
+  border-radius: 10px;
+}
+
+.contacto button:hover,
+.contacto button:focus {
+  background-color: white;
+  box-shadow: none;
+  border-color: var(--color-primario);
+  transform: scale(1.12);
+}

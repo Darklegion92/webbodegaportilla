@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Form, Input, Button, Checkbox, Col, Row, Typography } from "antd";
 import { useMediaQuery } from "react-responsive";
 
+import "./styles.css";
+
+const { Text, Title } = Typography;
 const FormularioRegistro = () => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
@@ -25,80 +28,71 @@ const FormularioRegistro = () => {
     </svg>
   );
   return (
-    <>
-      <Form onValuesChange={onFormLayoutChange} layout="vertical" size="small">
-        <Form.Item>
-          <Row gutter={16}>
-            <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Nombres">
-                <Input />
-              </Form.Item>
-            </Col>
-            <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Apellido">
-                <Input />
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={16}>
-            <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Email">
-                <Input />
-              </Form.Item>
-            </Col>
-            <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Contraseña">
-                <Input.Password
-                  style={{
-                    borderRadius: "5px",
-                    backgroundColor: "var(--color-secundario)",
-                  }}
-                />
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row>
-            <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Celular(opcional)">
-                <Input />
-              </Form.Item>
-            </Col>
-          </Row>
-        </Form.Item>
-        <Col span={24}>
-          <Form.Item>
-            <Checkbox checked={true}>
-              Me gustaría recibir comunicaciones promocionales (Recibirás un
-              e-mail de confirmación)
-            </Checkbox>
+    <Form
+      onValuesChange={onFormLayoutChange}
+      layout="vertical"
+      size="large"
+      className="contacto"
+    >
+      <Row>
+        <Col span={20}>
+          <Title>CONTACTANOS</Title>
+          <Text>
+            Al diligenciar el siguiente formulario, uno de nuestros asesores te
+            contactará para brindarte toda la información que necesitas
+          </Text>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={14}>
+          <Form.Item label="Nombre">
+            <Input />
           </Form.Item>
-          <Form.Item
-            name="agreement"
-            valuePropName="checked"
-            rules={[
-              {
-                validator: (_, value) =>
-                  value
-                    ? Promise.resolve()
-                    : Promise.reject("Debe Aceptar Los Términos"),
-              },
-            ]}
-          >
-            <Checkbox>
-              Declaro que he leido y acepto la nueva{" "}
-              <a href="">Política de Privacidad</a> y los{" "}
-              <a href="">Términos y Condiciones</a> de bodega portilla
-            </Checkbox>
+          <Form.Item label="Email">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Celular">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Mensaje">
+            <Input />
+          </Form.Item>
+          <Form.Item>
+            <Col span={24}>
+              <Form.Item>
+                <Checkbox checked={true}>
+                  Me gustaría recibir comunicaciones promocionales (Recibirás un
+                  e-mail de confirmación)
+                </Checkbox>
+              </Form.Item>
+              <Form.Item
+                name="agreement"
+                valuePropName="checked"
+                rules={[
+                  {
+                    validator: (_, value) =>
+                      value
+                        ? Promise.resolve()
+                        : Promise.reject("Debe Aceptar Los Términos"),
+                  },
+                ]}
+              >
+                <Checkbox>
+                  Declaro que he leido y acepto la nueva{" "}
+                  <a href="">Política de Privacidad</a> y los{" "}
+                  <a href="">Términos y Condiciones</a> de bodega portilla
+                </Checkbox>
+              </Form.Item>
+            </Col>
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              ENVIAR
+            </Button>
           </Form.Item>
         </Col>
-        <Form.Item>
-          <Button>
-            COMPLETAR REGISTRO
-            <Shield />
-          </Button>
-        </Form.Item>
-      </Form>
-    </>
+      </Row>
+    </Form>
   );
 };
 

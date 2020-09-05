@@ -113,7 +113,9 @@ function Encabezado() {
                 </a>
               </Menu.Item>
               <Menu.Item>
-                <Text>CONTACTO</Text>
+                <Link to="/contacto">
+                  <Text>CONTACTO</Text>
+                </Link>
               </Menu.Item>
               <div className="botones">
                 <Button
@@ -201,9 +203,11 @@ function Encabezado() {
               </Title>
             </Menu.Item>
             <Menu.Item key="contacto">
-              <Title level={3} className="items" code={true}>
-                CONTACTO
-              </Title>
+              <Link to="/contacto">
+                <Title level={3} className="items" code={true}>
+                  CONTACTO
+                </Title>
+              </Link>
             </Menu.Item>
           </Menu>
         </Col>

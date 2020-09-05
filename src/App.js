@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Switch,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import { Layout } from "antd";
 import { useMediaQuery } from "react-responsive";
 import { ImWhatsapp } from "react-icons/im";
@@ -18,6 +14,7 @@ import SeccionRecomendaciones from "./componentes/SeccionRecomendaciones";
 import Pie from "./componentes/Pie";
 import Validacion from "./componentes/Validacion";
 import Tienda from "./componentes/Tienda";
+import Contactanos from "./componentes/Contactanos";
 
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -41,6 +38,9 @@ function App() {
           <Validacion />
         </Route>
         <Route path="/">
+          <Route path="/contacto" exact>
+            <Contactanos />
+          </Route>
           <Route path="/shop" exact>
             <ImWhatsapp size={70} className="whats-icon" />
             <Content>
