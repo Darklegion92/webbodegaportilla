@@ -158,7 +158,9 @@ function Encabezado() {
           </Link>
         </Col>
         <Col span={6}>
-          <Car className="icons" />
+          <Link to="/carshop">
+            <Car className="icons" />
+          </Link>
         </Col>
       </Row>
     );
@@ -237,7 +239,7 @@ function Encabezado() {
             <SubMenu
               title=""
               icon={
-                <Link to="/shop">
+                <Link to="/carshop">
                   <Car className="icons" />
                 </Link>
               }

@@ -1,3 +1,6 @@
+.car-shop{
+  margin-left: 20px!important;
+}
 /*Resumen*/
 .car-shop .resumen {
   border: solid 1px var(--color-primario);
@@ -98,15 +101,165 @@
   flex-direction: row;
   align-items: center;
   margin: 10px 0;
+  padding: 10px 0;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
-.car-shop .car-articulos .item div.ant-col.ant-col-12 {
+.car-shop .car-articulos .item div.ant-col.ant-col-16 {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.car-shop .car-articulos .item .ant-col.ant-col-12 h3.ant-typography {
-  color: var(--color-primario)!important;
+.car-shop .car-articulos .item .ant-col.ant-col-8 h3.ant-typography {
+  color: var(--color-primario) !important;
+}
+
+.car-shop .car-articulos .item .ant-col.ant-col-16 .ant-row {
+  width: 100%;
+}
+
+.car-shop .car-articulos .item .ant-col.ant-col-16 .ant-row .ant-col.ant-col-8,
+.car-shop .car-articulos .item .ant-col.ant-col-16 .ant-row .ant-col.ant-col-9 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.car-shop .car-articulos .item .ant-col.ant-col-16 .ant-row .ant-col.ant-col-3,
+.car-shop .car-articulos .item .ant-col.ant-col-16 .ant-row .ant-col.ant-col-4 {
+  display: flex;
+  align-items: center;
+}
+
+.car-shop
+  .car-articulos
+  .item
+  .ant-col.ant-col-16
+  .ant-row
+  .ant-col.ant-col-9
+  h3.ant-typography {
+  color: red;
+}
+
+.car-shop
+  .car-articulos
+  .item
+  .ant-col.ant-col-16
+  .ant-row
+  .ant-col.ant-col-8
+  h4.ant-typography {
+  color: var(--color-primario) !important;
+  font-weight: normal;
+}
+
+.car-shop
+  .car-articulos
+  .item
+  .ant-col.ant-col-16
+  .ant-row
+  .ant-col.ant-col-4
+  div.ant-input-number {
+  border-color: var(--color-primario);
+  color: var(--color-primario);
+}
+
+.car-shop
+  .car-articulos
+  .item
+  .ant-col.ant-col-16
+  .ant-row
+  .ant-col.ant-col-3
+  svg:hover {
+  cursor: pointer;
+}
+
+/*formulario datos envio*/
+
+.car-shop .formulario-datosenvio input,
+.car-shop .formulario-datosenvio div.ant-select-selector {
+  background-color: var(--color-secundario);
+  border-radius: 6px;
+  border: none;
+  font-size: 17px;
+}
+.car-shop .formulario-datosenvio input:hover,
+.car-shop .formulario-datosenvio input:focus,
+.car-shop .formulario-datosenvio div.ant-select-selector:hover,
+.car-shop .formulario-datosenvio div.ant-select-selector:focus,
+.car-shop .formulario-datosenvio div.ant-select-selector:target,
+.car-shop .formulario-datosenvio button.ant-btn:hover,
+.car-shop .formulario-datosenvio button.ant-btn:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.car-shop .formulario-datosenvio h3.ant-typography {
+  margin-left: 90px;
+  margin-top: 40px;
+  color: var(--color-primario);
+}
+
+.car-shop .formulario-datosenvio .ant-row .ant-form-item label {
+  color: var(--color-primario) !important  ;
+  font-size: 16px;
+  line-height: 0;
+}
+
+.car-shop .formulario-datosenvio button.ant-btn {
+  border-radius: 5px;
+  background-color: var(--color-primario);
+  color: white;
+}
+
+.car-shop .formulario-datosenvio span.ant-radio-inner {
+  border-color: var(--color-primario) !important;
+  box-shadow: none;
+}
+
+.car-shop .formulario-datosenvio span.ant-radio-inner::after {
+  background-color: var(--color-primario);
+}
+
+/*Steps*/
+
+.car-shop .steps-content{
+  min-height: 530px;
+}
+.car-shop .ant-steps-item-container {
+  border-color: white;
+}
+.car-shop .ant-steps-item-container * {
+  color: var(--color-primario) !important;
+}
+
+.car-shop .ant-steps-item-container .ant-steps-item-icon {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.car-shop .ant-steps-navigation .ant-steps-item::before {
+  border: solid 1px var(--color-primario);
+}
+
+.car-shop .steps-action button {
+  color: white;
+  background-color: var(--color-primario);
+  border-radius: 10px;
+}
+
+.car-shop .ant-btn-primary {
+  box-shadow: none;
+  border-color: var(--color-primario);
+}
+.car-shop .steps-action button:hover,
+.car-shop .steps-action button:focus,
+.car-shop .steps-action button::selection {
+  box-shadow: none;
+  border-color: var(--color-primario);
 }

@@ -6,8 +6,8 @@ import Resumen from "./Resumen";
 
 const CarShop = () => {
   return (
-    <Row className="car-shop">
-      <Col span="18">
+    <Row className="car-shop" gutter={20}>
+      <Col span="17">
         <StepPagos />
       </Col>
       <Col span="6">
