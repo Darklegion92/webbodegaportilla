@@ -58,7 +58,7 @@ const steps = [
 ];
 
 const StepPagos = () => {
-  const [current, setCurrent] = useState(1);
+  const [current, setCurrent] = useState(0);
   const next = () => {
     const current1 = current + 1;
     setCurrent(current1);
