@@ -8,7 +8,10 @@ const { Title } = Typography;
 
 function SeccionEmpresa() {
   return (
-    <div className="seccionproductos" styles="padding-top: 40px; margin-top: -40px">
+    <div
+      className="seccionproductos"
+      styles="padding-top: 40px; margin-top: -40px"
+    >
       <Title lvl={1}>PRODUCTOS</Title>
       <div className="agrupaciones">
         <div>

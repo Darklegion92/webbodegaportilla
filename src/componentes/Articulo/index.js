@@ -1,6 +1,5 @@
 import React from "react";
 import { Typography, InputNumber, Button, Row, Col } from "antd";
-
 import "./styles.css";
 
 const { Text } = Typography;

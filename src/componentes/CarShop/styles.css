@@ -1,0 +1,112 @@
+/*Resumen*/
+.car-shop .resumen {
+  border: solid 1px var(--color-primario);
+  border-top: none;
+  padding-top: 60px;
+  padding: 60px 15px 0 15px;
+}
+.car-shop .resumen .ant-row {
+  width: 100%;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.car-shop .resumen h3.ant-typography {
+  width: 100%;
+  color: var(--color-primario);
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.car-shop .resumen .ant-col-11 span.ant-typography,
+.car-shop .resumen .ant-col-10 span.ant-typography,
+.car-shop .resumen .ant-col-24 span.ant-typography {
+  color: var(--color-primario);
+  font-size: 23px;
+}
+
+.car-shop .resumen .ant-col-24 {
+  margin-top: 20px;
+}
+
+.car-shop .resumen .ant-col-24 input.ant-input {
+  border-color: var(--color-primario);
+}
+
+.car-shop .resumen .ant-col-24 input.ant-input:hover,
+.car-shop .resumen .ant-col-24 input.ant-input:focus {
+  box-shadow: none;
+}
+.car-shop .resumen div.ant-col-9 {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.car-shop .resumen .ant-col-24 button.ant-btn {
+  width: 100%;
+  border-color: var(--color-primario);
+  border-radius: 10px;
+  color: white;
+  background-color: var(--color-primario);
+}
+
+.car-shop .resumen div.ant-col-13,
+.car-shop .resumen div.ant-col-14 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.car-shop .resumen .ant-col-13 .ant-typography {
+  color: red;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.car-shop .resumen .ant-col-14 .ant-typography {
+  color: var(--color-primario);
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.car-shop .resumen h1.ant-typography {
+  width: 100%;
+  color: red;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 30px;
+}
+.car-shop .resumen h2.ant-typography {
+  width: 100%;
+  color: var(--color-primario);
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+
+/*carArticulos*/
+
+.car-shop .car-articulos {
+  margin: 30px 40px;
+}
+
+.car-shop .car-articulos .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.car-shop .car-articulos .item div.ant-col.ant-col-12 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.car-shop .car-articulos .item .ant-col.ant-col-12 h3.ant-typography {
+  color: var(--color-primario)!important;
+}

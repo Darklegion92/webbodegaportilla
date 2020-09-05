@@ -49,7 +49,7 @@
   zoom: 105%;
 }
 .validacion .footer path {
-  color: blue !important;
+  color: #3b5998 !important;
 }
 .validacion .footer svg,
 .validacion .footer img {
@@ -153,6 +153,7 @@
 .validacion .body .ant-tabs-tabpane button {
   min-width: 90%;
   margin: 0 5%;
+  margin-bottom: 3%;
   font-size: 25px;
   font-weight: bold;
   height: auto;

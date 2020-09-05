@@ -61,7 +61,7 @@
 .head .items code:visited {
   display: flex;
   align-items: center;
-  justify-content: cente5;
+  justify-content: center;
   border: 0;
   padding-top: 0;
   padding-bottom: 2px;
@@ -132,7 +132,7 @@
   font-weight: bold;
 }
 
-.ant-menu-vertical> .botones{
+.ant-menu-vertical > .botones {
   display: flex;
   flex-direction: column;
   justify-content: center;

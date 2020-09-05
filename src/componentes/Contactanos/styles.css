@@ -65,6 +65,7 @@
   background-color: white;
   border-color: var(--color-primario);
   border-radius: 10px;
+  padding: 0 35px;
 }
 
 .contacto button:hover,

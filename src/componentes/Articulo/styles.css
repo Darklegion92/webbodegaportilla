@@ -1,11 +1,10 @@
-.articulo-tag *.ant-typography {
-  color: var(--color-primario);
-}
-
 .articulo-tag .fila1 {
   font-size: 30px;
   font-weight: bold;
   margin-top: 20px;
+}
+.articulo-tag .fila1 .ant-typography {
+  color: var(--color-primario) !important;
 }
 .articulo-tag .fila2 .cuerpo {
   font-size: 14px;
@@ -14,11 +13,13 @@
   line-height: 15px;
   overflow-y: scroll;
   margin-top: 5px;
+  color: var(--color-cuaternario) !important;
 }
 .articulo-tag .fila2 .titulo {
   font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
+  color: var(--color-primario);
 }
 
 .articulo-tag .fila2 .cuerpo::-webkit-scrollbar {
@@ -26,21 +27,24 @@
 }
 
 .articulo-tag .fila3 .ant-typography {
-  text-align: center;
+  color: var(--color-primario) !important;
   width: 100%;
+  padding-left: 10px;
 }
 
 .articulo-tag .fila4 .ant-typography {
-  text-align: center;
+  padding-left: 10px;
   width: 100%;
   font-size: 45px;
   font-weight: bold;
+  color: var(--color-primario) !important;
 }
 
 .articulo-tag .fila5 .ant-typography {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--color-terciario);
 }
 .articulo-tag .fila5 .ant-input-number {
   color: var(--color-primario);

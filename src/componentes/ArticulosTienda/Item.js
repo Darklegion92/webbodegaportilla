@@ -11,6 +11,7 @@ const Item = ({ articulo, id, onClick }) => {
         <Text className="descripcion">{articulo.descripcion}</Text>
         <Text strong className="precio">
           {articulo.precio}
+          <br />
         </Text>
         <Text className="embalaje">{articulo.embalaje}</Text>
       </div>

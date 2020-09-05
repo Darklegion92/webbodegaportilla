@@ -15,6 +15,7 @@ import Pie from "./componentes/Pie";
 import Validacion from "./componentes/Validacion";
 import Tienda from "./componentes/Tienda";
 import Contactanos from "./componentes/Contactanos";
+import CarShop from "./componentes/CarShop";
 
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -38,8 +39,15 @@ function App() {
           <Validacion />
         </Route>
         <Route path="/">
+          <Route path="/carshop" exact>
+            <Content>
+              <CarShop />
+            </Content>
+          </Route>
           <Route path="/contacto" exact>
-            <Contactanos />
+            <Content>
+              <Contactanos />
+            </Content>
           </Route>
           <Route path="/shop" exact>
             <ImWhatsapp size={70} className="whats-icon" />

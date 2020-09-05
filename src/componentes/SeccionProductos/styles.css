@@ -11,6 +11,10 @@
   width: 100%;
 }
 
+.seccionproductos a:hover {
+  text-decoration: none;
+}
+
 .seccionproductos h2.ant-typography {
   color: var(--color-primario) !important;
   font-size: 50px;
@@ -29,7 +33,6 @@
   margin-top: 30px;
   width: 100%;
 }
-
 .seccionproductos h1.ant-typography {
   color: var(--color-primario) !important;
   font-size: 50px;

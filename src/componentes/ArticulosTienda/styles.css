@@ -113,8 +113,9 @@
 }
 
 .articulos-tienda .item .precio.ant-typography {
-  font-size: 20px;
+  font-size: 21px;
   color: var(--color-primario);
+  line-height: 1px;
 }
 .articulos-tienda .item .embalaje.ant-typography {
   font-size: 13px;
@@ -149,7 +150,7 @@
   margin-top: 30px;
 }
 .articulos-tienda .paginacion .ant-pagination * {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .articulos-tienda .paginacion .ant-pagination .ant-pagination-item-link {
