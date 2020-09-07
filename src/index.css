@@ -4,6 +4,9 @@
   --color-terciario: #664a36;
   --color-cuaternario: #294c0a;
 }
+a {
+  text-decoration: none!important;
+}
 
 * {
   font-family: "Lato" !important;

@@ -87,7 +87,9 @@
   align-items: center;
   justify-content: center;
 }
-
+svg:not {
+  color: var(--color-primario);
+}
 .head a {
   color: var(--color-primario) !important;
   font-size: 17px !important;
@@ -106,6 +108,16 @@
 .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item {
   margin: 0 !important;
   padding-left: 20px !important;
+}
+
+.head div.ant-col.ant-col-6 {
+  background-color: black !important;
+}
+
+/*prueba menu*/
+
+.ant-menu-vertical > .ant-menu-item {
+  height: auto !important;
 }
 
 /*movile*/
@@ -152,6 +164,6 @@
 .ant-menu-vertical {
   border-right: none !important;
 }
-.ant-menu-vertical > .ant-menu-item {
-  border-bottom: solid 1px black;
+li.ant-menu-item.ant-menu-item-only-child {
+  border-bottom: solid 1px var(--color-primario) !important;
 }

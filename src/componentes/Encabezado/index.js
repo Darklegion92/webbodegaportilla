@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Row, Col, Menu, Typography, Drawer, Button } from "antd";
 import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
-import { ImExit } from "react-icons/im";
+import { CgLogOut, CgLogIn } from "react-icons/cg";
+import { ImTruck } from "react-icons/im";
 import { useMediaQuery } from "react-responsive";
+
+import { GlobalContext } from "../../Context/GlobalContext";
+import MenuCarrito from "./MenuCarrito";
+
 import "./styles.css";
 
 const { SubMenu } = Menu;
 const { Text, Title } = Typography;
+
 const Person = () => (
   <svg
     t="1598405106235"
@@ -26,6 +32,7 @@ const Person = () => (
     ></path>
   </svg>
 );
+
 const Car = () => (
   <svg
     t="1598406177234"
@@ -44,15 +51,22 @@ const Car = () => (
     ></path>
   </svg>
 );
+
 function Encabezado() {
   const [current, setCurrent] = useState();
   const [visible, setVisible] = useState(false);
+  const { user, login, logout, carrito } = useContext(GlobalContext);
+
   const handleClick = (e) => {
-    console.log("click ", e);
-    setCurrent(e.key);
+    if (e.key === "2") {
+      logout();
+    }
   };
 
   const onClick = (e) => {
+    if (e.key === "item_7") {
+      logout();
+    }
     setVisible(false);
   };
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
@@ -78,18 +92,10 @@ function Encabezado() {
             key="left"
           >
             <Menu onClick={onClick}>
-              {/*<Menu.Item>
-                <ImTruck
-                  size={20}
-                  color="var(--color-primario)"
-                  style={{ marginRight: "10px" }}
-                />
-                <Text>PEDIDOS</Text>
-              </Menu.Item>*/}
               <Menu.Item>
-                <Link to="/">
+                <a href="#home">
                   <Text>INICIO</Text>
-                </Link>
+                </a>
               </Menu.Item>
               <Menu.Item>
                 <a href="#quienessomos">
@@ -117,38 +123,64 @@ function Encabezado() {
                   <Text>CONTACTO</Text>
                 </Link>
               </Menu.Item>
-              <div className="botones">
-                <Button
-                  style={{
-                    color: "white",
-                    backgroundColor: "var(--color-primario)",
-                    fontSize: "20px",
-                    borderRadius: "10px",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    padding: "0",
-                    width: "100%",
-                    margin: "20px 0 10px 0",
-                  }}
-                >
-                  <Link to="/login"> INICIAR SESION</Link>
-                </Button>
-                <Button
-                  style={{
-                    color: "var(--color-primario)",
-                    backgroundColor: "white",
-                    border: "2px solid var(--color-terciario)",
-                    fontSize: "15px",
-                    borderRadius: "10px",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    padding: "0",
-                    width: "75%",
-                  }}
-                >
-                  <Link to="/login">REGISTRARSE </Link>
-                </Button>
-              </div>
+              {user != null && (
+                <Menu.Item>
+                  <Link to="">
+                    <ImTruck
+                      size={20}
+                      color="var(--color-primario)"
+                      style={{ marginRight: "10px" }}
+                    />
+                    <Text>PEDIDOS</Text>
+                  </Link>
+                </Menu.Item>
+              )}
+              {user != null && (
+                <Menu.Item>
+                  <Link>
+                    <CgLogOut
+                      size={20}
+                      color="var(--color-primario)"
+                      style={{ marginRight: "10px" }}
+                    />
+                    <Text>SALIR</Text>
+                  </Link>
+                </Menu.Item>
+              )}
+              {user === null && (
+                <div className="botones">
+                  <Button
+                    style={{
+                      color: "white",
+                      backgroundColor: "var(--color-primario)",
+                      fontSize: "20px",
+                      borderRadius: "10px",
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      padding: "0",
+                      width: "100%",
+                      margin: "20px 0 10px 0",
+                    }}
+                  >
+                    <Link to="/login"> INICIAR SESION</Link>
+                  </Button>
+                  <Button
+                    style={{
+                      color: "var(--color-primario)",
+                      backgroundColor: "white",
+                      border: "2px solid var(--color-terciario)",
+                      fontSize: "15px",
+                      borderRadius: "10px",
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      padding: "0",
+                      width: "75%",
+                    }}
+                  >
+                    <Link to="/login">REGISTRARSE </Link>
+                  </Button>
+                </div>
+              )}
             </Menu>
           </Drawer>
         </Col>
@@ -165,6 +197,8 @@ function Encabezado() {
       </Row>
     );
   }
+
+  /**Escritoio */
   return (
     <div className="head">
       <Row align="middle" justify="center">
@@ -181,7 +215,7 @@ function Encabezado() {
           >
             <Menu.Item key="inicio">
               <Title level={3} className="items" code={true}>
-                <Link to={{ pathname: "/", hash: "#home" }}>INICIO</Link>
+                <a href="#home">INICIO</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="quienes">
@@ -219,31 +253,66 @@ function Encabezado() {
             style={{ alignItems: "flex-end" }}
           >
             <SubMenu icon={<Person className="icons" />}>
-              {/*  <Menu.Item
-                className="item-menu"
-                key="1"
-                icon={<ImTruck size={30} />}
-              >
-                <Text>Pedidos</Text>
-            </Menu.Item>*/}
-              <Menu.Item
-                key="2"
-                className="item-menu"
-                icon={<ImExit size={30} />}
-              >
-                <Link to="/login">
-                  <Text className="item-menu">Ingresar</Text>
-                </Link>
+              {user != null && (
+                <Menu.Item
+                  className="item-menu"
+                  key="1"
+                  icon={
+                    <ImTruck
+                      size={30}
+                      style={{
+                        marginRight: "10px",
+                        color: "var(--color-primario)",
+                      }}
+                    />
+                  }
+                >
+                  <Text>Pedidos</Text>
+                </Menu.Item>
+              )}
+              {user != null && (
+                <Menu.Item
+                  key="2"
+                  className="item-menu"
+                  icon={
+                    <CgLogOut
+                      size={30}
+                      color="var(--color-primario)"
+                      style={{
+                        marginRight: "10px",
+                        color: "var(--color-primario)",
+                      }}
+                    />
+                  }
+                >
+                  <Text className="item-menu">Salir</Text>
+                </Menu.Item>
+              )}
+              {user == null && (
+                <Menu.Item
+                  key="2"
+                  className="item-menu"
+                  icon={
+                    <CgLogIn
+                      size={30}
+                      style={{
+                        marginRight: "10px",
+                        color: "var(--color-primario)",
+                      }}
+                    />
+                  }
+                >
+                  <Link to="/login">
+                    <Text className="item-menu">Ingresar</Text>
+                  </Link>
+                </Menu.Item>
+              )}
+            </SubMenu>
+            <SubMenu title="" icon={<Car className="icons" />}>
+              <Menu.Item>
+                <MenuCarrito carrito={carrito} />
               </Menu.Item>
             </SubMenu>
-            <SubMenu
-              title=""
-              icon={
-                <Link to="/carshop">
-                  <Car className="icons" />
-                </Link>
-              }
-            ></SubMenu>
           </Menu>
         </Col>
       </Row>

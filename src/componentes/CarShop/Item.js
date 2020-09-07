@@ -30,7 +30,7 @@ const Item = ({ articulo }) => {
             </Title>
           </Col>
           <Col span={3}>
-            <GoTrashcan color="red" size={50} />
+            <GoTrashcan color="red" size={30} />
           </Col>
         </Row>
       </Col>

@@ -1,5 +1,5 @@
-.car-shop{
-  margin-left: 20px!important;
+.car-shop {
+  margin-left: 20px !important;
 }
 /*Resumen*/
 .car-shop .resumen {
@@ -226,7 +226,7 @@
 
 /*Steps*/
 
-.car-shop .steps-content{
+.car-shop .steps-content {
   min-height: 530px;
 }
 .car-shop .ant-steps-item-container {
@@ -263,3 +263,4 @@
   box-shadow: none;
   border-color: var(--color-primario);
 }
+

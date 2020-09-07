@@ -16,6 +16,7 @@ import Validacion from "./componentes/Validacion";
 import Tienda from "./componentes/Tienda";
 import Contactanos from "./componentes/Contactanos";
 import CarShop from "./componentes/CarShop";
+import { GlobalProvider } from "./Context/GlobalContext";
 
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -31,7 +32,9 @@ function App() {
       <ImWhatsapp size={70} className="whats-icon" />
       {location !== "/login" && (
         <Header id="home">
-          <Encabezado />
+          <GlobalProvider>
+            <Encabezado />
+          </GlobalProvider>
         </Header>
       )}
       <Switch>
