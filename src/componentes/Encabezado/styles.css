@@ -128,7 +128,6 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
 }
 .menu-carrito {
   cursor: default !important;
-  display: flex;
   width: 250px;
   align-items: center;
   justify-content: center;
