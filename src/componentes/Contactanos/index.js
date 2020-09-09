@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Checkbox, Col, Row, Typography } from "antd";
 import { useMediaQuery } from "react-responsive";
 
@@ -6,6 +6,9 @@ import "./styles.css";
 
 const { Text, Title } = Typography;
 const FormularioRegistro = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const onFormLayoutChange = () => {};

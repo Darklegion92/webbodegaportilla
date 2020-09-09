@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Typography, Tabs, Button } from "antd";
 import { AiFillFacebook } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -15,6 +15,9 @@ const callback = (key) => {
   console.log(key);
 };
 const Validacion = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
 
@@ -59,7 +62,7 @@ const Validacion = () => {
       </Row>
       <Row align="center" justify="center" className="body">
         <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 22 : 7}>
-          <Tabs defaultActiveKey="2" onChange={callback} size="large" centered>
+          <Tabs defaultActiveKey="1" onChange={callback} size="large" centered>
             <TabPane tab="INICIAR SESION" key="1">
               <FormularioIngreso />
             </TabPane>

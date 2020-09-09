@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col } from "antd";
 
 import StepPagos from "./StepPagos";
 import Resumen from "./Resumen";
 
 const CarShop = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Row className="car-shop" gutter={20}>
       <Col span="17">

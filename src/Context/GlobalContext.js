@@ -40,6 +40,41 @@ const GlobalProvider = ({ children }) => {
       cantidad: 10,
       embalaje: "Gr",
     },
+    {
+      img: "img/articulodefecto.jpeg",
+      nombre: "Articulo Unico",
+      precio: 1000,
+      cantidad: 10,
+      embalaje: "Gr",
+    },
+    {
+      img: "img/articulodefecto.jpeg",
+      nombre: "Articulo Unico",
+      precio: 1000,
+      cantidad: 10,
+      embalaje: "Gr",
+    },
+    {
+      img: "img/articulodefecto.jpeg",
+      nombre: "Articulo Unico",
+      precio: 1000,
+      cantidad: 10,
+      embalaje: "Gr",
+    },
+    {
+      img: "img/articulodefecto.jpeg",
+      nombre: "Articulo Unico",
+      precio: 1000,
+      cantidad: 10,
+      embalaje: "Gr",
+    },
+    {
+      img: "img/articulodefecto.jpeg",
+      nombre: "Articulo Unico",
+      precio: 1000,
+      cantidad: 10,
+      embalaje: "Gr",
+    },
   ]);
 
   const login = () => {

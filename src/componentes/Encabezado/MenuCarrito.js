@@ -1,15 +1,15 @@
 import React from "react";
 import { Col, Row, Typography, Button } from "antd";
-
+import { Link } from "react-router-dom";
 import Item from "./ItemMenu";
 
 const { Text, Title } = Typography;
 
-const MenuCarrito = ({ carrito }) => {
+const MenuCarrito = ({ carrito, cerrar }) => {
   let total = 0;
   return (
     <Col className="menu-carrito" span={24}>
-      <Col>
+      <Col className="items">
         {carrito.map((articulo) => {
           total += articulo.precio * articulo.cantidad;
           return (
@@ -21,10 +21,16 @@ const MenuCarrito = ({ carrito }) => {
       </Col>
       <Row>
         <Title>TOTAL</Title>
-        <Text>{total}</Text>
+        <Text>$ {total} COP</Text>
       </Row>
       <Row>
-        <Button>IR AL CARRITO</Button>
+        <Button
+          onClick={() => {
+            cerrar(false);
+          }}
+        >
+          <Link to="/carshop">IR AL CARRITO</Link>
+        </Button>
       </Row>
     </Col>
   );

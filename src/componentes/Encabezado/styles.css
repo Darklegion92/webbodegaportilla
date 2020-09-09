@@ -120,6 +120,99 @@ svg:not {
   height: auto !important;
 }
 
+/*menu carrito*/
+
+div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidden {
+  width: max-content;
+  cursor: default !important;
+}
+.menu-carrito {
+  cursor: default !important;
+  display: flex;
+  width: 250px;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-carrito .items {
+  max-height: 250px;
+  overflow-y: scroll;
+}
+
+.menu-carrito .items::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+.menu-carrito .items::-webkit-scrollbar-thumb {
+  background: var(--color-primario);
+  border-radius: 4px;
+}
+
+.menu-carrito .items > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-carrito .items .item-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0px;
+  margin: 10px 0;
+}
+
+.menu-carrito .items .ant-row {
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-carrito .items .item-menu .ant-col .ant-col-6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-carrito .items .item-menu .ant-col-18 {
+  text-align: right;
+}
+
+.menu-carrito h1.ant-typography {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  line-height: 10px;
+}
+
+.menu-carrito span.ant-typography {
+  line-height: 10px;
+  font-weight: normal;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
+.menu-carrito a {
+  width: 100%;
+}
+.menu-carrito button {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 20px;
+  background-color: var(--color-primario);
+  color: white;
+  border-radius: 10px;
+}
+
+.menu-carrito button:hover,
+.menu-carrito button:focus,
+.menu-carrito button:target {
+  box-shadow: none;
+  border-color: var(--color-primario);
+  color: var(--color-primario);
+}
+
 /*movile*/
 .head-movil {
   padding: 20px 0;
@@ -166,4 +259,10 @@ svg:not {
 }
 li.ant-menu-item.ant-menu-item-only-child {
   border-bottom: solid 1px var(--color-primario) !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .menu-carrito .items {
+    max-height: 550px;
+  }
 }

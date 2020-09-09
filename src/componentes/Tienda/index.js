@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Modal } from "antd";
 import FiltrosTienda from "../FiltrosTienda";
 import ArticulosTienda from "../ArticulosTienda";
@@ -204,6 +204,9 @@ const articulos = [
 ];
 
 const Tienda = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [modalArticulo, setModalArticulo] = useState(false);
   const [modalComprado, setModalComprado] = useState(false);
   const [articuloSeleccionado, setArticuloSeleccionado] = useState();

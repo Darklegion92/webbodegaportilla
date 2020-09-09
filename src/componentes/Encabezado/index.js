@@ -54,7 +54,8 @@ const Car = () => (
 
 function Encabezado() {
   const [current, setCurrent] = useState();
-  const [visible, setVisible] = useState(false);
+  const [visibleLeft, setVisibleLeft] = useState(false);
+  const [visibleRight, setVisibleRight] = useState(false);
   const { user, login, logout, carrito } = useContext(GlobalContext);
 
   const handleClick = (e) => {
@@ -67,7 +68,7 @@ function Encabezado() {
     if (e.key === "item_7") {
       logout();
     }
-    setVisible(false);
+    setVisibleLeft(false);
   };
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
@@ -78,7 +79,10 @@ function Encabezado() {
         <Col span={6}>
           <MenuOutlined
             onClick={() => {
-              setVisible(!visible);
+              setVisibleLeft(!visibleLeft);
+              if (visibleRight && !visibleLeft) {
+                setVisibleRight(false);
+              }
             }}
           />
           <Drawer
@@ -86,9 +90,9 @@ function Encabezado() {
             placement="left"
             closable={false}
             onClose={() => {
-              setVisible(!visible);
+              setVisibleLeft(false);
             }}
-            visible={visible}
+            visible={visibleLeft}
             key="left"
           >
             <Menu onClick={onClick}>
@@ -190,9 +194,29 @@ function Encabezado() {
           </Link>
         </Col>
         <Col span={6}>
-          <Link to="/carshop">
+          <div
+            onClick={() => {
+              setVisibleRight(!visibleRight);
+              if (!visibleRight && visibleLeft) {
+                setVisibleLeft(false);
+              }
+            }}
+          >
             <Car className="icons" />
-          </Link>
+          </div>
+
+          <Drawer
+            style={{ marginTop: "92px" }}
+            placement="right"
+            closable={false}
+            onClose={() => {
+              setVisibleRight(false);
+            }}
+            visible={visibleRight}
+            key="right"
+          >
+            <MenuCarrito carrito={carrito} cerrar={setVisibleRight} />
+          </Drawer>
         </Col>
       </Row>
     );
