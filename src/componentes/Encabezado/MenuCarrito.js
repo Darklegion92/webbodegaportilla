@@ -20,7 +20,7 @@ const MenuCarrito = ({ carrito, cerrar }) => {
         })}
       </Col>
       <Row className="totales">
-        <Title>TOTAL</Title>
+        <Title level={4}>TOTAL</Title>
         <Text>$ {total} COP</Text>
       </Row>
       <Row>

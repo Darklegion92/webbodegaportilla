@@ -186,7 +186,7 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   text-align: right;
 }
 
-.menu-carrito h1.ant-typography {
+.menu-carrito h4.ant-typography {
   margin-top: 20px;
   text-align: center;
   width: 100%;
@@ -195,7 +195,7 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
 
 .menu-carrito .totales span.ant-typography {
   line-height: 14px;
-  font-size: 25px;
+  font-size: 21px;
   font-weight: normal;
   text-align: center;
   width: 100%;
