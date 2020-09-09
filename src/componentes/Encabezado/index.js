@@ -97,9 +97,9 @@ function Encabezado() {
           >
             <Menu onClick={onClick}>
               <Menu.Item>
-                <a href="#home">
+                <Link to="/">
                   <Text>INICIO</Text>
-                </a>
+                </Link>
               </Menu.Item>
               <Menu.Item>
                 <a href="#quienessomos">
@@ -239,7 +239,7 @@ function Encabezado() {
           >
             <Menu.Item key="inicio">
               <Title level={3} className="items" code={true}>
-                <a href="#home">INICIO</a>
+                <Link to="/">INICIO</Link>
               </Title>
             </Menu.Item>
             <Menu.Item key="quienes">

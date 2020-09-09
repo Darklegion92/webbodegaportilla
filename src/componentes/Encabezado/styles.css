@@ -82,6 +82,9 @@
 .head .icons:not(:focus) {
   color: var(--color-primario) !important;
 }
+.head .icons svg {
+  margin-bottom: 100px;
+}
 .head .item-menu {
   display: flex !important;
   align-items: center;
@@ -120,12 +123,17 @@ svg:not {
   height: auto !important;
 }
 
+.ant-menu-vertical > .ant-menu-item svg:not(:root) {
+  margin-bottom: 8px;
+}
+
 /*menu carrito*/
 
 div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidden {
   width: max-content;
   cursor: default !important;
 }
+
 .menu-carrito {
   cursor: default !important;
   width: 250px;
@@ -185,8 +193,9 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   line-height: 10px;
 }
 
-.menu-carrito span.ant-typography {
-  line-height: 10px;
+.menu-carrito .totales span.ant-typography {
+  line-height: 14px;
+  font-size: 25px;
   font-weight: normal;
   text-align: center;
   width: 100%;
@@ -202,14 +211,24 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   background-color: var(--color-primario);
   color: white;
   border-radius: 10px;
+  -webkit-transition: 0s all;
+  -webkit-transition-delay: 0s;
+  -moz-transition: 0s all;
+  -moz-transition-delay: 0s;
+  -ms-transition: 0s all;
+  -ms-transition-delay: 0s;
+  -o-transition: 0s all;
+  -o-transition-delay: 0s;
+  transition: 0s all;
+  transition-delay: 0s;
 }
 
 .menu-carrito button:hover,
 .menu-carrito button:focus,
 .menu-carrito button:target {
   box-shadow: none;
-  border-color: var(--color-primario);
   color: var(--color-primario);
+  border-color: var(--color-primario);
 }
 
 /*movile*/

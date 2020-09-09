@@ -19,7 +19,7 @@ const MenuCarrito = ({ carrito, cerrar }) => {
           );
         })}
       </Col>
-      <Row>
+      <Row className="totales">
         <Title>TOTAL</Title>
         <Text>$ {total} COP</Text>
       </Row>
