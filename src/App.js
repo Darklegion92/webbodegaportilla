@@ -27,6 +27,133 @@ function App() {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   let location = useLocation().pathname;
+
+  const articulos = [
+    {
+      imagen: "img/nuevos/nuevo (1).png",
+      codigo: "0",
+      enlace: "##",
+      nombre: "PERLAS ARCOIRIS",
+    },
+    {
+      imagen: "img/nuevos/nuevo (2).png",
+      codigo: "0",
+      enlace: "##",
+      nombre: "PERLAS MORADA",
+    },
+    {
+      imagen: "img/nuevos/nuevo (3).png",
+      codigo: "0",
+      enlace: "##",
+      nombre: "PERLAS X",
+    },
+    {
+      imagen: "img/nuevos/nuevo (5).png",
+      codigo: "0",
+      enlace: "##",
+      nombre: "CHIPS CHOCOLATE",
+    },
+    {
+      imagen: "img/nuevos/nuevo (6).png",
+      codigo: "0",
+      enlace: "##",
+      nombre: "CHISPAS",
+    },
+    {
+      imagen: "img/nuevos/nuevo (7).png",
+      codigo: "0",
+      enlace: "##",
+      nombre: "COLORES",
+    },
+    {
+      imagen: "img/nuevos/nuevo (8).png",
+      codigo: "0",
+      enlace: "##",
+      nombre: "CORAZONES",
+    },
+    {
+      imagen: "img/nuevos/nuevo (9).png",
+      codigo: "0",
+      enlace: "##",
+      nombre: "ESCARCHA",
+    },
+    {
+      imagen: "img/nuevos/nuevo (10).png",
+      codigo: "0",
+      enlace: "##",
+      nombre: "ESTRELLAS",
+    },
+    {
+      imagen: "img/nuevos/nuevo (11).png",
+      codigo: "0",
+      enlace: "##",
+      nombre: "GUSANITOS",
+    },
+    {
+      imagen: "img/nuevos/nuevo (12).png",
+      codigo: "0",
+      enlace: "##",
+      nombre: "COLORES",
+    },
+  ];
+  const articulos2 = [
+    {
+      imagen: "img/articulodefecto.jpeg",
+      codigo: "0",
+      enlace: "##",
+    },
+    {
+      imagen: "img/articulodefecto.jpeg",
+      codigo: "0",
+      enlace: "##",
+    },
+    {
+      imagen: "img/articulodefecto.jpeg",
+      codigo: "0",
+      enlace: "##",
+    },
+    {
+      imagen: "img/articulodefecto.jpeg",
+      codigo: "0",
+      enlace: "##",
+    },
+    {
+      imagen: "img/articulodefecto.jpeg",
+      codigo: "0",
+      enlace: "##",
+    },
+    {
+      imagen: "img/articulodefecto.jpeg",
+      codigo: "0",
+      enlace: "##",
+    },
+    {
+      imagen: "img/articulodefecto.jpeg",
+      codigo: "0",
+      enlace: "##",
+    },
+    {
+      imagen: "img/articulodefecto.jpeg",
+      codigo: "0",
+      enlace: "##",
+    },
+  ];
+  
+  const recomendaciones = [
+    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco2.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco2.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco2.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco2.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco2.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
+  ]
   return (
     <Layout>
       <ImWhatsapp size={70} className="whats-icon" />
@@ -132,74 +259,7 @@ function App() {
                     fondo: "invisible",
                     color: "var(--color-primario)",
                   }}
-                  articulos={[
-                    {
-                      imagen: "img/nuevos/nuevo (1).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "PERLAS ARCOIRIS",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (2).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "PERLAS MORADA",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (3).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "PERLAS X",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (5).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "CHIPS CHOCOLATE",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (6).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "CHISPAS",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (7).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "COLORES",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (8).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "CORAZONES",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (9).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "ESCARCHA",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (10).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "ESTRELLAS",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (11).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "GUSANITOS",
-                    },
-                    {
-                      imagen: "img/nuevos/nuevo (12).png",
-                      codigo: "0",
-                      enlace: "##",
-                      nombre: "COLORES",
-                    },
-                  ]}
+                  articulos={articulos}
                 />
               </div>
               <SeccionExtra
@@ -209,64 +269,12 @@ function App() {
                   fondo: "invisible",
                   color: "var(--color-primario)",
                 }}
-                articulos={[
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                  {
-                    imagen: "img/articulodefecto.jpeg",
-                    codigo: "0",
-                    enlace: "##",
-                  },
-                ]}
+                articulos={articulos2}
               />
               <div>
                 {
                   <SeccionRecomendaciones
-                    imagenes={[
-                      { imagen: "img/articulodefecto.jpeg" },
-                      { imagen: "img/imgreco1.jpeg" },
-                      { imagen: "img/imgreco2.jpeg" },
-                      { imagen: "img/logo.png" },
-                      { imagen: "img/panaderiaypostreria.jpeg" },
-                      { imagen: "img/semillas.jpeg" },
-                      { imagen: "img/slider1.jpeg" },
-                      { imagen: "img/slider2.jpeg" },
-                      { imagen: "img/superalimentos.jpeg" },
-                      { imagen: "img/utencilios.jpeg" },
-                    ]}
+                    recomendaciones={recomendaciones}
                   />
                 }
               </div>

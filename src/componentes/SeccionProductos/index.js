@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "antd";
+import { Link } from "react-router-dom";
 
 import Agrupaciones from "./Agrupaciones";
 import "./styles.css";
@@ -43,7 +44,9 @@ function SeccionEmpresa() {
           />
         </div>
       </div>
-      <Title level={2}>VER MAS</Title>
+      <Link to="/shop">
+        <Title level={2}>VER MAS</Title>
+      </Link>
     </div>
   );
 }

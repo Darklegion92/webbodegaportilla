@@ -19,10 +19,10 @@ function Pie() {
         style={{
           backgroundColor: "var(--color-primario)",
           height: "1px",
-          marginBottom: "20px",
+          marginBottom: "40px",
         }}
       />
-      <Row>
+      <Row className="medios-pago">
         <img
           src="img/p-01.png"
           height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
@@ -75,7 +75,7 @@ function Pie() {
       <Divider
         style={{
           backgroundColor: "var(--color-primario)",
-          height: "1px"
+          height: "1px",
         }}
       />
       <Row className="otros">
@@ -84,32 +84,38 @@ function Pie() {
             <Title level={3}>SERVICIO AL CLIENTE</Title>
           </Row>
           <Row>
-            <Text>ventaenlinea@bodegaportilla.com</Text>
+            <a href="mailto:ventaenlinea@bodegaportilla.com" target="_blank">
+              <Text>ventaenlinea@bodegaportilla.com</Text>
+            </a>
           </Row>
           <Row>
-            <Text>servicioalcliente@bodegaportilla.com</Text>
+            <a href="mailto:servicioalcliente@bodegaportilla.com" target="_blank">
+              <Text>servicioalcliente@bodegaportilla.com</Text>
+            </a>
           </Row>
           <Row>
-            <Text
-              style={
-                isTabletOrMobile || isTabletOrMobileDevice
-                  ? {}
-                  : { fontSize: "25px" }
-              }
-            >
-              <WhatsAppOutlined
+            <a href="https://wa.link/q2dusb" target="_blank">
+              <Text
                 style={
                   isTabletOrMobile || isTabletOrMobileDevice
-                    ? {
-                        fontSize: "20px",
-                        marginRight: "10px",
-                        marginBottom: "10px",
-                      }
-                    : { fontSize: "40px", marginRight: "10px" }
+                    ? {}
+                    : { fontSize: "25px" }
                 }
-              />
-              314 3529702
-            </Text>
+              >
+                <WhatsAppOutlined
+                  style={
+                    isTabletOrMobile || isTabletOrMobileDevice
+                      ? {
+                          fontSize: "20px",
+                          marginRight: "10px",
+                          marginBottom: "10px",
+                        }
+                      : { fontSize: "40px", marginRight: "10px" }
+                  }
+                />
+                314 3529702
+              </Text>
+            </a>
           </Row>
         </Col>
 
@@ -118,7 +124,9 @@ function Pie() {
             <Title level={3}>COLOMBIA</Title>
           </Row>
           <Row>
-            <Text>Cl 5a. # 4-38. Cúcuta, Norte de Santander</Text>
+            <a href="https://www.google.es/maps/place/Bodega+Portilla/@7.8919667,-72.5047795,20.25z/data=!4m5!3m4!1s0x8e6645c65349ea57:0x67010b7fe6a46cd3!8m2!3d7.8920667!4d-72.5046647" target="_blank">
+              <Text>Cl 5a. # 4-38. Cúcuta, Norte de Santander</Text>
+            </a>
           </Row>
           <Row>
             <Title level={3}>TERMINOS</Title>
@@ -138,34 +146,38 @@ function Pie() {
             <Title level={1}>SIGUENOS</Title>
           </Row>
           <Row>
-            <Text>
-              <FacebookOutlined
-                style={
-                  isTabletOrMobile || isTabletOrMobileDevice
-                    ? {
-                        fontSize: "20px",
-                        marginRight: "10px",
-                      }
-                    : { fontSize: "40px", marginRight: "10px" }
-                }
-              />
-              BODEGA PORTILLA
-            </Text>
+            <a href="https://www.facebook.com/Bodega-Portilla-372954223119025/" target="_blank">
+              <Text>
+                <FacebookOutlined
+                  style={
+                    isTabletOrMobile || isTabletOrMobileDevice
+                      ? {
+                          fontSize: "20px",
+                          marginRight: "10px",
+                        }
+                      : { fontSize: "40px", marginRight: "10px" }
+                  }
+                />
+                BODEGA PORTILLA
+              </Text>
+            </a>
           </Row>
           <Row>
-            <Text>
-              <InstagramOutlined
-                style={
-                  isTabletOrMobile || isTabletOrMobileDevice
-                    ? {
-                        fontSize: "20px",
-                        marginRight: "10px",
-                      }
-                    : { fontSize: "40px", marginRight: "10px" }
-                }
-              />
-              @BODEGAPORTILLA
-            </Text>
+            <a href="https://www.instagram.com/bodegaportilla/?hl=es-la" target="_blank">
+              <Text>
+                <InstagramOutlined
+                  style={
+                    isTabletOrMobile || isTabletOrMobileDevice
+                      ? {
+                          fontSize: "20px",
+                          marginRight: "10px",
+                        }
+                      : { fontSize: "40px", marginRight: "10px" }
+                  }
+                />
+                @BODEGAPORTILLA
+              </Text>
+            </a>
           </Row>
         </Col>
       </Row>

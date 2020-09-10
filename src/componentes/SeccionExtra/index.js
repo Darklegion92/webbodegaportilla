@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { Typography } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 const { Text } = Typography;
@@ -63,7 +64,7 @@ function SeccionExtra({ items, articulos, texto }) {
           <Slider ref={(c) => (slider = c)} {...settings}>
             {articulos.map((articulo, i) => {
               return (
-                <div>
+                <Link to="/shop">
                   <div
                     className="item"
                     style={
@@ -80,7 +81,7 @@ function SeccionExtra({ items, articulos, texto }) {
                     />
                     {articulo.nombre && <Text>{articulo.nombre}</Text>}
                   </div>
-                </div>
+                </Link>
               );
             })}
           </Slider>

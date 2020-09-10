@@ -4,6 +4,10 @@
   color: var(--color-primario);
   margin-top: 50px;
 }
+
+.pie .medios-pago{
+  padding-top:10px;
+}
 .pie .ant-typography {
   color: var(--color-primario);
   margin-bottom: 10px;

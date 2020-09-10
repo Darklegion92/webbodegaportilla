@@ -1,84 +1,132 @@
-import React from "react";
-import { Typography } from "antd";
+import React, { useState } from "react";
+import { Typography, Modal } from "antd";
+
+import Recomendacion from "./Recomendacion";
 import "./styles.css";
 const { Title } = Typography;
 
-function SeccionRecomendaciones({ imagenes }) {
+function SeccionRecomendaciones({ recomendaciones }) {
+  const [modal, setModal] = useState(false);
+  const [recomendacion, setRecomendacion] = useState({});
+  const cerrarModal = () => {
+    setModal(false);
+  };
+
+  const onClick = (e) => {
+    const i = parseInt(e.target.id);
+    setRecomendacion(recomendaciones[i]);
+    setModal(true);
+  };
 
   return (
     <div className="recomendaciones">
       <Title>RECOMENDACIONES</Title>
       <div className="row">
         <img
-          src={imagenes[1].imagen}
-          alt={imagenes[1].imagen}
+          src={recomendaciones[0].imagen}
+          alt={recomendaciones[0].imagen}
           className="cuadrado"
+          id={0}
+          onClick={onClick}
         />
         <img
-          src={imagenes[2].imagen}
-          alt={imagenes[2].imagen}
+          src={recomendaciones[1].imagen}
+          alt={recomendaciones[1].imagen}
           className="rectangular"
+          id={1}
+          onClick={onClick}
         />
         <img
-          src={imagenes[1].imagen}
-          alt={imagenes[1].imagen}
+          src={recomendaciones[2].imagen}
+          alt={recomendaciones[2].imagen}
           className="cuadrado"
+          id={2}
+          onClick={onClick}
         />
         <img
-          src={imagenes[1].imagen}
-          alt={imagenes[1].imagen}
+          src={recomendaciones[3].imagen}
+          alt={recomendaciones[3].imagen}
           className="cuadrado"
+          id={3}
+          onClick={onClick}
         />
       </div>
       <div className="row">
         <img
-          src={imagenes[2].imagen}
-          alt={imagenes[2].imagen}
+          src={recomendaciones[4].imagen}
+          alt={recomendaciones[4].imagen}
           className="rectangular"
+          id={4}
+          onClick={onClick}
         />
         <img
-          src={imagenes[1].imagen}
-          alt={imagenes[1].imagen}
+          src={recomendaciones[5].imagen}
+          alt={recomendaciones[5].imagen}
           className="cuadrado"
+          id={5}
+          onClick={onClick}
         />
         <img
-          src={imagenes[2].imagen}
-          alt={imagenes[2].imagen}
+          src={recomendaciones[6].imagen}
+          alt={recomendaciones[6].imagen}
           className="rectangular"
+          id={6}
+          onClick={onClick}
         />
         <img
-          src={imagenes[1].imagen}
-          alt={imagenes[1].imagen}
+          src={recomendaciones[7].imagen}
+          alt={recomendaciones[7].imagen}
           className="cuadrado"
+          id={7}
+          onClick={onClick}
         />
         <img
-          src={imagenes[2].imagen}
-          alt={imagenes[2].imagen}
+          src={recomendaciones[8].imagen}
+          alt={recomendaciones[8].imagen}
           className="rectangular"
+          id={8}
+          onClick={onClick}
         />
       </div>
       <div className="row">
         <img
-          src={imagenes[1].imagen}
-          alt={imagenes[1].imagen}
+          src={recomendaciones[9].imagen}
+          alt={recomendaciones[9].imagen}
           className="cuadrado"
+          id={9}
+          onClick={onClick}
         />
         <img
-          src={imagenes[1].imagen}
-          alt={imagenes[1].imagen}
+          src={recomendaciones[10].imagen}
+          alt={recomendaciones[10].imagen}
           className="cuadrado"
+          id={10}
+          onClick={onClick}
         />
         <img
-          src={imagenes[2].imagen}
-          alt={imagenes[2].imagen}
+          src={recomendaciones[11].imagen}
+          alt={recomendaciones[11].imagen}
           className="rectangular"
+          id={11}
+          onClick={onClick}
         />
         <img
-          src={imagenes[1].imagen}
-          alt={imagenes[1].imagen}
+          src={recomendaciones[12].imagen}
+          alt={recomendaciones[12].imagen}
           className="cuadrado"
+          id={12}
+          onClick={onClick}
         />
       </div>
+      <Modal
+        width={900}
+        visible={modal}
+        onCancel={cerrarModal}
+        footer={null}
+        style={{ borderRadius: "50px" }}
+      >
+        <Recomendacion recomendacion={recomendacion} />
+      </Modal>
     </div>
   );
 }
