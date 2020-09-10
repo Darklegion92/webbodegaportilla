@@ -47,7 +47,7 @@
 
 .seccion-extra .item:hover {
   cursor: pointer;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
   transform: scale(1.04);
 }
 .seccion-extra .ant-typography {

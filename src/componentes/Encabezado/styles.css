@@ -135,7 +135,7 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
 }
 
 .menu-carrito {
-  margin-top:20px;
+  margin-top: 20px;
   cursor: default !important;
   width: 250px;
   align-items: center;
@@ -168,7 +168,6 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   justify-content: center;
   align-items: center;
   line-height: 0px;
-  margin: 10px 0;
 }
 
 .menu-carrito .items .ant-row {
@@ -177,21 +176,30 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   justify-content: center;
   align-items: center;
 }
-.menu-carrito .items .item-menu .ant-col .ant-col-6 {
+.menu-carrito .items .item-menu .ant-col-6 {
   display: flex;
+  height: 100%;
   justify-content: center;
   align-items: center;
 }
 
 .menu-carrito .items .item-menu .ant-col-18 {
   text-align: right;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu-carrito h4.ant-typography {
-  margin-top: 20px;
   text-align: center;
   width: 100%;
-  line-height: 10px;
+  line-height: 20px;
+}
+
+.menu-carrito .totales h4.ant-typography {
+  padding-top: 20px;
 }
 
 .menu-carrito .totales span.ant-typography {
@@ -207,7 +215,10 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
 }
 .menu-carrito button {
   width: 100%;
+  height: max-content;
   margin: auto;
+  font-weight: bold;
+  font-size: 18px;
   margin-bottom: 20px;
   background-color: var(--color-primario);
   color: white;

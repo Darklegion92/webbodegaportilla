@@ -41,10 +41,26 @@
   transform: scale(1.02);
 }
 
+/*recomendacion*/
+.item-recomendaciones h1.ant-typography {
+  color: var(--color-primario) !important;
+}
+
+.item-recomendaciones span.ant-typography {
+  color: var(--color-cuaternario) !important;
+}
+.item-recomendaciones .ant-col-14,
+.item-recomendaciones .ant-col-10  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*movile*/
 @media only screen and (max-width: 600px) {
   .recomendaciones {
     width: 95%;
-    
   }
 
   .recomendaciones .ant-typography {
@@ -66,5 +82,5 @@
   }
   .recomendaciones .row {
     justify-content: center;
-}
+  }
 }

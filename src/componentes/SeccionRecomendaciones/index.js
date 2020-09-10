@@ -8,12 +8,19 @@ const { Title } = Typography;
 function SeccionRecomendaciones({ recomendaciones }) {
   const [modal, setModal] = useState(false);
   const [recomendacion, setRecomendacion] = useState({});
+  const [tipo, setTipo] = useState("CUADRADO");
   const cerrarModal = () => {
     setModal(false);
   };
 
   const onClick = (e) => {
     const i = parseInt(e.target.id);
+
+    if (i === 1 || i === 4 || i === 6 || i === 8 || i === 11) {
+      setTipo("RECTANGULO");
+    } else {
+      setTipo("CUADRADO");
+    }
     setRecomendacion(recomendaciones[i]);
     setModal(true);
   };
@@ -119,13 +126,13 @@ function SeccionRecomendaciones({ recomendaciones }) {
         />
       </div>
       <Modal
-        width={900}
+        width={tipo === "CUADRADO" ? 900 : 600}
         visible={modal}
         onCancel={cerrarModal}
         footer={null}
         style={{ borderRadius: "50px" }}
       >
-        <Recomendacion recomendacion={recomendacion} />
+        <Recomendacion recomendacion={recomendacion} tipo={tipo} />
       </Modal>
     </div>
   );

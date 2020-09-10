@@ -7,7 +7,7 @@ const ItemMenu = ({ articulo }) => {
   return (
     <Row className="item-menu" gutter={16}>
       <Col span={6}>
-        <img src={articulo.img} width="40px" />
+        <img src={articulo.img} width="60px" />
       </Col>
       <Col span={18}>
         <Title level={4}>{articulo.nombre}</Title>

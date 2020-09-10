@@ -96,6 +96,18 @@ function Encabezado() {
             key="left"
           >
             <Menu onClick={onClick}>
+              {user != null && (
+                <Menu.Item>
+                  <Link to="">
+                    <ImTruck
+                      size={20}
+                      color="var(--color-primario)"
+                      style={{ marginRight: "10px" }}
+                    />
+                    <Text>PEDIDOS</Text>
+                  </Link>
+                </Menu.Item>
+              )}
               <Menu.Item>
                 <Link to="/">
                   <Text>INICIO</Text>
@@ -127,18 +139,6 @@ function Encabezado() {
                   <Text>CONTACTO</Text>
                 </Link>
               </Menu.Item>
-              {user != null && (
-                <Menu.Item>
-                  <Link to="">
-                    <ImTruck
-                      size={20}
-                      color="var(--color-primario)"
-                      style={{ marginRight: "10px" }}
-                    />
-                    <Text>PEDIDOS</Text>
-                  </Link>
-                </Menu.Item>
-              )}
               {user != null && (
                 <Menu.Item>
                   <Link>

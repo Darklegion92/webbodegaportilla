@@ -25,10 +25,12 @@
 
   .seccionempresa{
     padding: 10px 20px;
-    font-size: 14px;
   }
   .seccionempresa h1.ant-typography {
     font-size: 24px!important;
     max-width: 80%;
+  }
+  .seccionempresa span.ant-typography{
+    font-size: 13.4px!important;
   }
 }
