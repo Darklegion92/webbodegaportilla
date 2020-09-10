@@ -137,7 +137,7 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
 .menu-carrito {
   margin-top: 20px;
   cursor: default !important;
-  width: 250px;
+  width: 270px;
   align-items: center;
   justify-content: center;
 }
@@ -145,6 +145,7 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
 .menu-carrito .items {
   max-height: 280px;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .menu-carrito .items::-webkit-scrollbar {
@@ -192,14 +193,19 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   justify-content: center;
 }
 
-.menu-carrito h4.ant-typography {
+.menu-carrito .items h4.ant-typography {
   text-align: center;
-  width: 100%;
+  color: var(--color-primario);
   line-height: 20px;
+  font-size: 20px;
 }
 
 .menu-carrito .totales h4.ant-typography {
+  width: 100%;
+  text-align: center;
+  color: var(--color-primario);
   padding-top: 20px;
+  line-height: 20px;
 }
 
 .menu-carrito .totales span.ant-typography {
