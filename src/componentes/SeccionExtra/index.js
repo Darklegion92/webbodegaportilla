@@ -1,16 +1,36 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Slider from "react-slick";
-import { Typography } from "antd";
+import { Typography, Modal } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { useMediaQuery } from "react-responsive";
-import { Link } from "react-router-dom";
+import Articulo from "../Articulo";
+import Comprado from "../ArticuloComprado";
 import "./styles.css";
 
 const { Text } = Typography;
-function SeccionExtra({ items, articulos, texto }) {
+function SeccionExtra({ items, articulos, texto, tipo }) {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+  const [modalArticulo, setModalArticulo] = useState(false);
+  const [modalComprado, setModalComprado] = useState(false);
+  const [articuloSeleccionado, setArticuloSeleccionado] = useState();
+  const cerrarArticulo = () => {
+    setModalArticulo(false);
+  };
 
+  const agregarArticulo = (e) => {
+    const i = parseInt(e.target.id);
+    console.log(e.target);
+    setArticuloSeleccionado(articulos[i]);
+    setModalArticulo(true);
+  };
+  const agregarCantidad = () => {
+    setModalArticulo(false);
+    setModalComprado(true);
+  };
+  const cerrarComprado = () => {
+    setModalComprado(false);
+  };
   const settings = {
     dots: true,
     infinite: true,
@@ -63,26 +83,29 @@ function SeccionExtra({ items, articulos, texto }) {
         <div className="multi-carrousel">
           <Slider ref={(c) => (slider = c)} {...settings}>
             {articulos.map((articulo, i) => {
-              return (
-                <Link to="/shop">
-                  <div
-                    className="item"
-                    style={
-                      articulo.nombre ? {} : { padding: "0", boxShadow: "none" }
-                    }
-                  >
-                    <img
-                      src={articulo.imagen}
-                      alt={articulo.codigo}
-                      href={articulo.enlace}
-                      width={
-                        articulo.nombre ? "80%!important" : "100%!important"
+              if (tipo === articulo.categoria)
+                return (
+                  <div>
+                    <div
+                      className="item"
+                      style={
+                        articulo.nombre
+                          ? {}
+                          : { padding: "0", boxShadow: "none" }
                       }
-                    />
-                    {articulo.nombre && <Text>{articulo.nombre}</Text>}
+                    >
+                      <img
+                        src={articulo.img}
+                        alt={articulo.codigo}
+                        width={
+                          articulo.nombre ? "80%!important" : "100%!important"
+                        }
+                        id={i} onClick={agregarArticulo}
+                      />
+                      {articulo.nombre && <Text>{articulo.nombre}</Text>}
+                    </div>
                   </div>
-                </Link>
-              );
+                );
             })}
           </Slider>
         </div>
@@ -96,6 +119,24 @@ function SeccionExtra({ items, articulos, texto }) {
           />
         )}
       </div>
+      <Modal
+        width={900}
+        visible={modalArticulo}
+        onCancel={cerrarArticulo}
+        footer={null}
+        style={{ borderRadius: "50px" }}
+      >
+        <Articulo articulo={articuloSeleccionado} onOk={agregarCantidad} />
+      </Modal>
+      <Modal
+        width={700}
+        visible={modalComprado}
+        onCancel={cerrarComprado}
+        footer={null}
+        style={{ borderRadius: "50px" }}
+      >
+        <Comprado articulo={articuloSeleccionado} onOk={setModalComprado} />
+      </Modal>
     </div>
   );
 }

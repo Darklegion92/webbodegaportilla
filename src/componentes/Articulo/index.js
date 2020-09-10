@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, InputNumber, Button, Row, Col } from "antd";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 const { Text } = Typography;
 
@@ -19,10 +20,10 @@ const Articulo = ({ articulo, onOk }) => {
           <Text className="cuerpo">{articulo.descripcionLarga}</Text>
         </Row>
         <Row className="fila3">
-          <Text>{articulo.precio}</Text>
+          <Text>$ {articulo.precio} COP</Text>
         </Row>
         <Row className="fila4">
-          <Text>{articulo.precio}</Text>
+          <Text>$ {articulo.precio} COP</Text>
         </Row>
         <Row className="fila5" gutter={20}>
           <Col span={10}>
@@ -32,7 +33,7 @@ const Articulo = ({ articulo, onOk }) => {
             </Row>
           </Col>
           <Col span={14}>
-            <Button onClick={onOk}>AÑADIR AL CARRITO</Button>
+           <Button onClick={onOk}>AÑADIR AL CARRITO</Button>
           </Col>
         </Row>
       </Col>

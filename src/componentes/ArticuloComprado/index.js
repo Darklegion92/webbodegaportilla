@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography, InputNumber, Button, Row, Col, Divider } from "antd";
-
+import { Typography, Button, Row, Col, Divider } from "antd";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 const { Text } = Typography;
@@ -22,14 +22,18 @@ const Comprado = ({ articulo, onOk }) => {
             <Text>{articulo.nombre}</Text>
           </Row>
           <Row className="fila3">
-            <Text className="sinformato">{articulo.precio}</Text>
-            <Text>{articulo.precio}</Text>
+            <Text className="sinformato">$ {articulo.precio} COP</Text>
+            <Text>$ {articulo.precio} COP</Text>
           </Row>
           <Row className="fila4">
-            <Button>IR AL CARRITO</Button>
-            <Button className="contrario" onClick={() => onOk(false)}>
-              SEGUIR COMPRANDO
-            </Button>
+            <Link to="/carshop">
+              <Button>IR AL CARRITO</Button>
+            </Link>
+            <Link to="/shop">
+              <Button className="contrario" onClick={() => onOk(false)}>
+                SEGUIR COMPRANDO
+              </Button>
+            </Link>
           </Row>
         </Col>
       </Row>

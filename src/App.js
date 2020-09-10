@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { Layout } from "antd";
 import { useMediaQuery } from "react-responsive";
@@ -16,7 +16,7 @@ import Validacion from "./componentes/Validacion";
 import Tienda from "./componentes/Tienda";
 import Contactanos from "./componentes/Contactanos";
 import CarShop from "./componentes/CarShop";
-import { GlobalProvider } from "./Context/GlobalContext";
+import { GlobalContext } from "./Context/GlobalContext";
 
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -27,141 +27,81 @@ function App() {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   let location = useLocation().pathname;
+  const { articulos } = useContext(GlobalContext);
 
-  const articulos = [
-    {
-      imagen: "img/nuevos/nuevo (1).png",
-      codigo: "0",
-      enlace: "##",
-      nombre: "PERLAS ARCOIRIS",
-    },
-    {
-      imagen: "img/nuevos/nuevo (2).png",
-      codigo: "0",
-      enlace: "##",
-      nombre: "PERLAS MORADA",
-    },
-    {
-      imagen: "img/nuevos/nuevo (3).png",
-      codigo: "0",
-      enlace: "##",
-      nombre: "PERLAS X",
-    },
-    {
-      imagen: "img/nuevos/nuevo (5).png",
-      codigo: "0",
-      enlace: "##",
-      nombre: "CHIPS CHOCOLATE",
-    },
-    {
-      imagen: "img/nuevos/nuevo (6).png",
-      codigo: "0",
-      enlace: "##",
-      nombre: "CHISPAS",
-    },
-    {
-      imagen: "img/nuevos/nuevo (7).png",
-      codigo: "0",
-      enlace: "##",
-      nombre: "COLORES",
-    },
-    {
-      imagen: "img/nuevos/nuevo (8).png",
-      codigo: "0",
-      enlace: "##",
-      nombre: "CORAZONES",
-    },
-    {
-      imagen: "img/nuevos/nuevo (9).png",
-      codigo: "0",
-      enlace: "##",
-      nombre: "ESCARCHA",
-    },
-    {
-      imagen: "img/nuevos/nuevo (10).png",
-      codigo: "0",
-      enlace: "##",
-      nombre: "ESTRELLAS",
-    },
-    {
-      imagen: "img/nuevos/nuevo (11).png",
-      codigo: "0",
-      enlace: "##",
-      nombre: "GUSANITOS",
-    },
-    {
-      imagen: "img/nuevos/nuevo (12).png",
-      codigo: "0",
-      enlace: "##",
-      nombre: "COLORES",
-    },
-  ];
-  const articulos2 = [
-    {
-      imagen: "img/articulodefecto.jpeg",
-      codigo: "0",
-      enlace: "##",
-    },
-    {
-      imagen: "img/articulodefecto.jpeg",
-      codigo: "0",
-      enlace: "##",
-    },
-    {
-      imagen: "img/articulodefecto.jpeg",
-      codigo: "0",
-      enlace: "##",
-    },
-    {
-      imagen: "img/articulodefecto.jpeg",
-      codigo: "0",
-      enlace: "##",
-    },
-    {
-      imagen: "img/articulodefecto.jpeg",
-      codigo: "0",
-      enlace: "##",
-    },
-    {
-      imagen: "img/articulodefecto.jpeg",
-      codigo: "0",
-      enlace: "##",
-    },
-    {
-      imagen: "img/articulodefecto.jpeg",
-      codigo: "0",
-      enlace: "##",
-    },
-    {
-      imagen: "img/articulodefecto.jpeg",
-      codigo: "0",
-      enlace: "##",
-    },
-  ];
-  
   const recomendaciones = [
-    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco2.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco2.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco2.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco2.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco2.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-    { imagen: "img/imgreco1.jpeg",titulo:"ALGO",texto:"otra cosa mas larga" },
-  ]
+    {
+      imagen: "img/imgreco1.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco2.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco1.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco1.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco2.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco1.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco2.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco1.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco2.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco1.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco1.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco2.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+    {
+      imagen: "img/imgreco1.jpeg",
+      titulo: "ALGO",
+      texto: "otra cosa mas larga",
+    },
+  ];
   return (
     <Layout>
       <ImWhatsapp size={70} className="whats-icon" />
       {location !== "/login" && (
         <Header id="home">
-          <GlobalProvider>
-            <Encabezado />
-          </GlobalProvider>
+          <Encabezado />
         </Header>
       )}
       <Switch>
@@ -185,7 +125,6 @@ function App() {
               <Tienda />
             </Content>
           </Route>
-
           <Route path="/" exact>
             <div
               id="quienessomos"
@@ -212,6 +151,7 @@ function App() {
                     : "960px",
               }}
             />
+
             <div
               id="nuevo"
               style={{
@@ -227,6 +167,7 @@ function App() {
                 zIndex: 1,
               }}
             />
+
             <div
               id="recomendaciones"
               style={{
@@ -260,6 +201,7 @@ function App() {
                     color: "var(--color-primario)",
                   }}
                   articulos={articulos}
+                  tipo="NUEVO"
                 />
               </div>
               <SeccionExtra
@@ -269,14 +211,11 @@ function App() {
                   fondo: "invisible",
                   color: "var(--color-primario)",
                 }}
-                articulos={articulos2}
+                articulos={articulos}
+                tipo="REGALO"
               />
               <div>
-                {
-                  <SeccionRecomendaciones
-                    recomendaciones={recomendaciones}
-                  />
-                }
+                {<SeccionRecomendaciones recomendaciones={recomendaciones} />}
               </div>
             </Content>
           </Route>

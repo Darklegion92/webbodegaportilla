@@ -135,6 +135,7 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
 }
 
 .menu-carrito {
+  margin-top:20px;
   cursor: default !important;
   width: 250px;
   align-items: center;
@@ -142,7 +143,7 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
 }
 
 .menu-carrito .items {
-  max-height: 250px;
+  max-height: 280px;
   overflow-y: scroll;
 }
 
