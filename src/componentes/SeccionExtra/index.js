@@ -89,7 +89,7 @@ function SeccionExtra({ items, articulos, texto, tipo }) {
                     <div
                       className="item"
                       style={
-                        articulo.nombre
+                        articulo.categoria == "NUEVO"
                           ? {}
                           : { padding: "0", boxShadow: "none" }
                       }
@@ -98,11 +98,16 @@ function SeccionExtra({ items, articulos, texto, tipo }) {
                         src={articulo.img}
                         alt={articulo.codigo}
                         width={
-                          articulo.nombre ? "80%!important" : "100%!important"
+                          articulo.categoria == "NUEVO"
+                            ? "80%!important"
+                            : "100%!important"
                         }
-                        id={i} onClick={agregarArticulo}
+                        id={i}
+                        onClick={agregarArticulo}
                       />
-                      {articulo.nombre && <Text>{articulo.nombre}</Text>}
+                      {articulo.categoria == "NUEVO" && (
+                        <Text>{articulo.nombre}</Text>
+                      )}
                     </div>
                   </div>
                 );

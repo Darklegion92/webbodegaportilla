@@ -282,6 +282,6 @@ li.ant-menu-item.ant-menu-item-only-child {
 
 @media only screen and (max-width: 600px) {
   .menu-carrito .items {
-    max-height: 550px;
+    max-height: 410px;
   }
 }

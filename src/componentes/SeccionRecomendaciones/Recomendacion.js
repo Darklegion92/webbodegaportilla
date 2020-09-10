@@ -1,11 +1,22 @@
 import React from "react";
-import { Row, Col } from "antd";
+import { Row, Col, Typography } from "antd";
 
-const Modal = ({recomendacion}) => {
+const { Text, Title } = Typography;
+
+const Modal = ({ recomendacion }) => {
   return (
-    <Row>
-      <Col span={14}>{recomendacion.imagen}</Col>
-      <Col span={10}>{recomendacion.titulo}</Col>
+    <Row gutter={16}>
+      <Col span={14}>
+        <img src={recomendacion.imagen} width="100%" height="500px"></img>
+      </Col>
+      <Col span={10}>
+        <Row>
+          <Title>{recomendacion.titulo}</Title>
+        </Row>
+        <Row>
+          <Text >{recomendacion.texto}</Text>
+        </Row>
+      </Col>
     </Row>
   );
 };
