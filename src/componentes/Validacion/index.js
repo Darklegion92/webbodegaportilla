@@ -48,7 +48,7 @@ const Validacion = () => {
             <img
               src="img/logo.png"
               width={
-                isTabletOrMobile || isTabletOrMobileDevice ? "100px" : "150px"
+                isTabletOrMobile || isTabletOrMobileDevice ? "70%" : "150px"
               }
             />
           </Link>

@@ -201,7 +201,13 @@ function Encabezado() {
                 setVisibleLeft(false);
               }
             }}
+            className="carrito-logo"
           >
+            {carrito.length > 0 && (
+              <div className="carrito-cantidad">
+                {carrito.length > 99 ? "99" : carrito.length}
+              </div>
+            )}
             <Car className="icons" />
           </div>
 
@@ -332,7 +338,19 @@ function Encabezado() {
                 </Menu.Item>
               )}
             </SubMenu>
-            <SubMenu title="" icon={<Car className="icons" />}>
+            <SubMenu
+              title=""
+              icon={
+                <div className="carrito-logo">
+                  {carrito.length > 0 && (
+                    <div className="carrito-cantidad">
+                      {carrito.length > 99 ? "99" : carrito.length}
+                    </div>
+                  )}
+                  <Car className="icons" />
+                </div>
+              }
+            >
               <Menu.Item>
                 <MenuCarrito carrito={carrito} />
               </Menu.Item>

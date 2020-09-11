@@ -4,9 +4,9 @@ import { Typography } from "antd";
 
 const { Title } = Typography;
 
-function Agrupaciones({ titulo, urlImage }) {
+function Agrupaciones({ titulo, urlImage,link }) {
   return (
-    <Link to="/shop">
+    <Link to={"/shop"+link}>
       <div className="agrupacion">
         <Title level={4}>{titulo}</Title>
         <img src={urlImage} alt={urlImage} />

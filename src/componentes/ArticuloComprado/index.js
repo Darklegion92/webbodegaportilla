@@ -1,6 +1,8 @@
 import React from "react";
 import { Typography, Button, Row, Col, Divider } from "antd";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+
 import "./styles.css";
 
 const { Text } = Typography;

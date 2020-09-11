@@ -62,3 +62,70 @@
   border: none;
   width: 200px;
 }
+
+@media only screen and (max-width: 600px) {
+  .articulo-comprado-tag *.ant-typography {
+    color: var(--color-primario);
+  }
+  .articulo-comprado-tag .fila1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .articulo-comprado-tag .fila2 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .articulo-comprado-tag .fila3 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .articulo-comprado-tag .fila3 .ant-typography {
+    font-size: 40px;
+    margin-top: 0;
+    font-weight: bold;
+  }
+
+  .articulo-comprado-tag .fila3 .sinformato {
+    font-size: 20px;
+    margin-top: 0;
+    font-weight: normal;
+    line-height: 1px;
+  }
+  .articulo-comprado-tag .fila4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .articulo-comprado-tag .fila4 button {
+    align-items: center;
+    background-color: var(--color-primario);
+    color: white;
+    border-radius: 10px;
+    width: 200px;
+    margin-bottom: 10px;
+  }
+
+  .articulo-comprado-tag .fila4 button:hover,
+  .articulo-comprado-tag .fila4 button:focus {
+    box-shadow: none;
+    border-color: var(--color-primario) !important;
+  }
+
+  .articulo-comprado-tag .fila4 button.contrario {
+    margin-top: 5px;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 10px;
+    color: var(--color-primario);
+    background-color: white;
+    border: none;
+    width: 200px;
+  }
+}

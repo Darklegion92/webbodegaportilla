@@ -23,7 +23,28 @@
   left: 60px;
   z-index: 99;
 }
+.carrito-logo {
+  position: relative;
+  display: inline-block;
+}
 
+.carrito-cantidad {
+  display: flex;
+  position: absolute;
+  top: 15%;
+  left: 70%;
+  background: var(--color-primario);
+  width: 23px;
+  height: 23px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+}
 /*menu*/
 .ant-layout-header .ant-menu {
   background-color: white;

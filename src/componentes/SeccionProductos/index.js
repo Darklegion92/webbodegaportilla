@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Typography } from "antd";
 import { Link } from "react-router-dom";
 
 import Agrupaciones from "./Agrupaciones";
+import { GlobalContext } from "../../Context/GlobalContext";
 import "./styles.css";
 
 const { Title } = Typography;
 
 function SeccionEmpresa() {
+  const { seccionProductos } = useContext(GlobalContext);
   return (
     <div
       className="seccionproductos"
@@ -15,34 +17,22 @@ function SeccionEmpresa() {
     >
       <Title lvl={1}>PRODUCTOS</Title>
       <div className="agrupaciones">
-        <div>
-          <Agrupaciones titulo="FRUTOS SECOS" urlImage="img/frutossecos.jpeg" />
-          <Agrupaciones
-            titulo="PANADERIA Y POSTRERIA"
-            urlImage="img/panaderiaypostreria.jpeg"
-          />
-        </div>
-        <div>
-          <Agrupaciones
-            titulo="FRUTOS DESHIDRATADOS"
-            urlImage="img/deshidratados.png"
-          />
-          <Agrupaciones
-            titulo="SUPER ALIMENTOS"
-            urlImage="img/superalimentos.jpeg"
-          />
-        </div>
-        <div>
-          <Agrupaciones titulo="SEMILLAS" urlImage="img/semillas.jpeg" />
-          <Agrupaciones titulo="UTENSILIOS" urlImage="img/utencilios.jpeg" />
-        </div>
-        <div>
-          <Agrupaciones titulo="ACEITES" urlImage="img/salsas.png" />
-          <Agrupaciones
-            titulo="TOPPINGS Y SPRINGLESS"
-            urlImage="img/topping.png"
-          />
-        </div>
+        {seccionProductos.map((item) => {
+          return (
+            <div>
+              <Agrupaciones
+                link={item.link1}
+                titulo={item.titulo1}
+                urlImage={item.img1}
+              />
+              <Agrupaciones
+                link={item.link2}
+                titulo={item.titulo2}
+                urlImage={item.img2}
+              />
+            </div>
+          );
+        })}
       </div>
       <Link to="/shop">
         <Title level={2}>VER MAS</Title>

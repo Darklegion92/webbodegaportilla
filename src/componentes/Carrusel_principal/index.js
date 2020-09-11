@@ -1,13 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import { useMediaQuery } from "react-responsive";
 import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
 } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { GlobalContext } from "../../Context/GlobalContext";
+
 import "./styles.css";
 
 function Carrusel_principal() {
+  const { carrusel } = useContext(GlobalContext);
+
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   useEffect(() => {
@@ -30,39 +35,23 @@ function Carrusel_principal() {
         }
         interval={7000}
       >
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={
-              isTabletOrMobile || isTabletOrMobileDevice
-                ? "img/movil/slider1.png"
-                : "img/slider1.png"
-            }
-            alt="First slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={
-              isTabletOrMobile || isTabletOrMobileDevice
-                ? "img/movil/slider2.png"
-                : "img/slider2.png"
-            }
-            alt="Third slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={
-              isTabletOrMobile || isTabletOrMobileDevice
-                ? "img/movil/slider3.png"
-                : "img/slider3.png"
-            }
-            alt="Third slide"
-          />
-        </Carousel.Item>
+        {carrusel.map((item) => {
+          return (
+            <Carousel.Item>
+              <Link to={"/shop" + item.filtro}>
+                <img
+                  className="d-block w-100"
+                  src={
+                    isTabletOrMobile || isTabletOrMobileDevice
+                      ? item.imgMovil
+                      : item.img
+                  }
+                  alt={item.filtro}
+                />
+              </Link>
+            </Carousel.Item>
+          );
+        })}
       </Carousel>
     </div>
   );
