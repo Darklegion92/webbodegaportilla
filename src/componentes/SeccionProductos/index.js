@@ -8,9 +8,9 @@ import "./styles.css";
 
 const { Title } = Typography;
 
-function SeccionEmpresa() {
+function SeccionProductos() {
   const { seccionProductos } = useContext(GlobalContext);
-  return (
+  return seccionProductos.length > 0 ? (
     <div
       className="seccionproductos"
       styles="padding-top: 40px; margin-top: -40px"
@@ -38,6 +38,8 @@ function SeccionEmpresa() {
         <Title level={2}>VER MAS</Title>
       </Link>
     </div>
+  ) : (
+    <div>SIN DATOS PARA CARGAR</div>
   );
 }
-export default SeccionEmpresa;
+export default SeccionProductos;
