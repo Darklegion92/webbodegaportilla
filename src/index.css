@@ -5,7 +5,10 @@
   --color-cuaternario: #294c0a;
 }
 a {
-  text-decoration: none!important;
+  text-decoration: none !important;
+}
+.ant-modal-wrap {
+  overflow-y: hidden!important;
 }
 
 * {

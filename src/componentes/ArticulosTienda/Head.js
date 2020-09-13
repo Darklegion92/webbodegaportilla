@@ -1,11 +1,58 @@
 import React from "react";
-import { Typography, Form, Select, Input, Col, Row } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { Typography, Form, Select, Input, Col, Row, Divider } from "antd";
+import { SearchOutlined, FilterOutlined } from "@ant-design/icons";
+import { useMediaQuery } from "react-responsive";
+
 const { Title, Text } = Typography;
 const { Option } = Select;
+
 const Head = () => {
-  return (
-    <div className="head">
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+  return isTabletOrMobile || isTabletOrMobileDevice ? (
+    <Col span={24} className="head">
+      <Row>
+        <Title>TIENDA</Title>
+      </Row>
+      <Row>
+        <Col span={17}>
+          <Form>
+            <Row>
+              <Col span={10}>
+                <Row>
+                  <Select placeholder="ORDENADO POR">
+                    <Option value="1">
+                      <Text>PRECIO MAYOR</Text>
+                    </Option>
+                    <Option value="2">
+                      <Text>PRECIO MENOR</Text>
+                    </Option>
+                  </Select>
+                </Row>
+              </Col>
+              <Col span={12}>
+                <Input placeholder="Busqueda" />
+              </Col>
+              <Col span={2}>
+                <SearchOutlined />
+              </Col>
+            </Row>
+          </Form>
+        </Col>
+        <Col span={7}>
+          <Row className="filtro">
+            <Col span={16}>
+              <Title level={4}>FILTRO</Title>
+            </Col>
+            <Col span={8}>
+              <FilterOutlined />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </Col>
+  ) : (
+    <Row className="head">
       <Col span={10}>
         <Title>TIENDA</Title>
       </Col>
@@ -27,7 +74,7 @@ const Head = () => {
           </Row>
         </Form>
       </Col>
-    </div>
+    </Row>
   );
 };
 

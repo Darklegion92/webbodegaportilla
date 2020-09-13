@@ -3,11 +3,11 @@
 }
 /*HEAD*/
 .articulos-tienda .head {
-  display: flex;
   border-bottom: solid 1px var(--color-primario);
-  padding: 0;
   position: relative;
   align-items: center;
+  padding: 0 0 10px 0;
+  margin-bottom: 20px;
 }
 .articulos-tienda .head * {
   color: var(--color-primario);
@@ -74,11 +74,6 @@
 /*ITEM*/
 
 .articulos-tienda .item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   width: 18%;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -86,6 +81,7 @@
   border: solid 1px var(--color-secundario);
   margin: 1%;
   border-radius: 10px;
+  text-align: center;
 }
 .articulos-tienda .item:hover {
   cursor: pointer;
@@ -93,13 +89,13 @@
 }
 
 .articulos-tienda .item img {
-  margin: 10% 2%;
-  width: 80%;
+  margin-top: 10px;
 }
 
-.articulos-tienda .item h4.ant-typography {
-  font-size: 10px;
+.articulos-tienda .item h3.ant-typography {
   color: var(--color-primario);
+  width: 90%;
+  line-height: 110%;
 }
 
 .articulos-tienda .item .descripcion.ant-typography {
@@ -107,33 +103,37 @@
   align-items: center;
   justify-content: center;
   width: 90%;
-  font-size: 10px;
-  height: 50px;
-  color: var(--color-primario);
+  font-size: 14px;
+  height: 57px;
+  overflow-y: scroll;
+  color: var(--color-cuaternario);
+  margin-bottom: 10px;
+}
+
+.articulos-tienda .item .descripcion.ant-typography::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
 }
 
 .articulos-tienda .item .precio.ant-typography {
-  font-size: 21px;
+  font-size: 18px;
   color: var(--color-primario);
   line-height: 1px;
+  margin-left: 1px;
 }
+
 .articulos-tienda .item .embalaje.ant-typography {
   font-size: 13px;
   color: var(--color-primario);
 }
 
 .articulos-tienda .item button {
-  font-size: 8px;
+  font-size: 12px;
   background-color: var(--color-primario);
   color: white !important;
-  margin-bottom: 15px;
+  margin: 10px 0;
   border-radius: 5px;
 }
-.articulos-tienda .item button:hover {
-  box-shadow: none !important;
-  border-color: var(--color-primario);
-}
-
 .articulos-tienda .paginacion {
   display: flex;
   align-items: center;
@@ -168,4 +168,100 @@
 .articulos-tienda .paginacion .ant-pagination .ant-pagination-item-active {
   border: none !important;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  /*encabezado*/
+  .articulos-tienda .head {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .articulos-tienda .head * {
+    width: 100%;
+  }
+
+  .articulos-tienda .head h1.ant-typography {
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: solid 1px var(--color-primario);
+  }
+
+  .articulos-tienda .head .ant-col-7 .ant-col-8 svg:hover {
+    border: none !important;
+    zoom: normal !important;
+    transform: none !important;
+  }
+  .articulos-tienda .head .ant-col-7 .ant-col-8 svg {
+    width: 20px;
+    height: auto;
+  }
+
+  .articulos-tienda .head input {
+    font-size: 10px !important;
+  }
+  .articulos-tienda
+    .head
+    .ant-select-single:not(.ant-select-customize-input)
+    .ant-select-selector {
+    font-size: 7px !important;
+    height: 24px;
+    z-index: 5;
+    width: 100%;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+  }
+
+  .articulos-tienda .head .ant-select-arrow {
+    z-index: 10;
+    width: max-content;
+  }
+  .articulos-tienda .head .ant-select-item-option-content {
+    font-size: 7px !important;
+  }
+
+  .articulos-tienda .head .filtro h4.ant-typography {
+    font-size: 15px;
+  }
+  .articulos-tienda .head span.anticon.anticon-search {
+    width: 12px !important;
+    margin: 0;
+  }
+  .articulos-tienda .head .ant-col-2 {
+    height: 25px !important;
+    margin-left: -35px;
+  }
+  .articulos-tienda .ant-col .ant-col-10 {
+    margin: 0;
+  }
+
+  /*item*/
+  .articulos-tienda .item {
+    width: 100%;
+    padding: 10px 0;
+    text-align: left;
+  }
+
+  .articulos-tienda .item .ant-col-8 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .articulos-tienda .item img {
+    margin-top: 0;
+  }
+  .articulos-tienda .item h3.ant-typography {
+    width: 100%;
+    line-height: 110%;
+  }
+  .articulos-tienda .item button {
+    font-size: 15px;
+  }
+
+  .articulos-tienda .item .precio.ant-typography {
+    font-size: 21px;
+  }
 }

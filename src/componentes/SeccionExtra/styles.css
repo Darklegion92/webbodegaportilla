@@ -57,18 +57,18 @@
   padding: 10px 40px 20px 40px;
 }
 
-.seccion-extra .item img{
+.seccion-extra .item img {
   margin: auto;
 }
 
 /*estrellas*/
 
-.estrellas-item {
+.seccion-extra .estrellas-item {
   position: relative;
   display: inline-block;
 }
 
-.estrellas-cantidad {
+.seccion-extra .estrellas-cantidad {
   display: flex;
   position: absolute;
   background: var(--color-primario);
@@ -101,7 +101,7 @@
     padding-top: 10px;
     margin: 5px !important;
     border-radius: 5px;
-    width:auto;
+    width: auto;
   }
   .seccion-extra .ant-typography {
     font-size: 8px !important;
