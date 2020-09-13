@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Modal } from "antd";
+import { useMediaQuery } from "react-responsive";
 import FiltrosTienda from "../FiltrosTienda";
 import ArticulosTienda from "../ArticulosTienda";
 import Articulo from "../Articulo";
@@ -204,9 +205,13 @@ const articulos = [
 ];
 
 const Tienda = () => {
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   const [modalArticulo, setModalArticulo] = useState(false);
   const [modalComprado, setModalComprado] = useState(false);
   const [articuloSeleccionado, setArticuloSeleccionado] = useState();
@@ -227,14 +232,16 @@ const Tienda = () => {
   };
   return (
     <Row>
-      <Col span={5}>
-        <FiltrosTienda />
-      </Col>
-      <Col span={19}>
+      {(!isTabletOrMobile || !isTabletOrMobileDevice) && (
+        <Col span={5}>
+          <FiltrosTienda />
+        </Col>
+      )}
+      <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 19}>
         <ArticulosTienda articulos={articulos} onClick={agregarArticulo} />
       </Col>
       <Modal
-        width={900}
+        width={isTabletOrMobile || isTabletOrMobileDevice ? 450 : 900}
         visible={modalArticulo}
         onCancel={cerrarArticulo}
         footer={null}
@@ -243,7 +250,7 @@ const Tienda = () => {
         <Articulo articulo={articuloSeleccionado} onOk={agregarCantidad} />
       </Modal>
       <Modal
-        width={700}
+        width={isTabletOrMobile || isTabletOrMobileDevice ? 450 : 700}
         visible={modalComprado}
         onCancel={cerrarComprado}
         footer={null}

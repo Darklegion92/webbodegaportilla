@@ -43,6 +43,7 @@
   font-weight: bold;
   border-radius: 15px;
   margin: 10px !important;
+  width: max-content;
 }
 
 .seccion-extra .item:hover {
@@ -56,8 +57,33 @@
   padding: 10px 40px 20px 40px;
 }
 
-@media only screen and (max-width: 600px) {
+.seccion-extra .item img{
+  margin: auto;
+}
 
+/*estrellas*/
+
+.estrellas-item {
+  position: relative;
+  display: inline-block;
+}
+
+.estrellas-cantidad {
+  display: flex;
+  position: absolute;
+  background: var(--color-primario);
+  width: auto;
+  max-height: 100px;
+  border-bottom-right-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  padding: 5px 8px 10px 5px;
+}
+
+@media only screen and (max-width: 600px) {
   .seccion-extra .carrousel {
     padding-bottom: 50px;
   }
@@ -75,6 +101,7 @@
     padding-top: 10px;
     margin: 5px !important;
     border-radius: 5px;
+    width:auto;
   }
   .seccion-extra .ant-typography {
     font-size: 8px !important;

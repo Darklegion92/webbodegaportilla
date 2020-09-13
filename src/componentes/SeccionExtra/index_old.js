@@ -9,22 +9,23 @@ import Comprado from "../ArticuloComprado";
 import "./styles.css";
 
 const { Text } = Typography;
+
+const estrellas = (cantidad) => {
+  const estrellas = [];
+
+  for (let i = 0; i < cantidad; i++) {
+    estrellas.push(<AiFillStar size="20" />);
+  }
+
+  return estrellas;
+};
+
 function SeccionExtra({ items, articulos, texto, tipo }) {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const [modalArticulo, setModalArticulo] = useState(false);
   const [modalComprado, setModalComprado] = useState(false);
   const [articuloSeleccionado, setArticuloSeleccionado] = useState();
-
-  const estrellas = (cantidad) => {
-    const estrellas = [];
-
-    for (let i = 0; i < cantidad; i++) {
-      estrellas.push(<AiFillStar size="20" />);
-    }
-
-    return estrellas;
-  };
 
   const cerrarArticulo = () => {
     setModalArticulo(false);
@@ -97,49 +98,29 @@ function SeccionExtra({ items, articulos, texto, tipo }) {
             {articulos.map((articulo, i) => {
               if (tipo === articulo.categoria)
                 return (
-                  <>
-                    <div
-                      className="item"
-                      style={
+                  <div
+                    className="item"
+                    style={
+                      articulo.categoria == "NUEVO"
+                        ? {}
+                        : { padding: "0", boxShadow: "none" }
+                    }
+                  >
+                    <img
+                      src={articulo.img}
+                      alt={articulo.codigo}
+                      width={
                         articulo.categoria == "NUEVO"
-                          ? {}
-                          : { padding: "0", boxShadow: "none" }
+                          ? "80%!important"
+                          : "100%!important"
                       }
-                    >
-                      <div className="estrellas-item">
-                        {articulo.clasificacion > 0 && (
-                          <div
-                            className="estrellas-cantidad"
-                            style={
-                              articulo.categoria == "NUEVO"
-                                ? {
-                                    top: "-9%",
-                                    left: "0",
-                                    borderTopLeftRadius: "10px",
-                                  }
-                                : { top: "0", left: "0" }
-                            }
-                          >
-                            {estrellas(articulo.clasificacion)}
-                          </div>
-                        )}
-                        <img
-                          src={articulo.img}
-                          alt={articulo.codigo}
-                          width={
-                            articulo.categoria == "NUEVO"
-                              ? "80%!important"
-                              : isTabletOrMobile || isTabletOrMobileDevice ?"100%!important" :"145%!important"
-                          }
-                          id={i}
-                          onClick={agregarArticulo}
-                        />
-                        {articulo.categoria == "NUEVO" && (
-                          <Text>{articulo.nombre}</Text>
-                        )}
-                      </div>
-                    </div>
-                  </>
+                      id={i}
+                      onClick={agregarArticulo}
+                    />
+                    {articulo.categoria == "NUEVO" && (
+                      <Text>{articulo.nombre}</Text>
+                    )}
+                  </div>
                 );
             })}
           </Slider>

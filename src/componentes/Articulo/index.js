@@ -1,12 +1,38 @@
 import React from "react";
 import { Typography, InputNumber, Button, Row, Col } from "antd";
+import { useMediaQuery } from "react-responsive";
 import "./styles.css";
-import { Link } from "react-router-dom";
 
-const { Text } = Typography;
+const { Text, Title } = Typography;
 
 const Articulo = ({ articulo, onOk }) => {
-  return (
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+  return isTabletOrMobile || isTabletOrMobileDevice ? (
+    <Col span={24} className="articulo-tag">
+      <Row justify="center">
+        <img src={articulo.img} width="60%" />
+      </Row>
+      <Row justify="center" className="fila2">
+        <Text className="nombre">{articulo.nombre}</Text>
+        <Text className="titulo">BENEFICIOS</Text>
+        <Text className="cuerpo">{articulo.descripcionLarga}</Text>
+      </Row>
+      <Row justify="center" className="fila3">
+        <Text>$ {articulo.precio} COP</Text>
+      </Row>
+      <Row justify="center" className="fila4">
+
+        <Text>$ {articulo.precio} COP</Text>
+      </Row>
+      <Row className="fila5">
+        <InputNumber min={1} max={10} defaultValue={1} /> <Text>Gr</Text>
+      </Row>
+      <Row justify="center" className="fila5">
+        <Button onClick={onOk}>AÑADIR AL CARRITO</Button>
+      </Row>
+    </Col>
+  ) : (
     <Row className="articulo-tag" gutter={25}>
       <Col span={14}>
         <img src={articulo.img} width="100%" />
@@ -33,7 +59,7 @@ const Articulo = ({ articulo, onOk }) => {
             </Row>
           </Col>
           <Col span={14}>
-           <Button onClick={onOk}>AÑADIR AL CARRITO</Button>
+            <Button onClick={onOk}>AÑADIR AL CARRITO</Button>
           </Col>
         </Row>
       </Col>
