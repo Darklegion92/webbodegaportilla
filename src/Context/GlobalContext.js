@@ -62,7 +62,12 @@ const GlobalProvider = ({ children }) => {
   ]);
   const [carrito, setCarrito] = useState([]);
   const [articulos, setArticulos] = useState([]);
+  const [articulosTienda, setArticulosTienda] = useState([]);
   const [SeccionRecomendaciones, setSeccionRecomendaciones] = useState([]);
+  const [grupos, setGrupos] = useState([]);
+  const [marcas, setMarcas] = useState([]);
+  const [filtros, setFiltros] = useState([]);
+
   /** se cargan todos los datos iniciales para cargar la pagina */
   const cargarDatos = () => {
     setModalCarga(true);
@@ -159,88 +164,181 @@ const GlobalProvider = ({ children }) => {
     ]);
 
     //cargando carrito
-    setCarrito([
+
+    //cargando articulos
+    setArticulos([
       {
-        img: "img/articulodefecto.jpeg",
-        nombre: "Articulo Unico",
+        codigo: "15151",
+        img: "img/nuevos/nuevo (1).png",
+        nombre: "Articulo 3 ESTRELLAS",
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
         descripcion:
           "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
         precio: 1000,
-        cantidad: 10,
+        cantidad: 0,
+        embalaje: "Gr",
+        clasificacion: 3,
+        categoria: "NUEVO",
+      },
+      {
+        codigo: "15151",
+        img: "img/nuevos/nuevo (2).png",
+        nombre: "Articulo Unico",
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        descripcion:
+          "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
+        precio: 1000,
+        cantidad: 0,
+        embalaje: "Gr",
+        clasificacion: 2,
+        categoria: "NUEVO",
+      },
+      {
+        codigo: "15151",
+        img: "img/nuevos/nuevo (3).png",
+        nombre: "Articulo Unico",
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        descripcion:
+          "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
+        precio: 1000,
+        cantidad: 0,
+        embalaje: "Gr",
+        clasificacion: 5,
+        categoria: "NUEVO",
+      },
+      {
+        codigo: "15151",
+        img: "img/nuevos/nuevo (5).png",
+        nombre: "Articulo Unico",
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        descripcion:
+          "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
+        precio: 1000,
+        cantidad: 0,
         embalaje: "Gr",
         clasificacion: 1,
+        categoria: "NUEVO",
       },
       {
-        img: "img/articulodefecto.jpeg",
+        codigo: "15151",
+        cantidad: 0,
+        img: "img/nuevos/nuevo (5).png",
         nombre: "Articulo Unico",
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
         precio: 1000,
-        cantidad: 10,
+        descripcion:
+          "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
         embalaje: "Gr",
         clasificacion: 1,
+        categoria: "NUEVO",
       },
       {
-        img: "img/articulodefecto.jpeg",
+        codigo: "15151",
+        cantidad: 0,
+        img: "img/nuevos/nuevo (6).png",
         nombre: "Articulo Unico",
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
         precio: 1000,
-        cantidad: 10,
+        descripcion:
+          "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
         embalaje: "Gr",
         clasificacion: 1,
+        categoria: "NUEVO",
       },
       {
-        img: "img/articulodefecto.jpeg",
+        codigo: "15151",
+        cantidad: 0,
+        img: "img/nuevos/nuevo (7).png",
         nombre: "Articulo Unico",
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
         precio: 1000,
-        cantidad: 10,
+        descripcion:
+          "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
         embalaje: "Gr",
         clasificacion: 1,
+        categoria: "NUEVO",
       },
       {
-        img: "img/articulodefecto.jpeg",
+        codigo: "15151",
+        cantidad: 0,
+        img: "img/nuevos/nuevo (8).png",
         nombre: "Articulo Unico",
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
         precio: 1000,
-        cantidad: 10,
+        descripcion:
+          "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
         embalaje: "Gr",
         clasificacion: 1,
+        categoria: "REGALO",
       },
       {
-        img: "img/articulodefecto.jpeg",
+        codigo: "15151",
+        cantidad: 0,
+        img: "img/nuevos/nuevo (9).png",
         nombre: "Articulo Unico",
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
         precio: 1000,
-        cantidad: 10,
+        descripcion:
+          "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
         embalaje: "Gr",
+        clasificacion: 1,
+        categoria: "REGALO",
       },
       {
-        img: "img/articulodefecto.jpeg",
+        codigo: "15151",
+        cantidad: 0,
+        img: "img/nuevos/nuevo (10).png",
         nombre: "Articulo Unico",
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
         precio: 1000,
-        cantidad: 10,
+        descripcion:
+          "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
         embalaje: "Gr",
+        clasificacion: 1,
+        categoria: "REGALO",
       },
       {
-        img: "img/articulodefecto.jpeg",
+        codigo: "15151",
+        img: "img/nuevos/nuevo (11).png",
         nombre: "Articulo Unico",
-        precio: 1000,
-        cantidad: 10,
+        cantidad: 0,
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        precio: 100000,
+        descripcion:
+          "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
         embalaje: "Gr",
+        clasificacion: 1,
+        categoria: "REGALO",
       },
       {
-        img: "img/articulodefecto.jpeg",
+        codigo: "15151",
+        cantidad: 0,
+        img: "img/nuevos/nuevo (12).png",
         nombre: "Articulo Unico",
-        precio: 1000,
-        cantidad: 10,
+        descripcionLarga:
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        precio: 10000,
+        descripcion:
+          "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
         embalaje: "Gr",
-      },
-      {
-        img: "img/articulodefecto.jpeg",
-        nombre: "Articulo Unico",
-        precio: 1000,
-        cantidad: 10,
-        embalaje: "Gr",
+        clasificacion: 1,
+        cantidad: 0,
+        categoria: "",
       },
     ]);
-    
-    //cargando articulos
-    setArticulos([
+
+    setArticulosTienda([
       {
         codigo: "15151",
         img: "img/nuevos/nuevo (1).png",
@@ -277,7 +375,7 @@ const GlobalProvider = ({ children }) => {
           "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
         precio: 1000,
         embalaje: "Gr",
-        clasificacion: 0,
+        clasificacion: 5,
         categoria: "NUEVO",
       },
       {
@@ -396,9 +494,26 @@ const GlobalProvider = ({ children }) => {
         embalaje: "Gr",
         clasificacion: 1,
         categoria: "",
-      }
-    ])
-    
+      },
+    ]);
+    //cargando agrupaciones
+    setGrupos([
+      "GRUPO 1",
+      "GRUPO 2",
+      "GRUPO 3",
+      "GRUPO 4",
+      "GRUPO 5",
+      "GRUPO 6",
+    ]);
+
+    setMarcas([
+      "MARCA 1",
+      "MARCA 2",
+      "MARCA 3",
+      "MARCA 4",
+      "MARCA 5",
+      "MARCA 6",
+    ]);
     setModalCarga(false);
   };
 
@@ -424,6 +539,11 @@ const GlobalProvider = ({ children }) => {
         seccionEmpresa,
         seccionProductos,
         SeccionRecomendaciones,
+        grupos,
+        marcas,
+        filtros,
+        setFiltros,
+        articulosTienda,
       }}
     >
       {children}

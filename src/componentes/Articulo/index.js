@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Typography, InputNumber, Button, Row, Col } from "antd";
 import { AiFillStar } from "react-icons/ai";
 import { useMediaQuery } from "react-responsive";
 import "./styles.css";
+import { GlobalContext } from "../../Context/GlobalContext";
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 const Articulo = ({ articulo, onOk }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+  const { setCarrito, carrito } = useContext(GlobalContext);
+  const [cantidad, setCantidad] = useState(1);
   const estrellas = (cantidad) => {
     const estrellas = [];
 
@@ -41,10 +44,28 @@ const Articulo = ({ articulo, onOk }) => {
           <Text>$ {articulo.precio} COP</Text>
         </Row>
         <Row className="fila5">
-          <InputNumber min={1} max={10} defaultValue={1} /> <Text>Gr</Text>
+          <InputNumber
+            min={1}
+            max={10}
+            defaultValue={1}
+            onChange={(e) => {
+              setCantidad(e);
+            }}
+          />
+          <Text>Gr</Text>
         </Row>
         <Row justify="center" className="fila5">
-          <Button onClick={onOk}>AÑADIR AL CARRITO</Button>
+          <Button
+            onClick={() => {
+              const nuevoArticulo = articulo;
+              nuevoArticulo.cantidad = cantidad;
+              setCarrito([...carrito, nuevoArticulo]);
+              onOk();
+              console.log(carrito);
+            }}
+          >
+            AÑADIR AL CARRITO
+          </Button>
         </Row>
       </Col>
     </div>
@@ -76,12 +97,29 @@ const Articulo = ({ articulo, onOk }) => {
           <Row className="fila5" gutter={20}>
             <Col span={10}>
               <Row>
-                <InputNumber min={1} max={10} defaultValue={1} />
+                <InputNumber
+                  min={1}
+                  max={10}
+                  defaultValue={1}
+                  onChange={(e) => {
+                    setCantidad(e);
+                  }}
+                />
                 <Text>Gr</Text>
               </Row>
             </Col>
             <Col span={14}>
-              <Button onClick={onOk}>AÑADIR AL CARRITO</Button>
+              <Button
+                onClick={() => {
+                  const nuevoArticulo = articulo;
+                  nuevoArticulo.cantidad = 1;
+                  setCarrito([...carrito, nuevoArticulo]);
+                  onOk();
+                  console.log(carrito);
+                }}
+              >
+                AÑADIR AL CARRITO
+              </Button>
             </Col>
           </Row>
         </Col>

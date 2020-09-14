@@ -14,7 +14,7 @@ const Item = ({ articulo, id, onClick }) => {
     for (let i = 0; i < cantidad; i++) {
       estrellas.push(
         <AiFillStar
-          size={isTabletOrMobile || isTabletOrMobileDevice ? "25" : "20"}
+          size={isTabletOrMobile || isTabletOrMobileDevice ? "10" : "20"}
         />
       );
     }

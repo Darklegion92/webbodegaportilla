@@ -1,14 +1,21 @@
-import React from "react";
-import { Typography, Form, Select, Input, Col, Row, Divider } from "antd";
+import React, { useState } from "react";
+import { Typography, Form, Select, Input, Col, Row, Drawer } from "antd";
 import { SearchOutlined, FilterOutlined } from "@ant-design/icons";
 import { useMediaQuery } from "react-responsive";
+
+import FiltrosTienda from "../FiltrosTienda";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
 
 const Head = () => {
+  const [visible, setVisible] = useState(true);
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+
+  const onClick = () => {
+    setVisible(!visible);
+  };
   return isTabletOrMobile || isTabletOrMobileDevice ? (
     <Col span={24} className="head">
       <Row>
@@ -40,7 +47,7 @@ const Head = () => {
           </Form>
         </Col>
         <Col span={7}>
-          <Row className="filtro">
+          <Row className="filtro" onClick={onClick}>
             <Col span={16}>
               <Title level={4}>FILTRO</Title>
             </Col>
@@ -48,6 +55,19 @@ const Head = () => {
               <FilterOutlined />
             </Col>
           </Row>
+          <Drawer
+            style={{ marginTop: "212px" }}
+            placement="right"
+            closable={false}
+            onClose={() => {
+              setVisible(false);
+            }}
+            width="100%"
+            visible={visible}
+            key="right"
+          >
+            <FiltrosTienda />
+          </Drawer>
         </Col>
       </Row>
     </Col>

@@ -125,7 +125,6 @@ function Encabezado() {
               </Menu.Item>
               <Menu.Item>
                 <a href="#nuevo">
-                  {" "}
                   <Text>NUEVO</Text>
                 </a>
               </Menu.Item>
@@ -352,7 +351,7 @@ function Encabezado() {
               }
             >
               <Menu.Item>
-                <MenuCarrito carrito={carrito} />
+                <MenuCarrito carrito={carrito} cerrar={setVisibleRight} />
               </Menu.Item>
             </SubMenu>
           </Menu>

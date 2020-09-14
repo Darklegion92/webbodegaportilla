@@ -12,7 +12,7 @@ import Comprado from "../ArticuloComprado";
 const Tienda = () => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const { articulos } = useContext(GlobalContext);
+  const { articulosTienda } = useContext(GlobalContext);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -25,7 +25,7 @@ const Tienda = () => {
   };
 
   const agregarArticulo = (e) => {
-    setArticuloSeleccionado(articulos[e]);
+    setArticuloSeleccionado(articulosTienda[e]);
     setModalArticulo(true);
   };
   const agregarCantidad = () => {
@@ -43,7 +43,7 @@ const Tienda = () => {
         </Col>
       )}
       <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 19}>
-        <ArticulosTienda articulos={articulos} onClick={agregarArticulo} />
+        <ArticulosTienda articulos={articulosTienda} onClick={agregarArticulo} />
       </Col>
       <Modal
         width={isTabletOrMobile || isTabletOrMobileDevice ? 450 : 900}

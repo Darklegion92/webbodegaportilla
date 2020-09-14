@@ -181,13 +181,13 @@
   background: var(--color-primario);
   width: min-content;
   max-height: 1000px;
-  border-bottom-right-radius: 30px;
+  border-bottom-right-radius: 20px;
   justify-content: center;
   align-items: center;
   font-size: 13px;
   font-weight: bold;
   color: white;
-  padding: 5px 8px 10px 5px;
+  padding: 5px 10px 5px 5px;
   top: 0%;
   left: 0%;
   border-top-left-radius: 10px;
