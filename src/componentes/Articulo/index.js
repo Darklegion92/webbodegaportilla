@@ -112,7 +112,7 @@ const Articulo = ({ articulo, onOk }) => {
               <Button
                 onClick={() => {
                   const nuevoArticulo = articulo;
-                  nuevoArticulo.cantidad = 1;
+                  nuevoArticulo.cantidad =cantidad;
                   setCarrito([...carrito, nuevoArticulo]);
                   onOk();
                   console.log(carrito);

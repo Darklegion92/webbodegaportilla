@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Row, Col, Typography, Divider, Button, Input } from "antd";
-
+import { GlobalContext } from "../../Context/GlobalContext";
 import "./styles.css";
 const { Text, Title } = Typography;
 
 const Resumen = () => {
+  const { carrito } = useContext(GlobalContext);
+  let total = 0;
+
+  const calcular = (car) => {
+    car.forEach((item) => {
+      total += item.cantidad * item.precio;
+    });
+  };
+  calcular(carrito);
+
   return (
     <Col span={24} className="resumen">
       <Row>
@@ -16,7 +26,7 @@ const Resumen = () => {
           <Text>SUB-TOTAL</Text>
         </Col>
         <Col span={13}>
-          <Text>$ 240.000</Text>
+          <Text>$ {total}</Text>
         </Col>
       </Row>
       <Divider />
@@ -25,7 +35,7 @@ const Resumen = () => {
           <Text>AHORRO</Text>
         </Col>
         <Col span={14}>
-          <Text>$ 10.000</Text>
+          <Text>$ {total > 50000 ? 7000 : 0}</Text>
         </Col>
       </Row>
       <Divider />
@@ -34,7 +44,7 @@ const Resumen = () => {
           <Text>ENVIO</Text>
         </Col>
         <Col span={14}>
-          <Text>$ 7.000</Text>
+          <Text>$ {total > 50000 ? 0 : 7000}</Text>
         </Col>
       </Row>
       <Divider />
@@ -42,13 +52,15 @@ const Resumen = () => {
         <Col span={24}>
           <Text>APLICAR CUPON</Text>
           <Input placeholder="Cupón" />
-          <Col span={9}><Button>APLICAR</Button></Col>
+          <Col span={9}>
+            <Button>APLICAR</Button>
+          </Col>
         </Col>
       </Row>
       <Divider />
       <Row>
         <Title level={2}>TOTAL</Title>
-        <Title>$ 240.000</Title>
+        <Title>${total > 50000 ? total : total + 7000}</Title>
       </Row>
     </Col>
   );

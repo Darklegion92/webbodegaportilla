@@ -1,64 +1,28 @@
-import React, { useState } from "react";
-import { Steps, Button, message } from "antd";
+import React, { useState, useContext } from "react";
+import { Steps, Button } from "antd";
 import { ShoppingCartOutlined, SolutionOutlined } from "@ant-design/icons";
 import CarArticulos from "./CarArticulos";
 import FormularioDatosEnvio from "./FormularioDatosEnvio";
-
+import { GlobalContext } from "../../Context/GlobalContext";
 const { Step } = Steps;
-
-const carrito = [
-  {
-    img: "img/articulodefecto.jpeg",
-    nombre: "Articulo Unico",
-    precio: 1000,
-    cantidad: 10,
-    embalaje: "Gr",
-  },
-  {
-    img: "img/articulodefecto.jpeg",
-    nombre: "Articulo Unico",
-    precio: 1000,
-    cantidad: 10,
-    embalaje: "Gr",
-  },
-  {
-    img: "img/articulodefecto.jpeg",
-    nombre: "Articulo Unico",
-    precio: 1000,
-    cantidad: 10,
-    embalaje: "Gr",
-  },
-  {
-    img: "img/articulodefecto.jpeg",
-    nombre: "Articulo Unico",
-    precio: 1000,
-    cantidad: 10,
-    embalaje: "Gr",
-  },
-  {
-    img: "img/articulodefecto.jpeg",
-    nombre: "Articulo Unico",
-    precio: 1000,
-    cantidad: 10,
-    embalaje: "Gr",
-  },
-];
-
-const steps = [
-  {
-    title: "CARRITO DE COMPRAS",
-    content: <CarArticulos carrito={carrito} />,
-    icon: <ShoppingCartOutlined />,
-  },
-  {
-    title: "DATOS DE ENVIO Y PAGO",
-    content: <FormularioDatosEnvio />,
-    icon: <SolutionOutlined />,
-  },
-];
 
 const StepPagos = () => {
   const [current, setCurrent] = useState(0);
+  const { carrito, setCarrito } = useContext(GlobalContext);
+
+  const steps = [
+    {
+      title: "CARRITO DE COMPRAS",
+      content: <CarArticulos carrito={carrito} />,
+      icon: <ShoppingCartOutlined />,
+    },
+    {
+      title: "DATOS DE ENVIO Y PAGO",
+      content: <FormularioDatosEnvio />,
+      icon: <SolutionOutlined />,
+    },
+  ];
+
   const next = () => {
     const current1 = current + 1;
     setCurrent(current1);

@@ -9,7 +9,7 @@ const { Title, Text } = Typography;
 const { Option } = Select;
 
 const Head = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
 
