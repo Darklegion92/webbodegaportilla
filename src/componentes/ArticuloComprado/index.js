@@ -25,7 +25,7 @@ const Comprado = ({ articulo, onOk }) => {
           </Col>
           <Col span={24}>
             <Row className="fila2" justify="center">
-              <Text>{articulo.nombre}</Text>
+              <Text align="center">{articulo.nombre}</Text>
             </Row>
             <Row className="fila3" justify="center">
               <Text className="sinformato">$ {articulo.precio} COP</Text>

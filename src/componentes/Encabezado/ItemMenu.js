@@ -5,9 +5,9 @@ const { Text, Title } = Typography;
 
 const ItemMenu = ({ articulo }) => {
   return (
-    <Row className="item-menu" gutter={16}>
+    <Row className="item-menu" align="center" gutter={6}>
       <Col span={6}>
-        <img src={articulo.img} width="60px" />
+        <img src={articulo.img} width="100%" />
       </Col>
       <Col span={18}>
         <Title level={4}>{articulo.nombre}</Title>

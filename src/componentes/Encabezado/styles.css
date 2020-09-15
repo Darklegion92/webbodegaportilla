@@ -206,12 +206,12 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
 }
 
 .menu-carrito .items .item-menu .ant-col-18 {
-  text-align: right;
-  height: 100%;
+  text-align: left;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100px;
 }
 
 .menu-carrito .items h4.ant-typography {
@@ -219,6 +219,7 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   color: var(--color-primario);
   line-height: 20px;
   font-size: 20px;
+  max-width: 100%;
 }
 
 .menu-carrito .totales h4.ant-typography {

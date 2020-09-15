@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Row, Col, Pagination } from "antd";
 import { useMediaQuery } from "react-responsive";
+import { GlobalContext } from "../../Context/GlobalContext";
 import Head from "./Head";
 import Item from "./Item";
 
 import "./styles.css";
 const ArticulosTienda = ({ articulos, onClick }) => {
   const [pagina, setPagina] = useState(1);
+  const { carrito } = useContext(GlobalContext);
+
   const onChange = (e) => {
     setPagina(e);
   };
@@ -19,18 +22,45 @@ const ArticulosTienda = ({ articulos, onClick }) => {
       </Row>
       {isTabletOrMobile || isTabletOrMobileDevice ? (
         articulos.map((articulo, i) => {
+          let enCarrito = false;
+          carrito.forEach((item) => {
+            if (articulo.codigo === item.codigo) {
+              enCarrito = true;
+              return;
+            }
+          });
+
           if (i < 20 * pagina && i >= 20 * (pagina - 1))
             return (
               <Row>
-                <Item articulo={articulo} onClick={onClick} id={i} />
+                <Item
+                  articulo={articulo}
+                  onClick={onClick}
+                  id={i}
+                  enCarrito={enCarrito}
+                />
               </Row>
             );
         })
       ) : (
         <Row>
           {articulos.map((articulo, i) => {
+            let enCarrito = false;
+            carrito.forEach((item) => {
+              if (articulo.codigo === item.codigo) {
+                enCarrito = true;
+                return;
+              }
+            });
             if (i < 20 * pagina && i >= 20 * (pagina - 1))
-              return <Item articulo={articulo} onClick={onClick} id={i} />;
+              return (
+                <Item
+                  articulo={articulo}
+                  onClick={onClick}
+                  id={i}
+                  enCarrito={enCarrito}
+                />
+              );
           })}
         </Row>
       )}

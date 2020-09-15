@@ -94,6 +94,7 @@
 
 .car-shop .car-articulos {
   margin: 30px 40px;
+  width: 100%;
 }
 
 .car-shop .car-articulos .item {
@@ -101,36 +102,33 @@
   flex-direction: row;
   align-items: center;
   margin: 10px 0;
+  width: 100%;
   padding: 10px 0;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
-.car-shop .car-articulos .item div.ant-col.ant-col-16 {
+.car-shop .car-articulos .item div.ant-col.ant-col-13 {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.car-shop .car-articulos .item .ant-col.ant-col-8 h3.ant-typography {
+.car-shop .car-articulos .item div.ant-col.ant-col-13 > .ant-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.car-shop .car-articulos .item .ant-col.ant-col-13 h3.ant-typography {
   color: var(--color-primario) !important;
 }
 
-.car-shop .car-articulos .item .ant-col.ant-col-16 .ant-row {
-  width: 100%;
-}
 
-.car-shop .car-articulos .item .ant-col.ant-col-16 .ant-row .ant-col.ant-col-8,
-.car-shop .car-articulos .item .ant-col.ant-col-16 .ant-row .ant-col.ant-col-9 {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.car-shop .car-articulos .item .ant-col.ant-col-16 .ant-row .ant-col.ant-col-3,
-.car-shop .car-articulos .item .ant-col.ant-col-16 .ant-row .ant-col.ant-col-4 {
+.car-shop .car-articulos .item .ant-col.ant-col-11 .ant-row .ant-col.ant-col-9 {
   display: flex;
   align-items: center;
 }
@@ -138,41 +136,54 @@
 .car-shop
   .car-articulos
   .item
-  .ant-col.ant-col-16
+  .ant-col.ant-col-11
   .ant-row
   .ant-col.ant-col-9
   h3.ant-typography {
   color: red;
 }
+.car-shop .car-articulos .item .ant-col.ant-col-11 .ant-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .car-shop
   .car-articulos
   .item
-  .ant-col.ant-col-16
+  .ant-col.ant-col-11
   .ant-row
-  .ant-col.ant-col-8
+  .ant-col.ant-col-6
   h4.ant-typography {
   color: var(--color-primario) !important;
   font-weight: normal;
+  font-size: 15px;
+}
+
+.car-shop .car-articulos .item .ant-col.ant-col-11 .ant-row .ant-col.ant-col-6 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .car-shop
   .car-articulos
   .item
-  .ant-col.ant-col-16
+  .ant-col.ant-col-11
   .ant-row
-  .ant-col.ant-col-4
+  .ant-col.ant-col-6
   div.ant-input-number {
   border-color: var(--color-primario);
   color: var(--color-primario);
+  width: 70px !important;
 }
 
 .car-shop
   .car-articulos
   .item
-  .ant-col.ant-col-16
+  .ant-col.ant-col-11
   .ant-row
-  .ant-col.ant-col-3
+  .ant-col.ant-col-2
   svg:hover {
   cursor: pointer;
 }
@@ -263,4 +274,3 @@
   box-shadow: none;
   border-color: var(--color-primario);
 }
-

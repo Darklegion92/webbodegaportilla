@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Row, Col } from "antd";
 
 import StepPagos from "./StepPagos";
 import Resumen from "./Resumen";
 
+import { GlobalContext } from "../../Context/GlobalContext";
 const CarShop = () => {
   useEffect(() => {
     window.scrollTo(0, 0);

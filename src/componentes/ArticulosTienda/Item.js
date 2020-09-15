@@ -1,10 +1,10 @@
 import React from "react";
-import { Typography, Button, Row, Col, InputNumber } from "antd";
+import { Typography, Button, Row, Col } from "antd";
 import { useMediaQuery } from "react-responsive";
 import { AiFillStar } from "react-icons/ai";
 
 const { Text, Title } = Typography;
-const Item = ({ articulo, id, onClick }) => {
+const Item = ({ articulo, id, onClick, enCarrito }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
 
@@ -49,7 +49,7 @@ const Item = ({ articulo, id, onClick }) => {
           </Row>
 
           <Row justify="start">
-            <Button>AÑADIR AL CARRITO</Button>
+            <Button>{enCarrito ? "YA AGREGADO" : "AÑADIR AL CARRITO"}</Button>
           </Row>
         </Col>
       </Row>
@@ -82,7 +82,7 @@ const Item = ({ articulo, id, onClick }) => {
           </Col>
         </Row>
         <Row justify="center">
-          <Button>AÑADIR AL CARRITO</Button>
+          <Button>{enCarrito ? "YA AGREGADO" : "AÑADIR AL CARRITO"}</Button>
         </Row>
       </div>
     </Col>

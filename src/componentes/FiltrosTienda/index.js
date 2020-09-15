@@ -11,8 +11,6 @@ const FiltrosTienda = () => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const { grupos, marcas, filtros, setFiltros } = useContext(GlobalContext);
-  const [selectedGrupos, setSelectedGrupos] = useState([]);
-  const [selectedMarcas, setSelectedMarcas] = useState([]);
   const onClickGrupos = async (e) => {
     const nombre = e.target.id;
     let guardar = true;

@@ -111,7 +111,7 @@
     color: var(--color-primario);
     font-size: 30px;
     font-weight: bold;
-    line-height: 0;
+    line-height: 23px;
     margin-top: 20px;
   }
   .articulo-tag .fila3 span.ant-typography {

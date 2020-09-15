@@ -12,6 +12,15 @@ const Articulo = ({ articulo, onOk }) => {
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const { setCarrito, carrito } = useContext(GlobalContext);
   const [cantidad, setCantidad] = useState(1);
+
+  let enCarrito = false;
+  carrito.forEach((item) => {
+    if (articulo.codigo === item.codigo) {
+      enCarrito = true;
+      return;
+    }
+  });
+
   const estrellas = (cantidad) => {
     const estrellas = [];
 
@@ -51,20 +60,22 @@ const Articulo = ({ articulo, onOk }) => {
             onChange={(e) => {
               setCantidad(e);
             }}
+            disabled={enCarrito}
           />
           <Text>Gr</Text>
         </Row>
         <Row justify="center" className="fila5">
           <Button
             onClick={() => {
-              const nuevoArticulo = articulo;
-              nuevoArticulo.cantidad = cantidad;
-              setCarrito([...carrito, nuevoArticulo]);
-              onOk();
-              console.log(carrito);
+              if (!enCarrito) {
+                const nuevoArticulo = articulo;
+                nuevoArticulo.cantidad = cantidad;
+                setCarrito([...carrito, nuevoArticulo]);
+                onOk();
+              }
             }}
           >
-            AÑADIR AL CARRITO
+            {enCarrito ? "YA AGREGADO" : "AÑADIR AL CARRITO"}
           </Button>
         </Row>
       </Col>
@@ -104,6 +115,7 @@ const Articulo = ({ articulo, onOk }) => {
                   onChange={(e) => {
                     setCantidad(e);
                   }}
+                  disabled={enCarrito}
                 />
                 <Text>Gr</Text>
               </Row>
@@ -111,14 +123,15 @@ const Articulo = ({ articulo, onOk }) => {
             <Col span={14}>
               <Button
                 onClick={() => {
-                  const nuevoArticulo = articulo;
-                  nuevoArticulo.cantidad =cantidad;
-                  setCarrito([...carrito, nuevoArticulo]);
-                  onOk();
-                  console.log(carrito);
+                  if (!enCarrito) {
+                    const nuevoArticulo = articulo;
+                    nuevoArticulo.cantidad = cantidad;
+                    setCarrito([...carrito, nuevoArticulo]);
+                    onOk();
+                  }
                 }}
               >
-                AÑADIR AL CARRITO
+                {enCarrito ? "YA AGREGADO" : "AÑADIR AL CARRITO"}
               </Button>
             </Col>
           </Row>

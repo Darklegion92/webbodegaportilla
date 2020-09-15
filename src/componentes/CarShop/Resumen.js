@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Row, Col, Typography, Divider, Button, Input } from "antd";
 import { GlobalContext } from "../../Context/GlobalContext";
 import "./styles.css";
@@ -14,6 +14,7 @@ const Resumen = () => {
     });
   };
   calcular(carrito);
+  useEffect(() => {}, [carrito]);
 
   return (
     <Col span={24} className="resumen">
