@@ -86,11 +86,6 @@ const FormularioDatosEnvio = () => {
               </Radio.Group>
             </Form.Item>
           </Col>
-          <Col span={10}>
-            <Form.Item label=" " name="nombre">
-              <Button>REGISTRAR</Button>
-            </Form.Item>
-          </Col>
         </Row>
       </Form>
     </Col>

@@ -4,7 +4,7 @@ import { GlobalContext } from "../../Context/GlobalContext";
 import "./styles.css";
 const { Text, Title } = Typography;
 
-const Resumen = () => {
+const Resumen = ({ next, current,pagar }) => {
   const { carrito } = useContext(GlobalContext);
   let total = 0;
 
@@ -57,6 +57,22 @@ const Resumen = () => {
             <Button>APLICAR</Button>
           </Col>
         </Col>
+      </Row>
+      <Row>
+        {carrito.length > 0 && (
+          <Button
+            style={{
+              backgroundColor: "var(--color-primario)",
+              color: "white",
+              borderRadius: "10px",
+              height: "auto",
+              fontSize: "18px",
+            }}
+            onClick={ current === 0 ? next:pagar}
+          >
+            {current === 0 ? "DATOS PARA PAGO" : "REGISTRAR"}
+          </Button>
+        )}
       </Row>
       <Divider />
       <Row>

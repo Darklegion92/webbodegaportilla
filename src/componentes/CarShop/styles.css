@@ -127,7 +127,6 @@
   color: var(--color-primario) !important;
 }
 
-
 .car-shop .car-articulos .item .ant-col.ant-col-11 .ant-row .ant-col.ant-col-9 {
   display: flex;
   align-items: center;
@@ -258,19 +257,61 @@
   border: solid 1px var(--color-primario);
 }
 
-.car-shop .steps-action button {
-  color: white;
-  background-color: var(--color-primario);
-  border-radius: 10px;
-}
-
 .car-shop .ant-btn-primary {
   box-shadow: none;
   border-color: var(--color-primario);
 }
-.car-shop .steps-action button:hover,
-.car-shop .steps-action button:focus,
-.car-shop .steps-action button::selection {
-  box-shadow: none;
-  border-color: var(--color-primario);
+
+@media only screen and (max-width: 600px) {
+  .car-shop
+    div.ant-steps.ant-steps-horizontal.site-navigation-steps.ant-steps-label-horizontal.ant-steps-navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+  }
+  .car-shop .site-navigation-steps {
+    display: flex;
+    flex-direction: row;
+  }
+  .car-shop div.ant-steps-item-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .car-shop div.ant-steps-item-title {
+    text-align: center;
+    font-size: 13px;
+    width: 100% !important;
+  }
+  .car-shop .ant-steps-navigation {
+    width: 50% !important;
+  }
+
+  .car-shop
+    .ant-steps-item.ant-steps-item-process.ant-steps-item-custom.ant-steps-item-active::before {
+    bottom: 0;
+    top: 0;
+    left: unset;
+    display: block;
+    width: 3px !important;
+    width: 100%;
+    background-color: var(--color-primario);
+  }
+  .car-shop
+    .ant-steps-navigation
+    > .ant-steps-item.ant-steps-item-active::before {
+    display: none;
+  }
+
+  .car-shop
+    .ant-steps-navigation
+    > .ant-steps-item.ant-steps-item-active::before {
+    bottom: 0;
+    top: 0;
+    left: unset;
+    display: block;
+    width: 3px;
+    width: calc(100% - 24px);
+  }
 }
