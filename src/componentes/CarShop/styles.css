@@ -1,5 +1,6 @@
 .car-shop {
-  margin-left: 20px !important;
+  margin: auto;
+  width: 100%;
 }
 /*Resumen*/
 .car-shop .resumen {
@@ -93,7 +94,10 @@
 /*carArticulos*/
 
 .car-shop .car-articulos {
-  margin: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*margin: 30px 40px;*/
   width: 100%;
 }
 
@@ -101,17 +105,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin: 10px 0;
   width: 100%;
   padding: 10px 0;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  margin-left: 0 !important ;
 }
 
 .car-shop .car-articulos .item div.ant-col.ant-col-13 {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
 }
@@ -137,7 +143,7 @@
   .item
   .ant-col.ant-col-11
   .ant-row
-  .ant-col.ant-col-9
+  .ant-col.ant-col-10
   h3.ant-typography {
   color: red;
 }
@@ -263,55 +269,83 @@
 }
 
 @media only screen and (max-width: 600px) {
+  /*steps*/
+
+  .car-shop .steps-content {
+    min-height:100%;
+  }
   .car-shop
     div.ant-steps.ant-steps-horizontal.site-navigation-steps.ant-steps-label-horizontal.ant-steps-navigation {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
     width: 100%;
-  }
-  .car-shop .site-navigation-steps {
-    display: flex;
-    flex-direction: row;
-  }
-  .car-shop div.ant-steps-item-container {
-    display: flex;
-    flex-direction: column;
   }
 
   .car-shop div.ant-steps-item-title {
-    text-align: center;
-    font-size: 13px;
-    width: 100% !important;
-  }
-  .car-shop .ant-steps-navigation {
-    width: 50% !important;
+    font-size: 10px;
   }
 
-  .car-shop
-    .ant-steps-item.ant-steps-item-process.ant-steps-item-custom.ant-steps-item-active::before {
-    bottom: 0;
-    top: 0;
-    left: unset;
-    display: block;
-    width: 3px !important;
-    width: 100%;
-    background-color: var(--color-primario);
+  .car-shop div.ant-steps-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  .car-shop
-    .ant-steps-navigation
-    > .ant-steps-item.ant-steps-item-active::before {
+
+  .car-shop .ant-steps-navigation > .ant-steps-item::after {
     display: none;
   }
+  .car-shop
+    div.ant-steps.ant-steps-horizontal.site-navigation-steps.ant-steps-label-horizontal.ant-steps-navigation {
+    display: flex;
+    width: 100%;
+  }
 
+  .car-shop
+    div.ant-steps-item.ant-steps-item-process.ant-steps-item-custom.ant-steps-item-active,
+  .car-shop div.ant-steps-item.ant-steps-item-wait.ant-steps-item-custom {
+    width: 50%;
+  }
+
+  .car-shop div.ant-steps-item.ant-steps-item-wait.ant-steps-item-custom {
+    flex: auto;
+  }
   .car-shop
     .ant-steps-navigation
     > .ant-steps-item.ant-steps-item-active::before {
-    bottom: 0;
-    top: 0;
-    left: unset;
-    display: block;
-    width: 3px;
-    width: calc(100% - 24px);
+    top: auto;
+    right: auto;
+    left: 0;
+    height: 0;
+    width: 100%;
+  }
+
+  /*artiulos*/
+  .car-shop .item .ant-col-12 h2.ant-typography {
+    font-size: 20px;
+    color: var(--color-primario);
+  }
+
+  .car-shop .item .ant-col-12 h3.ant-typography {
+    font-size: 25px;
+    color: red;
+  }
+  .car-shop .item .ant-col-12 h4.ant-typography {
+    font-size: 15px;
+    font-weight: normal;
+    color: var(--color-primario);
+  }
+
+  .car-shop .item .ant-col-12 .ant-col-15 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .car-shop .item .ant-col-12 .ant-input-number {
+    font-size: 15px;
+    border: solid 1px var(--color-primario);
+    width: 100%;
+    padding: 0!important;
   }
 }

@@ -11,7 +11,7 @@ const CarArticulos = ({ carrito }) => {
     setPagina(e);
   };
   return (
-    <Col span={22} className="car-articulos">
+    <Col span={24} className="car-articulos">
       {carrito.map((articulo, i) => {
         if (i < pageSize * pagina && i >= pageSize * (pagina - 1))
           return (

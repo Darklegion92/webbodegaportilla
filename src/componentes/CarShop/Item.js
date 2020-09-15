@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Col, Row, Typography, InputNumber } from "antd";
+import { useMediaQuery } from "react-responsive";
 import { GoTrashcan } from "react-icons/go";
 
 import { GlobalContext } from "../../Context/GlobalContext";
 const { Title } = Typography;
 
 const Item = ({ articulo }) => {
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const [cantidad, setCantidad] = useState();
   const { carrito, setCarrito, loading, setLoading } = useContext(
     GlobalContext
@@ -38,7 +41,32 @@ const Item = ({ articulo }) => {
       }
     });
   };
-  return (
+  return isTabletOrMobile || isTabletOrMobileDevice ? (
+    <Row className="item" gutter={10}>
+      <Col span={8}>
+        <img src={articulo.img} width="100%" />
+      </Col>
+      <Col span={12}>
+        <Row>
+          <Title level={2}>{articulo.nombre}</Title>
+        </Row>
+        <Row>
+          <Title level={3}>$ {articulo.precio}</Title>
+        </Row>
+        <Row align="center" justify="center">
+          <Col span={15}>
+            <Title level={4}>CANTIDAD</Title>
+          </Col>
+          <Col span={9}>
+            <InputNumber min={1} onChange={onChange} value={cantidad} />
+          </Col>
+        </Row>
+      </Col>
+      <Col span={4}>
+        <GoTrashcan color="red" size={25} onClick={eliminar} />
+      </Col>
+    </Row>
+  ) : (
     <Row className="item" gutter={30}>
       <Col span={13}>
         <Row gutter={8}>
@@ -52,7 +80,7 @@ const Item = ({ articulo }) => {
       </Col>
       <Col span={11}>
         <Row gutter={2}>
-          <Col span={9}>
+          <Col span={10}>
             <Title level={3}>$ {articulo.precio}</Title>
           </Col>
           <Col span={6}>
