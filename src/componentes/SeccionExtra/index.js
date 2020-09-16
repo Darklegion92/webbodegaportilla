@@ -164,7 +164,7 @@ function SeccionExtra({ items, articulos, texto, tipo }) {
         <Articulo articulo={articuloSeleccionado} onOk={agregarCantidad} />
       </Modal>
       <Modal
-        width={isTabletOrMobile || isTabletOrMobileDevice ? 450 : 700}
+        width={isTabletOrMobile || isTabletOrMobileDevice ? 450 : 500}
         visible={modalComprado}
         onCancel={cerrarComprado}
         footer={null}

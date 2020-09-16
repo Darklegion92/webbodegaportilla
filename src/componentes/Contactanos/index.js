@@ -47,7 +47,7 @@ const FormularioRegistro = () => {
         </Col>
       </Row>
       <Row>
-        <Col span={14}>
+        <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 18 : 14}>
           <Form.Item label="Nombre">
             <Input />
           </Form.Item>
@@ -90,7 +90,7 @@ const FormularioRegistro = () => {
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">
-              ENVIAR
+              <Text>ENVIAR</Text>
             </Button>
           </Form.Item>
         </Col>

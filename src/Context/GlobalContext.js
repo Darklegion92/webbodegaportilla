@@ -65,6 +65,7 @@ const GlobalProvider = ({ children }) => {
   const [articulos, setArticulos] = useState([]);
   const [articulosTienda, setArticulosTienda] = useState([]);
   const [SeccionRecomendaciones, setSeccionRecomendaciones] = useState([]);
+  const [subgrupos, setSubgrupos] = useState([]);
   const [grupos, setGrupos] = useState([]);
   const [marcas, setMarcas] = useState([]);
   const [filtros, setFiltros] = useState([]);
@@ -549,6 +550,15 @@ const GlobalProvider = ({ children }) => {
       "GRUPO 6",
     ]);
 
+    setSubgrupos([
+      "SUBGRUPO 1",
+      "SUBGRUPO 2",
+      "SUBGRUPO 3",
+      "SUBGRUPO 4",
+      "SUBGRUPO 5",
+      "SUBGRUPO 6",
+    ]);
+
     setMarcas([
       "MARCA 1",
       "MARCA 2",
@@ -589,6 +599,7 @@ const GlobalProvider = ({ children }) => {
         articulosTienda,
         setLoading,
         loading,
+        subgrupos
       }}
     >
       {children}

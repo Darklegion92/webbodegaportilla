@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Col, Row, Typography, InputNumber } from "antd";
+import { Col, Row, Typography } from "antd";
+import NumericInput from "react-numeric-input";
 import { useMediaQuery } from "react-responsive";
 import { GoTrashcan } from "react-icons/go";
 
@@ -36,7 +37,6 @@ const Item = ({ articulo }) => {
       if (item.codigo === articulo.codigo) {
         const newCar = [...carrito.slice(0, i), ...carrito.slice(i + 1)];
         setCarrito(newCar);
-        console.log(carrito);
         return;
       }
     });
@@ -58,7 +58,13 @@ const Item = ({ articulo }) => {
             <Title level={4}>CANTIDAD</Title>
           </Col>
           <Col span={9}>
-            <InputNumber min={1} onChange={onChange} value={cantidad} />
+            <NumericInput
+              min={1}
+              value={cantidad}
+              onChange={onChange}
+              mobile={false}
+              className="input-edit"
+            />
           </Col>
         </Row>
       </Col>
@@ -87,7 +93,12 @@ const Item = ({ articulo }) => {
             <Title level={4}>CANTIDAD</Title>
           </Col>
           <Col span={6}>
-            <InputNumber min={1} onChange={onChange} value={cantidad} />
+            <NumericInput
+              min={1}
+              value={cantidad}
+              onChange={onChange}
+              className="input-edit"
+            />
           </Col>
           <Col span={2}>
             <GoTrashcan color="red" size={30} onClick={eliminar} />

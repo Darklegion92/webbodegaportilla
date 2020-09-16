@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Typography, InputNumber, Button, Row, Col } from "antd";
+import { Typography, Button, Row, Col } from "antd";
+import NumericInput from "react-numeric-input";
 import { AiFillStar } from "react-icons/ai";
 import { useMediaQuery } from "react-responsive";
 import "./styles.css";
@@ -25,7 +26,7 @@ const Articulo = ({ articulo, onOk }) => {
     const estrellas = [];
 
     for (let i = 0; i < cantidad; i++) {
-      estrellas.push(<AiFillStar size="80" />);
+      estrellas.push(<AiFillStar size="60" style={{ margin: "5px" }} />);
     }
 
     return estrellas;
@@ -52,17 +53,22 @@ const Articulo = ({ articulo, onOk }) => {
         <Row justify="center" className="fila4">
           <Text>$ {articulo.precio} COP</Text>
         </Row>
-        <Row className="fila5">
-          <InputNumber
-            min={1}
-            max={10}
-            defaultValue={1}
-            onChange={(e) => {
-              setCantidad(e);
-            }}
-            disabled={enCarrito}
-          />
-          <Text>Gr</Text>
+        <Row className="fila5" align="middle" justify="center">
+          <Col span={12}>
+            <NumericInput
+              min={1}
+              value={cantidad}
+              onChange={(e) => {
+                setCantidad(e);
+              }}
+              mobile={false}
+              className="input-edit"
+              disabled={enCarrito}
+            />
+          </Col>
+          <Col span={11}>
+            <Text>Gr</Text>
+          </Col>
         </Row>
         <Row justify="center" className="fila5">
           <Button
@@ -108,13 +114,14 @@ const Articulo = ({ articulo, onOk }) => {
           <Row className="fila5" gutter={20}>
             <Col span={10}>
               <Row>
-                <InputNumber
+                <NumericInput
                   min={1}
-                  max={10}
-                  defaultValue={1}
+                  value={cantidad}
                   onChange={(e) => {
                     setCantidad(e);
                   }}
+                  mobile={false}
+                  className="input-edit"
                   disabled={enCarrito}
                 />
                 <Text>Gr</Text>

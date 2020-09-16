@@ -209,13 +209,13 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   width: 100px;
 }
 
 .menu-carrito .items h4.ant-typography {
-  text-align: center;
+  text-align: left;
   color: var(--color-primario);
   line-height: 20px;
   font-size: 20px;

@@ -57,7 +57,8 @@
   background-color: var(--color-secundario);
 }
 .articulos-tienda .head .ant-col-2:hover {
-  transform: scale(1.1);
+  transition-duration: 0.5s;
+  transform: scale(1.04);
   cursor: pointer;
 }
 .articulos-tienda .head .ant-col-2 svg {
@@ -85,11 +86,13 @@
 }
 .articulos-tienda .item:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transition-duration: 0.5s;
+  transform: scale(1.04);
 }
 
 .articulos-tienda .item img {
-  margin-top: 10px;
+  margin: 10px 0;
+
 }
 
 .articulos-tienda .item h3.ant-typography {

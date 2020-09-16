@@ -30,16 +30,50 @@
   font-size: 23px;
 }
 
-.car-shop .resumen .ant-col-24 {
-  margin-top: 20px;
+.car-shop
+  .resumen
+  .ant-col-24
+  div.ant-select.ant-select-single.ant-select-show-arrow {
+  width: 100% !important;
+  border-color: var(--color-primario) !important;
 }
-
+.car-shop
+  .resumen
+  .ant-col-24
+  div.ant-select.ant-select-single.ant-select-show-arrow
+  select:hover,
+.car-shop
+  .resumen
+  .ant-col-24
+  div.ant-select.ant-select-single.ant-select-show-arrow
+  select:focus {
+  box-shadow: none;
+}
 .car-shop .resumen .ant-col-24 input.ant-input {
-  border-color: var(--color-primario);
+  border: solid 1px var(--color-primario);
 }
-
-.car-shop .resumen .ant-col-24 input.ant-input:hover,
-.car-shop .resumen .ant-col-24 input.ant-input:focus {
+.car-shop
+  .resumen
+  .ant-select-single:not(.ant-select-customize-input)
+  .ant-select-selector,
+.car-shop
+  .resumen
+  .ant-select:not(.ant-select-disabled):hover
+  .ant-select-selector,
+.car-shop
+  .resumen
+  .ant-select:not(.ant-select-disabled):focus
+  .ant-select-selector,
+.car-shop
+  .resumen
+  .ant-select:not(.ant-select-disabled):hover
+  .ant-select-selector,
+.car-shop
+  .resumen
+  .ant-select-focused.ant-select-single:not(.ant-select-customize-input)
+  .ant-select-selector {
+  border-color: var(--color-primario);
+  border-right-width: 1px !important;
   box-shadow: none;
 }
 .car-shop .resumen div.ant-col-9 {
@@ -97,7 +131,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /*margin: 30px 40px;*/
   width: 100%;
 }
 
@@ -171,6 +204,10 @@
   justify-content: center;
 }
 
+.car-shop .car-articulos .item .rs-input-group .rs-input-number {
+  display: initial;
+}
+
 .car-shop
   .car-articulos
   .item
@@ -191,6 +228,27 @@
   .ant-col.ant-col-2
   svg:hover {
   cursor: pointer;
+}
+
+.car-shop .car-articulos span.react-numeric-input {
+  width: 100%;
+}
+.car-shop .car-articulos .input-edit {
+  width: 100%;
+  border: solid 2px var(--color-primario) !important;
+  border-radius: 5px !important;
+}
+.car-shop .car-articulos .input-edit:hover,
+.car-shop .car-articulos .input-edit:focus,
+.car-shop .car-articulos .input-edit:active,
+.car-shop .car-articulos .input-edit:target {
+  border-color: var(--color-primario) !important;
+  box-shadow: none;
+}
+
+.car-shop .car-articulos span.react-numeric-input > b {
+  background-color: transparent !important;
+  border-color: transparent !important;
 }
 
 /*formulario datos envio*/
@@ -244,6 +302,7 @@
 
 .car-shop .steps-content {
   min-height: 530px;
+  width: 100%;
 }
 .car-shop .ant-steps-item-container {
   border-color: white;
@@ -272,7 +331,7 @@
   /*steps*/
 
   .car-shop .steps-content {
-    min-height:100%;
+    min-height: 100%;
   }
   .car-shop
     div.ant-steps.ant-steps-horizontal.site-navigation-steps.ant-steps-label-horizontal.ant-steps-navigation {
@@ -319,7 +378,10 @@
     height: 0;
     width: 100%;
   }
-
+  /*datos envio*/
+  .car-shop .formulario-datosenvio h3.ant-typography {
+    margin-left: 0;
+  }
   /*artiulos*/
   .car-shop .item .ant-col-12 h2.ant-typography {
     font-size: 20px;
@@ -346,6 +408,14 @@
     font-size: 15px;
     border: solid 1px var(--color-primario);
     width: 100%;
-    padding: 0!important;
+    padding: 0 !important;
+  }
+
+  .car-shop .car-articulos input.input-edit:hover,
+  .car-shop .car-articulos input.input-edit:focus,
+  .car-shop .car-articulos input.input-edit:active,
+  .car-shop .car-articulos input.input-edit:target {
+    border-color: var(--color-primario) !important;
+    box-shadow: none;
   }
 }

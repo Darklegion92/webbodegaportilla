@@ -64,6 +64,8 @@
   align-items: center;
   justify-content: center;
   padding: 10px 0;
+  font-weight: normal;
+  font-size: 20px;
 }
 
 .validacion .body .ant-input {
@@ -107,6 +109,7 @@
 
 .validacion .body .ant-tabs-ink-bar {
   background: var(--color-primario) !important;
+  width: 50%!important;
 }
 
 .validacion .body .ant-tabs-nav-operations {

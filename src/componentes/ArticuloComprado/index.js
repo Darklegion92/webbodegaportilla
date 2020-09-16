@@ -44,30 +44,32 @@ const Comprado = ({ articulo, onOk }) => {
           </Col>
         </Col>
       ) : (
-        <Row gutter={25}>
-          <Col span={8}>
-            <img src={articulo.img} width="100%" />
-          </Col>
-          <Col span={16}>
-            <Row className="fila2">
-              <Text>{articulo.nombre}</Text>
-            </Row>
-            <Row className="fila3">
-              <Text className="sinformato">$ {articulo.precio} COP</Text>
-              <Text>$ {articulo.precio} COP</Text>
-            </Row>
-            <Row className="fila4">
-              <Link to="/carshop">
-                <Button>IR AL CARRITO</Button>
-              </Link>
-              <Link to="/shop">
-                <Button className="contrario" onClick={() => onOk(false)}>
-                  SEGUIR COMPRANDO
-                </Button>
-              </Link>
-            </Row>
-          </Col>
-        </Row>
+        <>
+          <Row gutter={25}>
+            <Col span={8}>
+              <img src={articulo.img} width="100%" />
+            </Col>
+            <Col span={16}>
+              <Row className="fila2">
+                <Text>{articulo.nombre}</Text>
+              </Row>
+              <Row className="fila3">
+                <Text className="sinformato">$ {articulo.precio} COP</Text>
+                <Text>$ {articulo.precio} COP</Text>
+              </Row>
+            </Col>
+          </Row>
+          <Row className="fila4">
+            <Link to="/carshop">
+              <Button>IR AL CARRITO</Button>
+            </Link>
+            <Link to="/shop">
+              <Button className="contrario" onClick={() => onOk(false)}>
+                SEGUIR COMPRANDO
+              </Button>
+            </Link>
+          </Row>
+        </>
       )}
     </div>
   );
