@@ -150,13 +150,13 @@ const Resumen = ({ next, current, pagar }) => {
               }}
               onClick={current === 0 ? next : pagar}
             >
-              {current === 0 ? "PROCESAR COMPRA" : "PAGAR"}
+              {current === 0 ? "PROCESAR COMPRA" : "FINALIZAR COMPRA"}
             </Button>
           )}
         </Row>
         {!isTabletOrMobile && !isTabletOrMobileDevice ? (
           <Row>
-            <Col span={24}>
+            <Col span={24} style={{margin:"30px 0"}}>
               <Row justify="center" align="middle" gutter={10}>
                 <Col span={8}>
                   <Shield />

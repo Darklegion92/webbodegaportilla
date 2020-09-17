@@ -8,6 +8,7 @@
   position: fixed;
   z-index: 100;
 }
+
 .head .icons {
   margin-right: 100px !important;
 }
@@ -27,7 +28,9 @@
   position: relative;
   display: inline-block;
 }
-
+.ant-menu-vertical.ant-menu-sub > .ant-menu-item {
+  border: none !important;
+}
 .carrito-cantidad {
   display: flex;
   position: absolute;
@@ -162,8 +165,9 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   align-items: center;
   justify-content: center;
 }
-
 .menu-carrito .items {
+  display: flex;
+  flex-direction: column;
   max-height: 280px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -179,25 +183,12 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   border-radius: 4px;
 }
 
-.menu-carrito .items > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .menu-carrito .items .item-menu {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 0px;
+  line-height: 3px;
+  margin-bottom: 10px;
 }
 
-.menu-carrito .items .ant-row {
-  height: 75px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .menu-carrito .items .item-menu .ant-col-6 {
   display: flex;
   height: 100%;
@@ -205,21 +196,8 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   align-items: center;
 }
 
-.menu-carrito .items .item-menu .ant-col-18 {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100px;
-}
-
-.menu-carrito .items h4.ant-typography {
-  text-align: left;
-  color: var(--color-primario);
-  line-height: 20px;
-  font-size: 20px;
-  max-width: 100%;
+.menu-carrito .items .ant-col-18 {
+  margin: auto;
 }
 
 .menu-carrito .totales h4.ant-typography {
@@ -322,5 +300,15 @@ li.ant-menu-item.ant-menu-item-only-child {
 @media only screen and (max-width: 600px) {
   .menu-carrito .items {
     max-height: 410px;
+  }
+  .menu-carrito .items .item-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .menu-carrito .items .item-menu h4.ant-typography {
+    line-height: 17px;
   }
 }

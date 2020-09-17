@@ -95,7 +95,7 @@ const FiltrosTienda = () => {
       <div className="agrupaciones">
         {subgrupo ? (
           <>
-            <Title level={4}>SUBGRUPOS</Title>
+            <Title level={4}>SUBCATEGORIAS</Title>
             <Divider />
             <List
               dataSource={subgrupos}
@@ -109,7 +109,7 @@ const FiltrosTienda = () => {
           </>
         ) : (
           <>
-            <Title level={4}>GRUPOS</Title>
+            <Title level={4}>CATEGORIAS</Title>
             <Divider />
             <List
               dataSource={grupos}

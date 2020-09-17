@@ -5,7 +5,7 @@ const { Text, Title } = Typography;
 
 const ItemMenu = ({ articulo }) => {
   return (
-    <Row className="item-menu" align="center" gutter={6}>
+    <Row className="item-menu" gutter={6}>
       <Col span={6}>
         <img src={articulo.img} width="100%" />
       </Col>

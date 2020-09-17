@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Col, Row, Typography } from "antd";
 import NumericInput from "react-numeric-input";
 import { useMediaQuery } from "react-responsive";
-import { GoTrashcan } from "react-icons/go";
+import { BsTrash } from "react-icons/bs";
 
 import { GlobalContext } from "../../Context/GlobalContext";
 const { Title } = Typography;
@@ -69,7 +69,7 @@ const Item = ({ articulo }) => {
         </Row>
       </Col>
       <Col span={4}>
-        <GoTrashcan color="red" size={25} onClick={eliminar} />
+        <BsTrash color="red" size={25} onClick={eliminar} />
       </Col>
     </Row>
   ) : (
@@ -101,7 +101,7 @@ const Item = ({ articulo }) => {
             />
           </Col>
           <Col span={2}>
-            <GoTrashcan color="red" size={30} onClick={eliminar} />
+            <BsTrash color="red" size={30} onClick={eliminar} />
           </Col>
         </Row>
       </Col>

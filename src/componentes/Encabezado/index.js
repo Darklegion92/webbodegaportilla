@@ -11,7 +11,7 @@ import MenuCarrito from "./MenuCarrito";
 
 import "./styles.css";
 
-const { SubMenu } = Menu;
+const { SubMenu, Item } = Menu;
 const { Text, Title } = Typography;
 
 const Person = () => (
@@ -350,9 +350,9 @@ function Encabezado() {
                 </div>
               }
             >
-              <Menu.Item>
+              <Item>
                 <MenuCarrito carrito={carrito} cerrar={setVisibleRight} />
-              </Menu.Item>
+              </Item>
             </SubMenu>
           </Menu>
         </Col>

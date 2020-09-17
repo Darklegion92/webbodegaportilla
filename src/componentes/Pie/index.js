@@ -108,12 +108,12 @@ function Pie() {
                       ? {
                           fontSize: "20px",
                           marginRight: "10px",
-                          marginBottom: "10px",
+                          marginBottom: "0px",
                         }
                       : { fontSize: "40px", marginRight: "10px" }
                   }
                 />
-                314 3529702
+                317 3752073
               </Text>
             </a>
           </Row>
@@ -125,7 +125,7 @@ function Pie() {
           </Row>
           <Row>
             <a href="https://www.google.es/maps/place/Bodega+Portilla/@7.8919667,-72.5047795,20.25z/data=!4m5!3m4!1s0x8e6645c65349ea57:0x67010b7fe6a46cd3!8m2!3d7.8920667!4d-72.5046647" target="_blank">
-              <Text>Cl 5a. # 4-38. Cúcuta, Norte de Santander</Text>
+              <Text>Calle 5 No. 4-88 Barrio Latino Cúcuta , Colombia.</Text>
             </a>
           </Row>
           <Row>

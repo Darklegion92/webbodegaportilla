@@ -155,11 +155,19 @@ const FormularioDatosEnvio = () => {
             </Form.Item>
           </Col>
         </Row>
-        <Row gutter={30} justify="center">
-          <Col span={10}>
-            <Form.Item label="Tipo de Pago" name="nombre">
+        <Row justify="left">
+          <Col span={24} justify="left">
+            <Form.Item
+              label={
+                <Title level={2} style={{ color: "var(--color-primario)" }}>
+                  FORMA DE PAGO
+                </Title>
+              }
+              name="nombre"
+              style={{ marginLeft: "100px"}}
+            >
               <Radio.Group onChange={onChange} value={value}>
-                <Radio value={1}>Contraentrega</Radio>
+                <Radio value={1} >Contraentrega</Radio>
                 <Radio value={2}>Otro medio de pago</Radio>
               </Radio.Group>
             </Form.Item>

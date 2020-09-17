@@ -292,10 +292,12 @@
 .car-shop .formulario-datosenvio span.ant-radio-inner {
   border-color: var(--color-primario) !important;
   box-shadow: none;
+  border-radius: initial;
 }
 
 .car-shop .formulario-datosenvio span.ant-radio-inner::after {
   background-color: var(--color-primario);
+  border-radius: initial;
 }
 
 /*Steps*/

@@ -83,4 +83,8 @@
   .recomendaciones .row {
     justify-content: center;
   }
+  .item-recomendaciones .ant-col-14>.ant-row {
+    max-height: 200px;
+    overflow-y: scroll;
+  }
 }

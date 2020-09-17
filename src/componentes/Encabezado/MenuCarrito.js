@@ -15,7 +15,7 @@ const MenuCarrito = ({ carrito, cerrar }) => {
             total += articulo.precio * articulo.cantidad;
             return (
               <Row>
-                <Item articulo={articulo} />
+                <Col span={24}><Item articulo={articulo} /></Col>
               </Row>
             );
           })

@@ -107,6 +107,7 @@
   justify-content: center;
   width: 90%;
   font-size: 14px;
+  line-height: 13px;
   height: 57px;
   overflow-y: scroll;
   color: var(--color-cuaternario);

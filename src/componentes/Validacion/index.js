@@ -8,8 +8,9 @@ import FormularioIngreso from "./FormularioIngreso";
 
 import "./styles.css";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 const { TabPane } = Tabs;
+
 
 const callback = (key) => {
   console.log(key);
@@ -63,10 +64,10 @@ const Validacion = () => {
       <Row align="center" justify="center" className="body">
         <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 22 : 7}>
           <Tabs defaultActiveKey="1" onChange={callback} size="large" centered>
-            <TabPane tab="INICIAR SESION" key="1">
+            <TabPane tab={<Text align="center">INICIAR SESION</Text>} key="1">
               <FormularioIngreso />
             </TabPane>
-            <TabPane tab="REGISTRARSE" key="2">
+            <TabPane tab={<Text align="center">REGISTRARSE</Text>} key="2">
               <FormularioRegistro />
             </TabPane>
           </Tabs>
