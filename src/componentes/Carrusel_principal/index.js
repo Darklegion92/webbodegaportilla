@@ -7,6 +7,7 @@ import {
 } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../Context/GlobalContext";
+import { BANCO } from "../../config";
 
 import "./styles.css";
 
@@ -38,13 +39,13 @@ function Carrusel_principal() {
         {carrusel.map((item) => {
           return (
             <Carousel.Item>
-              <Link to={"/shop" + item.filtro}>
+              <Link to={"/shop"}>
                 <img
                   className="d-block w-100"
                   src={
                     isTabletOrMobile || isTabletOrMobileDevice
-                      ? item.imgMovil
-                      : item.img
+                      ? BANCO.URL + item.imgMovil
+                      : BANCO.URL + item.img
                   }
                   alt={item.filtro}
                 />

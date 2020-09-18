@@ -8,7 +8,7 @@ const Modal = ({ recomendacion },tipo) => {
     <Row gutter={16} className="item-recomendaciones">
       <Col span={tipo==="CUADRADO"?14:10}>
         <img
-          src={recomendacion.imagen}
+          src={recomendacion.img}
           style={{ maxHeight: "500px", maxWidth: "100%"}}
         />
       </Col>
