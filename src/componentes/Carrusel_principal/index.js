@@ -44,7 +44,7 @@ function Carrusel_principal() {
                   className="d-block w-100"
                   src={
                     isTabletOrMobile || isTabletOrMobileDevice
-                      ? BANCO.URL + item.imgMovil
+                      ? BANCO.URL + item.imgmovil
                       : BANCO.URL + item.img
                   }
                   alt={item.filtro}
