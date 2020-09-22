@@ -16,10 +16,12 @@ import "./styles.css";
 const { Text, Title } = Typography;
 const { Panel } = Collapse;
 const { Option } = Select;
-const Resumen = ({ next, current, pagar }) => {
+const Resumen = ({ next, current }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const { carrito } = useContext(GlobalContext);
+  const { carrito, barrio, setBarrio, barrios, validarCarrito } = useContext(
+    GlobalContext
+  );
   let total = 0;
   const Shield = () => (
     <svg
@@ -98,8 +100,14 @@ const Resumen = ({ next, current, pagar }) => {
             >
               <Panel header="CALCULAR ENVIO" key="1" style={{ margin: "0" }}>
                 <Col span={24}>
-                  <Select>
-                    <Option>BARRIO 1</Option>
+                  <Select
+                    onSelect={(e) => {
+                      setBarrio(barrios[e]);
+                    }}
+                  >
+                    {barrios.map((barrio, i) => {
+                      return <Option key={i}>{barrio.nombre}</Option>;
+                    })}
                   </Select>
                   <Col span={9}>
                     <Button>APLICAR</Button>
@@ -148,7 +156,7 @@ const Resumen = ({ next, current, pagar }) => {
                 height: "auto",
                 fontSize: "18px",
               }}
-              onClick={current === 0 ? next : pagar}
+              onClick={current === 0 ? next : validarCarrito}
             >
               {current === 0 ? "PROCESAR COMPRA" : "FINALIZAR COMPRA"}
             </Button>
@@ -156,7 +164,7 @@ const Resumen = ({ next, current, pagar }) => {
         </Row>
         {!isTabletOrMobile && !isTabletOrMobileDevice ? (
           <Row>
-            <Col span={24} style={{margin:"30px 0"}}>
+            <Col span={24} style={{ margin: "30px 0" }}>
               <Row justify="center" align="middle" gutter={10}>
                 <Col span={8}>
                   <Shield />
@@ -190,7 +198,7 @@ const Resumen = ({ next, current, pagar }) => {
                   fontSize: "40px",
                   border: "solid 1px var(--color-primario)",
                 }}
-                onClick={current === 0 ? next : pagar}
+                onClick={current === 0 ? next : validarCarrito}
               >
                 {current === 0 ? "PROCESAR COMPRA" : "PAGAR PEDIDO"}
               </Button>

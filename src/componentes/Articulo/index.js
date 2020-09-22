@@ -45,7 +45,7 @@ const Articulo = ({ articulo, onOk }) => {
         <Row justify="center" className="fila2">
           <Text className="nombre">{articulo.nombre}</Text>
           <Text className="titulo">BENEFICIOS</Text>
-          <Text className="cuerpo">{articulo.descripcionLarga}</Text>
+          <Text className="cuerpo">{articulo.descripcion}</Text>
         </Row>
         <Row justify="center" className="fila3">
           <Text>$ {articulo.precio} COP</Text>
@@ -103,7 +103,7 @@ const Articulo = ({ articulo, onOk }) => {
           </Row>
           <Row className="fila2">
             <Text className="titulo">BENEFICIOS</Text>
-            <Text className="cuerpo">{articulo.descripcionLarga}</Text>
+            <Text className="cuerpo">{articulo.descripcion}</Text>
           </Row>
           <Row className="fila3">
             <Text>$ {articulo.precio} COP</Text>

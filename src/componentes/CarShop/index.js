@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col } from "antd";
 import { useMediaQuery } from "react-responsive";
 import StepPagos from "./StepPagos";

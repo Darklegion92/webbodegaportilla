@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Row, Col, Input, Select, Radio, Form, Typography } from "antd";
 import { useMediaQuery } from "react-responsive";
-
+import { GlobalContext } from "../../Context/GlobalContext";
 const { Title } = Typography;
 const { Option } = Select;
 const FormularioDatosEnvio = () => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const [value, setValue] = useState(0);
-
+  const { setBarrio, barrios, tiposDocumento } = useContext(
+    GlobalContext
+  );
   const onChange = (e) => {
     setValue(e.target.value);
   };
@@ -57,7 +59,13 @@ const FormularioDatosEnvio = () => {
           <Col span={24}>
             <Form.Item label="Tipo De Documento" name="tipo-documento">
               <Select>
-                <Option>Cédula de Ciudadanía</Option>
+                {tiposDocumento.map((tipoDocumento) => {
+                  return (
+                    <Option key={tipoDocumento.id}>
+                      {tipoDocumento.nombre}
+                    </Option>
+                  );
+                })}
               </Select>
             </Form.Item>
           </Col>
@@ -79,8 +87,14 @@ const FormularioDatosEnvio = () => {
         <Row>
           <Col span={24}>
             <Form.Item label="Barrio" name="barrio">
-              <Select>
-                <Option>Centro</Option>
+              <Select
+              onSelect={(e) => {
+                setBarrio(barrios[e]);
+              }}
+              >
+                {barrios.map((barrio) => {
+                  return <Option key={barrio.id}>{barrio.nombre}</Option>;
+                })}
               </Select>
             </Form.Item>
           </Col>
@@ -131,7 +145,13 @@ const FormularioDatosEnvio = () => {
           <Col span={10}>
             <Form.Item label="Tipo De Documento" name="tipo-documento">
               <Select>
-                <Option>Cédula de Ciudadanía</Option>
+                {tiposDocumento.map((tipoDocumento) => {
+                  return (
+                    <Option key={tipoDocumento.id}>
+                      {tipoDocumento.nombre}
+                    </Option>
+                  );
+                })}
               </Select>
             </Form.Item>
           </Col>
@@ -149,8 +169,14 @@ const FormularioDatosEnvio = () => {
           </Col>
           <Col span={10}>
             <Form.Item label="Barrio" name="barrio">
-              <Select>
-                <Option>Centro</Option>
+              <Select
+                onSelect={(e) => {
+                  setBarrio(barrios[e]);
+                }}
+              >
+                {barrios.map((barrio,i) => {
+                  return <Option key={i}>{barrio.nombre}</Option>;
+                })}
               </Select>
             </Form.Item>
           </Col>
@@ -164,10 +190,10 @@ const FormularioDatosEnvio = () => {
                 </Title>
               }
               name="nombre"
-              style={{ marginLeft: "100px"}}
+              style={{ marginLeft: "100px" }}
             >
               <Radio.Group onChange={onChange} value={value}>
-                <Radio value={1} >Contraentrega</Radio>
+                <Radio value={1}>Contraentrega</Radio>
                 <Radio value={2}>Otro medio de pago</Radio>
               </Radio.Group>
             </Form.Item>

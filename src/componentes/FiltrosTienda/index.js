@@ -10,13 +10,20 @@ const { Text, Title } = Typography;
 const FiltrosTienda = () => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const { grupos, marcas, filtros, setFiltros, subgrupos } = useContext(
-    GlobalContext
-  );
+  const {
+    grupos,
+    marcas,
+    filtros,
+    filtrar,
+    subgrupos,
+    cargarSubgrupos,
+  } = useContext(GlobalContext);
   const [subgrupo, setSubgrupo] = useState(false);
 
   const onClickGrupos = async (e) => {
+    console.log(e.target.value);
     const nombre = e.target.id;
+    const value = e.target.value;
     let guardar = true;
     await filtros.forEach((filtro) => {
       if (filtro.tipo === "GRUPO")
@@ -26,13 +33,15 @@ const FiltrosTienda = () => {
         }
     });
     if (guardar) {
+      cargarSubgrupos(value);
       setSubgrupo(true);
-      setFiltros([...filtros, { nombre, tipo: "GRUPO" }]);
+      filtrar([...filtros, { nombre, tipo: "GRUPO",id:value }]);
     }
   };
 
   const onClickMarcas = async (e) => {
     const nombre = e.target.id;
+    const value = e.target.value;
     let guardar = true;
     await filtros.forEach((filtro) => {
       if (filtro.tipo === "MARCA")
@@ -42,12 +51,13 @@ const FiltrosTienda = () => {
         }
     });
     if (guardar) {
-      setFiltros([...filtros, { nombre, tipo: "MARCA" }]);
+      filtrar([...filtros, { nombre, tipo: "MARCA",id:value }]);
     }
   };
 
   const onClickSubgrupos = async (e) => {
     const nombre = e.target.id;
+    const value = e.target.value;
     let guardar = true;
     await filtros.forEach((filtro) => {
       if (filtro.tipo === "SUBGRUPO")
@@ -57,14 +67,14 @@ const FiltrosTienda = () => {
         }
     });
     if (guardar) {
-      setFiltros([...filtros, { nombre, tipo: "SUBGRUPO" }]);
+      filtrar([...filtros, { nombre, tipo: "SUBGRUPO",id:value }]);
     }
   };
 
   const eliminar = (i) => {
     let filtrado = [];
     filtrado = [...filtros.slice(0, i), ...filtros.slice(i + 1)];
-    setFiltros(filtrado);
+    filtrar(filtrado);
     if (filtros[i].tipo === "GRUPO") {
       setSubgrupo(false);
       let eliminado = [];
@@ -73,7 +83,7 @@ const FiltrosTienda = () => {
           eliminado = [...filtrado.slice(0, i), ...filtrado.slice(i + 1)];
         }
       });
-      setFiltros(eliminado);
+      filtrar(eliminado);
     }
   };
   return (
@@ -100,8 +110,8 @@ const FiltrosTienda = () => {
             <List
               dataSource={subgrupos}
               renderItem={(item, i) => (
-                <List.Item id={item} key={i}>
-                  {item}
+                <List.Item id={item.nombre} key={i} value={item.id}>
+                  {item.nombre}
                 </List.Item>
               )}
               onClick={onClickSubgrupos}
@@ -114,8 +124,8 @@ const FiltrosTienda = () => {
             <List
               dataSource={grupos}
               renderItem={(item, i) => (
-                <List.Item id={item} key={i}>
-                  {item}
+                <List.Item id={item.nombre} key={i} value={item.id}>
+                  {item.nombre}
                 </List.Item>
               )}
               onClick={onClickGrupos}
@@ -130,8 +140,8 @@ const FiltrosTienda = () => {
         <List
           dataSource={marcas}
           renderItem={(item, i) => (
-            <List.Item id={item} key={i}>
-              {item}
+            <List.Item id={item.nombre} key={i} value={item.id}>
+              {item.nombre}
             </List.Item>
           )}
           onClick={onClickMarcas}
