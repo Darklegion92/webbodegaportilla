@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Typography, Modal } from "antd";
+import { useMediaQuery } from "react-responsive";
 import { BANCO } from "../../config";
 import Recomendacion from "./Recomendacion";
 import { GlobalContext } from "../../Context/GlobalContext";
@@ -7,6 +8,8 @@ import "./styles.css";
 const { Title } = Typography;
 
 function SeccionRecomendaciones() {
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const { SeccionRecomendaciones } = useContext(GlobalContext);
   const [modal, setModal] = useState(false);
   const [recomendacion, setRecomendacion] = useState({});
@@ -133,7 +136,13 @@ function SeccionRecomendaciones() {
           </>
         )}
         <Modal
-          width={tipo === "CUADRADO" ? 900 : 600}
+          width={
+            isTabletOrMobile || isTabletOrMobileDevice
+              ? 350
+              : tipo === "CUADRADO"
+              ? 900
+              : 600
+          }
           visible={modal}
           onCancel={cerrarModal}
           footer={null}

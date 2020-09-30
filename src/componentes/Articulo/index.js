@@ -26,7 +26,7 @@ const Articulo = ({ articulo, onOk }) => {
     const estrellas = [];
 
     for (let i = 0; i < cantidad; i++) {
-      estrellas.push(<AiFillStar size="60" style={{ margin: "5px" }} />);
+      estrellas.push(<AiFillStar size={isTabletOrMobile || isTabletOrMobileDevice ? "30":"60"} style={{ margin: "5px" }} />);
     }
 
     return estrellas;
@@ -53,8 +53,8 @@ const Articulo = ({ articulo, onOk }) => {
         <Row justify="center" className="fila4">
           <Text>$ {articulo.precio} COP</Text>
         </Row>
-        <Row className="fila5" align="middle" justify="center">
-          <Col span={12}>
+        <Row className="fila5" align="middle" justify="center" gutter={5}>
+          <Col span={8} align="middle">
             <NumericInput
               min={1}
               value={cantidad}
@@ -62,12 +62,12 @@ const Articulo = ({ articulo, onOk }) => {
                 setCantidad(e);
               }}
               mobile={false}
-              componentClass="input-edit"
+              className="input-edit"
               disabled={enCarrito}
             />
           </Col>
-          <Col span={11}>
-            <Text>Gr</Text>
+          <Col span={5}>
+            <Text>{articulo.embalaje}</Text>
           </Col>
         </Row>
         <Row justify="center" className="fila5">
