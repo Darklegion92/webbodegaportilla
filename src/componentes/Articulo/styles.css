@@ -2,7 +2,11 @@
   font-size: 30px;
   font-weight: bold;
   margin-top: 20px;
+  line-height: 25px!important;
+  height: 40px;
+  margin-bottom: 10px;
 }
+
 .articulo-tag .fila1 .ant-typography {
   color: var(--color-primario) !important;
 }
@@ -30,6 +34,7 @@
   color: var(--color-primario) !important;
   width: 100%;
   padding-left: 10px;
+  line-height: 0;
 }
 
 .articulo-tag .fila4 .ant-typography {
@@ -46,16 +51,7 @@
   justify-content: center;
   color: var(--color-terciario);
 }
-.articulo-tag .fila5 .ant-input-number {
-  color: var(--color-primario);
-  margin-right: 20px;
-  border-color: var(--color-primario) !important;
-}
-.articulo-tag .fila5 .ant-input-number:hover,
-.articulo-tag .fila5 .ant-input-number-focused {
-  box-shadow: none;
-  border-color: var(--color-primario) !important;
-}
+
 .articulo-tag .fila5 .ant-typography {
   font-weight: bold;
 }
@@ -75,20 +71,17 @@
 /*input*/
 
 .articulo-tag span.react-numeric-input {
-  width: 50%;
-  margin-right: 15%;
+  width: 80%;
 }
+
 .articulo-tag .input-edit {
-  width: 100%;
+  width: 100% !important;
+  font-size: 30px !important;
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-primario) !important;
   border: solid 2px var(--color-primario) !important;
   border-radius: 5px !important;
-}
-.articulo-tag .input-edit:hover,
-.articulo-tag .input-edit:focus,
-.articulo-tag .input-edit:active,
-.articulo-tag .input-edit:target {
-  border-color: var(--color-primario) !important;
-  box-shadow: none;
 }
 
 /*estrellas*/
@@ -110,7 +103,7 @@
   color: white;
   padding: 5px 8px 10px 5px;
   top: -5%;
-  left: -3%;
+  left: -2.9%;
   border-top-left-radius: 10px;
   z-index: 100;
 }

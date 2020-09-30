@@ -62,7 +62,7 @@ const Articulo = ({ articulo, onOk }) => {
                 setCantidad(e);
               }}
               mobile={false}
-              className="input-edit"
+              componentClass="input-edit"
               disabled={enCarrito}
             />
           </Col>
@@ -112,22 +112,30 @@ const Articulo = ({ articulo, onOk }) => {
             <Text>$ {articulo.precio} COP</Text>
           </Row>
           <Row className="fila5" gutter={20}>
-            <Col span={10}>
+            <Col span={12}>
               <Row>
-                <NumericInput
-                  min={1}
-                  value={cantidad}
-                  onChange={(e) => {
-                    setCantidad(e);
-                  }}
-                  mobile={false}
-                  className="input-edit"
-                  disabled={enCarrito}
-                />
-                <Text>Gr</Text>
+                <Col span={20}>
+                  <NumericInput
+                    min={1}
+                    value={cantidad}
+                    onChange={(e) => {
+                      setCantidad(e);
+                    }}
+                    mobile={false}
+                    className="input-edit"
+                    disabled={enCarrito}
+                  />
+                </Col>
+                <Col span={4}>
+                  <Text
+                    style={{ fontSize: "30px", color: "var(--color-primario)" }}
+                  >
+                    {articulo.embalaje}
+                  </Text>
+                </Col>
               </Row>
             </Col>
-            <Col span={14}>
+            <Col span={10}>
               <Button
                 onClick={() => {
                   if (!enCarrito) {
