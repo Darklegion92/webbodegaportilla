@@ -98,6 +98,7 @@ const Item = ({ articulo }) => {
               value={cantidad}
               onChange={onChange}
               className="input-edit"
+              mobile={false}
             />
           </Col>
           <Col span={2}>
