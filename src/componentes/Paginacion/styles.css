@@ -1,0 +1,11 @@
+.default-pagination .pagina-inactiva{
+    font-weight: normal;
+
+}
+.default-pagination .pagina-activa{
+    font-weight: bold;
+}
+
+.default-pagination .pagina-inactiva:hover{
+    cursor: pointer;
+}

@@ -97,8 +97,10 @@
 
 .articulos-tienda .item h3.ant-typography {
   color: var(--color-primario);
-  width: 90%;
+  width: 85%;
   line-height: 110%;
+  height: 50px;
+  overflow-y: hidden;
 }
 
 .articulos-tienda .item .descripcion.ant-typography {

@@ -68,9 +68,6 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
         <Row justify="center">
           <Title level={3}>{articulo.nombre}</Title>
         </Row>
-        <Row justify="center">
-          <Text className="descripcion">{articulo.descripcion}</Text>
-        </Row>
         <Row gutter={5} justify="center">
           <Col>
             <Text strong className="precio">

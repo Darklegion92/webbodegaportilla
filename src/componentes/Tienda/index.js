@@ -43,7 +43,7 @@ const Tienda = () => {
         </Col>
       )}
       <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 19}>
-        <ArticulosTienda articulos={articulosTienda} onClick={agregarArticulo} />
+        <ArticulosTienda articulos={articulosTienda} onClick={agregarArticulo} paginacion={10}/>
       </Col>
       <Modal
         width={isTabletOrMobile || isTabletOrMobileDevice ? 450 : 900}
