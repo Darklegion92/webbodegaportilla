@@ -28,8 +28,14 @@ const Comprado = ({ articulo, onOk }) => {
               <Text align="center">{articulo.nombre}</Text>
             </Row>
             <Row className="fila3" justify="center">
-              <Text className="sinformato">$ {articulo.precio} COP</Text>
-              <Text>$ {articulo.precio} COP</Text>
+              <Text>
+                ${" "}
+                {articulo.descuento > 0
+                  ? articulo.precio -
+                    (articulo.precio * articulo.descuento) / 100
+                  : articulo.precio}{" "}
+                COP
+              </Text>
             </Row>
             <Row className="fila4" justify="center">
               <Link to="/carshop">
@@ -50,12 +56,22 @@ const Comprado = ({ articulo, onOk }) => {
               <img src={articulo.img} width="100%" />
             </Col>
             <Col span={16}>
-              <Row className="fila2">
-                <Text>{articulo.nombre}</Text>
-              </Row>
-              <Row className="fila3">
-                <Text className="sinformato">$ {articulo.precio} COP</Text>
-                <Text>$ {articulo.precio} COP</Text>
+              <Row align="middle" style={{ height: "100%" }}>
+                <Col>
+                  <Row className="fila2">
+                    <Text>{articulo.nombre}</Text>
+                  </Row>
+                  <Row className="fila3">
+                    <Text>
+                      ${" "}
+                      {articulo.descuento > 0
+                        ? articulo.precio -
+                          (articulo.precio * articulo.descuento) / 100
+                        : articulo.precio}{" "}
+                      COP
+                    </Text>
+                  </Row>
+                </Col>
               </Row>
             </Col>
           </Row>

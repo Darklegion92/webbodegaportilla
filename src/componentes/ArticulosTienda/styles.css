@@ -92,39 +92,28 @@
 
 .articulos-tienda .item img {
   margin: 10px 0;
-
 }
 
 .articulos-tienda .item h3.ant-typography {
   color: var(--color-primario);
+  font-size: 12px;
   width: 85%;
   line-height: 110%;
-  height: 50px;
+  height: 28px;
   overflow-y: hidden;
 }
 
-.articulos-tienda .item .descripcion.ant-typography {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  font-size: 14px;
-  line-height: 13px;
-  height: 57px;
-  overflow-y: scroll;
-  color: var(--color-cuaternario);
-  margin-bottom: 10px;
-}
-
-.articulos-tienda .item .descripcion.ant-typography::-webkit-scrollbar {
-  width: 1px;
-  height: 1px;
+.articulos-tienda .item .descuento.ant-typography {
+  font-size: 10px;
+  color: darkgray;
+  line-height: 15px;
 }
 
 .articulos-tienda .item .precio.ant-typography {
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: bold;
   color: var(--color-primario);
-  line-height: 1px;
+  line-height: 20px;
   margin-left: 1px;
 }
 
@@ -152,9 +141,11 @@
   align-items: center;
   justify-content: center;
 }
+
 .articulos-tienda .paginacion {
   margin-top: 30px;
 }
+
 .articulos-tienda .paginacion .ant-pagination * {
   font-size: 30px;
 }

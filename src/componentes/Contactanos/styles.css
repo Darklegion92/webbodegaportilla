@@ -18,6 +18,16 @@
   font-size: 20px;
   line-height: 1px;
 }
+
+.contacto textarea.ant-input,
+.contacto textarea.ant-input :hover,
+.contacto textarea.ant-input:focus {
+  background-color: var(--color-secundario);
+  border: none;
+  border-radius: 10px;
+  box-shadow: none;
+  min-height: 130px;
+}
 .contacto input.ant-input.ant-input-lg,
 .contacto input.ant-input.ant-input-lg :hover,
 .contacto input.ant-input.ant-input-lg :focus {

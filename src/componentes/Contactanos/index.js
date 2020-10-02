@@ -3,7 +3,7 @@ import { Form, Input, Button, Checkbox, Col, Row, Typography } from "antd";
 import { useMediaQuery } from "react-responsive";
 
 import "./styles.css";
-
+const {TextArea} = Input;
 const { Text, Title } = Typography;
 const FormularioRegistro = () => {
   useEffect(() => {
@@ -58,7 +58,7 @@ const FormularioRegistro = () => {
             <Input />
           </Form.Item>
           <Form.Item label="Mensaje">
-            <Input />
+            <TextArea />
           </Form.Item>
           <Form.Item>
             <Col span={24}>

@@ -154,6 +154,7 @@ const Resumen = ({ next, current }) => {
                 color: "white",
                 borderRadius: "10px",
                 height: "auto",
+                width:"100%",
                 fontSize: "18px",
               }}
               onClick={current === 0 ? next : validarCarrito}

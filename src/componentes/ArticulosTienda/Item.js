@@ -37,15 +37,23 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
           <Row>
             <Title level={3}>{articulo.nombre}</Title>
           </Row>
+          <Row
+            align="middle"
+            style={{
+              visibility: articulo.descuento > 0 ? "visible" : "hidden",
+              marginLeft: "10px",
+            }}
+          >
+            <Text className="descuento">$ {articulo.precio + " COP"}</Text>
+          </Row>
           <Row gutter={5} justify="start">
-            <Col>
-              <Text strong className="precio">
-                $ {articulo.precio} COP
-              </Text>
-            </Col>
-            <Col>
-              <Text className="embalaje">1 {articulo.embalaje}</Text>
-            </Col>
+            <Text strong className="precio">
+              ${" "}
+              {articulo.descuento > 0
+                ? articulo.precio - (articulo.precio * articulo.descuento) / 100
+                : articulo.precio}{" "}
+              COP
+            </Text>
           </Row>
 
           <Row justify="start">
@@ -55,7 +63,11 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
       </Row>
     </div>
   ) : (
-    <Col className="item" onClick={() => onClick(id)}>
+    <Col
+      className="item"
+      onClick={() => onClick(id)}
+      style={{ maxHeight: "290px" }}
+    >
       <div className="estrellas-item">
         {articulo.clasificacion > 0 && (
           <div className="estrellas-cantidad">
@@ -68,15 +80,21 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
         <Row justify="center">
           <Title level={3}>{articulo.nombre}</Title>
         </Row>
-        <Row gutter={5} justify="center">
-          <Col>
-            <Text strong className="precio">
-              $ {articulo.precio} COP
-            </Text>
-          </Col>
-          <Col>
-            <Text className="embalaje">1 {articulo.embalaje}</Text>
-          </Col>
+        <Row
+          justify="center"
+          align="middle"
+          style={{ visibility: articulo.descuento > 0 ? "visible" : "hidden" }}
+        >
+          <Text className="descuento">$ {articulo.precio + " COP"}</Text>
+        </Row>
+        <Row justify="center" align="middle">
+          <Text className="precio">
+            ${" "}
+            {articulo.descuento > 0
+              ? articulo.precio - (articulo.precio * articulo.descuento) / 100
+              : articulo.precio}{" "}
+            COP
+          </Text>
         </Row>
         <Row justify="center">
           <Button>{enCarrito ? "YA AGREGADO" : "AÑADIR AL CARRITO"}</Button>

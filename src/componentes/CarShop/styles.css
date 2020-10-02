@@ -130,8 +130,8 @@
 .car-shop .car-articulos {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 100%;
+  height:950px!important ;
 }
 
 .car-shop .car-articulos .item {
@@ -139,13 +139,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: 10px 0;
+  margin: 10px 10px !important;
   width: 100%;
-  padding: 10px 0;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  margin-left: 0 !important ;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  border-bottom: solid 1px var(--color-primario);
 }
 
 .car-shop .car-articulos .item div.ant-col.ant-col-13 {
@@ -164,6 +162,9 @@
 
 .car-shop .car-articulos .item .ant-col.ant-col-13 h3.ant-typography {
   color: var(--color-primario) !important;
+  text-align: start;
+  margin: 0;
+  margin-left: 10px;
 }
 
 .car-shop .car-articulos .item .ant-col.ant-col-11 .ant-row .ant-col.ant-col-9 {
@@ -176,29 +177,13 @@
   .item
   .ant-col.ant-col-11
   .ant-row
-  .ant-col.ant-col-10
+  .ant-col.ant-col-8
   h3.ant-typography {
-  color: red;
+  color: red !important;
+  text-align: end;
+  margin: 0;
 }
 .car-shop .car-articulos .item .ant-col.ant-col-11 .ant-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.car-shop
-  .car-articulos
-  .item
-  .ant-col.ant-col-11
-  .ant-row
-  .ant-col.ant-col-6
-  h4.ant-typography {
-  color: var(--color-primario) !important;
-  font-weight: normal;
-  font-size: 15px;
-}
-
-.car-shop .car-articulos .item .ant-col.ant-col-11 .ant-row .ant-col.ant-col-6 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,30 +198,31 @@
   .item
   .ant-col.ant-col-11
   .ant-row
-  .ant-col.ant-col-6
-  div.ant-input-number {
-  border-color: var(--color-primario);
-  color: var(--color-primario);
-  width: 70px !important;
-}
-
-.car-shop
-  .car-articulos
-  .item
-  .ant-col.ant-col-11
-  .ant-row
   .ant-col.ant-col-2
   svg:hover {
   cursor: pointer;
 }
 
 .car-shop .car-articulos span.react-numeric-input {
-  width: 100%;
+  width: 80%;
+  margin-right: 2px;
+}
+
+.car-shop .car-articulos span.embalaje {
+  color: var(--color-primario);
+  font-size: 13px;
+  margin: 0;
+  justify-content: center;
+}
+.car-shop .car-articulos .ant-col-9 span.embalaje{
+  font-size: 20px;
 }
 .car-shop .car-articulos .input-edit {
   width: 100%;
-  border: solid 2px var(--color-primario) !important;
+  border: solid 1px var(--color-primario) !important;
+  font-size: 25px !important;
   border-radius: 5px !important;
+  color: var(--color-primario) !important;
 }
 .car-shop .car-articulos .input-edit:hover,
 .car-shop .car-articulos .input-edit:focus,

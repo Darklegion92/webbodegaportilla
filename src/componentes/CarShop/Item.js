@@ -5,7 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import { BsTrash } from "react-icons/bs";
 
 import { GlobalContext } from "../../Context/GlobalContext";
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const Item = ({ articulo }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
@@ -51,7 +51,9 @@ const Item = ({ articulo }) => {
           <Title level={2}>{articulo.nombre}</Title>
         </Row>
         <Row>
-          <Title level={3}>$ {articulo.precio}</Title>
+          <Title level={3} style={{ color: "red" }}>
+            $ {articulo.precio}
+          </Title>
         </Row>
         <Row align="center" justify="center">
           <Col span={15}>
@@ -73,11 +75,11 @@ const Item = ({ articulo }) => {
       </Col>
     </Row>
   ) : (
-    <Row className="item" gutter={30}>
+    <Row className="item" gutter={30} justify="center" align="middle">
       <Col span={13}>
-        <Row gutter={8}>
+        <Row gutter={20}>
           <Col span={6}>
-            <img src={articulo.img} width="100%" />
+            <img src={articulo.img} width="100px" />
           </Col>
           <Col span={18}>
             <Title level={3}>{articulo.nombre}</Title>
@@ -85,24 +87,34 @@ const Item = ({ articulo }) => {
         </Row>
       </Col>
       <Col span={11}>
-        <Row gutter={2}>
-          <Col span={10}>
-            <Title level={3}>$ {articulo.precio}</Title>
+        <Row gutter={10} align="middle" justify="center">
+          <Col span={8}>
+            <Title level={3}>
+              ${" "}
+              {articulo.descuento > 0
+                ? (articulo.precio -
+                    (articulo.precio * articulo.descuento) / 100) *
+                  articulo.cantidad
+                : articulo.precio * articulo.cantidad}
+            </Title>
           </Col>
-          <Col span={6}>
-            <Title level={4}>CANTIDAD</Title>
+          <Col span={5}>
+            <Text className="embalaje">CANTIDAD</Text>
           </Col>
-          <Col span={6}>
-            <NumericInput
-              min={1}
-              value={cantidad}
-              onChange={onChange}
-              className="input-edit"
-              mobile={false}
-            />
+          <Col span={9}>
+            <Row>
+              <NumericInput
+                min={1}
+                value={cantidad}
+                onChange={onChange}
+                className="input-edit"
+                mobile={false}
+              />
+              <Text className="embalaje">{articulo.embalaje}</Text>
+            </Row>
           </Col>
           <Col span={2}>
-            <BsTrash color="red" size={30} onClick={eliminar} />
+            <BsTrash color="red" size={20} onClick={eliminar} />
           </Col>
         </Row>
       </Col>

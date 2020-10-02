@@ -50,7 +50,7 @@ const ArticulosTienda = ({ articulos, onClick, paginacion }) => {
           })
         )
       ) : (
-        <Row>
+        <Row style={{height:"1200px"}}>
           {articulos.mensaje ? (
             <Title style={{ color: "var(--color-primario)" }}>
               No hay coincidencias en la busqueda
@@ -83,8 +83,7 @@ const ArticulosTienda = ({ articulos, onClick, paginacion }) => {
           cantidadItems={paginacion}
           style={{
             fontSize: "30px",
-            color: "var(--color-primario)",
-            margin: "5px",
+            color: "gainsboro",
           }}
           pagina={pagina}
           setPagina={setPagina}

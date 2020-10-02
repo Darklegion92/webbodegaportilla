@@ -1,11 +1,17 @@
-.default-pagination .pagina-inactiva{
-    font-weight: normal;
-
+.default-pagination .pagina-inactiva {
+  font-weight: normal;
+  padding: 0 5px;
 }
-.default-pagination .pagina-activa{
-    font-weight: bold;
+.default-pagination .pagina-activa {
+  color: var(--color-primario) !important;
+  padding: 0 5px;
+  font-weight: bold;
 }
 
-.default-pagination .pagina-inactiva:hover{
-    cursor: pointer;
+.default-pagination .pagina-inactiva:hover {
+  cursor: pointer;
+  color: var(--color-primario) !important;
+}
+.default-pagination svg:hover {
+  color: var(--color-primario) !important;
 }

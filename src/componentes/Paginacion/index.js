@@ -27,9 +27,15 @@ const items = (cantidad, style, pagina, setPagina) => {
   }
   return numeracion;
 };
-const Paginacion = ({ cantidad, cantidadItems, style, pagina, setPagina, className }) => {
-
-    const cantidadNeta = parseInt((cantidad / cantidadItems)+0.99)
+const Paginacion = ({
+  cantidad,
+  cantidadItems,
+  style,
+  pagina,
+  setPagina,
+  className,
+}) => {
+  const cantidadNeta = parseInt(cantidad / cantidadItems + 0.99);
   return (
     <Row
       justify="center"
