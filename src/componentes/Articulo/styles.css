@@ -1,9 +1,9 @@
 .articulo-tag .fila1 {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   margin-top: 20px;
   line-height: 25px !important;
-  height: 40px;
+  height: 60px;
   margin-bottom: 10px;
 }
 
@@ -12,7 +12,7 @@
 }
 .articulo-tag .fila2 .cuerpo {
   font-size: 14px;
-  height: 210px;
+  height: 195px;
   margin-bottom: 20px;
   line-height: 15px;
   overflow-y: scroll;
@@ -67,7 +67,7 @@
 .articulo-tag .fila5 button {
   background-color: var(--color-primario);
   font-weight: bold;
-  font-size: 14px;
+  font-size: 17px;
   height: 95%;
   color: white;
   border-radius: 10px;
@@ -139,7 +139,7 @@
 
   .articulo-tag .fila2 .nombre {
     color: var(--color-primario);
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
     line-height: 23px;
     margin-top: 20px;
@@ -190,16 +190,6 @@
     width: 100%;
     height: auto;
     font-size: 30px;
-  }
-
-  .articulo-tag .input-edit {
-    width: 100% !important;
-    font-size: 30px !important;
-    font-weight: bold;
-    text-align: center;
-    color: var(--color-primario) !important;
-    border: solid 2px var(--color-primario) !important;
-    border-radius: 5px !important;
   }
 
   /*estrellas*/

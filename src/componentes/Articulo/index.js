@@ -80,7 +80,17 @@ const Articulo = ({ articulo, onOk }) => {
             />
           </Col>
           <Col span={5}>
-            <Text>{articulo.embalaje}</Text>
+            <Text
+              style={{
+                fontWeight: "normal",
+                fontSize: "30px",
+                width: "100%",
+                textAlign: "left",
+                color: "var(--color-primario)",
+              }}
+            >
+              {articulo.embalaje}
+            </Text>
           </Col>
         </Row>
         <Row justify="center" className="fila5">
@@ -133,9 +143,9 @@ const Articulo = ({ articulo, onOk }) => {
             </Text>
           </Row>
           <Row className="fila5" gutter={20}>
-            <Col span={12}>
-              <Row align="middle" justify="center">
-                <Col span={20}>
+            <Col span={10}>
+              <Row align="middle">
+                <Col span={21}>
                   <NumericInput
                     min={1}
                     value={cantidad}
@@ -147,11 +157,13 @@ const Articulo = ({ articulo, onOk }) => {
                     disabled={enCarrito}
                   />
                 </Col>
-                <Col span={4}>
+                <Col span={3}>
                   <Text
                     style={{
                       fontWeight: "normal",
                       fontSize: "30px",
+                      width: "100%",
+                      textAlign: "left",
                       color: "var(--color-primario)",
                     }}
                   >
@@ -160,7 +172,7 @@ const Articulo = ({ articulo, onOk }) => {
                 </Col>
               </Row>
             </Col>
-            <Col span={10}>
+            <Col span={12}>
               <Button
                 onClick={() => {
                   if (!enCarrito) {
