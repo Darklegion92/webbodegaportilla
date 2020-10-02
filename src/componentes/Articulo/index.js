@@ -26,7 +26,12 @@ const Articulo = ({ articulo, onOk }) => {
     const estrellas = [];
 
     for (let i = 0; i < cantidad; i++) {
-      estrellas.push(<AiFillStar size={isTabletOrMobile || isTabletOrMobileDevice ? "30":"60"} style={{ margin: "5px" }} />);
+      estrellas.push(
+        <AiFillStar
+          size={isTabletOrMobile || isTabletOrMobileDevice ? "30" : "40"}
+          style={{ margin: "5px" }}
+        />
+      );
     }
 
     return estrellas;
@@ -47,11 +52,19 @@ const Articulo = ({ articulo, onOk }) => {
           <Text className="titulo">BENEFICIOS</Text>
           <Text className="cuerpo">{articulo.descripcion}</Text>
         </Row>
-        <Row justify="center" className="fila3">
-          <Text>$ {articulo.precio} COP</Text>
-        </Row>
+        {articulo.descuento > 0 && (
+          <Row justify="center" className="fila3">
+            <Text>$ {articulo.precio + " COP"}</Text>
+          </Row>
+        )}
         <Row justify="center" className="fila4">
-          <Text>$ {articulo.precio} COP</Text>
+          <Text>
+            ${" "}
+            {articulo.descuento > 0
+              ? articulo.precio - (articulo.precio * articulo.descuento) / 100
+              : articulo.precio}{" "}
+            COP
+          </Text>
         </Row>
         <Row className="fila5" align="middle" justify="center" gutter={5}>
           <Col span={8} align="middle">
@@ -105,15 +118,23 @@ const Articulo = ({ articulo, onOk }) => {
             <Text className="titulo">BENEFICIOS</Text>
             <Text className="cuerpo">{articulo.descripcion}</Text>
           </Row>
-          <Row className="fila3">
-            <Text>$ {articulo.precio} COP</Text>
-          </Row>
+          {articulo.descuento > 0 && (
+            <Row className="fila3">
+              <Text>$ {articulo.precio + " COP"}</Text>
+            </Row>
+          )}
           <Row className="fila4">
-            <Text>$ {articulo.precio} COP</Text>
+            <Text>
+              ${" "}
+              {articulo.descuento > 0
+                ? articulo.precio - (articulo.precio * articulo.descuento) / 100
+                : articulo.precio}{" "}
+              COP
+            </Text>
           </Row>
           <Row className="fila5" gutter={20}>
             <Col span={12}>
-              <Row>
+              <Row align="middle" justify="center">
                 <Col span={20}>
                   <NumericInput
                     min={1}
@@ -128,7 +149,11 @@ const Articulo = ({ articulo, onOk }) => {
                 </Col>
                 <Col span={4}>
                   <Text
-                    style={{ fontSize: "30px", color: "var(--color-primario)" }}
+                    style={{
+                      fontWeight: "normal",
+                      fontSize: "30px",
+                      color: "var(--color-primario)",
+                    }}
                   >
                     {articulo.embalaje}
                   </Text>

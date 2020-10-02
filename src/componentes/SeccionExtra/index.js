@@ -160,6 +160,7 @@ function SeccionExtra({ items, articulos, texto, tipo }) {
         onCancel={cerrarArticulo}
         footer={null}
         style={{ borderRadius: "50px" }}
+        centered
       >
         <Articulo articulo={articuloSeleccionado} onOk={agregarCantidad} />
       </Modal>
@@ -169,6 +170,7 @@ function SeccionExtra({ items, articulos, texto, tipo }) {
         onCancel={cerrarComprado}
         footer={null}
         style={{ borderRadius: "50px" }}
+        centered
       >
         <Comprado articulo={articuloSeleccionado} onOk={setModalComprado} />
       </Modal>

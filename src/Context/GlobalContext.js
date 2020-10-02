@@ -242,13 +242,14 @@ const GlobalProvider = ({ children }) => {
         {
           codigo: "12151",
           img: "img/nuevos/nuevo (1).png",
-          nombre: "Articulo 3 ESTRELLAS",
+          nombre: "Articulo Descuento",
           descripcionLarga:
             "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
           descripcion:
             "producto hecho par algo y tiene algo mas por ti para ti y para todos lso ademas",
           precio: 1000,
           cantidad: 0,
+          descuento:10,
           embalaje: "Gr",
           clasificacion: 3,
           categoria: "NUEVO",

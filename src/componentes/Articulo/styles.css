@@ -2,7 +2,7 @@
   font-size: 30px;
   font-weight: bold;
   margin-top: 20px;
-  line-height: 25px!important;
+  line-height: 25px !important;
   height: 40px;
   margin-bottom: 10px;
 }
@@ -12,7 +12,7 @@
 }
 .articulo-tag .fila2 .cuerpo {
   font-size: 14px;
-  height: 230px;
+  height: 210px;
   margin-bottom: 20px;
   line-height: 15px;
   overflow-y: scroll;
@@ -29,12 +29,17 @@
 .articulo-tag .fila2 .cuerpo::-webkit-scrollbar {
   display: none;
 }
+.articulo-tag .fila3{
+  margin-left: 35px ;
+}
 
 .articulo-tag .fila3 .ant-typography {
-  color: var(--color-primario) !important;
+  color: gainsboro;
   width: 100%;
-  padding-left: 10px;
+  font-size: 30px;
+
   line-height: 0;
+  text-decoration:line-through ;
 }
 
 .articulo-tag .fila4 .ant-typography {
@@ -43,6 +48,9 @@
   font-size: 45px;
   font-weight: bold;
   color: var(--color-primario) !important;
+}
+.articulo-tag .fila5{
+  margin-top:20px
 }
 
 .articulo-tag .fila5 .ant-typography {
@@ -58,6 +66,9 @@
 
 .articulo-tag .fila5 button {
   background-color: var(--color-primario);
+  font-weight: bold;
+  font-size: 14px;
+  height: 95%;
   color: white;
   border-radius: 10px;
 }
@@ -77,11 +88,18 @@
 .articulo-tag .input-edit {
   width: 100% !important;
   font-size: 30px !important;
-  font-weight: bold;
   text-align: center;
   color: var(--color-primario) !important;
-  border: solid 2px var(--color-primario) !important;
+  border: solid 1px var(--color-primario) !important;
   border-radius: 5px !important;
+}
+
+.articulo-tag .react-numeric-input b {
+  background-color: white !important;
+  border: none !important;
+}
+.articulo-tag .react-numeric-input b i {
+  color: var(--color-primario) !important;
 }
 
 /*estrellas*/
@@ -143,7 +161,7 @@
     height: max-content;
   }
   .articulo-tag .fila2 .cuerpo {
-    height: 80px!important;
+    height: 80px !important;
   }
   .estrellas-cantidad-articulo {
     top: -4.5%;
@@ -173,7 +191,7 @@
     height: auto;
     font-size: 30px;
   }
-  
+
   .articulo-tag .input-edit {
     width: 100% !important;
     font-size: 30px !important;
@@ -183,15 +201,14 @@
     border: solid 2px var(--color-primario) !important;
     border-radius: 5px !important;
   }
-  
+
   /*estrellas*/
   .estrellas-cantidad-articulo {
-    max-height:auto ;
-    padding:3px;
+    max-height: auto;
+    padding: 3px;
     top: -4%;
     left: -7%;
     border-top-left-radius: 10px;
     z-index: 100;
   }
-
 }

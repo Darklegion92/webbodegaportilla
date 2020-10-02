@@ -33,7 +33,9 @@ function App() {
   }, []);
   return (
     <Layout>
-      <ImWhatsapp size={70} className="whats-icon" />
+      <a href="https://wa.link/q2dusb" target="_blank" className="whats-icon">
+        <ImWhatsapp size={40} />
+      </a>
       {location !== "/login" && (
         <Header id="home">
           <Encabezado />

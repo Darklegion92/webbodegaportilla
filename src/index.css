@@ -8,7 +8,7 @@ a {
   text-decoration: none !important;
 }
 .ant-modal-wrap {
-  overflow-y: hidden!important;
+  overflow-y: hidden !important;
 }
 
 * {
@@ -26,6 +26,7 @@ a {
 }
 
 .whats-icon:hover {
+  color: white;
   cursor: pointer;
   transition-duration: 0.5s;
   transform: scale(1.1);

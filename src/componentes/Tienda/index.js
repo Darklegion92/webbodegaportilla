@@ -51,6 +51,7 @@ const Tienda = () => {
         onCancel={cerrarArticulo}
         footer={null}
         style={{ borderRadius: "50px" }}
+        centered
       >
         <Articulo articulo={articuloSeleccionado} onOk={agregarCantidad} />
       </Modal>
@@ -60,6 +61,7 @@ const Tienda = () => {
         onCancel={cerrarComprado}
         footer={null}
         style={{ borderRadius: "50px" }}
+        centered
       >
         <Comprado articulo={articuloSeleccionado} onOk={setModalComprado} />
       </Modal>
