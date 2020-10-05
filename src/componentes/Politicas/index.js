@@ -1,11 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Typography } from "antd";
 
 import "./styles.css";
+import { useEffect } from "react";
 
 const { Text, Title, Paragraph } = Typography;
 
 const Politicas = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="politicas">
       <Title align="center">POLITICAS DE PRIVACIDAD</Title>

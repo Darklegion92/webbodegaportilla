@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Typography } from "antd";
 
 import "./styles.css";
 
 const { Text, Title, Paragraph } = Typography;
 
-const Politicas = () => {
+const Terminos = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="terminos">
       <Title align="center">TÉRMINOS Y CONDICIONES</Title>
@@ -848,4 +852,4 @@ const Politicas = () => {
   );
 };
 
-export default Politicas;
+export default Terminos;
