@@ -30,8 +30,8 @@
 .articulo-tag .fila2 .cuerpo::-webkit-scrollbar {
   display: none;
 }
-.articulo-tag .fila3{
-  margin-left: 35px ;
+.articulo-tag .fila3 {
+  margin-left: 35px;
 }
 
 .articulo-tag .fila3 .ant-typography {
@@ -40,7 +40,7 @@
   font-size: 30px;
 
   line-height: 0;
-  text-decoration:line-through ;
+  text-decoration: line-through;
 }
 
 .articulo-tag .fila4 .ant-typography {
@@ -50,8 +50,8 @@
   font-weight: bold;
   color: var(--color-primario) !important;
 }
-.articulo-tag .fila5{
-  margin-top:20px
+.articulo-tag .fila5 {
+  margin-top: 20px;
 }
 
 .articulo-tag .fila5 .ant-typography {
@@ -65,7 +65,7 @@
   font-weight: bold;
 }
 
-.articulo-tag .fila5 button {
+.articulo-tag button {
   background-color: var(--color-primario);
   font-weight: bold;
   font-size: 17px;
@@ -74,10 +74,11 @@
   border-radius: 10px;
 }
 
-.articulo-tag .fila5 button:hover,
-.articulo-tag .fila5 button:focus {
+.articulo-tag button:hover,
+.articulo-tag button:focus {
   box-shadow: none;
   border-color: var(--color-primario) !important;
+  color: var(--color-primario) !important;
 }
 
 /*input*/
@@ -99,7 +100,6 @@
   background-color: white !important;
   border: none !important;
 }
-
 
 /*estrellas*/
 .estrellas-item-articulo {
@@ -127,7 +127,6 @@
 
 /*movile*/
 @media only screen and (max-width: 600px) {
-  .articulo-tag .fila2,
   .articulo-tag .fila3,
   .articulo-tag .fila4 {
     display: flex;
@@ -136,15 +135,20 @@
     text-align: center;
   }
 
+  .articulo-tag .fila2 {
+    margin-bottom: 50px;
+  }
+
   .articulo-tag .fila2 .nombre {
     color: var(--color-primario);
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
     line-height: 23px;
     margin-top: 20px;
   }
   .articulo-tag .fila3 span.ant-typography {
     line-height: 0;
+    font-size: 20px;
   }
 
   .articulo-tag .fila5 {
@@ -152,15 +156,17 @@
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
-  .articulo-tag .fila5 button {
+  .articulo-tag button {
     font-size: 30px;
+    margin-top: 20px;
     max-width: 100%;
     height: max-content;
   }
   .articulo-tag .fila2 .cuerpo {
-    height: 80px !important;
+    height: 120px !important;
   }
   .estrellas-cantidad-articulo {
     top: -4.5%;
@@ -195,8 +201,8 @@
   .estrellas-cantidad-articulo {
     max-height: auto;
     padding: 3px;
-    top: -4%;
-    left: -7%;
+    top: -25px;
+    left: -25px;
     border-top-left-radius: 10px;
     z-index: 100;
   }

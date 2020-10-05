@@ -56,8 +56,6 @@ const FormularioRegistro = () => {
                 />
               </Form.Item>
             </Col>
-          </Row>
-          <Row>
             <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
               <Form.Item label="Celular(opcional)">
                 <Input />

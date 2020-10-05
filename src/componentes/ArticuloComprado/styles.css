@@ -37,6 +37,7 @@
 
 .articulo-comprado-tag .fila4 button {
   align-items: center;
+  font-weight: bold;
   background-color: var(--color-primario);
   color: white;
   border-radius: 10px;
@@ -62,6 +63,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .articulo-comprado-tag .fila1{
+    line-height: 30px;
+  }
+
   .articulo-comprado-tag .fila2 {
     margin-top: 10px;
   }
@@ -72,5 +77,16 @@
   .articulo-comprado-tag .fila1 {
     font-size: 25px;
     font-weight: bold;
+  }
+
+  .articulo-comprado-tag .fila4 button {
+    width: 300px;
+    font-size: 20px;
+    height: auto;
+  }
+  .articulo-comprado-tag .fila4 button.contrario {
+    width: auto;
+    
+    font-size: 20px;
   }
 }

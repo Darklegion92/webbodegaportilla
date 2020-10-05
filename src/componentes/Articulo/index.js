@@ -93,7 +93,7 @@ const Articulo = ({ articulo, onOk }) => {
             </Text>
           </Col>
         </Row>
-        <Row justify="center" className="fila5">
+        <Row justify="center">
           <Button
             onClick={() => {
               if (!enCarrito) {

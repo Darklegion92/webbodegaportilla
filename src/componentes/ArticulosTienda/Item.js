@@ -23,45 +23,45 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
   };
 
   return isTabletOrMobile || isTabletOrMobileDevice ? (
-    <div className="estrellas-item">
-      {articulo.clasificacion > 0 && (
-        <div className="estrellas-cantidad">
-          {estrellas(articulo.clasificacion)}
-        </div>
-      )}
-      <Row className="item" onClick={() => onClick(id)} gutter={16}>
-        <Col span={8}>
+    <Row className="item" onClick={() => onClick(id)} gutter={16}>
+      <Col span={8}>
+        <div className="estrellas-item">
+          {articulo.clasificacion > 0 && (
+            <div className="estrellas-cantidad">
+              {estrellas(articulo.clasificacion)}
+            </div>
+          )}
           <img src={articulo.img} width="100%" />
-        </Col>
-        <Col span={16}>
-          <Row>
-            <Title level={3}>{articulo.nombre}</Title>
-          </Row>
-          <Row
-            align="middle"
-            style={{
-              visibility: articulo.descuento > 0 ? "visible" : "hidden",
-              marginLeft: "10px",
-            }}
-          >
-            <Text className="descuento">$ {articulo.precio + " COP"}</Text>
-          </Row>
-          <Row gutter={5} justify="start">
-            <Text strong className="precio">
-              ${" "}
-              {articulo.descuento > 0
-                ? articulo.precio - (articulo.precio * articulo.descuento) / 100
-                : articulo.precio}{" "}
-              COP
-            </Text>
-          </Row>
+        </div>
+      </Col>
+      <Col span={16}>
+        <Row>
+          <Title level={3}>{articulo.nombre}</Title>
+        </Row>
+        <Row
+          align="middle"
+          style={{
+            visibility: articulo.descuento > 0 ? "visible" : "hidden",
+            marginLeft: "10px",
+          }}
+        >
+          <Text className="descuento">$ {articulo.precio + " COP"}</Text>
+        </Row>
+        <Row gutter={5} justify="start">
+          <Text strong className="precio">
+            ${" "}
+            {articulo.descuento > 0
+              ? articulo.precio - (articulo.precio * articulo.descuento) / 100
+              : articulo.precio}{" "}
+            COP
+          </Text>
+        </Row>
 
-          <Row justify="start">
-            <Button>{enCarrito ? "YA AGREGADO" : "AÑADIR AL CARRITO"}</Button>
-          </Row>
-        </Col>
-      </Row>
-    </div>
+        <Row justify="start">
+          <Button>{enCarrito ? "YA AGREGADO" : "AÑADIR AL CARRITO"}</Button>
+        </Row>
+      </Col>
+    </Row>
   ) : (
     <Col
       className="item"

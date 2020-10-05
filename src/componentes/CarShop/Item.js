@@ -46,7 +46,7 @@ const Item = ({ articulo }) => {
       <Col span={8}>
         <img src={articulo.img} width="100%" />
       </Col>
-      <Col span={12}>
+      <Col span={14}>
         <Row>
           <Title level={2}>{articulo.nombre}</Title>
         </Row>
@@ -56,10 +56,10 @@ const Item = ({ articulo }) => {
           </Title>
         </Row>
         <Row align="center" justify="center">
-          <Col span={15}>
+          <Col span={7}>
             <Title level={4}>CANTIDAD</Title>
           </Col>
-          <Col span={9}>
+          <Col span={17}>
             <NumericInput
               min={1}
               value={cantidad}
@@ -70,14 +70,14 @@ const Item = ({ articulo }) => {
           </Col>
         </Row>
       </Col>
-      <Col span={4}>
+      <Col span={2}>
         <BsTrash color="red" size={25} onClick={eliminar} />
       </Col>
     </Row>
   ) : (
     <Row className="item" gutter={30} justify="center" align="middle">
       <Col span={13}>
-        <Row gutter={20}>
+        <Row gutter={20} style={{width:"100%"}}>
           <Col span={6}>
             <img src={articulo.img} width="100px" />
           </Col>

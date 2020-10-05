@@ -129,7 +129,9 @@ function SeccionExtra({ items, articulos, texto, tipo }) {
                           width={
                             articulo.categoria == "NUEVO"
                               ? "80%!important"
-                              : isTabletOrMobile || isTabletOrMobileDevice ?"100%!important" :"145%!important"
+                              : isTabletOrMobile || isTabletOrMobileDevice
+                              ? "100%!important"
+                              : "145%!important"
                           }
                           id={i}
                           onClick={agregarArticulo}

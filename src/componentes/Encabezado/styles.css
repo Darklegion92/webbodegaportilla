@@ -314,17 +314,32 @@ li.ant-menu-item.ant-menu-item-only-child {
 }
 
 @media only screen and (max-width: 600px) {
+
+
+  .menu-carrito .item-menu{
+    margin-bottom: 10px;
+  }
+
+  .menu-carrito .items .ant-col-18 {
+    padding-top: 0px;
+  }
+
   .menu-carrito .items {
     max-height: 410px;
+    width: 100%;
   }
   .menu-carrito .items .item-menu {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px 0;
+    width: 100%;
   }
 
   .menu-carrito .items .item-menu h4.ant-typography {
-    line-height: 17px;
+    width: 100px;
+    font-size: 11px;
+    line-height: 10px;
+    height: auto;
+    margin-bottom: 10px;
   }
 }

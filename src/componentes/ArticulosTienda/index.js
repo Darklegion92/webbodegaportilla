@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Row, Col, Typography } from "antd";
 import Paginacion from "../Paginacion";
 import { useMediaQuery } from "react-responsive";
@@ -9,13 +9,18 @@ import Item from "./Item";
 import "./styles.css";
 const { Title } = Typography;
 
-const ArticulosTienda = ({ articulos, onClick, paginacion }) => {
+const ArticulosTienda = ({ articulos, onClick, paginacion, subirScroll }) => {
   const [pagina, setPagina] = useState(1);
 
   const { carrito } = useContext(GlobalContext);
 
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+
+  useEffect(() => {
+    console.log("se ejecuta articulo");
+    subirScroll();
+  }, [pagina]);
   return (
     <Col className="articulos-tienda" span={24}>
       <Row>
@@ -50,7 +55,7 @@ const ArticulosTienda = ({ articulos, onClick, paginacion }) => {
           })
         )
       ) : (
-        <Row style={{height:"1200px"}}>
+        <Row style={{ height: "1200px" }}>
           {articulos.mensaje ? (
             <Title style={{ color: "var(--color-primario)" }}>
               No hay coincidencias en la busqueda

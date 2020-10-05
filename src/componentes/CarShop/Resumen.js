@@ -136,7 +136,7 @@ const Resumen = ({ next, current }) => {
           <Row>
             <Col span={24}>
               <Row justify="center" align="middle" gutter={5}>
-                <Col span={5}>
+                <Col span={8}>
                   <Shield />
                 </Col>
                 <Col span={12}>
@@ -197,8 +197,9 @@ const Resumen = ({ next, current }) => {
                   color: "white",
                   height: "auto",
                   width: "100%",
-                  fontSize: "40px",
-                  border: "solid 1px var(--color-primario)",
+                  fontSize: "35.5px",
+                  fontWeight:"bold",
+                  border: "none",
                 }}
                 onClick={current === 0 ? next : validarCarrito}
               >

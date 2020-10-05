@@ -109,7 +109,7 @@
 
 .validacion .body .ant-tabs-ink-bar {
   background: var(--color-primario) !important;
-  width: 50%!important;
+  width: 50% !important;
 }
 
 .validacion .body .ant-tabs-nav-operations {
@@ -137,8 +137,18 @@
 
 .validacion .body .ant-checkbox-checked .ant-checkbox-inner,
 .validacion .body .ant-checkbox:focus {
-  background-color: var(--color-primario);
-  border-color: var(--color-primario);
+  background-color: var(--color-primario) !important;
+  border-color: var(--color-primario) !important;
+}
+
+.validacion .body span.ant-checkbox.ant-checkbox-checked:after{
+  border:none!important;
+}
+
+.validacion .body .ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.ant-checkbox:hover .ant-checkbox-inner,
+.ant-checkbox-input:focus + .ant-checkbox-inner {
+  border-color: var(--color-primario) !important;
 }
 .validacion .body input:hover,
 .validacion
@@ -174,7 +184,7 @@
 
 @media only screen and (max-width: 600px) {
   .validacion .head .texto .ant-typography {
-    font-size: 20px;
+    font-size: 10px;
   }
 
   .validacion .head {
@@ -224,7 +234,7 @@
     color: white;
   }
 
-  .validacion .footer{
+  .validacion .footer {
     width: 100%;
   }
 
