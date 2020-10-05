@@ -141,8 +141,8 @@
   border-color: var(--color-primario) !important;
 }
 
-.validacion .body span.ant-checkbox.ant-checkbox-checked:after{
-  border:none!important;
+.validacion .body span.ant-checkbox.ant-checkbox-checked:after {
+  border: none !important;
 }
 
 .validacion .body .ant-checkbox-wrapper:hover .ant-checkbox-inner,
@@ -180,6 +180,9 @@
 
 .validacion .body a {
   padding: 10px 0 50px 0;
+}
+.validacion .body a:hover {
+  color: var(--color-cuaternario);
 }
 
 @media only screen and (max-width: 600px) {

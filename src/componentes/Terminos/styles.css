@@ -1,0 +1,9 @@
+.terminos {
+  color: var(--color-primario);
+  width: 80%;
+  margin: auto;
+}
+
+.terminos * {
+  color: var(--color-primario)!important;
+}

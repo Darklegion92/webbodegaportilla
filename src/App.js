@@ -17,6 +17,8 @@ import Tienda from "./componentes/Tienda";
 import Contactanos from "./componentes/Contactanos";
 import CarShop from "./componentes/CarShop";
 import { GlobalContext } from "./Context/GlobalContext";
+import Politicas from "./componentes/Politicas";
+import Terminos from "./componentes/Terminos";
 
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -42,6 +44,16 @@ function App() {
         </Header>
       )}
       <Switch>
+        <Route path="/politicas" exact>
+          <Content>
+            <Politicas />
+          </Content>
+        </Route>
+        <Route path="/terminos" exact>
+          <Content>
+            <Terminos />
+          </Content>
+        </Route>
         <Route path="/login" exact>
           <Content>
             <Validacion />

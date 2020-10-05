@@ -1,0 +1,9 @@
+.politicas {
+  color: var(--color-primario);
+  width: 80%;
+  margin: auto;
+}
+
+.politicas * {
+  color: var(--color-primario)!important;
+}

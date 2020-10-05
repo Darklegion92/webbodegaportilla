@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Form, Input, Button, Checkbox, Col, Row, Typography } from "antd";
 import { useMediaQuery } from "react-responsive";
 
@@ -84,8 +85,8 @@ const FormularioRegistro = () => {
           >
             <Checkbox>
               Declaro que he leido y acepto la nueva{" "}
-              <a href="">Política de Privacidad</a> y los{" "}
-              <a href="">Términos y Condiciones</a> de bodega portilla
+              <Link to="/politicas">Política de Privacidad</Link> y los{" "}
+              <Link to="/terminos">Términos y Condiciones</Link> de bodega portilla
             </Checkbox>
           </Form.Item>
         </Col>
