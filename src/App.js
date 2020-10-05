@@ -71,7 +71,6 @@ function App() {
             </Content>
           </Route>
           <Route path="/shop" exact>
-            <ImWhatsapp size={70} className="whats-icon" />
             <Content>
               <Tienda />
             </Content>

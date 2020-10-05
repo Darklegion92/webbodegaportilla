@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles.css";
 import { Row, Col, Divider, Typography } from "antd";
 import {
@@ -77,7 +78,10 @@ function Pie() {
             </a>
           </Row>
           <Row>
-            <a href="mailto:servicioalcliente@bodegaportilla.com" target="_blank">
+            <a
+              href="mailto:servicioalcliente@bodegaportilla.com"
+              target="_blank"
+            >
               <Text>servicioalcliente@bodegaportilla.com</Text>
             </a>
           </Row>
@@ -112,7 +116,10 @@ function Pie() {
             <Title level={3}>COLOMBIA</Title>
           </Row>
           <Row>
-            <a href="https://www.google.es/maps/place/Bodega+Portilla/@7.8919667,-72.5047795,20.25z/data=!4m5!3m4!1s0x8e6645c65349ea57:0x67010b7fe6a46cd3!8m2!3d7.8920667!4d-72.5046647" target="_blank">
+            <a
+              href="https://www.google.es/maps/place/Bodega+Portilla/@7.8919667,-72.5047795,20.25z/data=!4m5!3m4!1s0x8e6645c65349ea57:0x67010b7fe6a46cd3!8m2!3d7.8920667!4d-72.5046647"
+              target="_blank"
+            >
               <Text>Calle 5 No. 4-88 Barrio Latino Cúcuta , Colombia.</Text>
             </a>
           </Row>
@@ -120,12 +127,17 @@ function Pie() {
             <Title level={3}>TERMINOS</Title>
           </Row>
           <Row>
-            <Text>Términos y Condiciones</Text>
+            <Link to="/terminos">
+              <Text>Términos y Condiciones</Text>
+            </Link>
           </Row>
           <Row>
-            <Text>
-              Política de Privacidad y Tratamiento de Datos Personales
-            </Text>
+            <Link to="/politicas">
+              {" "}
+              <Text>
+                Política de Privacidad y Tratamiento de Datos Personales
+              </Text>
+            </Link>
           </Row>
         </Col>
 
@@ -134,7 +146,10 @@ function Pie() {
             <Title level={1}>SIGUENOS</Title>
           </Row>
           <Row>
-            <a href="https://www.facebook.com/Bodega-Portilla-372954223119025/" target="_blank">
+            <a
+              href="https://www.facebook.com/Bodega-Portilla-372954223119025/"
+              target="_blank"
+            >
               <Text>
                 <FacebookOutlined
                   style={
@@ -151,7 +166,10 @@ function Pie() {
             </a>
           </Row>
           <Row>
-            <a href="https://www.instagram.com/bodegaportilla/?hl=es-la" target="_blank">
+            <a
+              href="https://www.instagram.com/bodegaportilla/?hl=es-la"
+              target="_blank"
+            >
               <Text>
                 <InstagramOutlined
                   style={
