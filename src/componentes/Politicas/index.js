@@ -40,7 +40,7 @@ const Politicas = () => {
       <Paragraph>
         Lo invitamos a leer detalladamente esta Política de Privacidad y si
         tiene alguna duda, le pedimos que por favor nos contacte al correo
-        electrónico xxxxxxxxxx, o al teléfono (5836681) o envíe una comunicación
+        electrónico gerencia@bodegaportilla.com, o al teléfono (5836681) o envíe una comunicación
         a la Calle 5# 4-48.
       </Paragraph>
       <Title level={2}>
@@ -64,7 +64,7 @@ const Politicas = () => {
         <br />
         <Text strong>Canales de Atención:</Text> Medios a través de los cuales
         usted puede ejercer sus derechos, los cuales son: i) dirección de correo
-        electrónico: XXXXXXX; ii) teléfono (5836681), enviando una comunicación
+        electrónico: gerencia@bodegaportilla.com; ii) teléfono (5836681), enviando una comunicación
         a la Calle 5# 4-88, Cúcuta, Norte de Santander.
         <br />
         <Text strong>Dato Personal:</Text> Cualquier información vinculada o que
@@ -113,7 +113,7 @@ const Politicas = () => {
         comportamientos de consumo, datos inferidos a partir de información
         observada o entregada directamente por el titular o por terceros e
         información demográfica y transaccional. Los Datos Personales serán
-        recolectados a través de los diferentes canales que disponga LINIO y
+        recolectados a través de los diferentes canales que disponga BODEGA PORTILLA y
         mediante los cuales el titular suministre su información.
       </Paragraph>
       <Paragraph>
@@ -121,7 +121,7 @@ const Politicas = () => {
         cuando cuente con su Autorización y únicamente para los fines que se
         indican en la sección V de este documento. Usted podrá revocar su
         autorización en cualquier momento, solicitándolo a través de cualquiera
-        de los medios que se indican en la sección VIII.
+        de los medios que se indican en la sección.
       </Paragraph>
       <Title level={2}>
         III. Transferencia de Datos Personales a Empresas Relacionadas y otros.
@@ -129,12 +129,11 @@ const Politicas = () => {
       <Paragraph>
         Adicionalmente, al aceptar esta Política de Privacidad, usted autoriza a
         Bodega Portilla S.A.S a compartir sus Datos Personales con las Empresas
-        Relacionadas y con los Aliados Comerciales de Linio y a que éstos los
+        Relacionadas y con los Aliados Comerciales de BODEGA PORTILLA y a que éstos los
         puedan tratar para los fines que se indican en la sección V. No
         obstante, en cualquier momento, como Titular, podrá revocar la
         autorización otorgada u oponerse al envío de comunicaciones comerciales,
-        solicitándolo por cualquiera de las vías que se indican en la sección
-        VIII.
+        solicitándolo por cualquiera de las vías que se indican en la sección.
       </Paragraph>
       <Paragraph>
         Asimismo, en el evento de vender todo o parte del negocio de Bodega
@@ -154,7 +153,7 @@ const Politicas = () => {
         responsabilidad que a éstas les corresponda por cualquier incumplimiento
         de tales obligaciones. Del mismo modo, en caso de que el Tratamiento de
         Datos Personales se haya de efectuar por empresas proveedoras de
-        servicios para Linio, dichas empresas proveedoras deberán asumir
+        servicios para BODEGA PORTILLA, dichas empresas proveedoras deberán asumir
         compromisos de confidencialidad y adoptar medidas que aseguren el debido
         cumplimiento de la normativa de protección de Datos Personales, en
         especial las establecidas en la Ley 1581 de 2012 y su Decreto
@@ -218,7 +217,7 @@ const Politicas = () => {
         <ol>
           <li>
             Efectuar las gestiones pertinentes para el desarrollo del objeto
-            social de Linio en lo que tiene que ver con el cumplimiento del
+            social de BODEGA PORTILLA en lo que tiene que ver con el cumplimiento del
             objeto del contrato celebrado con el Titular.
           </li>
           <li>Dar cumplimiento a obligaciones contraídas con el Titular.</li>
@@ -259,12 +258,9 @@ const Politicas = () => {
             comunicación que nos entregues, para enviarte la siguiente
             información: ( i ) Acerca de la entrega y estado de sus pedidos
             realizados en el Sitio; (ii) Para enviarle información comercial, o
-            de ofertas o promociones sobre los productos o servicios de Linio o
+            de ofertas o promociones sobre los productos o servicios de BODEGA PORTILLA o
             de sus Empresas Relacionadas, o para realizar encuestas o confirmar
-            sus Datos Personales; y (iii) Para que puedas hacer uso de los
-            beneficios del programa de fidelización de Falabella “CMR Puntos”
-            por cualquiera de los canales de comunicación, venta o canje
-            dispuestos, tanto presenciales como remotos.
+            sus Datos Personales; y (iii).
           </li>
           <li>
             Compartir los Datos Personales con terceros para el cumplimiento,
@@ -279,7 +275,7 @@ const Politicas = () => {
             Compartir los Datos Personales con terceros que tengan la calidad de
             Aliados Comerciales y Empresas Relacionadas para que puedan ofrecer
             productos y/o servicios que permitan mejorar la oferta de valor
-            destinada a los clientes de Linio, todo lo anterior de conformidad
+            destinada a los clientes de BODEGA PORTILLA, todo lo anterior de conformidad
             con lo dispuesto en la Ley 1581 de 2012 y su Decreto Reglamentario
             1074 de 2015 Capítulo 25.
           </li>
@@ -367,7 +363,7 @@ const Politicas = () => {
             pre-contractuales, contractuales o pos-contractuales.
           </li>
           <li>
-            Gestionar el cumplimiento de las políticas internas de LINIO,
+            Gestionar el cumplimiento de las políticas internas de BODEGA PORTILLA,
             incluida la Política.
           </li>
           <li>
@@ -381,7 +377,7 @@ const Politicas = () => {
           </li>
           <li>
             Reportar a las Centrales de Información sobre el cumplimiento o
-            incumplimiento de obligaciones que haya adquirido con LINIO o las
+            incumplimiento de obligaciones que haya adquirido con BODEGA PORTILLA o las
             Entidades Vinculadas.
           </li>
           <li>
@@ -399,7 +395,7 @@ const Politicas = () => {
       <Title level={2}>VI. Recolección de sus Datos Personales</Title>
       <Paragraph>
         En esta sección listamos algunos de los medios a través de los cuales
-        Linio accede a sus Datos Personales:
+        BODEGA PORTILLA accede a sus Datos Personales:
         <ol>
           <li>Cuando usted crea una cuenta en el Sitio.</li>
           <li>
@@ -411,7 +407,7 @@ const Politicas = () => {
             en la red o adquiere algún producto o servicio.
           </li>
           <li>
-            Cuando usted participa de algún programa de fidelidad de Linio o de
+            Cuando usted participa de algún programa de fidelidad de BODEGA PORTILLA o de
             sus Empresas Relacionadas.
           </li>
           <li>
@@ -421,11 +417,11 @@ const Politicas = () => {
           </li>
           <li>
             Cuando una Empresa Relacionada previamente autorizada por usted, le
-            comparte a Linio Datos Personales que ésta tiene de usted.
+            comparte a BODEGA PORTILLA Datos Personales que ésta tiene de usted.
           </li>
           <li>
             Cuando un tercero, previamente autorizado por usted, le comparte a
-            Linio Datos Personales que éste tiene de usted.
+            BODEGA PORTILLA Datos Personales que éste tiene de usted.
           </li>
         </ol>
       </Paragraph>
@@ -437,15 +433,15 @@ const Politicas = () => {
         Como Titular de sus Datos Personales, usted tiene derecho a:
         <ol>
           <li>
-            Conocer, y exigir a Linio que actualice, rectifique y suprima los
+            Conocer, y exigir a BODEGA PORTILLA que actualice, rectifique y suprima los
             Datos Personales que tiene de usted.
           </li>
           <li>
-            Solicitarle a Linio pruebas de la Autorización que le otorgó para el
+            Solicitarle a BODEGA PORTILLA pruebas de la Autorización que le otorgó para el
             Tratamiento de sus Datos Personales.
           </li>
           <li>
-            Ser informado por Linio, previa solicitud conforme a la sección VIII
+            Ser informado por BODEGA PORTILLA, previa solicitud conforme a la sección VIII
             de esta Política, respecto del uso que le ha dado a sus Datos
             Personales.
           </li>
@@ -460,111 +456,14 @@ const Politicas = () => {
           </li>
         </ol>
         No obstante lo anterior, es su deber mantener actualizada la información
-        que ha entregado a Linio y garantizar, en todo momento, la veracidad de
-        la misma. Linio no se hará responsable, en ningún caso, por cualquier
+        que ha entregado a BODEGA PORTILLA y garantizar, en todo momento, la veracidad de
+        la misma. BODEGA PORTILLA no se hará responsable, en ningún caso, por cualquier
         tipo de perjuicio o sanción que pudiere derivarse de la inexactitud de
         dicha información.
       </Paragraph>
-      <Title level={2}>
-        VIII. Procedimiento para el ejercicio de los Derechos de conformidad a
-        la Ley 1581 de 2012.
-      </Title>
-      <Paragraph>
-        Usted podrá ejercer los derechos que se indican en el numeral precedente
-        y todos los demás derechos que confiere la Ley 1581 de 2012,
-        comunicándose con Linio a través del correo electrónico
-        datos.personales@linio.com, al teléfono (571) 4842222, o enviando una
-        comunicación a la Calle 99# 14-49, Piso 9, Torre EAR de Bogotá D.C. El
-        área de Servicio al Cliente de Linio será la responsable de la atención
-        de peticiones, consultas y reclamos ante la cual el Titular puede
-        ejercer sus derechos a conocer, actualizar, rectificar y suprimir los
-        Datos Personales y revocar la autorización de Tratamiento de Datos
-        Personales.
-      </Paragraph>
-      <Title level={3}>Consulta</Title>
-      <Paragraph>
-        En caso que usted desee consultar sus Datos Personales que reposen en
-        nuestras bases de datos, deberá comunicarse con Linio a través de los
-        Canales de Atención y generar la solicitud de consulta de Datos
-        Personales. Para lo anterior, es necesario que al momento de generar la
-        solicitud, indique su número de identificación y sus datos de contacto.
-        Linio dará respuesta a la consulta, vía correo electrónico o cualquier
-        medio que considere idóneo, en un término máximo de diez (10) días
-        hábiles contados a partir de la fecha de recibo de la misma. Cuando no
-        fuere posible atender la consulta dentro de dicho término, se comunicará
-        esta situación al Titular, indicando los motivos de la demora y
-        señalando la fecha en que se atenderá su consulta. Esta última fecha no
-        superará los cinco (5) días hábiles siguientes al vencimiento del primer
-        término.
-      </Paragraph>
-      <Title level={3}>
-        Reclamo por corrección, actualización y/o supresión de Datos Personales
-      </Title>
-      <Paragraph>
-        En caso que usted desee presentar un reclamo por corrección,
-        actualización y/o supresión de Datos Personales deberá comunicarse con
-        Linio a través de los Canales de Atención. Para lo anterior, es
-        necesario que al momento de generar la solicitud, indique su número de
-        identificación, sus datos de contacto, la descripción de los hechos y
-        aportar la documentación pertinente que pretenda hacer valer. Si Linio
-        estima que para el análisis de la solicitud requiere mayor información
-        de parte de usted, procederá a comunicarle tal situación. Transcurridos
-        dos (2) meses desde la fecha del requerimiento, sin que usted presente
-        la información requerida, se entenderá que ha desistido del reclamo.
-        Linio atenderá el reclamo en un plazo de quince (15) días hábiles
-        contados a partir de la fecha de su recepción. Cuando no fuere posible
-        atenderlo dentro de dicho término, se le informará al Titular los
-        motivos de la demora y la fecha en que se atenderá su reclamo, la cual
-        en ningún caso podrá superar los ocho (8) días hábiles siguientes al
-        vencimiento del primer término.
-      </Paragraph>
-      <Paragraph>
-        Si usted manifiesta, por cualquiera de los Canales de Atención, que no
-        desea recibir publicidad, Linio procederá a hacer efectiva su solicitud
-        en un término de cinco (5) días hábiles contados desde la recepción de
-        la misma. De esta manera, usted recibirá un correo electrónico
-        confirmando la eliminación de sus Datos Personales de las bases de datos
-        de publicidad de Linio. Adicionalmente, se le solicitará que confirme si
-        desea que se elimine su cuenta en Linio. El Titular contará con un
-        término de cinco (5) días hábiles contados desde el envío del correo
-        para realizar dicha confirmación. En caso que el Titular confirme que
-        desea que su cuenta Linio sea eliminada, o que finalizado el término de
-        cinco (5) días no responda dicho correo, Linio, con el fin de cumplir
-        con la normativa vigente en materia de protección de datos personales,
-        procederá a eliminar su cuenta Linio, en un plazo de cinco (5) días
-        hábiles. La eliminación de la cuenta Linio tendrá como consecuencia la
-        eliminación de todos sus Datos Personales, ocasionando la pérdida de
-        todo su historial de compras como, asimismo, de cualquier cupón de
-        reembolso o descuento, y cualquier otra información personal que Linio
-        posea del Titular. La solicitud de supresión de la información y la
-        revocatoria de la Autorización no procederán cuando exista un deber
-        legal, contractual o comercial, de que usted permanezca en nuestra base
-        de datos.
-      </Paragraph>
-      <Paragraph>
-        Como titular de los Datos Personales y/o representante legal del menor,
-        el titular acepta y reconoce que ha sido informado sobre sus derechos a
-        presentar solicitudes de información, actualización, supresión,
-        rectificación y a revocar la autorización de los Datos Personales, a
-        autorizar o no el tratamiento de datos sensibles (Ejemplo: huella
-        dactilar, fotos, videograbaciones y otros datos biométricos) y a
-        contestar voluntariamente las preguntas que versen sobre datos
-        personales sensibles o de menores de edad, sujeto a lo establecido en la
-        legislación aplicable y conforme a lo previsto en la Política. Cualquier
-        consulta, solicitud, reclamo, queja y petición relacionada con sus datos
-        personales, podrá dirigirla a datos.personales@linio.com.
-      </Paragraph>
-      <Paragraph>
-        El titular declara que el suministro de datos de terceros, en los casos
-        en donde aplique, lo ha realizado con su inequívoca y expresa
-        autorización. Finalmente, el titular y/o representante legal manifiesta
-        que los Datos Personales sobre los cuales otorga la presente
-        autorización los ha suministrado de forma voluntaria, verídica y
-        completa.
-      </Paragraph>
       <Title level={2}>IX Cookies y su uso por Bodega Portilla S.A.S</Title>
       <Paragraph>
-        En Linio usamos cookies y tecnologías similares para personalizar y
+        En BODEGA PORTILLA usamos cookies y tecnologías similares para personalizar y
         mejorar su experiencia de cliente y para mostrarle publicidad online
         relevante. Las cookies son pequeños archivos de texto que contienen un
         identificador único que se almacena en el computador o aparato móvil a
@@ -586,7 +485,7 @@ const Politicas = () => {
       <Paragraph>
         Para mejorar su experiencia de cliente, el Sitio puede contener
         publicidad de terceros y enlaces a otros sitios o marcos de otros
-        sitios. Tenga en cuenta que Linio no es responsable de las prácticas de
+        sitios. Tenga en cuenta que BODEGA PORTILLA no es responsable de las prácticas de
         privacidad o de contenido de dichos terceros o sitios, por lo que usted
         debe revisar las políticas de privacidad de los mismos.
       </Paragraph>
@@ -601,12 +500,12 @@ const Politicas = () => {
         evalúa su efectividad periódicamente. El objetivo de estas salvaguardias
         es evitar el acceso no autorizado o ilegal o la pérdida accidental,
         destrucción u ocurrencia de daños a sus Datos Personales. Por ello,
-        cuando Linio recoge datos a través del Sitio, lo hace a través de un
+        cuando BODEGA PORTILLA recoge datos a través del Sitio, lo hace a través de un
         servidor seguro que cuenta con programas de protección. Además, los
-        procedimientos de seguridad de Linio exigen que en ocasiones se le
+        procedimientos de seguridad de BODEGA PORTILLA exigen que en ocasiones se le
         solicite una prueba de identidad antes de poder entregarle información
         de sus Datos Personales. Para el caso de información de tarjetas de pago
-        electrónico, Linio utiliza, además, sistemas de cifrado Secure Socket
+        electrónico, BODEGA PORTILLA utiliza, además, sistemas de cifrado Secure Socket
         Layer (SSL) que codifican la información evitando usos fraudulentos. Si
         bien no es posible garantizar lo anterior, estos sistemas han probado
         ser efectivos en el manejo de información reservada impidiendo el acceso
@@ -615,19 +514,6 @@ const Politicas = () => {
         cifrar o desde sitios o equipos públicos o no seguros. Tenga en cuenta
         que usted es el único responsable de la protección contra el acceso no
         autorizado a su contraseña y computadora.
-      </Paragraph>
-      <Title level={2}>
-        XII. Vigencia y modificación de esta Política de Privacidad.
-      </Title>
-      <Paragraph>
-        La presente política aplicará a partir del día 15 de diciembre de 2018 y
-        sus Datos Personales permanecerán almacenados solo por el tiempo que sea
-        requerido por Ley, o para el cumplimiento de los fines que han sido
-        autorizados por usted. Esta Política podrá ser modificada por Linio en
-        cualquier momento. Sin perjuicio de lo anterior, Bodega Portilla S.A.S
-        le informará, por los medios que se estime convenientes, de cualquier
-        cambio sustancial con anterioridad a que dicha modificación entre en
-        vigencia.
       </Paragraph>
     </div>
   );
