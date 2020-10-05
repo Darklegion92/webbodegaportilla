@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import { Typography } from "antd";
 
 import "./styles.css";
-import { useEffect } from "react";
 
 const { Text, Title, Paragraph } = Typography;
 
