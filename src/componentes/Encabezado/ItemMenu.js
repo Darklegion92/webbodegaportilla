@@ -28,26 +28,25 @@ const ItemMenu = ({ articulo }) => {
               })}
             </Title>
           ) : (
-            <Title level={4} style={{ marginTop: "10px" }}>{articulo.nombre}</Title>
+            <Title level={4} style={{ marginTop: "10px" }}>
+              {articulo.nombre}
+            </Title>
           )
         ) : (
-          <Title level={4} >
-            {articulo.nombre}
+          <Title level={4}>{articulo.nombre}</Title>
+        )}
+        {(!isTabletOrMobile || !isTabletOrMobileDevice) && letras.length > 16 && (
+          <Title level={4}>
+            {letras.map((letra, i) => {
+              if (i > 16 && i <= 32) {
+                texto2 += letra;
+              }
+              if (i == letras.length - 1) {
+                return texto2;
+              }
+            })}
           </Title>
         )}
-        {!isTabletOrMobile ||
-          (!isTabletOrMobileDevice && letras.length > 16 && (
-            <Title level={4}>
-              {letras.map((letra, i) => {
-                if (i > 16 && i <= 32) {
-                  texto2 += letra;
-                }
-                if (i == letras.length - 1) {
-                  return texto2;
-                }
-              })}
-            </Title>
-          ))}
         <Text>$ {articulo.cantidad * articulo.precio} COP</Text>
       </Col>
     </Row>
