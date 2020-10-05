@@ -171,6 +171,7 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   max-height: 280px;
   overflow-y: scroll;
   overflow-x: hidden;
+  flex: 0;
 }
 
 .menu-carrito .items::-webkit-scrollbar {
@@ -185,8 +186,7 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
 
 .menu-carrito .items .item-menu {
   display: flex;
-  line-height: 3px;
-  margin-bottom: 10px;
+  height: auto;
 }
 
 .menu-carrito .items .item-menu .ant-col-6 {
@@ -195,9 +195,25 @@ div.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-light.ant-menu-submenu-hidd
   justify-content: center;
   align-items: center;
 }
+.menu-carrito .items .item-menu h4.ant-typography {
+  line-height: 0px;
+  height: 20px;
+  margin: 0;
+  text-align: start;
+}
 
 .menu-carrito .items .ant-col-18 {
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 10px;
+  padding-top: 10px;
+  flex: 0;
+  
+}
+.menu-carrito .items .item-menu span.ant-typography {
+margin-top: -10px;
 }
 
 .menu-carrito .totales h4.ant-typography {

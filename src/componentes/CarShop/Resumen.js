@@ -151,11 +151,12 @@ const Resumen = ({ next, current }) => {
             <Button
               style={{
                 backgroundColor: "var(--color-primario)",
+                fontWeight:"bold",
                 color: "white",
                 borderRadius: "10px",
                 height: "auto",
                 width:"100%",
-                fontSize: "18px",
+                fontSize: "23px",
               }}
               onClick={current === 0 ? next : validarCarrito}
             >

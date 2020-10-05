@@ -59,18 +59,6 @@ function Pie() {
           src="img/p-09.png"
           height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
         />
-        <img
-          src="img/p-10.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
-        />
-        <img
-          src="img/p-11.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
-        />
-        <img
-          src="img/p-12.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
-        />
       </Row>
       <Divider
         style={{

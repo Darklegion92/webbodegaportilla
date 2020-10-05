@@ -8,9 +8,7 @@ const FormularioDatosEnvio = () => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const [value, setValue] = useState(0);
-  const { setBarrio, barrios, tiposDocumento } = useContext(
-    GlobalContext
-  );
+  const { setBarrio, barrios, tiposDocumento } = useContext(GlobalContext);
   const onChange = (e) => {
     setValue(e.target.value);
   };
@@ -88,9 +86,9 @@ const FormularioDatosEnvio = () => {
           <Col span={24}>
             <Form.Item label="Barrio" name="barrio">
               <Select
-              onSelect={(e) => {
-                setBarrio(barrios[e]);
-              }}
+                onSelect={(e) => {
+                  setBarrio(barrios[e]);
+                }}
               >
                 {barrios.map((barrio) => {
                   return <Option key={barrio.id}>{barrio.nombre}</Option>;
@@ -174,14 +172,14 @@ const FormularioDatosEnvio = () => {
                   setBarrio(barrios[e]);
                 }}
               >
-                {barrios.map((barrio,i) => {
+                {barrios.map((barrio, i) => {
                   return <Option key={i}>{barrio.nombre}</Option>;
                 })}
               </Select>
             </Form.Item>
           </Col>
         </Row>
-        <Row justify="left">
+        <Row justify="left" style={{ visibility: "hidden" }}>
           <Col span={24} justify="left">
             <Form.Item
               label={
