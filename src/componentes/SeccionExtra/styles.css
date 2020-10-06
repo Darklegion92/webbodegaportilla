@@ -107,4 +107,9 @@
     font-size: 8px !important;
     padding: 5px 10px 5px 10px;
   }
+
+  .seccion-extra .estrellas-cantidad {
+    max-height: 100px;
+      padding: 5px 8px 5px 5px;
+  }
 }

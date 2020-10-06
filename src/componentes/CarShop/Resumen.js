@@ -151,11 +151,11 @@ const Resumen = ({ next, current }) => {
             <Button
               style={{
                 backgroundColor: "var(--color-primario)",
-                fontWeight:"bold",
+                fontWeight: "bold",
                 color: "white",
                 borderRadius: "10px",
                 height: "auto",
-                width:"100%",
+                width: "100%",
                 fontSize: "23px",
               }}
               onClick={current === 0 ? next : validarCarrito}
@@ -198,8 +198,9 @@ const Resumen = ({ next, current }) => {
                   height: "auto",
                   width: "100%",
                   fontSize: "35.5px",
-                  fontWeight:"bold",
+                  fontWeight: "bold",
                   border: "none",
+                  padding: current === 0 ? "10px" : "0 50px",
                 }}
                 onClick={current === 0 ? next : validarCarrito}
               >

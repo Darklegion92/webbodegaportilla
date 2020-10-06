@@ -20,7 +20,7 @@ function SeccionExtra({ items, articulos, texto, tipo }) {
     const estrellas = [];
 
     for (let i = 0; i < cantidad; i++) {
-      estrellas.push(<AiFillStar size="20" />);
+      estrellas.push(<AiFillStar size={isTabletOrMobile || isTabletOrMobileDevice ? "12":"20"} />);
     }
 
     return estrellas;

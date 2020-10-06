@@ -97,7 +97,7 @@ const FormularioDatosEnvio = () => {
             </Form.Item>
           </Col>
         </Row>
-        <Row>
+      {/*  <Row>
           <Col span={24}>
             <Form.Item label="Tipo de Pago" name="nombre">
               <Radio.Group onChange={onChange} value={value}>
@@ -106,7 +106,7 @@ const FormularioDatosEnvio = () => {
               </Radio.Group>
             </Form.Item>
           </Col>
-        </Row>
+      </Row>*/}
       </Form>
     </Col>
   ) : (

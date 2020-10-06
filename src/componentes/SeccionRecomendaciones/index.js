@@ -33,7 +33,7 @@ function SeccionRecomendaciones() {
   return (
     SeccionRecomendaciones.length > 0 && (
       <div className="recomendaciones">
-        <Title>RECOMENDACIONES</Title>
+        <Title>RECOMENDACION</Title>
         {BANCO.URL + SeccionRecomendaciones[0] && (
           <>
             <div className="row">

@@ -128,6 +128,7 @@
 /*movile*/
 @media only screen and (max-width: 600px) {
   .articulo-tag .fila3,
+  .articulo-tag .fila2,
   .articulo-tag .fila4 {
     display: flex;
     flex-direction: column;

@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 
 const { Text, Title } = Typography;
 
-const Modal = ({ recomendacion,tipo }) => {
+const Modal = ({ recomendacion, tipo }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   return isTabletOrMobileDevice || isTabletOrMobile ? (
@@ -14,8 +14,8 @@ const Modal = ({ recomendacion,tipo }) => {
           src={recomendacion.img}
           style={
             tipo === "CUADRADO"
-              ? { width: "70%" }
-              : { maxHeight: "500px", maxWidth: "110px" }
+              ? { width: "70%", marginBottom: "10px" }
+              : { maxHeight: "500px", maxWidth: "110px", marginBottom: "10px" }
           }
         />
       </Row>
@@ -30,9 +30,7 @@ const Modal = ({ recomendacion,tipo }) => {
     </Col>
   ) : (
     <Row gutter={16} className="item-recomendaciones">
-      <Col
-        span={tipo === "CUADRADO" ? 14 : 10}
-      >
+      <Col span={tipo === "CUADRADO" ? 14 : 10}>
         <img
           src={recomendacion.img}
           style={{ maxHeight: "500px", maxWidth: "100%" }}
