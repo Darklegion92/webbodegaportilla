@@ -261,15 +261,15 @@
 
   /*item*/
 
+  .articulos-tienda {
+    margin: 10px;
+  }
   .articulos-tienda .item {
     box-shadow: none;
     border: none;
     border-bottom: solid 1px var(--color-primario);
     border-radius: 0;
     text-align: center;
-
-
-
     width: 100%;
     padding: 10px 0;
     text-align: left;
