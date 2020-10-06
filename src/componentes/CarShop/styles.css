@@ -84,7 +84,9 @@
 
 .car-shop .resumen .ant-col-24 button.ant-btn {
   width: 100%;
-  font-size: 25px!important;
+  font-size: 17px;
+  font-weight: bold;
+  height: auto;
   border-color: var(--color-primario);
   border-radius: 10px;
   color: white;
