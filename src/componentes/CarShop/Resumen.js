@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Row,
   Col,
@@ -11,6 +11,9 @@ import {
 } from "antd";
 import { GlobalContext } from "../../Context/GlobalContext";
 import { useMediaQuery } from "react-responsive";
+
+import Alerta from "../Alerta";
+
 import "./styles.css";
 
 const { Text, Title } = Typography;
@@ -19,7 +22,14 @@ const { Option } = Select;
 const Resumen = ({ next, current }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const { carrito, barrio, setBarrio, barrios, validarCarrito } = useContext(
+  const [domicilio, setDomicilio] = useState(0);
+  const [barrio, setBarrio] = useState();
+  const [valorCupon, setValorCupon] = useState();
+  const [modal, setModal] = useState({
+    visible: false,
+  });
+
+  const { carrito, barrios, validarCarrito, cupon, validarCupon } = useContext(
     GlobalContext
   );
   let total = 0;
@@ -49,6 +59,47 @@ const Resumen = ({ next, current }) => {
   calcular(carrito);
   useEffect(() => {}, [carrito]);
 
+  const onClickBarrio = () => {
+    if (barrio) setDomicilio(barrio.tarifa);
+  };
+
+  const onChange = (e) => {
+    setValorCupon(e.target.value);
+  };
+
+  const validacionCupon = async () => {
+    if (valorCupon) {
+      const resp = await validarCupon(valorCupon);
+      console.log(resp);
+      if (resp === true) {
+        setModal({
+          visible: true,
+          tipo: "SUCCESS",
+          mensaje:
+            "Su Cupón ha sido Validado Correctamente, para redimirlo debe estar inscrito en nuestra plataforma",
+          titulo: "Cupón Correcto",
+          link: "",
+        });
+      } else if (resp === false) {
+        setModal({
+          visible: true,
+          tipo: "WARNIN",
+          mensaje: "Cupón No Válido, o Ya Vencido",
+          titulo: "Error Al Validar Cupón",
+          link: "",
+        });
+      } else {
+        setModal({
+          visible: true,
+          tipo: "ERROR",
+          mensaje: "Error al conectar con el servidor, intentalo mas tarde",
+          titulo: "Error Interno",
+          link: "",
+        });
+      }
+    }
+  };
+
   return (
     <>
       <Col span={24} className="resumen">
@@ -70,7 +121,15 @@ const Resumen = ({ next, current }) => {
             <Text>AHORRO</Text>
           </Col>
           <Col span={14}>
-            <Text>$ {total > 50000 ? 7000 : 0}</Text>
+            <Text>
+              ${" "}
+              {total > 50000
+                ? domicilio +
+                  (cupon.descuento ? (total * cupon.descuento) / 100 : 0)
+                : 0 + cupon.descuento
+                ? (total * cupon.descuento) / 100
+                : 0}
+            </Text>
           </Col>
         </Row>
         <Divider />
@@ -79,7 +138,7 @@ const Resumen = ({ next, current }) => {
             <Text>ENVIO</Text>
           </Col>
           <Col span={14}>
-            <Text>$ {total > 50000 ? 0 : 7000}</Text>
+            <Text>$ {domicilio}</Text>
           </Col>
         </Row>
         <Divider />
@@ -110,16 +169,16 @@ const Resumen = ({ next, current }) => {
                     })}
                   </Select>
                   <Col span={9}>
-                    <Button>APLICAR</Button>
+                    <Button onClick={onClickBarrio}>APLICAR</Button>
                   </Col>
                 </Col>
               </Panel>
               <Divider style={{ borderColor: "var(--color-primario)" }} />
               <Panel header="APLICAR CUPON" key="2">
                 <Col span={24}>
-                  <Input placeholder="Cupón" />
+                  <Input placeholder="Cupón" onChange={onChange} />
                   <Col span={9}>
-                    <Button>APLICAR</Button>
+                    <Button onClick={validacionCupon}>APLICAR</Button>
                   </Col>
                 </Col>
               </Panel>
@@ -130,7 +189,15 @@ const Resumen = ({ next, current }) => {
         {!isTabletOrMobile && !isTabletOrMobileDevice ? (
           <Row>
             <Title level={2}>TOTAL</Title>
-            <Title>${total > 50000 ? total : total + 7000}</Title>
+            <Title>
+              $
+              {total > 50000
+                ? total -
+                  (cupon.descuento ? (total * cupon.descuento) / 100 : 0)
+                : total -
+                  (cupon.descuento ? (total * cupon.descuento) / 100 : 0) +
+                  domicilio}
+            </Title>
           </Row>
         ) : (
           <Row>
@@ -182,7 +249,7 @@ const Resumen = ({ next, current }) => {
             <Divider />
             <Row>
               <Title level={2}>TOTAL</Title>
-              <Title>${total > 50000 ? total : total + 7000}</Title>
+              <Title>${total > 50000 ? total : total + domicilio}</Title>
             </Row>
           </>
         )}
@@ -210,6 +277,7 @@ const Resumen = ({ next, current }) => {
           )}
         </Row>
       </Col>
+      <Alerta modal={modal} setModal={setModal} />
     </>
   );
 };

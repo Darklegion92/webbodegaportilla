@@ -41,9 +41,11 @@
   font-size: 23px;
   font-weight: bold;
   height: auto;
-  border-color: var(--color-primario);
+  background-color: white;
+  border:solid 1px var(--color-primario);
   border-radius: 10px;
   text-align: center;
+  padding: 10px;
 }
 .validacion .footer button:hover {
   zoom: 105%;
@@ -76,10 +78,13 @@
 .validacion .body .ant-row .ant-form-item {
   margin-bottom: 0;
 }
-
+.validacion
+  .body
+  span.ant-input-password.ant-input-affix-wrapper.ant-input-affix-wrapper-sm:hover,
+span.ant-input-password.ant-input-affix-wrapper.ant-input-affix-wrapper-focused.ant-input-affix-wrapper-sm,
 .validacion .body .ant-input:focus,
 .validacion .body .ant-input:hover {
-  border-color: var(--color-primario);
+  border-color: var(--color-primario) !important;
   box-shadow: none;
 }
 

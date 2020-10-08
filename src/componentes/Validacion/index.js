@@ -1,21 +1,122 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Row, Col, Typography, Tabs, Button } from "antd";
 import { AiFillFacebook } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import FacebookLogin from "react-facebook-login";
+import { useGoogleLogin } from "react-use-googlelogin";
+
+import { API } from "../../config";
 import FormularioRegistro from "./FormularioRegistro";
 import FormularioIngreso from "./FormularioIngreso";
+import { GlobalContext } from "../../Context/GlobalContext";
+import Alerta from "../Alerta";
 
 import "./styles.css";
 
 const { Title, Text } = Typography;
 const { TabPane } = Tabs;
 
-
-const callback = (key) => {
-  console.log(key);
-};
 const Validacion = () => {
+  const { signIn, isSignedIn, googleUser } = useGoogleLogin({
+    clientId: API.APIIDGOOGLE,
+  });
+
+  const { login, register, loginFacebook, loginGoogle } = useContext(
+    GlobalContext
+  );
+
+  const [modal, setModal] = useState({
+    visible: false,
+  });
+
+  const ingresar = async (e) => {
+    const resp = await login(e);
+    if (resp === true) {
+      setModal({
+        visible: true,
+        tipo: "SUCCESS",
+        mensaje: "Ha ingresado correctamente",
+        titulo: "Bienvenido",
+        link: "/shop",
+      });
+    } else if (resp === false) {
+      setModal({
+        visible: true,
+        tipo: "WARING",
+        mensaje: "Usuario o Contraseña Erroneos",
+        titulo: "Error Interno",
+        link: "",
+      });
+    }
+  };
+
+  const ingresarFacebook = async (e) => {
+    const resp = await loginFacebook(e);
+    if (resp === true) {
+      setModal({
+        visible: true,
+        tipo: "SUCCESS",
+        mensaje: "Ha ingresado correctamente",
+        titulo: "Bienvenido",
+        link: "/shop",
+      });
+    } else if (resp === false) {
+      setModal({
+        visible: true,
+        tipo: "WARING",
+        mensaje: "Usuario o Contraseña Erroneos",
+        titulo: "Error Interno",
+        link: "",
+      });
+    }
+  };
+
+  const ingresarGoogle = async (e) => {
+    await signIn(e);
+    if (isSignedIn) {
+      const resp = await loginGoogle(googleUser);
+      if (resp === true) {
+        setModal({
+          visible: true,
+          tipo: "SUCCESS",
+          mensaje: "Ha ingresado correctamente",
+          titulo: "Bienvenido",
+          link: "/shop",
+        });
+      } else if (resp === false) {
+        setModal({
+          visible: true,
+          tipo: "WARING",
+          mensaje: "Usuario o Contraseña Erroneos",
+          titulo: "Error Interno",
+          link: "",
+        });
+      }
+    }
+  };
+
+  const registrar = async (e) => {
+    const resp = await register(e);
+    if (resp === true) {
+      setModal({
+        visible: true,
+        tipo: "SUCCESS",
+        mensaje: "Ha Creado su Usuario Correctamente, Bienvenido",
+        titulo: "Creación Completa",
+        link: "/shop",
+      });
+    } else if (resp === false) {
+      setModal({
+        visible: true,
+        tipo: "WARING",
+        mensaje: "Se ha producido un error al crear sucuenta",
+        titulo: "Error Al Crear Cuenta",
+        link: "",
+      });
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -63,12 +164,40 @@ const Validacion = () => {
       </Row>
       <Row align="center" justify="center" className="body">
         <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 22 : 7}>
-          <Tabs defaultActiveKey="1" onChange={callback} size="large" centered>
-            <TabPane tab={<Text align="center" style={isTabletOrMobile || isTabletOrMobileDevice ? {fontSize:"15px"}:{}}>INICIAR SESION</Text>} key="1">
-              <FormularioIngreso />
+          <Tabs defaultActiveKey="1" size="large" centered>
+            <TabPane
+              tab={
+                <Text
+                  align="center"
+                  style={
+                    isTabletOrMobile || isTabletOrMobileDevice
+                      ? { fontSize: "15px" }
+                      : {}
+                  }
+                >
+                  INICIAR SESION
+                </Text>
+              }
+              key="1"
+            >
+              <FormularioIngreso ingresar={ingresar} />
             </TabPane>
-            <TabPane tab={<Text align="center" style={isTabletOrMobile || isTabletOrMobileDevice ? {fontSize:"15px"}:{}}>REGISTRARSE</Text>} key="2">
-              <FormularioRegistro />
+            <TabPane
+              tab={
+                <Text
+                  align="center"
+                  style={
+                    isTabletOrMobile || isTabletOrMobileDevice
+                      ? { fontSize: "15px" }
+                      : {}
+                  }
+                >
+                  REGISTRARSE
+                </Text>
+              }
+              key="2"
+            >
+              <FormularioRegistro registrar={registrar} />
             </TabPane>
           </Tabs>
           <Title level={3}>O ingresa con</Title>
@@ -81,16 +210,26 @@ const Validacion = () => {
         gutter={isTabletOrMobile || isTabletOrMobileDevice ? 50 : 0}
       >
         <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 6 : 4}>
-          <Button>
-            <AiFillFacebook
-              className="icon"
-              size={isTabletOrMobile || isTabletOrMobileDevice ? 50 : 30}
-            />
-            {isTabletOrMobile || isTabletOrMobileDevice ? "" : "FACEBOOK"}
-          </Button>
+          <FacebookLogin
+            appId={API.APIIDFACEBOOK}
+            fields="name,email"
+            callback={ingresarFacebook}
+            cssClass="my-facebook-button-class"
+            isMobile={isTabletOrMobile || isTabletOrMobileDevice}
+            icon={
+              <AiFillFacebook
+                className="icon"
+                size={isTabletOrMobile || isTabletOrMobileDevice ? 50 : 30}
+              />
+            }
+            textButton={
+              isTabletOrMobile || isTabletOrMobileDevice ? "" : "FACEBOOK"
+            }
+            tag="button"
+          />
         </Col>
         <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 6 : 4}>
-          <Button>
+          <Button onClick={ingresarGoogle}>
             <img
               src="img/logo-google.png"
               width={
@@ -101,6 +240,7 @@ const Validacion = () => {
           </Button>
         </Col>
       </Row>
+      <Alerta modal={modal} setModal={setModal} />
     </Col>
   );
 };

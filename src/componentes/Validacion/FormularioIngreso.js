@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Input, Button, Checkbox, Col, Row, Typography } from "antd";
 import { useMediaQuery } from "react-responsive";
 const { Text } = Typography;
 
-const FormularioRegistro = () => {
+const FormularioIngreso = ({ ingresar }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
 
@@ -26,19 +26,37 @@ const FormularioRegistro = () => {
     </svg>
   );
 
-  const onFormLayoutChange = () => {};
   return (
     <>
-      <Form onValuesChange={onFormLayoutChange} layout="vertical" size="small">
+      <Form onFinish={ingresar} layout="vertical" size="small">
         <Form.Item>
           <Row gutter={16}>
             <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Usuario">
+              <Form.Item
+                label="Email"
+                name="email"
+                rules={[
+                  {
+                    type: "email",
+                    message: "Email invalido",
+                  },
+                  {
+                    required: true,
+                    message: "Campo de Email No Puede Estar Vacío",
+                  },
+                ]}
+              >
                 <Input />
               </Form.Item>
             </Col>
             <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Contraseña">
+              <Form.Item
+                label="Contraseña"
+                name="password"
+                rules={[
+                  { required: true, message: "Porfavor Ingrese Contraseña" },
+                ]}
+              >
                 <Input.Password
                   style={{
                     borderRadius: "5px",
@@ -55,7 +73,7 @@ const FormularioRegistro = () => {
           </Row>
         </Form.Item>
         <Form.Item>
-          <Button>
+          <Button htmlType="submit">
             INICIAR SESIÓN
             <Shield />
           </Button>
@@ -65,4 +83,4 @@ const FormularioRegistro = () => {
   );
 };
 
-export default FormularioRegistro;
+export default FormularioIngreso;

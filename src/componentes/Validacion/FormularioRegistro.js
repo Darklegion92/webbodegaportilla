@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Input, Button, Checkbox, Col, Row, Typography } from "antd";
+import { Form, Input, Button, Checkbox, Col, Row } from "antd";
 import { useMediaQuery } from "react-responsive";
 
-const FormularioRegistro = () => {
+const FormularioRegistro = ({ registrar }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const onFormLayoutChange = () => {};
+
   const Shield = () => (
     <svg
       t="1598801065009"
@@ -27,28 +27,67 @@ const FormularioRegistro = () => {
   );
   return (
     <>
-      <Form onValuesChange={onFormLayoutChange} layout="vertical" size="small">
+      <Form
+        onFinish={registrar}
+        layout="vertical"
+        size="small"
+        initialValues={{ comunicaciones: true }}
+      >
         <Form.Item>
           <Row gutter={16}>
             <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Nombres">
+              <Form.Item
+                label="Nombres"
+                name="nombres"
+                rules={[
+                  { required: true, message: "Porfavor Inserte un nombre" },
+                ]}
+              >
                 <Input />
               </Form.Item>
             </Col>
             <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Apellido">
+              <Form.Item
+                label="Apellido"
+                name="apellidos"
+                rules={[
+                  { required: true, message: "Porfavor Inserte un apellido" },
+                ]}
+              >
                 <Input />
               </Form.Item>
             </Col>
           </Row>
           <Row gutter={16}>
             <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Email">
+              <Form.Item
+                label="Email"
+                name="email"
+                rules={[
+                  {
+                    type: "email",
+                    message: "Ingrese Correo Válido",
+                  },
+                  {
+                    required: true,
+                    message: "Profavor Ingrese Corrreo",
+                  },
+                ]}
+              >
                 <Input />
               </Form.Item>
             </Col>
             <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Contraseña">
+              <Form.Item
+                label="Contraseña"
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Porfavor Inserte una contraseña",
+                  },
+                ]}
+              >
                 <Input.Password
                   style={{
                     borderRadius: "5px",
@@ -58,21 +97,21 @@ const FormularioRegistro = () => {
               </Form.Item>
             </Col>
             <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 12}>
-              <Form.Item label="Celular(opcional)">
+              <Form.Item label="Celular(opcional)" name="celular">
                 <Input />
               </Form.Item>
             </Col>
           </Row>
         </Form.Item>
         <Col span={24}>
-          <Form.Item>
-            <Checkbox checked={true}>
+          <Form.Item name="comunicaciones" valuePropName="checked">
+            <Checkbox>
               Me gustaría recibir comunicaciones promocionales (Recibirás un
               e-mail de confirmación)
             </Checkbox>
           </Form.Item>
           <Form.Item
-            name="agreement"
+            name="terminos"
             valuePropName="checked"
             rules={[
               {
@@ -86,12 +125,13 @@ const FormularioRegistro = () => {
             <Checkbox>
               Declaro que he leido y acepto la nueva{" "}
               <Link to="/politicas">Política de Privacidad</Link> y los{" "}
-              <Link to="/terminos">Términos y Condiciones</Link> de bodega portilla
+              <Link to="/terminos">Términos y Condiciones</Link> de bodega
+              portilla
             </Checkbox>
           </Form.Item>
         </Col>
         <Form.Item>
-          <Button>
+          <Button htmlType="submit">
             COMPLETAR REGISTRO
             <Shield />
           </Button>

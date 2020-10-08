@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
-import { Layout } from "antd";
+import { Layout,Modal } from "antd";
 import { useMediaQuery } from "react-responsive";
 import { ImWhatsapp } from "react-icons/im";
 
@@ -19,6 +19,7 @@ import CarShop from "./componentes/CarShop";
 import { GlobalContext } from "./Context/GlobalContext";
 import Politicas from "./componentes/Politicas";
 import Terminos from "./componentes/Terminos";
+import VentanaCarga from "./componentes/VentanaCarga";
 
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -29,7 +30,7 @@ function App() {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   let location = useLocation().pathname;
-  const { articulos, cargarDatos } = useContext(GlobalContext);
+  const { articulos, cargarDatos, modalCarga } = useContext(GlobalContext);
   useEffect(() => {
     cargarDatos();
   }, []);
@@ -174,6 +175,9 @@ function App() {
           <Pie />
         </Footer>
       )}
+      <Modal centered footer={null} closable={false} destroyOnClose visible={modalCarga}>
+        <VentanaCarga />
+      </Modal>
     </Layout>
   );
 }

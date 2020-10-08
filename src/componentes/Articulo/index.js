@@ -6,12 +6,12 @@ import { useMediaQuery } from "react-responsive";
 import "./styles.css";
 import { GlobalContext } from "../../Context/GlobalContext";
 
-const { Text } = Typography;
+const { Text,Paragraph } = Typography;
 
 const Articulo = ({ articulo, onOk }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const { setCarrito, carrito } = useContext(GlobalContext);
+  const { agregarCarrito, carrito } = useContext(GlobalContext);
   const [cantidad, setCantidad] = useState(1);
 
   let enCarrito = false;
@@ -83,7 +83,7 @@ const Articulo = ({ articulo, onOk }) => {
             <Text
               style={{
                 fontWeight: "normal",
-                fontSize: "30px",
+                fontSize: "20px",
                 width: "100%",
                 textAlign: "left",
                 color: "var(--color-primario)",
@@ -99,7 +99,7 @@ const Articulo = ({ articulo, onOk }) => {
               if (!enCarrito) {
                 const nuevoArticulo = articulo;
                 nuevoArticulo.cantidad = cantidad;
-                setCarrito([...carrito, nuevoArticulo]);
+                agregarCarrito([...carrito, nuevoArticulo],nuevoArticulo);
                 onOk();
               }
             }}
@@ -126,7 +126,7 @@ const Articulo = ({ articulo, onOk }) => {
           </Row>
           <Row className="fila2">
             <Text className="titulo">BENEFICIOS</Text>
-            <Text className="cuerpo">{articulo.descripcion}</Text>
+            <Paragraph className="cuerpo">{articulo.descripcion}</Paragraph>
           </Row>
           {articulo.descuento > 0 && (
             <Row className="fila3">
@@ -142,10 +142,10 @@ const Articulo = ({ articulo, onOk }) => {
               COP
             </Text>
           </Row>
-          <Row className="fila5" gutter={20}>
+          <Row className="fila5">
             <Col span={10}>
               <Row align="middle">
-                <Col span={21}>
+                <Col span={18}>
                   <NumericInput
                     min={1}
                     value={cantidad}
@@ -157,11 +157,11 @@ const Articulo = ({ articulo, onOk }) => {
                     disabled={enCarrito}
                   />
                 </Col>
-                <Col span={3}>
+                <Col span={6}>
                   <Text
                     style={{
                       fontWeight: "normal",
-                      fontSize: "30px",
+                      fontSize: "10px",
                       width: "100%",
                       textAlign: "left",
                       color: "var(--color-primario)",
@@ -178,7 +178,7 @@ const Articulo = ({ articulo, onOk }) => {
                   if (!enCarrito) {
                     const nuevoArticulo = articulo;
                     nuevoArticulo.cantidad = cantidad;
-                    setCarrito([...carrito, nuevoArticulo]);
+                    agregarCarrito([...carrito, nuevoArticulo],nuevoArticulo);
                     onOk();
                   }
                 }}

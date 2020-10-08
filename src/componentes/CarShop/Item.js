@@ -11,9 +11,13 @@ const Item = ({ articulo }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const [cantidad, setCantidad] = useState();
-  const { carrito, setCarrito, loading, setLoading } = useContext(
-    GlobalContext
-  );
+  const {
+    carrito,
+    eliminarCarrito,
+    actualizarCarrito,
+    loading,
+    setLoading,
+  } = useContext(GlobalContext);
 
   useEffect(() => {
     setCantidad(articulo.cantidad);
@@ -28,7 +32,7 @@ const Item = ({ articulo }) => {
         return;
       }
     });
-    setCarrito(carrito);
+    actualizarCarrito(carrito, articulo);
     setLoading(!loading);
   };
 
@@ -36,7 +40,7 @@ const Item = ({ articulo }) => {
     carrito.forEach((item, i) => {
       if (item.codigo === articulo.codigo) {
         const newCar = [...carrito.slice(0, i), ...carrito.slice(i + 1)];
-        setCarrito(newCar);
+        eliminarCarrito(newCar, item);
         return;
       }
     });
@@ -76,8 +80,8 @@ const Item = ({ articulo }) => {
     </Row>
   ) : (
     <Row className="item" gutter={30} justify="center" align="middle">
-      <Col span={13}>
-        <Row gutter={20} style={{width:"100%"}}>
+      <Col span={11}>
+        <Row gutter={20} style={{ width: "100%" }}>
           <Col span={6}>
             <img src={articulo.img} width="100px" />
           </Col>
@@ -86,7 +90,7 @@ const Item = ({ articulo }) => {
           </Col>
         </Row>
       </Col>
-      <Col span={11}>
+      <Col span={13}>
         <Row gutter={10} align="middle" justify="center">
           <Col span={8}>
             <Title level={3}>
@@ -98,10 +102,10 @@ const Item = ({ articulo }) => {
                 : articulo.precio * articulo.cantidad}
             </Title>
           </Col>
-          <Col span={5}>
+          <Col span={4}>
             <Text className="embalaje">CANTIDAD</Text>
           </Col>
-          <Col span={9}>
+          <Col span={10}>
             <Row>
               <NumericInput
                 min={1}

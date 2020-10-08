@@ -56,7 +56,7 @@ function Encabezado() {
   const [current, setCurrent] = useState();
   const [visibleLeft, setVisibleLeft] = useState(false);
   const [visibleRight, setVisibleRight] = useState(false);
-  const { user, login, logout, carrito } = useContext(GlobalContext);
+  const { user, logout, carrito } = useContext(GlobalContext);
 
   const handleClick = (e) => {
     if (e.key === "2") {
@@ -65,9 +65,6 @@ function Encabezado() {
   };
 
   const onClick = (e) => {
-    if (e.key === "item_7") {
-      logout();
-    }
     setVisibleLeft(false);
   };
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
@@ -319,7 +316,7 @@ function Encabezado() {
               )}
               {user == null && (
                 <Menu.Item
-                  key="2"
+                  key="3"
                   className="item-menu"
                   icon={
                     <CgLogIn

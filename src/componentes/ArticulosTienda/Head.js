@@ -13,7 +13,15 @@ const Head = () => {
   const [nombre, setNombre] = useState("");
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const { articulosNombre } = useContext(GlobalContext);
+  const { consultarArticulosTienda, cambiarOrden} = useContext(GlobalContext);
+
+  const onSelect = (e) => {
+    if(e==="precio-mayor")
+      cambiarOrden("precio desc")
+     else if(e==="precio-menor")
+     cambiarOrden("precio asc")
+  };
+
   const onClick = () => {
     setVisible(!visible);
   };
@@ -28,11 +36,11 @@ const Head = () => {
             <Row>
               <Col span={10}>
                 <Row>
-                  <Select placeholder="ORDENADO POR">
-                    <Option value="1">
+                  <Select placeholder="ORDENADO POR" onSelect={onSelect}>
+                    <Option value="precio-mayor">
                       <Text>PRECIO MAYOR</Text>
                     </Option>
-                    <Option value="2">
+                    <Option value="precio-menor">
                       <Text>PRECIO MENOR</Text>
                     </Option>
                   </Select>
@@ -42,11 +50,11 @@ const Head = () => {
                 <Input
                   placeholder="Busqueda"
                   onChange={(e) => {
-                    if (!e.target.value) articulosNombre(nombre);
+                    if (!e.target.value) consultarArticulosTienda(null,nombre);
                     setNombre(e.target.value);
                   }}
                   onPressEnter={() => {
-                    if (nombre != "" || nombre) articulosNombre(nombre);
+                    if (nombre != "" || nombre) consultarArticulosTienda(null,nombre);
                   }}
                 />
               </Col>
@@ -64,7 +72,7 @@ const Head = () => {
             <Col span={8}>
               <FilterOutlined
                 onClick={() => {
-                  articulosNombre(nombre);
+                  consultarArticulosTienda(null,nombre);
                 }}
               />
             </Col>
@@ -94,27 +102,27 @@ const Head = () => {
         <Form>
           <Row>
             <Col span={8}>
-              <Select placeholder="ORDENADO POR">
-                <Option value="lucy">PRECIO MAYOR</Option>
-                <Option value="otra">PRECIO MENOR</Option>
+              <Select placeholder="ORDENADO POR" onSelect={onSelect}>
+                <Option value="precio-mayor">PRECIO MAYOR</Option>
+                <Option value="precio-menor">PRECIO MENOR</Option>
               </Select>
             </Col>
             <Col span={14}>
               <Input
                 placeholder="Busqueda"
                 onChange={(e) => {
-                  if (!e.target.value) articulosNombre(nombre);
+                  if (!e.target.value) consultarArticulosTienda(null,nombre);
                   setNombre(e.target.value);
                 }}
                 onPressEnter={() => {
-                  if (nombre != "" || nombre) articulosNombre(nombre);
+                  if (nombre != "" || nombre) consultarArticulosTienda(null,nombre);
                 }}
               />
             </Col>
             <Col span={2}>
               <SearchOutlined
                 onClick={() => {
-                  articulosNombre(nombre);
+                  consultarArticulosTienda(null,nombre);
                 }}
               />
             </Col>

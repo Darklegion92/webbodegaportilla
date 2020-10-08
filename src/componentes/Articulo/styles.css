@@ -38,7 +38,6 @@
   color: gainsboro;
   width: 100%;
   font-size: 30px;
-
   line-height: 0;
   text-decoration: line-through;
 }
@@ -84,7 +83,7 @@
 /*input*/
 
 .articulo-tag span.react-numeric-input {
-  width: 80%;
+  width: 100%;
 }
 
 .articulo-tag .input-edit {

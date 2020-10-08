@@ -14,7 +14,7 @@ const FiltrosTienda = () => {
     grupos,
     marcas,
     filtros,
-    filtrar,
+    consultarArticulosTienda,
     subgrupos,
     cargarSubgrupos,
   } = useContext(GlobalContext);
@@ -35,7 +35,7 @@ const FiltrosTienda = () => {
     if (guardar) {
       cargarSubgrupos(value);
       setSubgrupo(true);
-      filtrar([...filtros, { nombre, tipo: "GRUPO",id:value }]);
+      consultarArticulosTienda([...filtros, { nombre, tipo: "GRUPO",id:value }]);
     }
   };
 
@@ -51,7 +51,7 @@ const FiltrosTienda = () => {
         }
     });
     if (guardar) {
-      filtrar([...filtros, { nombre, tipo: "MARCA",id:value }]);
+      consultarArticulosTienda([...filtros, { nombre, tipo: "MARCA",id:value }]);
     }
   };
 
@@ -67,14 +67,14 @@ const FiltrosTienda = () => {
         }
     });
     if (guardar) {
-      filtrar([...filtros, { nombre, tipo: "SUBGRUPO",id:value }]);
+      consultarArticulosTienda([...filtros, { nombre, tipo: "SUBGRUPO",id:value }]);
     }
   };
 
   const eliminar = (i) => {
     let filtrado = [];
     filtrado = [...filtros.slice(0, i), ...filtros.slice(i + 1)];
-    filtrar(filtrado);
+    consultarArticulosTienda(filtrado);
     if (filtros[i].tipo === "GRUPO") {
       setSubgrupo(false);
       let eliminado = [];
@@ -83,7 +83,7 @@ const FiltrosTienda = () => {
           eliminado = [...filtrado.slice(0, i), ...filtrado.slice(i + 1)];
         }
       });
-      filtrar(eliminado);
+      consultarArticulosTienda(eliminado);
     }
   };
   return (

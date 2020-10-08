@@ -5,14 +5,15 @@ import FiltrosTienda from "../FiltrosTienda";
 import ArticulosTienda from "../ArticulosTienda";
 import Articulo from "../Articulo";
 import { GlobalContext } from "../../Context/GlobalContext";
+import VentanaCarga from "../VentanaCarga";
+import Comprado from "../ArticuloComprado";
 
 import "./styles.css";
-import Comprado from "../ArticuloComprado";
 
 const Tienda = () => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const { articulosTienda } = useContext(GlobalContext);
+  const { articulosTienda, modalCarga } = useContext(GlobalContext);
   const [modalArticulo, setModalArticulo] = useState(false);
   const [modalComprado, setModalComprado] = useState(false);
   const [articuloSeleccionado, setArticuloSeleccionado] = useState();
@@ -70,6 +71,15 @@ const Tienda = () => {
         centered
       >
         <Comprado articulo={articuloSeleccionado} onOk={setModalComprado} />
+      </Modal>
+      <Modal
+        centered
+        footer={null}
+        closable={false}
+        destroyOnClose
+        visible={modalCarga}
+      >
+        <VentanaCarga />
       </Modal>
     </Row>
   );

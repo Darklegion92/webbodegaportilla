@@ -149,21 +149,21 @@
   border-bottom: solid 1px var(--color-primario);
 }
 
-.car-shop .car-articulos .item div.ant-col.ant-col-13 {
+.car-shop .car-articulos .item div.ant-col.ant-col-11 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
 }
 
-.car-shop .car-articulos .item div.ant-col.ant-col-13 > .ant-row {
+.car-shop .car-articulos .item div.ant-col.ant-col-11 > .ant-row {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.car-shop .car-articulos .item .ant-col.ant-col-13 h3.ant-typography {
+.car-shop .car-articulos .item .ant-col.ant-col-11 h3.ant-typography {
   color: var(--color-primario) !important;
   text-align: start;
   margin: 0;
@@ -178,7 +178,7 @@
 .car-shop
   .car-articulos
   .item
-  .ant-col.ant-col-11
+  .ant-col.ant-col-13
   .ant-row
   .ant-col.ant-col-8
   h3.ant-typography {
@@ -207,7 +207,7 @@
 }
 
 .car-shop .car-articulos span.react-numeric-input {
-  width: 80%;
+  width: 60%;
   margin-right: 2px;
 }
 
@@ -217,7 +217,7 @@
   margin: 0;
   justify-content: center;
 }
-.car-shop .car-articulos .ant-col-9 span.embalaje {
+.car-shop .car-articulos .ant-col-10 span.embalaje {
   font-size: 20px;
 }
 .car-shop .car-articulos .input-edit {
