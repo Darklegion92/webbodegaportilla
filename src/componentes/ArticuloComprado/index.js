@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Typography, Button, Row, Col, Divider } from "antd";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-
+import { BANCO } from "../../config";
 import "./styles.css";
 
 const { Text } = Typography;
 
 const Comprado = ({ articulo, onOk }) => {
+  const [img, setImg] = useState(BANCO.URL + articulo.img);
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+
+  const onError = () => {
+    setImg("img/articulodefecto.png");
+  };
+
   return (
     <div className="articulo-comprado-tag">
       <Row className="fila1">
@@ -20,7 +26,7 @@ const Comprado = ({ articulo, onOk }) => {
         <Col gutter={24}>
           <Col span={24}>
             <Row justify="center">
-              <img src={articulo.img} width="70%" />
+              <img src={img} width="70%" onError={onError} />
             </Row>
           </Col>
           <Col span={24}>
@@ -53,7 +59,7 @@ const Comprado = ({ articulo, onOk }) => {
         <>
           <Row gutter={25}>
             <Col span={8}>
-              <img src={articulo.img} width="100%" />
+              <img src={img} width="100%" onError={onError} />
             </Col>
             <Col span={16}>
               <Row align="middle" style={{ height: "100%" }}>

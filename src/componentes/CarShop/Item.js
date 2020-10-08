@@ -3,6 +3,7 @@ import { Col, Row, Typography } from "antd";
 import NumericInput from "react-numeric-input";
 import { useMediaQuery } from "react-responsive";
 import { BsTrash } from "react-icons/bs";
+import { BANCO } from "../../config";
 
 import { GlobalContext } from "../../Context/GlobalContext";
 const { Title, Text } = Typography;
@@ -11,6 +12,7 @@ const Item = ({ articulo }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const [cantidad, setCantidad] = useState();
+  const [img, setImg] = useState(BANCO.URL + articulo.img);
   const {
     carrito,
     eliminarCarrito,
@@ -22,6 +24,10 @@ const Item = ({ articulo }) => {
   useEffect(() => {
     setCantidad(articulo.cantidad);
   });
+
+  const onError = () => {
+    setImg("img/articulodefecto.png");
+  };
 
   const onChange = async (e) => {
     setCantidad(articulo.cantidad);
@@ -48,7 +54,7 @@ const Item = ({ articulo }) => {
   return isTabletOrMobile || isTabletOrMobileDevice ? (
     <Row className="item" gutter={10}>
       <Col span={8}>
-        <img src={articulo.img} width="100%" />
+        <img src={img} width="100%" onError={onError} />
       </Col>
       <Col span={14}>
         <Row>
@@ -83,7 +89,7 @@ const Item = ({ articulo }) => {
       <Col span={11}>
         <Row gutter={20} style={{ width: "100%" }}>
           <Col span={6}>
-            <img src={articulo.img} width="100px" />
+            <img src={img} width="100px" onError={onError} />
           </Col>
           <Col span={18}>
             <Title level={3}>{articulo.nombre}</Title>

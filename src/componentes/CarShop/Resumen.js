@@ -29,7 +29,7 @@ const Resumen = ({ next, current }) => {
     visible: false,
   });
 
-  const { carrito, barrios, validarCarrito, cupon, validarCupon } = useContext(
+  const { carrito, barrios, enviarOrden, cupon, validarCupon } = useContext(
     GlobalContext
   );
   let total = 0;
@@ -70,7 +70,7 @@ const Resumen = ({ next, current }) => {
   const validacionCupon = async () => {
     if (valorCupon) {
       const resp = await validarCupon(valorCupon);
-      console.log(resp);
+
       if (resp === true) {
         setModal({
           visible: true,
@@ -100,6 +100,35 @@ const Resumen = ({ next, current }) => {
     }
   };
 
+  const enviar = async () => {
+    const resp = await enviarOrden();
+    if (resp === true) {
+      setModal({
+        visible: true,
+        tipo: "SUCCESS",
+        mensaje:
+          "Su pedido ha sido guardado, Y será despachado en el menor tiempo posible",
+        titulo: "Pedido Guardado Correctamente",
+        link: "/shop",
+      });
+    } else if (resp === false) {
+      setModal({
+        visible: true,
+        tipo: "WARNIN",
+        mensaje: "No se ha podido grabar su pedido",
+        titulo: "Error Al Validar Pedido",
+        link: "",
+      });
+    } else {
+      setModal({
+        visible: true,
+        tipo: "ERROR",
+        mensaje: "Error al conectar con el servidor, intentalo mas tarde",
+        titulo: "Error Interno",
+        link: "",
+      });
+    }
+  };
   return (
     <>
       <Col span={24} className="resumen">
@@ -225,7 +254,7 @@ const Resumen = ({ next, current }) => {
                 width: "100%",
                 fontSize: "23px",
               }}
-              onClick={current === 0 ? next : validarCarrito}
+              onClick={current === 0 ? next : enviar}
             >
               {current === 0 ? "PROCESAR COMPRA" : "FINALIZAR COMPRA"}
             </Button>
@@ -269,7 +298,7 @@ const Resumen = ({ next, current }) => {
                   border: "none",
                   padding: current === 0 ? "10px" : "0 50px",
                 }}
-                onClick={current === 0 ? next : validarCarrito}
+                onClick={current === 0 ? next : enviar}
               >
                 {current === 0 ? "PROCESAR COMPRA" : "PAGAR PEDIDO"}
               </Button>

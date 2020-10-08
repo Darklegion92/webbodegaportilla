@@ -3,16 +3,25 @@ import { Typography, Button, Row, Col } from "antd";
 import NumericInput from "react-numeric-input";
 import { AiFillStar } from "react-icons/ai";
 import { useMediaQuery } from "react-responsive";
-import "./styles.css";
+import { BANCO } from "../../config";
 import { GlobalContext } from "../../Context/GlobalContext";
 
-const { Text,Paragraph } = Typography;
+import "./styles.css";
+
+const { Text, Paragraph } = Typography;
 
 const Articulo = ({ articulo, onOk }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const { agregarCarrito, carrito } = useContext(GlobalContext);
   const [cantidad, setCantidad] = useState(1);
+  const [img, setImg] = useState(BANCO.URL + articulo.img);
+
+  const lista = articulo.lista.split("*");
+
+  const onError = () => {
+    setImg("img/articulodefecto.png");
+  };
 
   let enCarrito = false;
   carrito.forEach((item) => {
@@ -45,7 +54,7 @@ const Articulo = ({ articulo, onOk }) => {
       )}
       <Col span={24} className="articulo-tag">
         <Row justify="center">
-          <img src={articulo.img} width="60%" />
+          <img src={img} width="60%" onError={onError} />
         </Row>
         <Row justify="center" className="fila2">
           <Text className="nombre">{articulo.nombre}</Text>
@@ -99,7 +108,7 @@ const Articulo = ({ articulo, onOk }) => {
               if (!enCarrito) {
                 const nuevoArticulo = articulo;
                 nuevoArticulo.cantidad = cantidad;
-                agregarCarrito([...carrito, nuevoArticulo],nuevoArticulo);
+                agregarCarrito([...carrito, nuevoArticulo], nuevoArticulo);
                 onOk();
               }
             }}
@@ -118,15 +127,25 @@ const Articulo = ({ articulo, onOk }) => {
       )}
       <Row className="articulo-tag" gutter={25}>
         <Col span={14}>
-          <img src={articulo.img} width="100%" />
+          <img src={img} width="100%" onError={onError} />
         </Col>
         <Col span={10}>
           <Row className="fila1">
             <Text>{articulo.nombre}</Text>
           </Row>
           <Row className="fila2">
-            <Text className="titulo">BENEFICIOS</Text>
-            <Paragraph className="cuerpo">{articulo.descripcion}</Paragraph>
+            <Col span={24}>
+              <Text className="titulo">BENEFICIOS</Text>
+              <Paragraph className="cuerpo">
+                <Text>{articulo.descripcion}</Text>
+                {lista.length > 0 &&
+                  lista.map((item) => (
+                    <ul>
+                      <li>{item}</li>
+                    </ul>
+                  ))}
+              </Paragraph>
+            </Col>
           </Row>
           {articulo.descuento > 0 && (
             <Row className="fila3">
@@ -178,7 +197,7 @@ const Articulo = ({ articulo, onOk }) => {
                   if (!enCarrito) {
                     const nuevoArticulo = articulo;
                     nuevoArticulo.cantidad = cantidad;
-                    agregarCarrito([...carrito, nuevoArticulo],nuevoArticulo);
+                    agregarCarrito([...carrito, nuevoArticulo], nuevoArticulo);
                     onOk();
                   }
                 }}

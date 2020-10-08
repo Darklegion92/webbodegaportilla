@@ -1,14 +1,15 @@
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
-import { Typography, Modal } from "antd";
+import { Modal } from "antd";
 import { AiFillStar } from "react-icons/ai";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { useMediaQuery } from "react-responsive";
 import Articulo from "../Articulo";
 import Comprado from "../ArticuloComprado";
+import Item from "./Item";
+
 import "./styles.css";
 
-const { Text } = Typography;
 function SeccionExtra({ items, articulos, texto, tipo }) {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
@@ -20,7 +21,11 @@ function SeccionExtra({ items, articulos, texto, tipo }) {
     const estrellas = [];
 
     for (let i = 0; i < cantidad; i++) {
-      estrellas.push(<AiFillStar size={isTabletOrMobile || isTabletOrMobileDevice ? "12":"20"} />);
+      estrellas.push(
+        <AiFillStar
+          size={isTabletOrMobile || isTabletOrMobileDevice ? "12" : "20"}
+        />
+      );
     }
 
     return estrellas;
@@ -97,51 +102,12 @@ function SeccionExtra({ items, articulos, texto, tipo }) {
             {articulos.map((articulo, i) => {
               if (tipo === articulo.categoria)
                 return (
-                  <>
-                    <div
-                      className="item"
-                      style={
-                        articulo.categoria == "NUEVO"
-                          ? {}
-                          : { padding: "0", boxShadow: "none" }
-                      }
-                    >
-                      <div className="estrellas-item">
-                        {articulo.clasificacion > 0 && (
-                          <div
-                            className="estrellas-cantidad"
-                            style={
-                              articulo.categoria == "NUEVO"
-                                ? {
-                                    top: "-9%",
-                                    left: "0",
-                                    borderTopLeftRadius: "10px",
-                                  }
-                                : { top: "0", left: "0" }
-                            }
-                          >
-                            {estrellas(articulo.clasificacion)}
-                          </div>
-                        )}
-                        <img
-                          src={articulo.img}
-                          alt={articulo.codigo}
-                          width={
-                            articulo.categoria == "NUEVO"
-                              ? "80%!important"
-                              : isTabletOrMobile || isTabletOrMobileDevice
-                              ? "100%!important"
-                              : "145%!important"
-                          }
-                          id={i}
-                          onClick={agregarArticulo}
-                        />
-                        {articulo.categoria == "NUEVO" && (
-                          <Text>{articulo.nombre}</Text>
-                        )}
-                      </div>
-                    </div>
-                  </>
+                  <Item
+                    articulo={articulo}
+                    i={i}
+                    estrellas={estrellas}
+                    agregarArticulo={agregarArticulo}
+                  />
                 );
             })}
           </Slider>

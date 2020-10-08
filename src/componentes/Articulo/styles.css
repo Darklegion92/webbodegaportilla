@@ -13,13 +13,33 @@
 }
 .articulo-tag .fila2 .cuerpo {
   font-size: 14px;
-  height: 185px;
-  margin-bottom: 20px;
+  height: 200px;
+  margin-bottom: 10px;
   line-height: 15px;
   overflow-y: scroll;
   margin-top: 5px;
   color: var(--color-cuaternario) !important;
+  line-height: 5px !important;
 }
+.articulo-tag .fila2 .cuerpo span.ant-typography {
+  line-height: normal !important;
+  color: var(--color-cuaternario) !important;
+}
+
+/*listas*/
+
+.articulo-tag .fila2 .cuerpo ul {
+  margin-top: 10px;
+  list-style: none; /* Quitamos los marcadores */
+  padding: 0; /* Quitamos el padding por defecto de la lista */
+}
+
+.articulo-tag .fila2 .cuerpo li::before {
+  content: "\02714";
+  padding-right: 8px;
+  color: var(--color-primario);
+}
+
 .articulo-tag .fila2 .titulo {
   font-size: 20px;
   font-weight: bold;

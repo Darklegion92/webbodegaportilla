@@ -80,7 +80,7 @@ const GlobalProvider = ({ children }) => {
   const [filtros, setFiltros] = useState([]);
   const [orden, setOrden] = useState();
   const [nombreBusqueda, setNombreBusqueda] = useState("");
-
+  const [datosOrden, setDatosOrden] = useState();
   /** se cargan todos los datos iniciales para cargar la pagina */
 
   const cargarDatosLocales = async () => {
@@ -424,6 +424,36 @@ const GlobalProvider = ({ children }) => {
     }
   };
 
+  const guardarDatosCliente = (d) => {
+    try {
+      setDatosOrden(d);
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  };
+
+  const enviarOrden = async () => {
+    try {
+      const resp = await axios.put(API.URL + "carrito/guardar", {
+        user,
+        datosOrden,
+        carrito,
+      });
+
+      if (resp.status === 200) {
+        localStorage.removeItem("carrito");
+        setCarrito([]);
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return e;
+    }
+  };
+
   return (
     <Provider
       value={{
@@ -438,9 +468,11 @@ const GlobalProvider = ({ children }) => {
         agregarCarrito,
         eliminarCarrito,
         actualizarCarrito,
+        guardarDatosCliente,
         carrusel,
         cargarDatos,
         seccionDomicilio,
+        enviarOrden,
         seccionEmpresa,
         seccionProductos,
         SeccionRecomendaciones,

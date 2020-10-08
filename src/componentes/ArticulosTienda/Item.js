@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Typography, Button, Row, Col } from "antd";
 import { useMediaQuery } from "react-responsive";
 import { AiFillStar } from "react-icons/ai";
+import { BANCO } from "../../config";
 
 const { Text, Title } = Typography;
 const Item = ({ articulo, id, onClick, enCarrito }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+  const [img, setImg] = useState(BANCO.URL + articulo.img);
 
   const estrellas = (cantidad) => {
     const estrellas = [];
@@ -22,6 +24,10 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
     return estrellas;
   };
 
+  const onError = () => {
+    setImg("img/articulodefecto.png");
+  };
+
   return isTabletOrMobile || isTabletOrMobileDevice ? (
     <Row className="item" onClick={() => onClick(id)} gutter={16}>
       <Col span={8}>
@@ -31,7 +37,7 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
               {estrellas(articulo.clasificacion)}
             </div>
           )}
-          <img src={articulo.img} width="100%" />
+          <img src={img} width="100%" onError={onError} />
         </div>
       </Col>
       <Col span={16}>
@@ -75,7 +81,7 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
           </div>
         )}
         <Row gutter={8} justify="center">
-          <img src={articulo.img} width="80%" />
+          <img src={img} width="80%" onError={onError}  />
         </Row>
         <Row justify="center">
           <Title level={3}>{articulo.nombre}</Title>
