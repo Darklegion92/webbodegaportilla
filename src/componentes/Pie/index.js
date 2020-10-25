@@ -68,7 +68,7 @@ function Pie() {
         }}
       />
       <Row className="otros">
-        <Col>
+        <Col span={8}>
           <Row>
             <Title level={3}>SERVICIO AL CLIENTE</Title>
           </Row>
@@ -111,7 +111,7 @@ function Pie() {
           </Row>
         </Col>
 
-        <Col>
+        <Col span={8}>
           <Row>
             <Title level={3}>COLOMBIA</Title>
           </Row>
@@ -141,7 +141,7 @@ function Pie() {
           </Row>
         </Col>
 
-        <Col>
+        <Col span={8}>
           <Row>
             <Title level={1}>SIGUENOS</Title>
           </Row>

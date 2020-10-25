@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
-import { Layout,Modal } from "antd";
+import { Layout, Modal } from "antd";
 import { useMediaQuery } from "react-responsive";
 import { ImWhatsapp } from "react-icons/im";
 
@@ -75,18 +75,6 @@ function App() {
             </Content>
           </Route>
           <Route path="/" exact>
-            <div
-              id="quienessomos"
-              style={{
-                minHeight: "40px",
-                width: "100%",
-                position: "absolute",
-                top:
-                  isTabletOrMobile || isTabletOrMobileDevice
-                    ? "300px"
-                    : "550px",
-              }}
-            />
             <div
               id="productos"
               style={{
@@ -169,7 +157,13 @@ function App() {
           <Pie />
         </Footer>
       )}
-      <Modal centered footer={null} closable={false} destroyOnClose visible={modalCarga}>
+      <Modal
+        centered
+        footer={null}
+        closable={false}
+        destroyOnClose
+        visible={modalCarga}
+      >
         <VentanaCarga />
       </Modal>
     </Layout>
