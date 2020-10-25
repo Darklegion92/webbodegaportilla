@@ -4,9 +4,6 @@
   background-color: white;
   padding-bottom: 20px;
 }
-.validacion * {
-  color: var(--color-primario);
-}
 
 .validacion .head {
   padding: 30px 40px 0px 50px;
@@ -42,7 +39,8 @@
   font-weight: bold;
   height: auto;
   background-color: white;
-  border:solid 1px var(--color-primario);
+  color: var(--color-primario);
+  border: solid 1px var(--color-primario);
   border-radius: 10px;
   text-align: center;
   padding: 10px;
@@ -56,6 +54,9 @@
 .validacion .footer svg,
 .validacion .footer img {
   margin-right: 10px;
+}
+.ant-tabs-tab-btn .ant-typography {
+  color: var(--color-primario) !important;
 }
 
 /*FormularioS*/
@@ -88,6 +89,13 @@ span.ant-input-password.ant-input-affix-wrapper.ant-input-affix-wrapper-focused.
   box-shadow: none;
 }
 
+.validacion a {
+  color: var(--color-primario) !important;
+}
+
+.validacion .ant-btn .ant-btn-sm span {
+  color: white !important;
+}
 .validacion .body .ant-tabs-large > .ant-tabs-nav .ant-tabs-tab {
   font-size: 21px;
   letter-spacing: 2px;
@@ -102,14 +110,7 @@ span.ant-input-password.ant-input-affix-wrapper.ant-input-affix-wrapper-focused.
 }
 
 .validacion .body .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: var(--color-primario);
   font-weight: bold;
-}
-
-.validacion .body .ant-tabs-tab-btn:hover,
-.validacion .body .ant-tabs-tab-btn::before,
-.validacion .body .ant-tabs-tab-btn::before {
-  color: var(--color-primario);
 }
 
 .validacion .body .ant-tabs-ink-bar {
@@ -175,8 +176,10 @@ span.ant-input-password.ant-input-affix-wrapper.ant-input-affix-wrapper-focused.
   font-size: 25px;
   font-weight: bold;
   height: auto;
-  border-color: var(--color-primario);
+  border-color: var(--color-naranja);
+  background-color: var(--color-naranja);
   border-radius: 10px;
+  color: white;
 }
 
 .validacion .body .ant-tabs-tabpane button:hover {
@@ -239,7 +242,6 @@ span.ant-input-password.ant-input-affix-wrapper.ant-input-affix-wrapper-focused.
   }
 
   .validacion .body .ant-tabs-tabpane button span {
-    color: white;
     max-width: 100%;
   }
 

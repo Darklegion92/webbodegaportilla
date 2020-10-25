@@ -246,7 +246,8 @@ const Resumen = ({ next, current }) => {
           {!isTabletOrMobile && !isTabletOrMobileDevice && carrito.length > 0 && (
             <Button
               style={{
-                backgroundColor: "var(--color-primario)",
+                backgroundColor: "var(--color-naranja)",
+                boxShadow:"none",
                 fontWeight: "bold",
                 color: "white",
                 borderRadius: "10px",
@@ -289,7 +290,8 @@ const Resumen = ({ next, current }) => {
             <a href="#home" width="100%">
               <Button
                 style={{
-                  backgroundColor: "var(--color-primario)",
+                  backgroundColor: "var(--color-naranja)",
+                  boxShadow:"none",
                   color: "white",
                   height: "auto",
                   width: "100%",

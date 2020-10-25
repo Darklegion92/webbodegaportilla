@@ -8,6 +8,7 @@
   align-items: center;
   padding: 0 0 10px 0;
   margin-bottom: 20px;
+  width: 100%;
 }
 .articulos-tienda .head * {
   color: var(--color-primario);
@@ -124,7 +125,7 @@
 
 .articulos-tienda .item button {
   font-size: 12px;
-  background-color: var(--color-primario);
+  background-color: var(--color-naranja);
   color: white !important;
   margin: 10px 0;
   border-radius: 5px;
@@ -176,7 +177,7 @@
 .articulos-tienda .estrellas-cantidad {
   position: absolute;
   display: flex;
-  background: var(--color-primario);
+  background: var(--color-naranja);
   width: min-content;
   max-height: 1000px;
   border-bottom-right-radius: 20px;

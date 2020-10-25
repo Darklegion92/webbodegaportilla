@@ -13,12 +13,20 @@ const StepPagos = ({ current }) => {
     {
       title: "CARRITO DE COMPRAS",
       content: <CarArticulos carrito={carrito} />,
-      icon: <ShoppingCartOutlined />,
+      icon: (
+        <ShoppingCartOutlined
+          style={{ color: current === 0 ? "var(--color-naranja)" : "gray" }}
+        />
+      ),
     },
     {
       title: "DATOS DE ENVIO Y PAGO",
       content: <FormularioDatosEnvio />,
-      icon: <SolutionOutlined />,
+      icon: (
+        <SolutionOutlined
+          style={{ color: current === 1 ? "var(--color-naranja)" : "gray" }}
+        />
+      ),
     },
   ];
 

@@ -61,7 +61,7 @@ const Item = ({ articulo }) => {
           <Title level={2}>{articulo.nombre}</Title>
         </Row>
         <Row>
-          <Title level={3} style={{ color: "red" }}>
+          <Title level={3} style={{ color: "var(--color-naranja)" }}>
             $ {articulo.precio}
           </Title>
         </Row>
@@ -81,7 +81,7 @@ const Item = ({ articulo }) => {
         </Row>
       </Col>
       <Col span={2}>
-        <BsTrash color="red" size={25} onClick={eliminar} />
+        <BsTrash color="var(--color-naranja)" size={25} onClick={eliminar} />
       </Col>
     </Row>
   ) : (
@@ -124,7 +124,7 @@ const Item = ({ articulo }) => {
             </Row>
           </Col>
           <Col span={2}>
-            <BsTrash color="red" size={20} onClick={eliminar} />
+            <BsTrash color="var(--color-naranja)" size={20} onClick={eliminar} />
           </Col>
         </Row>
       </Col>

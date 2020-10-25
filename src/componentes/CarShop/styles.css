@@ -87,10 +87,10 @@
   font-size: 17px;
   font-weight: bold;
   height: auto;
-  border-color: var(--color-primario);
+  border-color: var(--color-naranja);
   border-radius: 10px;
   color: white;
-  background-color: var(--color-primario);
+  background-color: var(--color-naranja);
 }
 
 .car-shop .resumen div.ant-col-13,
@@ -100,7 +100,7 @@
   justify-content: flex-end;
 }
 .car-shop .resumen .ant-col-13 .ant-typography {
-  color: red;
+  color: var(--color-naranja);
   font-size: 23px;
   font-weight: bold;
 }
@@ -113,7 +113,7 @@
 
 .car-shop .resumen h1.ant-typography {
   width: 100%;
-  color: red;
+  color: var(--color-naranja);
   text-align: center;
   padding: 0;
   margin: 0;
@@ -182,7 +182,7 @@
   .ant-row
   .ant-col.ant-col-8
   h3.ant-typography {
-  color: red !important;
+  color: var(--color-naranja) !important;
   text-align: end;
   margin: 0;
 }
@@ -274,7 +274,7 @@
 
 .car-shop .formulario-datosenvio button.ant-btn {
   border-radius: 5px;
-  background-color: var(--color-primario);
+  background-color: var(--color-naranja)!important;
   color: white;
 }
 
@@ -298,7 +298,7 @@
 .car-shop .ant-steps-item-container {
   border-color: white;
 }
-.car-shop .ant-steps-item-container * {
+.car-shop .ant-steps-item-container .ant-steps-item-title {
   color: var(--color-primario) !important;
 }
 
@@ -386,7 +386,7 @@
 
   .car-shop .item .ant-col-14 h3.ant-typography {
     font-size: 25px;
-    color: red;
+    color: var(--color-naranja);
   }
   .car-shop .item .ant-col-14 h4.ant-typography {
     font-size: 10px;
@@ -418,7 +418,7 @@
     border: none;
   }
 
-  .car-shop .resumen .ant-col-24 .ant-col-12 h2.ant-typography{
+  .car-shop .resumen .ant-col-24 .ant-col-12 h2.ant-typography {
     font-size: 27px;
   }
 }

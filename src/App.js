@@ -6,8 +6,6 @@ import { ImWhatsapp } from "react-icons/im";
 
 import Encabezado from "./componentes/Encabezado";
 import Carrusel_principal from "./componentes/Carrusel_principal";
-import SeccionDomicilios from "./componentes/SeccionDomicilios";
-import SeccionEmpresa from "./componentes/SeccionEmpresa";
 import SeccionProductos from "./componentes/SeccionProductos";
 import SeccionExtra from "./componentes/SeccionExtra";
 import SeccionRecomendaciones from "./componentes/SeccionRecomendaciones";
@@ -135,10 +133,6 @@ function App() {
             <Content>
               <div>
                 <Carrusel_principal />
-              </div>
-              <SeccionDomicilios />
-              <div>
-                <SeccionEmpresa />
               </div>
               <div>
                 <SeccionProductos />

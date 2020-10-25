@@ -35,7 +35,7 @@
 }
 
 .articulo-tag .fila2 .cuerpo li::before {
-  content: "\02714";
+  content: "\025a0";
   padding-right: 8px;
   color: var(--color-primario);
 }
@@ -85,7 +85,7 @@
 }
 
 .articulo-tag button {
-  background-color: var(--color-primario);
+  background-color: var(--color-naranja);
   font-weight: bold;
   font-size: 17px;
   height: 95%;
@@ -128,7 +128,7 @@
 .estrellas-cantidad-articulo {
   position: absolute;
   display: flex;
-  background: var(--color-primario);
+  background: var(--color-naranja);
   width: min-content;
   max-height: 1000px;
   border-bottom-right-radius: 30px;
