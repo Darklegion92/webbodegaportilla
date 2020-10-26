@@ -13,23 +13,30 @@ const { Text, Paragraph } = Typography;
 const Articulo = ({ articulo, onOk }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const { agregarCarrito, carrito } = useContext(GlobalContext);
-  const [cantidad, setCantidad] = useState(1);
+  const { agregarCarrito, carrito } = GlobalContext;
+  const [cantidad, setCantidad] = useState(
+    articulo.embalaje.toUpperCase().split() == "GR" ? 100 : 1
+  );
+  const [cantidadKilos, setCantidadKilos] = useState(0);
   const [img, setImg] = useState(BANCO.URL + articulo.img);
-
-  const lista = articulo.lista.split("*");
+  const lista = [];
+  try {
+    lista = articulo.lista.split("*");
+  } catch (e) {}
 
   const onError = () => {
     setImg("img/articulodefecto.png");
   };
 
   let enCarrito = false;
-  carrito.forEach((item) => {
-    if (articulo.codigo === item.codigo) {
-      enCarrito = true;
-      return;
-    }
-  });
+  try {
+    carrito.forEach((item) => {
+      if (articulo.codigo === item.codigo) {
+        enCarrito = true;
+        return;
+      }
+    });
+  } catch (e) {}
 
   const estrellas = (cantidad) => {
     const estrellas = [];
@@ -78,8 +85,9 @@ const Articulo = ({ articulo, onOk }) => {
         <Row className="fila5" align="middle" justify="center" gutter={5}>
           <Col span={8} align="middle">
             <NumericInput
-              min={1}
+              min={articulo.embalaje.toUpperCase() == "GR" ? 100 : 1}
               value={cantidad}
+              step={articulo.embalaje.toUpperCase() == "GR" ? 100 : 1}
               onChange={(e) => {
                 setCantidad(e);
               }}
@@ -166,10 +174,24 @@ const Articulo = ({ articulo, onOk }) => {
               <Row align="middle">
                 <Col span={18}>
                   <NumericInput
-                    min={1}
-                    value={cantidad}
+                    min={
+                      articulo.embalaje.toUpperCase() == "GR"
+                        ? cantidad < 999
+                          ? 100
+                          : 1
+                        : 1
+                    }
+                    value={cantidad > 999 ? cantidadKilos : cantidad}
+                    step={
+                      articulo.embalaje.toUpperCase() == "GR"
+                        ? cantidad < 999
+                          ? 100
+                          : 1
+                        : 1
+                    }
                     onChange={(e) => {
-                      setCantidad(e);
+                      setCantidad(e > 999 ? e * 1000 : e);
+                      setCantidadKilos(e===1000?e/1000:e);
                     }}
                     mobile={false}
                     className="input-edit"
@@ -186,7 +208,11 @@ const Articulo = ({ articulo, onOk }) => {
                       color: "var(--color-primario)",
                     }}
                   >
-                    {articulo.embalaje}
+                    {articulo.embalaje.toUpperCase() == "GR"
+                      ? cantidad > 999
+                        ? "Kg"
+                        : "Gr"
+                      : articulo.embalaje}
                   </Text>
                 </Col>
               </Row>
