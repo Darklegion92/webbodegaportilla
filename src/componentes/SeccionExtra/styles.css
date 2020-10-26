@@ -90,6 +90,9 @@
 @media only screen and (max-width: 600px) {
   .seccion-extra .carrousel {
     padding-bottom: 50px;
+    width: 100%;
+    margin: auto;
+   
   }
   .seccion-extra .multi-carrousel {
     width: 100%;

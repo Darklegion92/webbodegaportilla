@@ -50,6 +50,9 @@ a {
   background-color: white !important;
 }
 @media only screen and (max-width: 600px) {
+  html {
+    width: 100%;
+  }
   .ant-layout-header {
     height: 100px !important;
   }
