@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Typography, Button, Row, Col } from "antd";
 import NumericInput from "react-numeric-input";
 import { AiFillStar } from "react-icons/ai";
@@ -13,7 +13,8 @@ const { Text, Paragraph } = Typography;
 const Articulo = ({ articulo, onOk }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const { agregarCarrito, carrito } = GlobalContext;
+  const { agregarCarrito, carrito } = useContext(GlobalContext);
+  const [total, setTotal] = useState();
   const [cantidad, setCantidad] = useState(1);
   const [embalaje, setEmbalaje] = useState("Gr");
   const [img, setImg] = useState("");
@@ -23,6 +24,9 @@ const Articulo = ({ articulo, onOk }) => {
     setEmbalaje(articulo.embalaje);
     setImg(BANCO.URL + articulo.img);
     setCantidad(articulo.embalaje == "Gr" ? 100 : 1);
+    setTotal(
+      articulo.embalaje == "Gr" ? articulo.precio * 100 : articulo.precio
+    );
   }, [articulo]);
   try {
     lista = articulo.lista.split("*");
@@ -74,26 +78,50 @@ const Articulo = ({ articulo, onOk }) => {
         </Row>
         {articulo.descuento > 0 && (
           <Row justify="center" className="fila3">
-            <Text>$ {articulo.precio + " COP"}</Text>
+            <Text>$ {Math.round(total) + " COP"}</Text>
           </Row>
         )}
         <Row justify="center" className="fila4">
           <Text>
             ${" "}
             {articulo.descuento > 0
-              ? articulo.precio - (articulo.precio * articulo.descuento) / 100
-              : articulo.precio}{" "}
+              ? Math.round(total - (total * articulo.descuento) / 100)
+              : Math.round(total)}{" "}
             COP
           </Text>
         </Row>
         <Row className="fila5" align="middle" justify="center" gutter={5}>
           <Col span={8} align="middle">
             <NumericInput
-              min={articulo.embalaje.toUpperCase() == "GR" ? 100 : 1}
               value={cantidad}
-              step={articulo.embalaje.toUpperCase() == "GR" ? 100 : 1}
+              min={
+                embalaje.toUpperCase() == "GR"
+                  ? 100
+                  : embalaje.toUpperCase() == "KG"
+                  ? 0
+                  : 1
+              }
+              step={
+                embalaje.toUpperCase() == "GR"
+                  ? 100
+                  : embalaje.toUpperCase() == "KG"
+                  ? 0.1
+                  : 1
+              }
               onChange={(e) => {
-                setCantidad(e);
+                if (e == 1000) {
+                  setEmbalaje("Kg");
+                  setCantidad(1);
+                } else if (parseInt(e) <= 0) {
+                  setEmbalaje("Gr");
+                  setCantidad(e * 1000);
+                } else setCantidad(e);
+
+                if (embalaje.toUpperCase() == "KG") {
+                  setTotal(e * 1000 * articulo.precio);
+                } else {
+                  setTotal(e * articulo.precio);
+                }
               }}
               mobile={false}
               className="input-edit"
@@ -119,9 +147,10 @@ const Articulo = ({ articulo, onOk }) => {
             onClick={() => {
               if (!enCarrito) {
                 const nuevoArticulo = articulo;
-                nuevoArticulo.cantidad = cantidad;
+                nuevoArticulo.cantidad =
+                  embalaje.toUpperCase() == "KG" ? cantidad * 1000 : cantidad;
                 agregarCarrito([...carrito, nuevoArticulo], nuevoArticulo);
-                onOk();
+                onOk(nuevoArticulo.cantidad);
               }
             }}
           >
@@ -161,15 +190,15 @@ const Articulo = ({ articulo, onOk }) => {
           </Row>
           {articulo.descuento > 0 && (
             <Row className="fila3">
-              <Text>$ {articulo.precio + " COP"}</Text>
+              <Text>$ {Math.round(total) + " COP"}</Text>
             </Row>
           )}
           <Row className="fila4">
             <Text>
               ${" "}
               {articulo.descuento > 0
-                ? articulo.precio - (articulo.precio * articulo.descuento) / 100
-                : articulo.precio}{" "}
+                ? Math.round(total - (total * articulo.descuento) / 100)
+                : Math.round(total)}{" "}
               COP
             </Text>
           </Row>
@@ -201,6 +230,12 @@ const Articulo = ({ articulo, onOk }) => {
                         setEmbalaje("Gr");
                         setCantidad(e * 1000);
                       } else setCantidad(e);
+
+                      if (embalaje.toUpperCase() == "KG") {
+                        setTotal(e * 1000 * articulo.precio);
+                      } else {
+                        setTotal(e * articulo.precio);
+                      }
                     }}
                     mobile={false}
                     className="input-edit"

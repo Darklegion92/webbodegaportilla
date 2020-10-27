@@ -67,7 +67,7 @@ function Pie() {
           height: "1px",
         }}
       />
-      <Row className="otros">
+      <Row className="otros" gutter={5}>
         <Col span={8}>
           <Row>
             <Title level={3}>SERVICIO AL CLIENTE</Title>
@@ -90,7 +90,7 @@ function Pie() {
               <Text
                 style={
                   isTabletOrMobile || isTabletOrMobileDevice
-                    ? {}
+                    ? {fontSize: "10px"}
                     : { fontSize: "25px" }
                 }
               >
@@ -98,7 +98,7 @@ function Pie() {
                   style={
                     isTabletOrMobile || isTabletOrMobileDevice
                       ? {
-                          fontSize: "20px",
+                          fontSize: "10px",
                           marginRight: "10px",
                           marginBottom: "0px",
                         }
@@ -111,7 +111,7 @@ function Pie() {
           </Row>
         </Col>
 
-        <Col span={8}>
+        <Col span={isTabletOrMobile || isTabletOrMobileDevice ?10:8}>
           <Row>
             <Title level={3}>COLOMBIA</Title>
           </Row>
@@ -141,9 +141,9 @@ function Pie() {
           </Row>
         </Col>
 
-        <Col span={8}>
+        <Col span={isTabletOrMobile || isTabletOrMobileDevice ?6:8}>
           <Row>
-            <Title level={1}>SIGUENOS</Title>
+            <Title level={3}>SIGUENOS</Title>
           </Row>
           <Row>
             <a
@@ -155,7 +155,7 @@ function Pie() {
                   style={
                     isTabletOrMobile || isTabletOrMobileDevice
                       ? {
-                          fontSize: "20px",
+                          fontSize: "10px",
                           marginRight: "10px",
                         }
                       : { fontSize: "40px", marginRight: "10px" }
@@ -175,7 +175,7 @@ function Pie() {
                   style={
                     isTabletOrMobile || isTabletOrMobileDevice
                       ? {
-                          fontSize: "20px",
+                          fontSize: "10px",
                           marginRight: "10px",
                         }
                       : { fontSize: "40px", marginRight: "10px" }

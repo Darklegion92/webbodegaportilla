@@ -30,7 +30,10 @@ const Tienda = () => {
     setArticuloSeleccionado(articulosTienda[e]);
     setModalArticulo(true);
   };
-  const agregarCantidad = () => {
+  const agregarCantidad = (cantidad) => {
+    const newArticulo = articuloSeleccionado;
+    newArticulo.setCantidad = cantidad;
+    setArticuloSeleccionado(newArticulo);
     setModalArticulo(false);
     setModalComprado(true);
   };

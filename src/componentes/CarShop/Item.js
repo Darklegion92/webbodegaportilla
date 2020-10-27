@@ -11,8 +11,10 @@ const { Title, Text } = Typography;
 const Item = ({ articulo }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const [cantidad, setCantidad] = useState();
-  const [img, setImg] = useState(BANCO.URL + articulo.img);
+  const [cantidad, setCantidad] = useState(1);
+  const [total, setTotal] = useState();
+  const [embalaje, setEmbalaje] = useState("Gr");
+  const [img, setImg] = useState("");
   const {
     carrito,
     eliminarCarrito,
@@ -22,16 +24,24 @@ const Item = ({ articulo }) => {
   } = useContext(GlobalContext);
 
   useEffect(() => {
-    setCantidad(articulo.cantidad);
-  });
+    setImg(BANCO.URL + articulo.img);
+    setTotal(
+      articulo.embalaje == "Gr"
+        ? Math.round(articulo.precio * articulo.cantidad)
+        : articulo.precio
+    );
+    setCantidad(
+      articulo.cantidad > 999 ? articulo.cantidad / 1000 : articulo.cantidad
+    );
+    setEmbalaje(articulo.cantidad > 999 ? "Kg" : "Gr");
+  }, [articulo]);
 
   const onError = () => {
     setImg("img/articulodefecto.png");
   };
 
   const onChange = async (e) => {
-    setCantidad(articulo.cantidad);
-    articulo.cantidad = e;
+    articulo.cantidad = embalaje.toUpperCase() == "KG" ? e * 1000 : e;
     await carrito.forEach((item, i) => {
       if (item.codigo === articulo.codigo) {
         carrito[i] = articulo;
@@ -62,21 +72,57 @@ const Item = ({ articulo }) => {
         </Row>
         <Row>
           <Title level={3} style={{ color: "var(--color-naranja)" }}>
-            $ {articulo.precio}
+            $ {total}
           </Title>
         </Row>
-        <Row align="center" justify="center">
-          <Col span={7}>
-            <Title level={4}>CANTIDAD</Title>
+        <Row align="middle" justify="center">
+          <Col span={5}>
+            <Title level={4}>CANT.</Title>
           </Col>
-          <Col span={17}>
-            <NumericInput
-              min={1}
-              value={cantidad}
-              onChange={onChange}
-              mobile={false}
-              className="input-edit"
-            />
+          <Col span={19}>
+            <Row gutter={10}>
+              <Col span={18}>
+                <NumericInput
+                  value={cantidad}
+                  min={
+                    embalaje.toUpperCase() == "GR"
+                      ? 100
+                      : embalaje.toUpperCase() == "KG"
+                      ? 0
+                      : 1
+                  }
+                  step={
+                    embalaje.toUpperCase() == "GR"
+                      ? 100
+                      : embalaje.toUpperCase() == "KG"
+                      ? 0.1
+                      : 1
+                  }
+                  onChange={(e) => {
+                    if (e == 1000) {
+                      setEmbalaje("Kg");
+                      setCantidad(1);
+                    } else if (parseInt(e) <= 0) {
+                      setEmbalaje("Gr");
+                      setCantidad(e * 1000);
+                    } else setCantidad(e);
+
+                    if (embalaje.toUpperCase() == "KG") {
+                      setTotal(Math.round(e * 1000 * articulo.precio));
+                    } else {
+                      setTotal(Math.round(e * articulo.precio));
+                    }
+
+                    onChange(e);
+                  }}
+                  mobile={false}
+                  className="input-edit"
+                />
+              </Col>
+              <Col span={6}>
+                <Text className="embalaje">{embalaje}</Text>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Col>
@@ -102,10 +148,9 @@ const Item = ({ articulo }) => {
             <Title level={3}>
               ${" "}
               {articulo.descuento > 0
-                ? (articulo.precio -
-                    (articulo.precio * articulo.descuento) / 100) *
+                ? (total - (total * articulo.descuento) / 100) *
                   articulo.cantidad
-                : articulo.precio * articulo.cantidad}
+                : total}
             </Title>
           </Col>
           <Col span={4}>
@@ -114,17 +159,50 @@ const Item = ({ articulo }) => {
           <Col span={10}>
             <Row>
               <NumericInput
-                min={1}
                 value={cantidad}
-                onChange={onChange}
-                className="input-edit"
+                min={
+                  embalaje.toUpperCase() == "GR"
+                    ? 100
+                    : embalaje.toUpperCase() == "KG"
+                    ? 0
+                    : 1
+                }
+                step={
+                  embalaje.toUpperCase() == "GR"
+                    ? 100
+                    : embalaje.toUpperCase() == "KG"
+                    ? 0.1
+                    : 1
+                }
+                onChange={(e) => {
+                  if (e == 1000) {
+                    setEmbalaje("Kg");
+                    setCantidad(1);
+                  } else if (parseInt(e) <= 0) {
+                    setEmbalaje("Gr");
+                    setCantidad(e * 1000);
+                  } else setCantidad(e);
+
+                  if (embalaje.toUpperCase() == "KG") {
+                    setTotal(Math.round(e * 1000 * articulo.precio));
+                  } else {
+                    setTotal(Math.round(e * articulo.precio));
+                  }
+
+                  onChange(e);
+                }}
                 mobile={false}
+                className="input-edit"
               />
-              <Text className="embalaje">{articulo.embalaje}</Text>
+              <Text className="embalaje">{embalaje}</Text>
             </Row>
           </Col>
           <Col span={2}>
-            <BsTrash color="var(--color-naranja)" size={20} onClick={eliminar} />
+            <BsTrash
+              color="var(--color-naranja)"
+              size={20}
+              onClick={eliminar}
+            />
           </Col>
         </Row>
       </Col>

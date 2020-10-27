@@ -37,17 +37,13 @@
     margin-top: 30px;
   }
   .pie span.ant-typography {
-    font-size: 17px;
+    font-size: 8px;
     display: flex !important;
     align-items: center !important;
     justify-content: center;
     text-align: center;
   }
-  .pie .ant-row {
-    align-items: center;
-    padding: 0;
-    width: 100%;
-  }
+
   .pie .ant-row img {
     margin: 10px 0;
   }
@@ -68,8 +64,9 @@
   .pie h3.ant-typography {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
+    font-size: 12px;
   }
   .pie h1.ant-typography {
-    font-size: 32px;
+    font-size: 12px;
   }
 }

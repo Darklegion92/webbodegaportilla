@@ -1,14 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import {
-  Row,
-  Col,
-  Typography,
-  Divider,
-  Button,
-  Input,
-  Collapse,
-  Select,
-} from "antd";
+import { Row, Col, Typography, Divider, Button, Input, Collapse } from "antd";
 import { GlobalContext } from "../../Context/GlobalContext";
 import { useMediaQuery } from "react-responsive";
 
@@ -18,18 +9,15 @@ import "./styles.css";
 
 const { Text, Title } = Typography;
 const { Panel } = Collapse;
-const { Option } = Select;
 const Resumen = ({ next, current }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const [domicilio, setDomicilio] = useState(0);
-  const [barrio, setBarrio] = useState();
   const [valorCupon, setValorCupon] = useState();
   const [modal, setModal] = useState({
     visible: false,
   });
 
-  const { carrito, barrios, enviarOrden, cupon, validarCupon } = useContext(
+  const { carrito, enviarOrden, cupon, validarCupon } = useContext(
     GlobalContext
   );
   let total = 0;
@@ -58,10 +46,6 @@ const Resumen = ({ next, current }) => {
   };
   calcular(carrito);
   useEffect(() => {}, [carrito]);
-
-  const onClickBarrio = () => {
-    if (barrio) setDomicilio(barrio.tarifa);
-  };
 
   const onChange = (e) => {
     setValorCupon(e.target.value);
@@ -141,7 +125,7 @@ const Resumen = ({ next, current }) => {
             <Text>SUB-TOTAL</Text>
           </Col>
           <Col span={13}>
-            <Text>$ {total}</Text>
+            <Text>$ {Math.round(total)}</Text>
           </Col>
         </Row>
         <Divider />
@@ -153,10 +137,11 @@ const Resumen = ({ next, current }) => {
             <Text>
               ${" "}
               {total > 50000
-                ? domicilio +
-                  (cupon.descuento ? (total * cupon.descuento) / 100 : 0)
-                : 0 + cupon.descuento
-                ? (total * cupon.descuento) / 100
+                ? Math.round(
+                    cupon.descuento ? (total * cupon.descuento) / 100 : 0
+                  )
+                : Math.round(0 + cupon.descuento)
+                ? Math.round((total * cupon.descuento) / 100)
                 : 0}
             </Text>
           </Col>
@@ -167,7 +152,7 @@ const Resumen = ({ next, current }) => {
             <Text>ENVIO</Text>
           </Col>
           <Col span={14}>
-            <Text>$ {domicilio}</Text>
+            <Text>$ {0}</Text>
           </Col>
         </Row>
         <Divider />
@@ -188,18 +173,7 @@ const Resumen = ({ next, current }) => {
             >
               <Panel header="CALCULAR ENVIO" key="1" style={{ margin: "0" }}>
                 <Col span={24}>
-                  <Select
-                    onSelect={(e) => {
-                      setBarrio(barrios[e]);
-                    }}
-                  >
-                    {barrios.map((barrio, i) => {
-                      return <Option key={i}>{barrio.nombre}</Option>;
-                    })}
-                  </Select>
-                  <Col span={9}>
-                    <Button onClick={onClickBarrio}>APLICAR</Button>
-                  </Col>
+                  <Text>Se Acordara Con El Cliente</Text>
                 </Col>
               </Panel>
               <Divider style={{ borderColor: "var(--color-primario)" }} />
@@ -221,11 +195,14 @@ const Resumen = ({ next, current }) => {
             <Title>
               $
               {total > 50000
-                ? total -
-                  (cupon.descuento ? (total * cupon.descuento) / 100 : 0)
-                : total -
-                  (cupon.descuento ? (total * cupon.descuento) / 100 : 0) +
-                  domicilio}
+                ? Math.round(
+                    total -
+                      (cupon.descuento ? (total * cupon.descuento) / 100 : 0)
+                  )
+                : Math.round(
+                    total -
+                      (cupon.descuento ? (total * cupon.descuento) / 100 : 0)
+                  )}
             </Title>
           </Row>
         ) : (
@@ -247,7 +224,7 @@ const Resumen = ({ next, current }) => {
             <Button
               style={{
                 backgroundColor: "var(--color-naranja)",
-                boxShadow:"none",
+                boxShadow: "none",
                 fontWeight: "bold",
                 color: "white",
                 borderRadius: "10px",
@@ -279,7 +256,9 @@ const Resumen = ({ next, current }) => {
             <Divider />
             <Row>
               <Title level={2}>TOTAL</Title>
-              <Title>${total > 50000 ? total : total + domicilio}</Title>
+              <Title>
+                ${total > 50000 ? Math.round(total) : Math.round(total)}
+              </Title>
             </Row>
           </>
         )}
@@ -291,7 +270,7 @@ const Resumen = ({ next, current }) => {
               <Button
                 style={{
                   backgroundColor: "var(--color-naranja)",
-                  boxShadow:"none",
+                  boxShadow: "none",
                   color: "white",
                   height: "auto",
                   width: "100%",

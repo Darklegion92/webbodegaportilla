@@ -11,7 +11,7 @@ const Comprado = ({ articulo, onOk }) => {
   const [img, setImg] = useState(BANCO.URL + articulo.img);
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-
+ 
   const onError = () => {
     setImg("img/articulodefecto.png");
   };
@@ -37,9 +37,10 @@ const Comprado = ({ articulo, onOk }) => {
               <Text>
                 ${" "}
                 {articulo.descuento > 0
-                  ? articulo.precio -
-                    (articulo.precio * articulo.descuento) / 100
-                  : articulo.precio}{" "}
+                  ? Math.round( articulo.precio * articulo.cantidad -
+                    (articulo.precio * articulo.cantidad * articulo.descuento) /
+                      100)
+                  : Math.round(articulo.precio * articulo.cantidad)}
                 COP
               </Text>
             </Row>
@@ -71,9 +72,9 @@ const Comprado = ({ articulo, onOk }) => {
                     <Text>
                       ${" "}
                       {articulo.descuento > 0
-                        ? articulo.precio -
-                          (articulo.precio * articulo.descuento) / 100
-                        : articulo.precio}{" "}
+                        ? Math.round(articulo.precio *articulo.cantidad-
+                          (articulo.precio *articulo.cantidad* articulo.descuento) / 100)
+                        : Math.round(articulo.precio*articulo.cantidad)}
                       COP
                     </Text>
                   </Row>

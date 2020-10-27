@@ -37,11 +37,13 @@ function SeccionExtra({ items, articulos, texto, tipo }) {
 
   const agregarArticulo = (e) => {
     const i = parseInt(e.target.id);
-    console.log(e.target);
     setArticuloSeleccionado(articulos[i]);
     setModalArticulo(true);
   };
-  const agregarCantidad = () => {
+  const agregarCantidad = (cantidad) => {
+    const newArticulo = articuloSeleccionado;
+    newArticulo.setCantidad = cantidad;
+    setArticuloSeleccionado(newArticulo);
     setModalArticulo(false);
     setModalComprado(true);
   };
