@@ -23,9 +23,9 @@ const Articulo = ({ articulo, onOk }) => {
   useEffect(() => {
     setEmbalaje(articulo.embalaje);
     setImg(BANCO.URL + articulo.img);
-    setCantidad(articulo.embalaje == "Gr" ? 100 : 1);
+    setCantidad(articulo.embalaje.toUpperCase()  == "GR" ? 100 : 1);
     setTotal(
-      articulo.embalaje == "Gr" ? articulo.precio * 100 : articulo.precio
+      articulo.embalaje.toUpperCase() == "GR" ? articulo.precio * 100 : articulo.precio
     );
   }, [articulo]);
   try {
