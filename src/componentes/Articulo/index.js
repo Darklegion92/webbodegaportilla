@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Typography, Button, Row, Col } from "antd";
 import NumericInput from "react-numeric-input";
 import { AiFillStar } from "react-icons/ai";
@@ -14,12 +14,16 @@ const Articulo = ({ articulo, onOk }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const { agregarCarrito, carrito } = GlobalContext;
-  const [cantidad, setCantidad] = useState(
-    articulo.embalaje.toUpperCase().split() == "GR" ? 100 : 1
-  );
-  const [cantidadKilos, setCantidadKilos] = useState(0);
-  const [img, setImg] = useState(BANCO.URL + articulo.img);
+  const [cantidad, setCantidad] = useState(1);
+  const [embalaje, setEmbalaje] = useState("Gr");
+  const [img, setImg] = useState("");
   const lista = [];
+
+  useEffect(() => {
+    setEmbalaje(articulo.embalaje);
+    setImg(BANCO.URL + articulo.img);
+    setCantidad(articulo.embalaje == "Gr" ? 100 : 1);
+  }, [articulo]);
   try {
     lista = articulo.lista.split("*");
   } catch (e) {}
@@ -174,24 +178,29 @@ const Articulo = ({ articulo, onOk }) => {
               <Row align="middle">
                 <Col span={18}>
                   <NumericInput
+                    value={cantidad}
                     min={
-                      articulo.embalaje.toUpperCase() == "GR"
-                        ? cantidad < 999
-                          ? 100
-                          : 1
+                      embalaje.toUpperCase() == "GR"
+                        ? 100
+                        : embalaje.toUpperCase() == "KG"
+                        ? 0
                         : 1
                     }
-                    value={cantidad > 999 ? cantidadKilos : cantidad}
                     step={
-                      articulo.embalaje.toUpperCase() == "GR"
-                        ? cantidad < 999
-                          ? 100
-                          : 1
+                      embalaje.toUpperCase() == "GR"
+                        ? 100
+                        : embalaje.toUpperCase() == "KG"
+                        ? 0.1
                         : 1
                     }
                     onChange={(e) => {
-                      setCantidad(e > 999 ? e * 1000 : e);
-                      setCantidadKilos(e===1000?e/1000:e);
+                      if (e == 1000) {
+                        setEmbalaje("Kg");
+                        setCantidad(1);
+                      } else if (parseInt(e) <= 0) {
+                        setEmbalaje("Gr");
+                        setCantidad(e * 1000);
+                      } else setCantidad(e);
                     }}
                     mobile={false}
                     className="input-edit"
@@ -208,11 +217,7 @@ const Articulo = ({ articulo, onOk }) => {
                       color: "var(--color-primario)",
                     }}
                   >
-                    {articulo.embalaje.toUpperCase() == "GR"
-                      ? cantidad > 999
-                        ? "Kg"
-                        : "Gr"
-                      : articulo.embalaje}
+                    {embalaje}
                   </Text>
                 </Col>
               </Row>
