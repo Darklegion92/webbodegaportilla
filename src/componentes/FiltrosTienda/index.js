@@ -21,7 +21,7 @@ const FiltrosTienda = () => {
   const [subgrupo, setSubgrupo] = useState(false);
 
   const onClickGrupos = async (e) => {
-    console.log(e.target.value);
+    
     const nombre = e.target.id;
     const value = e.target.value;
     let guardar = true;

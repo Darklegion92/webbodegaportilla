@@ -12,10 +12,21 @@ import { BANCO } from "../../config";
 import "./styles.css";
 
 function Carrusel_principal() {
-  const { carrusel } = useContext(GlobalContext);
+  const { carrusel,grupos,consultarArticulosTienda } = useContext(GlobalContext);
 
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+  const onClick = async(e)=>{
+    const id = e.target.id;
+    
+    await grupos.forEach((grupo,i) => {
+        if (grupo.id == id) {
+          consultarArticulosTienda([{ nombre:grupo.nombre, tipo: "GRUPO",id }]);
+          return;
+        }
+    });
+   
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -39,9 +50,7 @@ function Carrusel_principal() {
         {carrusel.map((item) => {
           return (
             <Carousel.Item>
-              <Link to={"/shop"} onClick={()=>{
-                
-              }}>
+              <Link to={"/shop"} >
                 <img
                   className="d-block w-100"
                   src={
@@ -49,7 +58,9 @@ function Carrusel_principal() {
                       ? BANCO.URL + item.imgmovil
                       : BANCO.URL + item.img
                   }
-                  alt={item.filtro}
+                  onClick={onClick}
+                  alt={item.idgrupo}
+                  id={item.idgrupo}
                 />
               </Link>
             </Carousel.Item>
