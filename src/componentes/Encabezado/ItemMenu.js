@@ -22,7 +22,7 @@ const ItemMenu = ({ articulo }) => {
       <Col span={6}>
         <img src={img} width="100%" onError={onError}/>
       </Col>
-      <Col span={18}>
+      <Col span={!isTabletOrMobile || !isTabletOrMobileDevice ?18:17}>
         {!isTabletOrMobile || !isTabletOrMobileDevice ? (
           letras.length >= numero ? (
             <Title level={4} style={{ marginTop: "10px" }}>
@@ -53,7 +53,7 @@ const ItemMenu = ({ articulo }) => {
             })}
           </Title>
         )}
-        <Text>$ {articulo.cantidad * articulo.precio} COP</Text>
+        <Text>$ {Math.round( articulo.cantidad * articulo.precio)} COP</Text>
       </Col>
     </Row>
   );

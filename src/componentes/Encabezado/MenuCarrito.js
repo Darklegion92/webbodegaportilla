@@ -28,7 +28,7 @@ const MenuCarrito = ({ carrito, cerrar }) => {
       {carrito.length > 0 && (
         <Row className="totales">
           <Title level={4}>TOTAL</Title>
-          <Text>$ {total} COP</Text>
+          <Text>$ {Math.round( total)} COP</Text>
         </Row>
       )}
       <Row>

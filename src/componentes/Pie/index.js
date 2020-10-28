@@ -86,7 +86,7 @@ function Pie() {
             </a>
           </Row>
           <Row>
-            <a href="https://wa.link/q2dusb" target="_blank">
+            <a href="https://wa.me/573173752073" target="_blank">
               <Text
                 style={
                   isTabletOrMobile || isTabletOrMobileDevice

@@ -11,6 +11,7 @@
 }
 
 .headP svg.icon {
+  stroke-width:20px;
   stroke: var(--color-primario);
   filter: drop-shadow(0 0 1rem white);
   transition: filter 600ms !important;
