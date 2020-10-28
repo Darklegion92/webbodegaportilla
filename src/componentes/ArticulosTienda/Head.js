@@ -65,7 +65,7 @@ const Head = () => {
           </Form>
         </Col>
         <Col span={7}>
-          <Row className="filtro" onClick={onClick}>
+          <Row className="filtro" onClick={onClick} justify="center" align="middle">
             <Col span={16}>
               <Title level={4}>FILTRO</Title>
             </Col>
@@ -78,7 +78,7 @@ const Head = () => {
             </Col>
           </Row>
           <Drawer
-            style={{ marginTop: "212px" }}
+            style={{ marginTop: "242px" }}
             placement="right"
             closable={false}
             onClose={() => {

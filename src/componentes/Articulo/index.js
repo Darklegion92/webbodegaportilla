@@ -18,19 +18,23 @@ const Articulo = ({ articulo, onOk }) => {
   const [cantidad, setCantidad] = useState(1);
   const [embalaje, setEmbalaje] = useState("Gr");
   const [img, setImg] = useState("");
-  const lista = [];
+  const [lista, setLista] = useState([]);
 
   useEffect(() => {
     setEmbalaje(articulo.embalaje);
     setImg(BANCO.URL + articulo.img);
-    setCantidad(articulo.embalaje.toUpperCase()  == "GR" ? 100 : 1);
+    setCantidad(articulo.embalaje.toUpperCase() == "GR" ? 100 : 1);
     setTotal(
-      articulo.embalaje.toUpperCase() == "GR" ? articulo.precio * 100 : articulo.precio
+      articulo.embalaje.toUpperCase() == "GR"
+        ? articulo.precio * 100
+        : articulo.precio
     );
+    try {
+      let list = articulo.lista.split("*");
+      list.splice(0, 1);  
+      setLista(list);
+    } catch (e) {}
   }, [articulo]);
-  try {
-    lista = articulo.lista.split("*");
-  } catch (e) {}
 
   const onError = () => {
     setImg("img/articulodefecto.png");
@@ -182,7 +186,7 @@ const Articulo = ({ articulo, onOk }) => {
                 {lista.length > 0 &&
                   lista.map((item) => (
                     <ul>
-                      <li>{item}</li>
+                      <li><div>{item}</div></li>
                     </ul>
                   ))}
               </Paragraph>

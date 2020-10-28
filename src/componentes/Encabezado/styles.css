@@ -7,7 +7,7 @@
   position: fixed;
   z-index: 100;
   background-color: transparent !important;
-  background-image: url("http://45.82.72.196:3002/img/fondo.png") !important;
+  background-image: url("fondo.png") !important;
 }
 
 .headP svg.icon {
@@ -324,7 +324,7 @@ li.ant-menu-item.ant-menu-item-only-child {
 
 @media only screen and (max-width: 600px) {
   .headP-movil {
-    background-image: url("http://45.82.72.196:3002/img/fondo.png") !important;
+    background-image: url("fondo.png") !important;
   }
   .menu-carrito .item-menu {
     margin-bottom: 10px;

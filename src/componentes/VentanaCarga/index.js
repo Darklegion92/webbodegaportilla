@@ -7,7 +7,7 @@ const { Title } = Typography;
 const VentanaCarga = () => {
   return (
     <Row align="middle" justify="center">
-      <Title style={{ color: "var(--color-primario)" }} level={2}>
+      <Title style={{ color: "var(--color-primario)" }} level={3}>
         <LoadingOutlined
           style={{ width: "auto", fontSize: "50px", margin: "30px" }}
         />
