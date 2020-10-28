@@ -10,7 +10,6 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const [img, setImg] = useState();
   useEffect(() => {
-    console.log(articulo.img);
     setImg(BANCO.URL + articulo.img)
    }, [articulo])
   const estrellas = (cantidad) => {
