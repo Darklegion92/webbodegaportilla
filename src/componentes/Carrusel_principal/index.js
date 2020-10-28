@@ -39,7 +39,9 @@ function Carrusel_principal() {
         {carrusel.map((item) => {
           return (
             <Carousel.Item>
-              <Link to={"/shop"}>
+              <Link to={"/shop"} onClick={()=>{
+                
+              }}>
                 <img
                   className="d-block w-100"
                   src={

@@ -258,8 +258,8 @@ function Encabezado() {
             </Menu.Item>
             <Menu.Item key="quienes">
               <Title level={3} className="items" code={true}>
-              <Link to="/shop">
-              <Text>TIENDA</Text>
+              <Link to="/shop" >
+              TIENDA
             </Link>
               </Title>
             </Menu.Item>

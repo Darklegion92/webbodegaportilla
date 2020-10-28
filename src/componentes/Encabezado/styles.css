@@ -90,6 +90,9 @@
 .headP .items code {
   padding: 10px;
 }
+.headP .items code>*{
+  font-size:20px!important;
+}
 .headP .items code:hover,
 .headP .items code:active,
 .headP .items code:focus,
@@ -100,7 +103,7 @@
 .headP .ant-typography code {
   border: 0 !important;
   background-color: transparent !important;
-  font-size: 17px !important;
+ 
 }
 
 .headP h3.ant-typography {
