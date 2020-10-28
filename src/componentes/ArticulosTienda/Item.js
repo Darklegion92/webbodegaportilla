@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Typography, Button, Row, Col } from "antd";
 import { useMediaQuery } from "react-responsive";
 import { AiFillStar } from "react-icons/ai";
@@ -8,11 +8,13 @@ const { Text, Title } = Typography;
 const Item = ({ articulo, id, onClick, enCarrito }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const [img, setImg] = useState(BANCO.URL + articulo.img);
-
+  const [img, setImg] = useState();
+  useEffect(() => {
+    console.log(articulo.img);
+    setImg(BANCO.URL + articulo.img)
+   }, [articulo])
   const estrellas = (cantidad) => {
     const estrellas = [];
-
     for (let i = 0; i < cantidad; i++) {
       estrellas.push(
         <AiFillStar
