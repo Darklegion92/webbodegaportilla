@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Button, Row, Col } from "antd";
 import { useMediaQuery } from "react-responsive";
 import { AiFillStar } from "react-icons/ai";
@@ -10,8 +10,8 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const [img, setImg] = useState();
   useEffect(() => {
-    setImg(BANCO.URL + articulo.img)
-   }, [articulo])
+    setImg(BANCO.URL + articulo.img);
+  }, [articulo]);
   const estrellas = (cantidad) => {
     const estrellas = [];
     for (let i = 0; i < cantidad; i++) {
@@ -52,13 +52,18 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
             marginLeft: "10px",
           }}
         >
-          <Text className="descuento">$ {articulo.precio + " COP"}</Text>
+          <Text className="descuento">
+            ${" "}
+            {articulo.embalaje.toUpperCase() == "GR"
+              ? articulo.precio * 100
+              : articulo.precio + " COP"}
+          </Text>
         </Row>
         <Row gutter={5} justify="start">
           <Text strong className="precio">
             ${" "}
-            {articulo.descuento > 0
-              ? articulo.precio - (articulo.precio * articulo.descuento) / 100
+            {articulo.embalaje.toUpperCase() == "GR"
+              ? articulo.precio * 100
               : articulo.precio}{" "}
             COP
           </Text>
@@ -82,7 +87,7 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
           </div>
         )}
         <Row gutter={8} justify="center">
-          <img src={img} width="80%" onError={onError}  />
+          <img src={img} width="80%" onError={onError} />
         </Row>
         <Row justify="center">
           <Title level={3}>{articulo.nombre}</Title>
@@ -92,13 +97,13 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
           align="middle"
           style={{ visibility: articulo.descuento > 0 ? "visible" : "hidden" }}
         >
-          <Text className="descuento">$ {articulo.precio + " COP"}</Text>
+          <Text className="descuento">$ {articulo.precio * 100 + " COP"}</Text>
         </Row>
         <Row justify="center" align="middle">
           <Text className="precio">
             ${" "}
-            {articulo.descuento > 0
-              ? articulo.precio - (articulo.precio * articulo.descuento) / 100
+            {articulo.embalaje.toUpperCase() == "GR"
+              ? articulo.precio * 100
               : articulo.precio}{" "}
             COP
           </Text>

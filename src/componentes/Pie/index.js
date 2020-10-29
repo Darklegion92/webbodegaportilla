@@ -67,8 +67,8 @@ function Pie() {
           height: "1px",
         }}
       />
-      <Row className="otros" gutter={5}>
-        <Col span={8}>
+      <Row className="otros" gutter={5} justify="center">
+        <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 8 : 6}>
           <Row>
             <Title level={3}>SERVICIO AL CLIENTE</Title>
           </Row>
@@ -90,7 +90,7 @@ function Pie() {
               <Text
                 style={
                   isTabletOrMobile || isTabletOrMobileDevice
-                    ? {fontSize: "10px"}
+                    ? { fontSize: "10px" }
                     : { fontSize: "25px" }
                 }
               >
@@ -111,7 +111,7 @@ function Pie() {
           </Row>
         </Col>
 
-        <Col span={isTabletOrMobile || isTabletOrMobileDevice ?10:8}>
+        <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 10 : 6}>
           <Row>
             <Title level={3}>COLOMBIA</Title>
           </Row>
@@ -141,7 +141,7 @@ function Pie() {
           </Row>
         </Col>
 
-        <Col span={isTabletOrMobile || isTabletOrMobileDevice ?6:8}>
+        <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 6 : 6}>
           <Row>
             <Title level={3}>SIGUENOS</Title>
           </Row>

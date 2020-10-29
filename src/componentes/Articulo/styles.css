@@ -59,7 +59,7 @@
   color: gainsboro;
   width: 100%;
   font-size: 30px;
-
+  line-height: 0px;
   text-decoration: line-through;
 }
 

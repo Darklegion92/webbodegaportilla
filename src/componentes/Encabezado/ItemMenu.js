@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Typography, Row, Col } from "antd";
 import { useMediaQuery } from "react-responsive";
 import { BANCO } from "../../config";
@@ -12,7 +12,7 @@ const ItemMenu = ({ articulo }) => {
   const numero = 13;
   let texto = "";
   let texto2 = "";
-  
+
   const onError = () => {
     setImg("img/articulodefecto.png");
   };
@@ -20,9 +20,9 @@ const ItemMenu = ({ articulo }) => {
   return (
     <Row className="item-menu" gutter={6} align="middle">
       <Col span={6}>
-        <img src={img} width="100%" onError={onError}/>
+        <img src={img} width="100%" onError={onError} />
       </Col>
-      <Col span={!isTabletOrMobile || !isTabletOrMobileDevice ?18:17}>
+      <Col span={!isTabletOrMobile || !isTabletOrMobileDevice ? 18 : 17}>
         {!isTabletOrMobile || !isTabletOrMobileDevice ? (
           letras.length >= numero ? (
             <Title level={4} style={{ marginTop: "10px" }}>
@@ -41,19 +41,33 @@ const ItemMenu = ({ articulo }) => {
         ) : (
           <Title level={4}>{articulo.nombre}</Title>
         )}
-        {(!isTabletOrMobile || !isTabletOrMobileDevice) && letras.length > numero && (
-          <Title level={4}>
-            {letras.map((letra, i) => {
-              if (i > numero && i <= 32) {
-                texto2 += letra;
-              }
-              if (i == letras.length - 1) {
-                return texto2;
-              }
-            })}
-          </Title>
-        )}
-        <Text>$ {Math.round( articulo.cantidad * articulo.precio)} COP</Text>
+        {(!isTabletOrMobile || !isTabletOrMobileDevice) &&
+          letras.length > numero && (
+            <Title level={4}>
+              {letras.map((letra, i) => {
+                if (i > numero && i <= 32) {
+                  texto2 += letra;
+                }
+                if (i == letras.length - 1) {
+                  return texto2;
+                }
+              })}
+            </Title>
+          )}
+        <Text>
+          ${" "}
+          {articulo.cant_dcto3 !== null &&
+          parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto3)
+            ? articulo.dcto3 * articulo.cantidad
+            : articulo.cant_dcto2 !== null &&
+              parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto2)
+            ? articulo.dcto2 * articulo.cantidad
+            : articulo.cant_dcto1 !== null &&
+              parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto1)
+            ? articulo.dcto1 * articulo.cantidad
+            : articulo.precio * articulo.cantidad}{" "}
+          COP
+        </Text>
       </Col>
     </Row>
   );

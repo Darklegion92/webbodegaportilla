@@ -8,18 +8,16 @@ import FiltrosTienda from "../FiltrosTienda";
 const { Title, Text } = Typography;
 const { Option } = Select;
 
-const Head = () => {
+const Head = ({setPagina}) => {
   const [visible, setVisible] = useState(false);
   const [nombre, setNombre] = useState("");
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const { consultarArticulosTienda, cambiarOrden} = useContext(GlobalContext);
+  const { consultarArticulosTienda, cambiarOrden } = useContext(GlobalContext);
 
   const onSelect = (e) => {
-    if(e==="precio-mayor")
-      cambiarOrden("precio desc")
-     else if(e==="precio-menor")
-     cambiarOrden("precio asc")
+    if (e === "precio-mayor") cambiarOrden("precio desc");
+    else if (e === "precio-menor") cambiarOrden("precio asc");
   };
 
   const onClick = () => {
@@ -50,11 +48,12 @@ const Head = () => {
                 <Input
                   placeholder="Busqueda"
                   onChange={(e) => {
-                    if (!e.target.value) consultarArticulosTienda(null,nombre);
+                    if (!e.target.value) consultarArticulosTienda(null, nombre);
                     setNombre(e.target.value);
                   }}
                   onPressEnter={() => {
-                    if (nombre != "" || nombre) consultarArticulosTienda(null,nombre);
+                    if (nombre != "" || nombre)
+                      consultarArticulosTienda(null, nombre);
                   }}
                 />
               </Col>
@@ -65,14 +64,19 @@ const Head = () => {
           </Form>
         </Col>
         <Col span={7}>
-          <Row className="filtro" onClick={onClick} justify="center" align="middle">
+          <Row
+            className="filtro"
+            onClick={onClick}
+            justify="center"
+            align="middle"
+          >
             <Col span={16}>
               <Title level={4}>FILTRO</Title>
             </Col>
             <Col span={8}>
               <FilterOutlined
                 onClick={() => {
-                  consultarArticulosTienda(null,nombre);
+                  consultarArticulosTienda(null, nombre);
                 }}
               />
             </Col>
@@ -111,18 +115,23 @@ const Head = () => {
               <Input
                 placeholder="Busqueda"
                 onChange={(e) => {
-                  if (!e.target.value) consultarArticulosTienda(null,nombre);
+                  if (!e.target.value) {
+                    consultarArticulosTienda(null, nombre);
+                    setPagina(1);
+                  }
                   setNombre(e.target.value);
                 }}
                 onPressEnter={() => {
-                  if (nombre != "" || nombre) consultarArticulosTienda(null,nombre);
+                  consultarArticulosTienda(null, nombre);
+                  setPagina(1);
                 }}
               />
             </Col>
             <Col span={2}>
               <SearchOutlined
                 onClick={() => {
-                  consultarArticulosTienda(null,nombre);
+                  consultarArticulosTienda(null, nombre);
+                  setPagina(1);
                 }}
               />
             </Col>

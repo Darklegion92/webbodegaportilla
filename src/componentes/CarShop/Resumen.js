@@ -13,6 +13,8 @@ const Resumen = ({ next, current }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const [valorCupon, setValorCupon] = useState();
+  const [ahorro, setAhorro] = useState(0);
+  const [total, setTotal] = useState(0);
   const [modal, setModal] = useState({
     visible: false,
   });
@@ -20,7 +22,7 @@ const Resumen = ({ next, current }) => {
   const { carrito, enviarOrden, cupon, validarCupon } = useContext(
     GlobalContext
   );
-  let total = 0;
+
   const Shield = () => (
     <svg
       t="1598801065009"
@@ -40,12 +42,38 @@ const Resumen = ({ next, current }) => {
     </svg>
   );
   const calcular = (car) => {
+    let desc = 0;
+    let tot = 0;
     car.forEach((item) => {
-      total += item.cantidad * item.precio;
+      if (
+        item.cant_dcto3 !== null &&
+        parseInt(item.cantidad) >= parseInt(item.cant_dcto3)
+      ) {
+        tot += item.cantidad * item.dcto3;
+        desc += (item.cantidad * (item.precio- item.dcto3));
+      } else if (
+        item.cant_dcto2 !== null &&
+        parseInt(item.cantidad) >= parseInt(item.cant_dcto2)
+      ) {
+        tot += item.cantidad * item.dcto2;
+        desc += (item.cantidad * (item.precio- item.dcto2));
+      } else if (
+        item.cant_dcto1 !== null &&
+        parseInt(item.cantidad) >= parseInt(item.cant_dcto1)
+      ) {
+        tot += item.cantidad * item.dcto1;
+        desc += (item.cantidad * (item.precio- item.dcto1));
+      } else {
+        tot += item.cantidad * item.precio;
+      }
     });
+    setAhorro(desc);
+    setTotal(tot);
   };
-  calcular(carrito);
-  useEffect(() => {}, [carrito]);
+
+  useEffect(() => {
+    calcular(carrito);
+  }, [carrito]);
 
   const onChange = (e) => {
     setValorCupon(e.target.value);
@@ -134,16 +162,7 @@ const Resumen = ({ next, current }) => {
             <Text>AHORRO</Text>
           </Col>
           <Col span={14}>
-            <Text>
-              ${" "}
-              {total > 50000
-                ? Math.round(
-                    cupon.descuento ? (total * cupon.descuento) / 100 : 0
-                  )
-                : Math.round(0 + cupon.descuento)
-                ? Math.round((total * cupon.descuento) / 100)
-                : 0}
-            </Text>
+            <Text>$ {ahorro}</Text>
           </Col>
         </Row>
         <Divider />

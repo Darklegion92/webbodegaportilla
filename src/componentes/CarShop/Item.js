@@ -15,6 +15,7 @@ const Item = ({ articulo }) => {
   const [total, setTotal] = useState();
   const [embalaje, setEmbalaje] = useState("Gr");
   const [img, setImg] = useState("");
+  console.log(articulo);
   const {
     carrito,
     eliminarCarrito,
@@ -25,15 +26,36 @@ const Item = ({ articulo }) => {
 
   useEffect(() => {
     setImg(BANCO.URL + articulo.img);
-    setTotal(
-      articulo.embalaje == "Gr"
-        ? Math.round(articulo.precio * articulo.cantidad)
-        : articulo.precio
-    );
+    let total;
+    if (
+      articulo.cant_dcto3 !== null &&
+      parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto3)
+    ) {
+      total = articulo.cantidad * articulo.dcto3;
+    } else if (
+      articulo.cant_dcto2 !== null &&
+      parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto2)
+    ) {
+      total = articulo.cantidad * articulo.dcto2;
+    } else if (
+      articulo.cant_dcto1 !== null &&
+      parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto1)
+    ) {
+      total = articulo.cantidad * articulo.dcto1;
+    } else {
+      total = articulo.cantidad * articulo.precio;
+    }
+    setTotal(Math.round(total));
     setCantidad(
       articulo.cantidad > 999 ? articulo.cantidad / 1000 : articulo.cantidad
     );
-    setEmbalaje(articulo.cantidad > 999 ? "Kg" : "Gr");
+    setEmbalaje(
+      articulo.embalaje.toUpperCase() == "UND"
+        ? "Und"
+        : articulo.cantidad > 999
+        ? "Kg"
+        : "Gr"
+    );
   }, [articulo]);
 
   const onError = () => {
@@ -106,13 +128,31 @@ const Item = ({ articulo }) => {
                       setEmbalaje("Gr");
                       setCantidad(e * 1000);
                     } else setCantidad(e);
-
+                    let cant = 0;
                     if (embalaje.toUpperCase() == "KG") {
-                      setTotal(Math.round(e * 1000 * articulo.precio));
+                      cant = e * 1000;
                     } else {
-                      setTotal(Math.round(e * articulo.precio));
+                      cant = e;
                     }
 
+                    if (
+                      articulo.cant_dcto3 !== null &&
+                      parseInt(cant) >= parseInt(articulo.cant_dcto3)
+                    ) {
+                      setTotal(articulo.dcto3 * cant);
+                    } else if (
+                      articulo.cant_dcto2 !== null &&
+                      parseInt(cant) >= parseInt(articulo.cant_dcto2)
+                    ) {
+                      setTotal(articulo.dcto2 * cant);
+                    } else if (
+                      articulo.cant_dcto1 !== null &&
+                      parseInt(cant) >= parseInt(articulo.cant_dcto1)
+                    ) {
+                      setTotal(articulo.dcto1 * cant);
+                    } else {
+                      setTotal(articulo.precio * cant);
+                    }
                     onChange(e);
                   }}
                   mobile={false}
@@ -145,13 +185,7 @@ const Item = ({ articulo }) => {
       <Col span={13}>
         <Row gutter={10} align="middle" justify="center">
           <Col span={8}>
-            <Title level={3}>
-              ${" "}
-              {articulo.descuento > 0
-                ? (total - (total * articulo.descuento) / 100) *
-                  articulo.cantidad
-                : total}
-            </Title>
+            <Title level={3}>$ {total}</Title>
           </Col>
           <Col span={4}>
             <Text className="embalaje">CANTIDAD</Text>
@@ -182,13 +216,31 @@ const Item = ({ articulo }) => {
                     setEmbalaje("Gr");
                     setCantidad(e * 1000);
                   } else setCantidad(e);
-
+                  let cant = 0;
                   if (embalaje.toUpperCase() == "KG") {
-                    setTotal(Math.round(e * 1000 * articulo.precio));
+                    cant = e * 1000;
                   } else {
-                    setTotal(Math.round(e * articulo.precio));
+                    cant = e;
                   }
 
+                  if (
+                    articulo.cant_dcto3 !== null &&
+                    parseInt(cant) >= parseInt(articulo.cant_dcto3)
+                  ) {
+                    setTotal(articulo.dcto3 * cant);
+                  } else if (
+                    articulo.cant_dcto2 !== null &&
+                    parseInt(cant) >= parseInt(articulo.cant_dcto2)
+                  ) {
+                    setTotal(articulo.dcto2 * cant);
+                  } else if (
+                    articulo.cant_dcto1 !== null &&
+                    parseInt(cant) >= parseInt(articulo.cant_dcto1)
+                  ) {
+                    setTotal(articulo.dcto1 * cant);
+                  } else {
+                    setTotal(articulo.precio * cant);
+                  }
                   onChange(e);
                 }}
                 mobile={false}

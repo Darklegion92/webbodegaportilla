@@ -24,7 +24,7 @@ const ArticulosTienda = ({ articulos, onClick, paginacion, subirScroll }) => {
   return (
     <Col className="articulos-tienda" span={24}>
       <Row>
-        <Head />
+        <Head setPagina={setPagina} />
       </Row>
       {isTabletOrMobile || isTabletOrMobileDevice ? (
         articulos.mensaje ? (

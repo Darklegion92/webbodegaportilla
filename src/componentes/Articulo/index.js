@@ -19,10 +19,11 @@ const Articulo = ({ articulo, onOk }) => {
   const [embalaje, setEmbalaje] = useState("Gr");
   const [img, setImg] = useState("");
   const [lista, setLista] = useState([]);
-
+  const [precioDescuento, setPrecioDescuento] = useState(0);
   useEffect(() => {
     setEmbalaje(articulo.embalaje);
     setImg(BANCO.URL + articulo.img);
+    setPrecioDescuento(0);
     setCantidad(articulo.embalaje.toUpperCase() == "GR" ? 100 : 1);
     setTotal(
       articulo.embalaje.toUpperCase() == "GR"
@@ -31,7 +32,7 @@ const Articulo = ({ articulo, onOk }) => {
     );
     try {
       let list = articulo.lista.split("*");
-      list.splice(0, 1);  
+      list.splice(0, 1);
       setLista(list);
     } catch (e) {}
   }, [articulo]);
@@ -102,7 +103,7 @@ const Articulo = ({ articulo, onOk }) => {
                 embalaje.toUpperCase() == "GR"
                   ? 100
                   : embalaje.toUpperCase() == "KG"
-                  ? 0
+                  ? 0.1
                   : 1
               }
               step={
@@ -122,9 +123,47 @@ const Articulo = ({ articulo, onOk }) => {
                 } else setCantidad(e);
 
                 if (embalaje.toUpperCase() == "KG") {
-                  setTotal(e * 1000 * articulo.precio);
+                  const cant = e * 1000;
+                  if (
+                    articulo.cant_dcto3 !== null &&
+                    parseInt(cant) >= parseInt(articulo.cant_dcto3)
+                  ) {
+                    setPrecioDescuento(articulo.dcto3 * cant);
+                  } else if (
+                    articulo.cant_dcto2 !== null &&
+                    parseInt(cant) >= parseInt(articulo.cant_dcto2)
+                  ) {
+                    setPrecioDescuento(articulo.dcto2 * cant);
+                  } else if (
+                    articulo.cant_dcto1 !== null &&
+                    parseInt(cant) >= parseInt(articulo.cant_dcto1)
+                  ) {
+                    setPrecioDescuento(articulo.dcto1 * cant);
+                  } else {
+                    setPrecioDescuento(0);
+                  }
+                  setTotal(articulo.precio * cant);
                 } else {
-                  setTotal(e * articulo.precio);
+                  const cant = e;
+                  if (
+                    articulo.cant_dcto3 !== null &&
+                    parseInt(cant) >= parseInt(articulo.cant_dcto3)
+                  ) {
+                    setPrecioDescuento(articulo.dcto3 * cant);
+                  } else if (
+                    articulo.cant_dcto2 !== null &&
+                    parseInt(cant) >= parseInt(articulo.cant_dcto2)
+                  ) {
+                    setPrecioDescuento(articulo.dcto2 * cant);
+                  } else if (
+                    articulo.cant_dcto1 !== null &&
+                    parseInt(cant) >= parseInt(articulo.cant_dcto1)
+                  ) {
+                    setPrecioDescuento(articulo.dcto1 * cant);
+                  } else {
+                    setPrecioDescuento(0);
+                  }
+                  setTotal(articulo.precio * cant);
                 }
               }}
               mobile={false}
@@ -186,13 +225,15 @@ const Articulo = ({ articulo, onOk }) => {
                 {lista.length > 0 &&
                   lista.map((item) => (
                     <ul>
-                      <li><div>{item}</div></li>
+                      <li>
+                        <div>{item}</div>
+                      </li>
                     </ul>
                   ))}
               </Paragraph>
             </Col>
           </Row>
-          {articulo.descuento > 0 && (
+          {precioDescuento > 0 && (
             <Row className="fila3">
               <Text>$ {Math.round(total) + " COP"}</Text>
             </Row>
@@ -200,8 +241,8 @@ const Articulo = ({ articulo, onOk }) => {
           <Row className="fila4">
             <Text>
               ${" "}
-              {articulo.descuento > 0
-                ? Math.round(total - (total * articulo.descuento) / 100)
+              {precioDescuento > 0
+                ? Math.round(precioDescuento)
                 : Math.round(total)}{" "}
               COP
             </Text>
@@ -236,9 +277,48 @@ const Articulo = ({ articulo, onOk }) => {
                       } else setCantidad(e);
 
                       if (embalaje.toUpperCase() == "KG") {
-                        setTotal(e * 1000 * articulo.precio);
+                        const cant = e * 1000;
+                        if (
+                          articulo.cant_dcto3 !== null &&
+                          parseInt(cant) >= parseInt(articulo.cant_dcto3)
+                        ) {
+                          setPrecioDescuento(articulo.dcto3 * cant);
+                        } else if (
+                          articulo.cant_dcto2 !== null &&
+                          parseInt(cant) >= parseInt(articulo.cant_dcto2)
+                        ) {
+                          setPrecioDescuento(articulo.dcto2 * cant);
+                        } else if (
+                          articulo.cant_dcto1 !== null &&
+                          parseInt(cant) >= parseInt(articulo.cant_dcto1)
+                        ) {
+                          setPrecioDescuento(articulo.dcto1 * cant);
+                        } else {
+                          setPrecioDescuento(0);
+                        }
+                        setTotal(articulo.precio * cant);
                       } else {
-                        setTotal(e * articulo.precio);
+                        const cant = e;
+
+                        if (
+                          articulo.cant_dcto3 !== null &&
+                          parseInt(cant) >= parseInt(articulo.cant_dcto3)
+                        ) {
+                          setPrecioDescuento(articulo.dcto3 * cant);
+                        } else if (
+                          articulo.cant_dcto2 !== null &&
+                          parseInt(cant) >= parseInt(articulo.cant_dcto2)
+                        ) {
+                          setPrecioDescuento(articulo.dcto2 * cant);
+                        } else if (
+                          articulo.cant_dcto1 !== null &&
+                          parseInt(cant) >= parseInt(articulo.cant_dcto1)
+                        ) {
+                          setPrecioDescuento(articulo.dcto1 * cant);
+                        } else {
+                          setPrecioDescuento(0);
+                        }
+                        setTotal(articulo.precio * cant);
                       }
                     }}
                     mobile={false}
@@ -266,7 +346,12 @@ const Articulo = ({ articulo, onOk }) => {
                 onClick={() => {
                   if (!enCarrito) {
                     const nuevoArticulo = articulo;
-                    nuevoArticulo.cantidad = cantidad;
+                    nuevoArticulo.cantidad =
+                      embalaje.toUpperCase() == "KG"
+                        ? cantidad * 1000
+                        : cantidad;
+                    nuevoArticulo.descuento =
+                      precioDescuento / nuevoArticulo.cantidad;
                     agregarCarrito([...carrito, nuevoArticulo], nuevoArticulo);
                     onOk();
                   }
