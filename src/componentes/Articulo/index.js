@@ -142,7 +142,7 @@ const Articulo = ({ articulo, onOk }) => {
                 color: "var(--color-primario)",
               }}
             >
-              {articulo.embalaje}
+              {embalaje}
             </Text>
           </Col>
         </Row>
