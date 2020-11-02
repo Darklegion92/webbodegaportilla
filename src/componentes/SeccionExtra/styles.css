@@ -56,7 +56,7 @@
 .seccion-extra .ant-typography {
   color: var(--color-primario) !important;
   font-size: 12px !important;
-  padding: 10px 40px 20px 40px;
+  padding: 10px 10px 20px 10px;
 }
 
 .seccion-extra .item img {

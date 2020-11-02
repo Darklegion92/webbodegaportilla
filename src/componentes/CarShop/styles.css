@@ -295,6 +295,10 @@
   min-height: 530px;
   width: 100%;
 }
+
+.car-shop .steps-content svg{
+  color:var(--color-primario)!important
+}
 .car-shop .ant-steps-item-container {
   border-color: white;
 }
