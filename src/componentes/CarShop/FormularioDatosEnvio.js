@@ -7,7 +7,7 @@ import Alerta from '../Alerta'
 const { Title } = Typography
 const { Option } = Select
 
-const FormularioDatosEnvio = () => {
+const FormularioDatosEnvio = ({ setEditar }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
   const [modal, setModal] = useState({
@@ -19,6 +19,8 @@ const FormularioDatosEnvio = () => {
   )
 
   const onFinsh = async datos => {
+    const ir = await guardarDatosCliente(datos);
+    setEditar(!ir)
     /*  const resp = await guardarDatosCliente(datos)
 
     if (resp === true) {

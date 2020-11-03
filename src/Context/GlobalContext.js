@@ -461,6 +461,7 @@ const GlobalProvider = ({ children }) => {
         user,
         login,
         loginFacebook,
+        datosOrden,
         loginGoogle,
         register,
         logout,

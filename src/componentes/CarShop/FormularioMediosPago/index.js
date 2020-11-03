@@ -3,6 +3,9 @@ import { Row, Col, Typography, Collapse } from 'antd'
 import { IdcardOutlined, BankOutlined } from '@ant-design/icons'
 import DatosPersonales from './DatosPersonales'
 import TarjetaCredito from './TarjetaCredito'
+import TarjetaDebito from './TarjetaDebito'
+import Efecty from './Efecty'
+
 const EfectyIcon = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
@@ -48,17 +51,11 @@ const styleTitle = {
 const styleHead = {
   color: 'var(--color-primario)'
 }
-function FormularioMediosPago ({ editar, setEditar }) {
+
+function FormularioMediosPago ({ datosOrden, setEditar }) {
   return (
-    <Col span={24}>
-      <DatosPersonales
-        setEditar={setEditar}
-        datos={{
-          nombre: 'JUAN FERNANDO VELAZCO',
-          direccion: 'No me la se',
-          telefono: '5555555'
-        }}
-      />
+    <Col span={24} style={{ marginLeft: '60px', marginTop: '40px' }}>
+      <DatosPersonales setEditar={setEditar} datos={datosOrden} />
       <Title style={styleTitle} level={3}>
         METODO DE PAGO
       </Title>
@@ -93,23 +90,23 @@ function FormularioMediosPago ({ editar, setEditar }) {
             </Row>
           }
         >
-          <TarjetaCredito />
+          <TarjetaDebito />
         </Panel>
         <Panel
           header={
             <Row gutter={18}>
               <Col style={{ color: 'var(--color-primario)' }}>
-                <EfectyIcon />
+                <EfectyIcon style={{ color: 'var(--color-secundario)' }} />
               </Col>
               <Col>
                 <Title level={4} style={styleHead}>
-                  Efectivo
+                  Efecty
                 </Title>
               </Col>
             </Row>
           }
         >
-          <TarjetaCredito />
+          <Efecty />
         </Panel>
       </Collapse>
     </Col>

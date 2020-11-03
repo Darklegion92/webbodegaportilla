@@ -8,6 +8,7 @@ const CarShop = () => {
   const [current, setCurrent] = useState(0);
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

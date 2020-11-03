@@ -8,8 +8,10 @@ import { GlobalContext } from '../../Context/GlobalContext'
 const { Step } = Steps
 
 const StepPagos = ({ current }) => {
-  const { carrito } = useContext(GlobalContext)
-  const [editar, setEditar] = useState(false)
+  const { carrito, datosOrden } = useContext(GlobalContext)
+
+  const [editar, setEditar] = useState(true)
+
   const steps = [
     {
       title: 'CARRITO DE COMPRAS',
@@ -23,9 +25,12 @@ const StepPagos = ({ current }) => {
     {
       title: 'DATOS DE ENVIO Y PAGO',
       content: editar ? (
-        <FormularioDatosEnvio editar={editar} setEditar={setEditar} />
+        <FormularioDatosEnvio setEditar={setEditar} />
       ) : (
-        <FormularioMediosPago editar={editar} setEditar={setEditar} />
+        <FormularioMediosPago
+          datosOrden={datosOrden}
+          setEditar={setEditar}
+        />
       ),
       icon: (
         <SolutionOutlined

@@ -14,6 +14,7 @@ const stylesButton = {
 }
 
 function DatosPersonales ({ datos, setEditar }) {
+  console.log(datos)
   const onClick = () => {
     setEditar(true)
   }
@@ -27,17 +28,17 @@ function DatosPersonales ({ datos, setEditar }) {
         </Title>
         <Row>
           <Text style={stylesText} strong>
-            {datos.nombre}
+            {datos && datos.nombres + ' ' + datos.apellidos}
           </Text>
         </Row>
         <Row>
           <Text style={stylesText} strong>
-            {datos.direccion}
+            {datos && datos.direccion}
           </Text>
         </Row>
         <Row>
           <Text style={stylesText} strong>
-            {datos.telefono}
+            {datos && datos.celular}
           </Text>
         </Row>
       </Col>

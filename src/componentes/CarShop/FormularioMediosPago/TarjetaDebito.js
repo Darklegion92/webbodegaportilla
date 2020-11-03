@@ -25,18 +25,53 @@ const styleBoton = {
   fontWeight: 'bold'
 }
 
-function TargetaCredito () {
+function TargetaDebito () {
   return (
     <Form layout='vertical'>
-      <Paragraph>
-        Aceptamos tarjetas nacionales de crédito y debito de todos los bancos
-        siempre y cuandocuente con CV2. Recuerda ingresar el número de documento
-        del titular de la tarjeta.
-      </Paragraph>
       <Row gutter={16}>
         <Col span={12}>
           <Form.Item
-            label='Nombre del titular'
+            label='Banco'
+            name='banco'
+            rules={[
+              {
+                required: true,
+                message: 'Debe seleccionar un banco'
+              }
+            ]}
+          >
+            <Select style={styleCampos}></Select>
+          </Form.Item>
+          <Form.Item
+            label='Tipo de Persona'
+            name='tipo-per'
+            rules={[
+              {
+                required: true,
+                message: 'Debe seleccionar un tipo de persona'
+              }
+            ]}
+          >
+            <Select dropdownStyle={styleCampos} style={styleCampos}>
+              <Option style={styleCampos}></Option>
+            </Select>
+          </Form.Item>
+          <Form.Item
+            label='Número de documento'
+            name='documento'
+            rules={[
+              {
+                required: true,
+                message: 'Campo número de documento no puede estar vacío'
+              }
+            ]}
+          >
+            <Input style={styleCampos} />
+          </Form.Item>
+        </Col>
+        <Col span={12}>
+          <Form.Item
+            label='Nombre del Titular'
             name='nombre'
             rules={[
               {
@@ -47,28 +82,13 @@ function TargetaCredito () {
           >
             <Input style={styleCampos} />
           </Form.Item>
-
-          <Form.Item
-            label='Año y Mes de Expiración'
-            name='fecha'
-              rules={[
-              {
-                type: 'object',
-                required: true,
-                message: 'Debe Seleccionar Fecha Válida'
-              }
-            ]}
-          >
-            <DatePicker locale={locale} style={styleCampos} picker='month' />
-          </Form.Item>
-
           <Form.Item
             label='Tipo de documento'
             name='tipo-doc'
             rules={[
               {
                 required: true,
-                message: 'Campo Nombre del titular No Puede Estar Vacío'
+                message: 'Debe seleccionar un tipo de documento'
               }
             ]}
           >
@@ -76,39 +96,13 @@ function TargetaCredito () {
               <Option style={styleCampos}></Option>
             </Select>
           </Form.Item>
-        </Col>
-        <Col span={12}>
           <Form.Item
-            label='Número de tarjeta'
+            label='Teléfono'
             name='tarjeta'
             rules={[
               {
                 required: true,
-                message: 'Campo Nombre del titular No Puede Estar Vacío'
-              }
-            ]}
-          >
-            <Input style={styleCampos} />
-          </Form.Item>
-          <Form.Item
-            label='CVV'
-            name='cvv'
-            rules={[
-              {
-                required: true,
-                message: 'Campo Nombre del titular No Puede Estar Vacío'
-              }
-            ]}
-          >
-            <Input style={styleCampos} placeholder='Ingresa 3 dígitos' />
-          </Form.Item>
-          <Form.Item
-            label='Número de documento asociado a la tarjeta'
-            name='documento'
-            rules={[
-              {
-                required: true,
-                message: 'Campo Nombre del titular No Puede Estar Vacío'
+                message: 'Campo Teléfono No Puede Estar Vacío'
               }
             ]}
           >
@@ -125,4 +119,4 @@ function TargetaCredito () {
   )
 }
 
-export default TargetaCredito
+export default TargetaDebito
