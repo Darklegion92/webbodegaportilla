@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Col, Row, Typography } from "antd";
 import NumericInput from "react-numeric-input";
 import { useMediaQuery } from "react-responsive";
-import { BsTrash } from "react-icons/bs";
+import { BsImageAlt, BsTrash } from "react-icons/bs";
 import { BANCO } from "../../config";
 
 import { GlobalContext } from "../../Context/GlobalContext";
@@ -86,7 +86,7 @@ const Item = ({ articulo }) => {
   return isTabletOrMobile || isTabletOrMobileDevice ? (
     <Row className="item" gutter={10}>
       <Col span={8}>
-        <img src={img} width="100%" onError={onError} />
+        <img src={img} width="100%" onError={onError} alt={img}/>
       </Col>
       <Col span={14}>
         <Row>
@@ -94,7 +94,7 @@ const Item = ({ articulo }) => {
         </Row>
         <Row>
           <Title level={3} style={{ color: "var(--color-naranja)" }}>
-            $ {total}
+            $ {Math.round( total)}
           </Title>
         </Row>
         <Row align="middle" justify="center">

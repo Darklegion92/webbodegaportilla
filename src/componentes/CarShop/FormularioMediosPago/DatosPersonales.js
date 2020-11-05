@@ -22,7 +22,6 @@ function DatosPersonales ({ datos, setEditar }) {
   return (
     <Row justify='center'>
       <Col span={12}>
-        <Row></Row>
         <Title style={stylesText} level={3}>
           DATOS ENVIO
         </Title>

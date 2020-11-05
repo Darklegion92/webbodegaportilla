@@ -4,6 +4,7 @@ import { IdcardOutlined, BankOutlined } from '@ant-design/icons'
 import DatosPersonales from './DatosPersonales'
 import TarjetaCredito from './TarjetaCredito'
 import TarjetaDebito from './TarjetaDebito'
+import { useMediaQuery } from 'react-responsive'
 import Efecty from './Efecty'
 
 const EfectyIcon = () => (
@@ -53,8 +54,16 @@ const styleHead = {
 }
 
 function FormularioMediosPago ({ datosOrden, setEditar }) {
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
   return (
-    <Col span={24} style={{ marginLeft: '60px', marginTop: '40px' }}>
+    <Col
+      span={24}
+      style={{
+        marginLeft: isTabletOrMobile || isTabletOrMobileDevice ? '0px' : '60px',
+        marginTop: '40px'
+      }}
+    >
       <DatosPersonales setEditar={setEditar} datos={datosOrden} />
       <Title style={styleTitle} level={3}>
         METODO DE PAGO
