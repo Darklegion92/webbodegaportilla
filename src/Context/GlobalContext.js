@@ -28,31 +28,31 @@ const GlobalProvider = ({ children }) => {
     {
       img1: 'img/frutossecos.jpeg',
       titulo1: 'FRUTOS SECOS',
-      link1: '',
-      link2: '',
+      link1: '1',
+      link2: '0',
       img2: 'img/panaderiaypostreria.jpeg',
       titulo2: 'PANADERIA Y POSTRERIA'
     },
     {
       img1: 'img/deshidratados.png',
-      link1: '',
-      link2: '',
+      link1: '1',
+      link2: '24',
       titulo1: 'FRUTOS DESHIDRATADOS',
       img2: 'img/superalimentos.jpeg',
       titulo2: 'SUPER ALIMENTOS'
     },
     {
       img1: 'img/semillas.jpeg',
-      link1: '',
-      link2: '',
+      link1: '3',
+      link2: '6',
       titulo1: 'SEMILLAS',
       img2: 'img/utencilios.jpeg',
       titulo2: 'UTENSILIOS'
     },
     {
       img1: 'img/salsas.png',
-      link1: '',
-      link2: '',
+      link1: '4',
+      link2: '25',
       titulo1: 'ACEITES',
       img2: 'img/topping.png',
       titulo2: 'TOPPINGS Y SPRINGLESS'
