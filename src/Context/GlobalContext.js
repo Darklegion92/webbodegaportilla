@@ -10,20 +10,6 @@ const GlobalProvider = ({ children }) => {
   /**parametros estaticos */
   const [loading, setLoading] = useState(false)
 
-  const seccionDomicilio = {
-    texto: 'POR COMPRAS MAYORES A $ 50.000 EL DOMICILIO ES GRATIS'
-  }
-
-  const seccionEmpresa = {
-    titulo: 'EL CAMINO DE BODEGA PORTILLA',
-    texto: {
-      p1:
-        ' Somos una empresa dedicada al bienestar en general de nuestros clientes , brindándole nuestro mejor servicio y conocimientos en panadería y repostería , además de ofrecerle nuestro lema principal " Bienestar y \n salud " esto es lo que la humanidad busca y prefiere hoy en día .!',
-      p2:
-        'Las condiciones , bondades y beneficios que tiene de productos secos , semillas , súper alimentos y sus derivados harán que en muy poco tiempo sea la revolución alimenticia del mundo ya que dichos productos no tienen ni un solo químico , son productos 100% naturales!'
-    }
-  }
-
   const seccionProductos = [
     {
       img1: 'img/frutossecos.jpeg',
@@ -31,7 +17,7 @@ const GlobalProvider = ({ children }) => {
       link1: '1',
       link2: '0',
       img2: 'img/panaderiaypostreria.jpeg',
-      titulo2: 'PANADERIA Y POSTRERIA'
+      titulo2: 'PANADERÍA Y POSTRERÍA'
     },
     {
       img1: 'img/deshidratados.png',
@@ -39,7 +25,7 @@ const GlobalProvider = ({ children }) => {
       link2: '24',
       titulo1: 'FRUTOS DESHIDRATADOS',
       img2: 'img/superalimentos.jpeg',
-      titulo2: 'SUPER ALIMENTOS'
+      titulo2: 'SÚPER ALIMENTOS'
     },
     {
       img1: 'img/semillas.jpeg',
@@ -81,6 +67,7 @@ const GlobalProvider = ({ children }) => {
   const [orden, setOrden] = useState()
   const [nombreBusqueda, setNombreBusqueda] = useState('')
   const [datosOrden, setDatosOrden] = useState()
+  const [datosPago, setDatosPago] = useState()
   /** se cargan todos los datos iniciales para cargar la pagina */
 
   const cargarDatosLocales = async () => {
@@ -104,6 +91,7 @@ const GlobalProvider = ({ children }) => {
       console.log(e)
     }
   }
+
   const cargarDatos = async () => {
     setModalCarga(true)
     cargarDatosLocales()
@@ -428,30 +416,39 @@ const GlobalProvider = ({ children }) => {
   const guardarDatosCliente = d => {
     try {
       setDatosOrden(d)
+      setUser(d)
       return true
     } catch (e) {
-      console.log(e)
       return false
     }
   }
 
   const enviarOrden = async () => {
     try {
-      const resp = await axios.put(API.URL + 'carrito/guardar', {
-        user,
-        datosOrden,
-        carrito
-      })
+      console.log(datosOrden)
+      if (datosOrden.nombres && datosOrden.documento) {
+        try {
+          const resp = await axios.put(API.URL + 'carrito/guardar', {
+            user,
+            datosOrden,
+            carrito
+          })
 
-      if (resp.status === 200) {
-        localStorage.removeItem('carrito')
-        setCarrito([])
-        return true
-      } else {
-        return false
-      }
+          if (resp.status === 200) {
+            localStorage.removeItem('carrito')
+            setCarrito([])
+            setUser({})
+            return true
+          } else {
+            return false
+          }
+        } catch (e) {
+          return e
+        }
+      } else return false
     } catch (e) {
-      return e
+      console.log(e)
+      return false
     }
   }
 
@@ -473,9 +470,7 @@ const GlobalProvider = ({ children }) => {
         guardarDatosCliente,
         carrusel,
         cargarDatos,
-        seccionDomicilio,
         enviarOrden,
-        seccionEmpresa,
         seccionProductos,
         SeccionRecomendaciones,
         grupos,

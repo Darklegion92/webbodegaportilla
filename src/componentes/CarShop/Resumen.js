@@ -127,7 +127,7 @@ const Resumen = ({ next, current }) => {
       setModal({
         visible: true,
         tipo: 'WARNIN',
-        mensaje: 'No se ha podido grabar su pedido',
+        mensaje: 'No se ha podido grabar su pedido, debe llenar los datos',
         titulo: 'Error Al Validar Pedido',
         link: ''
       })
@@ -168,7 +168,7 @@ const Resumen = ({ next, current }) => {
         <Divider />
         <Row>
           <Col span={10}>
-            <Text>ENVIO</Text>
+            <Text>ENVÍO</Text>
           </Col>
           <Col span={14}>
             <Text>$ {0}</Text>
@@ -190,13 +190,13 @@ const Resumen = ({ next, current }) => {
                 alignItems: 'left'
               }}
             >
-              <Panel header='CALCULAR ENVIO' key='1' style={{ margin: '0' }}>
+              <Panel header='CALCULAR ENVÍO' key='1' style={{ margin: '0' }}>
                 <Col span={24}>
                   <Text>Se Acordará Con El Cliente</Text>
                 </Col>
               </Panel>
               <Divider style={{ borderColor: 'var(--color-primario)' }} />
-              <Panel header='APLICAR CUPON' key='2'>
+              <Panel header='APLICAR CUPÓN' key='2'>
                 <Col span={24}>
                   <Input placeholder='Cupón' onChange={onChange} />
                   <Col span={9}>

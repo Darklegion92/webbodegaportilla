@@ -56,6 +56,10 @@ const styleHead = {
 function FormularioMediosPago ({ datosOrden, setEditar }) {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
+
+  const onClick = e => {
+    console.log(e)
+  }
   return (
     <Col
       span={24}
@@ -83,7 +87,7 @@ function FormularioMediosPago ({ datosOrden, setEditar }) {
             </Row>
           }
         >
-          <TarjetaCredito />
+          <TarjetaCredito onClick={onClick} />
         </Panel>
         <Panel
           header={
@@ -99,7 +103,7 @@ function FormularioMediosPago ({ datosOrden, setEditar }) {
             </Row>
           }
         >
-          <TarjetaDebito />
+          <TarjetaDebito onClick={onClick} />
         </Panel>
         <Panel
           header={
@@ -115,7 +119,7 @@ function FormularioMediosPago ({ datosOrden, setEditar }) {
             </Row>
           }
         >
-          <Efecty />
+          <Efecty onClick={onClick} />
         </Panel>
       </Collapse>
     </Col>

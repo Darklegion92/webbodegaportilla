@@ -20,7 +20,7 @@ function DatosPersonales ({ datos, setEditar }) {
   }
 
   return (
-    <Row justify='center'>
+    <Row justify='center' style={{ marginBottom: '20px' }}>
       <Col span={12}>
         <Title style={stylesText} level={3}>
           DATOS ENVIO

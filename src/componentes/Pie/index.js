@@ -1,108 +1,108 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./styles.css";
-import { Row, Col, Divider, Typography } from "antd";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './styles.css'
+import { Row, Col, Divider, Typography } from 'antd'
 import {
   WhatsAppOutlined,
   FacebookOutlined,
-  InstagramOutlined,
-} from "@ant-design/icons";
-import { useMediaQuery } from "react-responsive";
+  InstagramOutlined
+} from '@ant-design/icons'
+import { useMediaQuery } from 'react-responsive'
 
-const { Title, Text } = Typography;
-function Pie() {
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
-  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+const { Title, Text } = Typography
+function Pie () {
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
 
   return (
-    <div className="pie">
+    <div className='pie'>
       <Divider
         style={{
-          backgroundColor: "var(--color-primario)",
-          height: "1px",
-          marginBottom: "40px",
+          backgroundColor: 'var(--color-primario)',
+          height: '1px',
+          marginBottom: '40px'
         }}
       />
-      <Row className="medios-pago">
+      <Row className='medios-pago'>
         <img
-          src="img/p-01.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+          src='img/p-01.png'
+          height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src="img/p-02.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+          src='img/p-02.png'
+          height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src="img/p-03.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+          src='img/p-03.png'
+          height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src="img/p-04.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+          src='img/p-04.png'
+          height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src="img/p-05.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+          src='img/p-05.png'
+          height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src="img/p-06.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+          src='img/p-06.png'
+          height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src="img/p-07.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+          src='img/p-07.png'
+          height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src="img/p-08.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+          src='img/p-08.png'
+          height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src="img/p-09.png"
-          height={isTabletOrMobile || isTabletOrMobileDevice ? "20px" : "30px"}
+          src='img/p-09.png'
+          height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
       </Row>
       <Divider
         style={{
-          backgroundColor: "var(--color-primario)",
-          height: "1px",
+          backgroundColor: 'var(--color-primario)',
+          height: '1px'
         }}
       />
-      <Row className="otros" gutter={5} justify="center">
+      <Row className='otros' gutter={5} justify='center'>
         <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 8 : 6}>
           <Row>
             <Title level={3}>SERVICIO AL CLIENTE</Title>
           </Row>
           <Row>
-            <a href="mailto:ventaenlinea@bodegaportilla.com" target="_blank">
+            <a href='mailto:ventaenlinea@bodegaportilla.com' target='_blank'>
               <Text>ventaenlinea@bodegaportilla.com</Text>
             </a>
           </Row>
           <Row>
             <a
-              href="mailto:servicioalcliente@bodegaportilla.com"
-              target="_blank"
+              href='mailto:servicioalcliente@bodegaportilla.com'
+              target='_blank'
             >
               <Text>servicioalcliente@bodegaportilla.com</Text>
             </a>
           </Row>
           <Row>
-            <a href="https://wa.me/573173752073" target="_blank">
+            <a href='https://wa.me/573173752073' target='_blank'>
               <Text
                 style={
                   isTabletOrMobile || isTabletOrMobileDevice
-                    ? { fontSize: "10px" }
-                    : { fontSize: "25px" }
+                    ? { fontSize: '10px' }
+                    : { fontSize: '25px' }
                 }
               >
                 <WhatsAppOutlined
                   style={
                     isTabletOrMobile || isTabletOrMobileDevice
                       ? {
-                          fontSize: "10px",
-                          marginRight: "10px",
-                          marginBottom: "0px",
+                          fontSize: '10px',
+                          marginRight: '10px',
+                          marginBottom: '0px'
                         }
-                      : { fontSize: "40px", marginRight: "10px" }
+                      : { fontSize: '40px', marginRight: '10px' }
                   }
                 />
                 317 3752073
@@ -117,8 +117,8 @@ function Pie() {
           </Row>
           <Row>
             <a
-              href="https://www.google.es/maps/place/Bodega+Portilla/@7.8919667,-72.5047795,20.25z/data=!4m5!3m4!1s0x8e6645c65349ea57:0x67010b7fe6a46cd3!8m2!3d7.8920667!4d-72.5046647"
-              target="_blank"
+              href='https://www.google.es/maps/place/Bodega+Portilla/@7.8919667,-72.5047795,20.25z/data=!4m5!3m4!1s0x8e6645c65349ea57:0x67010b7fe6a46cd3!8m2!3d7.8920667!4d-72.5046647'
+              target='_blank'
             >
               <Text>Calle 5 No. 4-88 Barrio Latino Cúcuta , Colombia.</Text>
             </a>
@@ -127,13 +127,13 @@ function Pie() {
             <Title level={3}>TERMINOS</Title>
           </Row>
           <Row>
-            <Link to="/terminos">
+            <Link to='/terminos'>
               <Text>Términos y Condiciones</Text>
             </Link>
           </Row>
           <Row>
-            <Link to="/politicas">
-              {" "}
+            <Link to='/politicas'>
+              {' '}
               <Text>
                 Política de Privacidad y Tratamiento de Datos Personales
               </Text>
@@ -147,18 +147,18 @@ function Pie() {
           </Row>
           <Row>
             <a
-              href="https://www.facebook.com/Bodega-Portilla-372954223119025/"
-              target="_blank"
+              href='https://www.facebook.com/Bodega-Portilla-372954223119025/'
+              target='_blank'
             >
               <Text>
                 <FacebookOutlined
                   style={
                     isTabletOrMobile || isTabletOrMobileDevice
                       ? {
-                          fontSize: "10px",
-                          marginRight: "10px",
+                          fontSize: '10px',
+                          marginRight: '10px'
                         }
-                      : { fontSize: "40px", marginRight: "10px" }
+                      : { fontSize: '40px', marginRight: '10px' }
                   }
                 />
                 BODEGA PORTILLA
@@ -167,18 +167,18 @@ function Pie() {
           </Row>
           <Row>
             <a
-              href="https://www.instagram.com/bodegaportilla/?hl=es-la"
-              target="_blank"
+              href='https://www.instagram.com/bodegaportilla/?hl=es-la'
+              target='_blank'
             >
               <Text>
                 <InstagramOutlined
                   style={
                     isTabletOrMobile || isTabletOrMobileDevice
                       ? {
-                          fontSize: "10px",
-                          marginRight: "10px",
+                          fontSize: '10px',
+                          marginRight: '10px'
                         }
-                      : { fontSize: "40px", marginRight: "10px" }
+                      : { fontSize: '40px', marginRight: '10px' }
                   }
                 />
                 @BODEGAPORTILLA
@@ -187,7 +187,41 @@ function Pie() {
           </Row>
         </Col>
       </Row>
+      <Row
+        style={{
+          paddingTop: '20px',
+          paddingBottom: 0,
+          margin: 0
+        }}
+        align='bottom'
+      >
+        <Text
+          style={{
+            color: 'var(--color-primario)'
+          }}
+        >
+          Desarrollado por{' '}
+          <a
+            href='http://tecnologiaydesarrollo.com.co'
+            target='_blank'
+            style={{
+              color: 'var(--color-primario)'
+            }}
+          >
+            SOLTEC
+          </a>{' '}
+          - Diseñado por{' '}
+          <a
+            href='##'
+            style={{
+              color: 'var(--color-primario)'
+            }}
+          >
+            GRAFIPATERS
+          </a>
+        </Text>
+      </Row>
     </div>
-  );
+  )
 }
-export default Pie;
+export default Pie

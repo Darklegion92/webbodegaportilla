@@ -19,9 +19,30 @@ const FormularioDatosEnvio = ({ setEditar }) => {
   )
 
   const onFinsh = async datos => {
-    const ir = await guardarDatosCliente(datos);
-    setEditar(!ir)
-    /*  const resp = await guardarDatosCliente(datos)
+    let ir = true
+    if (datos) {
+      ir = await guardarDatosCliente({
+        apellidos:
+          datos.apellidos !== undefined ? datos.apellidos : user.apellidos,
+        celular: datos.celular !== undefined ? datos.celular : user.celular,
+        direccion:
+          datos.direccion !== undefined ? datos.direccion : user.direccion,
+        documento:
+          datos.documento !== undefined ? datos.documento : user.documento,
+        nombres: datos.nombres !== undefined ? datos.nombres : user.nombres,
+        otrocelular:
+          datos.otrocelular !== undefined
+            ? datos.otrocelular
+            : user.otrocelular,
+        tipodocumento:
+          datos.tipodocumento !== undefined
+            ? datos.tipodocumento
+            : user.tipodocumento
+      })
+    }
+    //setEditar(!ir)
+
+    const resp = await guardarDatosCliente(datos)
 
     if (resp === true) {
       setModal({
@@ -48,7 +69,7 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         titulo: 'Error Interno',
         link: ''
       })
-    }*/
+    }
   }
 
   return isTabletOrMobile || isTabletOrMobileDevice ? (
@@ -62,12 +83,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             <Form.Item
               label='Nombres'
               name='nombres'
-              rules={[
-                {
-                  required: true,
-                  message: 'Campo Nombres No Puede Estar Vacío'
-                }
-              ]}
+              rules={
+                user && user.nombres
+                  ? []
+                  : [
+                      {
+                        required: true,
+                        message: 'Campo Nombres No Puede Estar Vacío'
+                      }
+                    ]
+              }
             >
               <Input defaultValue={user && user.nombres} />
             </Form.Item>
@@ -78,12 +103,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             <Form.Item
               label='Apellidos'
               name='apellidos'
-              rules={[
-                {
-                  required: true,
-                  message: 'Campo Apellidos No Puede Estar Vacío'
-                }
-              ]}
+              rules={
+                user && user.apellidos
+                  ? []
+                  : [
+                      {
+                        required: true,
+                        message: 'Campo Apellidos No Puede Estar Vacío'
+                      }
+                    ]
+              }
             >
               <Input defaultValue={user && user.apellidos} />
             </Form.Item>
@@ -94,12 +123,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             <Form.Item
               label='Teléfono Celular'
               name='celular'
-              rules={[
-                {
-                  required: true,
-                  message: 'Campo Celular No Puede Estar Vacío'
-                }
-              ]}
+              rules={
+                user && user.celular
+                  ? []
+                  : [
+                      {
+                        required: true,
+                        message: 'Campo Celular No Puede Estar Vacío'
+                      }
+                    ]
+              }
             >
               <Input defaultValue={user && user.celular} />
             </Form.Item>
@@ -107,7 +140,7 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         </Row>
         <Row>
           <Col span={24}>
-            <Form.Item label='Otro Teléfono (opcional)' name='otro-celular'>
+            <Form.Item label='Otro Teléfono (opcional)' name='otrocelular'>
               <Input defaultValue={user && user.celular2} />
             </Form.Item>
           </Col>
@@ -132,12 +165,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             <Form.Item
               label='Número Documento'
               name='documento'
-              rules={[
-                {
-                  required: true,
-                  message: 'Campo Documento No Puede Estar Vacío'
-                }
-              ]}
+              rules={
+                user && user.documento
+                  ? []
+                  : [
+                      {
+                        required: true,
+                        message: 'Campo Documento No Puede Estar Vacío'
+                      }
+                    ]
+              }
             >
               <Input defaultValue={user && user.documento} />
             </Form.Item>
@@ -148,12 +185,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             <Form.Item
               label='Dirección'
               name='direccion'
-              rules={[
-                {
-                  required: true,
-                  message: 'Campo Dirección No Puede Estar Vacío'
-                }
-              ]}
+              rules={
+                user && user.direccion
+                  ? []
+                  : [
+                      {
+                        required: true,
+                        message: 'Campo Dirección No Puede Estar Vacío'
+                      }
+                    ]
+              }
             >
               <Input defaultValue={user && user.direccion} />
             </Form.Item>
@@ -161,34 +202,11 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         </Row>
         <Row>
           <Col span={24}>
-            {' '}
             <Form.Item>
               <Button htmlType='submit'>GUARDAR DATOS</Button>
             </Form.Item>
-            {/*   <Form.Item label="Barrio" name="barrio">
-              <Select onSelect={(e) => {}}>
-                {barrios.map((barrio) => {
-                  return <Option key={barrio.id}>{barrio.nombre}</Option>;
-                })}
-              </Select>
-              </Form.Item>*/}
           </Col>
         </Row>
-        {/* <Row justify="center">
-          <Col span={12}>
-           
-          </Col>
-        </Row>
-         <Row>
-          <Col span={24}>
-            <Form.Item label="Tipo de Pago" name="nombre">
-              <Radio.Group onChange={onChange} value={value}>
-                <Radio value={1}>Contraentrega</Radio>
-                <Radio value={2}>Otro medio de pago</Radio>
-              </Radio.Group>
-            </Form.Item>
-          </Col>
-      </Row>*/}
       </Form>
       <Alerta modal={modal} setModal={setModal} />
     </Col>
@@ -203,12 +221,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             <Form.Item
               label='Nombres'
               name='nombres'
-              rules={[
-                {
-                  required: true,
-                  message: 'Campo Nombres No Puede Estar Vacío'
-                }
-              ]}
+              rules={
+                user && user.nombres
+                  ? []
+                  : [
+                      {
+                        required: true,
+                        message: 'Campo Nombres No Puede Estar Vacío'
+                      }
+                    ]
+              }
             >
               <Input defaultValue={user && user.nombres} />
             </Form.Item>
@@ -217,12 +239,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             <Form.Item
               label='Apellidos'
               name='apellidos'
-              rules={[
-                {
-                  required: true,
-                  message: 'Campo Apellidos No Puede Estar Vacío'
-                }
-              ]}
+              rules={
+                user && user.apellidos
+                  ? []
+                  : [
+                      {
+                        required: true,
+                        message: 'Campo Apellidos No Puede Estar Vacío'
+                      }
+                    ]
+              }
             >
               <Input defaultValue={user && user.apellidos} />
             </Form.Item>
@@ -233,18 +259,22 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             <Form.Item
               label='Teléfono Celular'
               name='celular'
-              rules={[
-                {
-                  required: true,
-                  message: 'Campo Celular No Puede Estar Vacío'
-                }
-              ]}
+              rules={
+                user && user.celular
+                  ? []
+                  : [
+                      {
+                        required: true,
+                        message: 'Campo Celular No Puede Estar Vacío'
+                      }
+                    ]
+              }
             >
               <Input defaultValue={user && user.celular} />
             </Form.Item>
           </Col>
           <Col span={10}>
-            <Form.Item label='Otro Teléfono (opcional)' name='otro-celular'>
+            <Form.Item label='Otro Teléfono (opcional)' name='otrocelular'>
               <Input defaultValue={user && user.celular2} />
             </Form.Item>
           </Col>
@@ -271,12 +301,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             <Form.Item
               label='Número Documento'
               name='documento'
-              rules={[
-                {
-                  required: true,
-                  message: 'Campo Documento No Puede Estar Vacío'
-                }
-              ]}
+              rules={
+                user && user.documento
+                  ? []
+                  : [
+                      {
+                        required: true,
+                        message: 'Campo Documento No Puede Estar Vacío'
+                      }
+                    ]
+              }
             >
               <Input defaultValue={user && user.documento} />
             </Form.Item>
@@ -287,28 +321,21 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             <Form.Item
               label='Dirección'
               name='direccion'
-              rules={[
-                {
-                  required: true,
-                  message: 'Campo Dirección No Puede Estar Vacío'
-                }
-              ]}
+              rules={
+                user && user.direccion
+                  ? []
+                  : [
+                      {
+                        required: true,
+                        message: 'Campo Dirección No Puede Estar Vacío'
+                      }
+                    ]
+              }
             >
               <Input defaultValue={user && user.direccion} />
             </Form.Item>
           </Col>
           <Col span={10} justify='center'>
-            {/*}  <Form.Item
-              label='Barrio'
-              name='barrio'
-              rules={[{ required: true, message: 'Debe elegir uno' }]}
-            >
-              <Select onSelect={e => {}}>
-                {barrios.map((barrio, i) => {
-                  return <Option key={i}>{barrio.nombre}</Option>
-                })}
-              </Select>
-              </Form.Item>*/}
             <Row align='middle' justify='center' style={{ height: '100%' }}>
               <Form.Item>
                 <Button htmlType='submit'>GUARDAR DATOS</Button>
@@ -316,30 +343,6 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             </Row>
           </Col>
         </Row>
-        {/*<Row justify='center'>
-          <Col span={12}>
-            
-          </Col>
-        </Row>
-
-         <Row justify="left" style={{ visibility: "hidden" }}>
-          <Col span={24} justify="left">
-            <Form.Item
-              label={
-                <Title level={2} style={{ color: "var(--color-primario)" }}>
-                  FORMA DE PAGO
-                </Title>
-              }
-              name="nombre"
-              style={{ marginLeft: "100px" }}
-            >
-              <Radio.Group onChange={onChange} value={value}>
-                <Radio value={1}>Contraentrega</Radio>
-                <Radio value={2}>Otro medio de pago</Radio>
-              </Radio.Group>
-            </Form.Item>
-          </Col>
-            </Row>*/}
       </Form>
       <Alerta modal={modal} setModal={setModal} />
     </Col>
