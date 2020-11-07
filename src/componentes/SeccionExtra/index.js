@@ -100,9 +100,12 @@ function SeccionExtra ({ items, articulos, texto, tipo }) {
           <LeftOutlined onClick={next} className='icons-left' />
         )}
         <div className='multi-carrousel'>
-          <Slider ref={c => (slider = c)} {...settings}>
+          <Slider
+            ref={c => (slider = c)}
+            {...settings}
+          >
             {articulos.map((articulo, i) => {
-              if (i < 10) {
+             // if (i < 10) {
                 if (tipo === articulo.categoria)
                   return (
                     <Item
@@ -112,7 +115,7 @@ function SeccionExtra ({ items, articulos, texto, tipo }) {
                       agregarArticulo={agregarArticulo}
                     />
                   )
-              }
+            //  }
             })}
           </Slider>
         </div>
