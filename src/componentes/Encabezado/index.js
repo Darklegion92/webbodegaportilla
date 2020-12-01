@@ -3,7 +3,6 @@ import { Row, Col, Menu, Typography, Drawer, Button } from "antd";
 import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
 import { CgLogOut, CgLogIn } from "react-icons/cg";
-import { ImTruck } from "react-icons/im";
 import { useMediaQuery } from "react-responsive";
 
 import { GlobalContext } from "../../Context/GlobalContext";
@@ -105,18 +104,6 @@ function Encabezado() {
             key="left"
           >
             <Menu onClick={onClick}>
-              {user != null && (
-                <Menu.Item>
-                  <Link to="">
-                    <ImTruck
-                      size={20}
-                      color="var(--color-primario)"
-                      style={{ marginRight: "10px" }}
-                    />
-                    <Text>PEDIDOS</Text>
-                  </Link>
-                </Menu.Item>
-              )}
               <Menu.Item>
                 <Link to="/">
                   <Text>INICIO</Text>
@@ -134,12 +121,12 @@ function Encabezado() {
               </Menu.Item>
               <Menu.Item>
                 <a href="#nuevo">
-                  <Text>NUEVO</Text>
+                  <Text>LO NUEVO</Text>
                 </a>
               </Menu.Item>
               <Menu.Item>
                 <a href="#recomendaciones">
-                  <Text>RECOMENDACIONES</Text>
+                  <Text>RECETAS</Text>
                 </a>
               </Menu.Item>
               <Menu.Item>
@@ -270,12 +257,12 @@ function Encabezado() {
             </Menu.Item>
             <Menu.Item key="nuevo">
               <Title level={3} className="items" code={true}>
-                <a href="#nuevo">NUEVO</a>
+                <a href="#nuevo">LO NUEVO</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="reco">
               <Title level={3} className="items" code={true}>
-                <a href="#recomendaciones"> RECOMENDACIONES</a>
+                <a href="#recomendaciones">RECETAS</a>
               </Title>
             </Menu.Item>
             <Menu.Item key="contacto">
@@ -293,23 +280,6 @@ function Encabezado() {
             style={{ alignItems: "flex-end" }}
           >
             <SubMenu icon={<Person className="icons" />}>
-              {user != null && (
-                <Menu.Item
-                  className="item-menu"
-                  key="1"
-                  icon={
-                    <ImTruck
-                      size={30}
-                      style={{
-                        marginRight: "10px",
-                        color: "var(--color-primario)",
-                      }}
-                    />
-                  }
-                >
-                  <Text>Pedidos</Text>
-                </Menu.Item>
-              )}
               {user != null && (
                 <Menu.Item
                   key="2"

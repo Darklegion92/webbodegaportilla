@@ -17,7 +17,7 @@ const GlobalProvider = ({ children }) => {
       link1: '1',
       link2: '0',
       img2: 'img/panaderiaypostreria.jpeg',
-      titulo2: 'PANADERÍA Y POSTRERÍA'
+      titulo2: 'PANADERÍA Y REPOSTERÍA'
     },
     {
       img1: 'img/deshidratados.png',
@@ -33,15 +33,15 @@ const GlobalProvider = ({ children }) => {
       link2: '6',
       titulo1: 'SEMILLAS',
       img2: 'img/utencilios.jpeg',
-      titulo2: 'UTENSILIOS'
+      titulo2: 'UTENSILIOS Y ACCESORIOS'
     },
     {
       img1: 'img/salsas.png',
       link1: '4',
       link2: '25',
-      titulo1: 'ACEITES',
+      titulo1: 'ACEITES 100% NATURALES Y VINAGRES',
       img2: 'img/topping.png',
-      titulo2: 'TOPPINGS Y SPRINGLESS'
+      titulo2: 'TOPPINGS Y DULCES'
     }
   ]
 

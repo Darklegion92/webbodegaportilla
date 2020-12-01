@@ -56,11 +56,10 @@
 }
 
 .articulo-tag .fila3 .ant-typography {
-  color: gainsboro;
+  color: red;
   width: 100%;
   font-size: 30px;
   line-height: 0px;
-  text-decoration: line-through;
 }
 
 .articulo-tag .fila4 .ant-typography {
