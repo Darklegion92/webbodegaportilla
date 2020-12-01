@@ -1,26 +1,30 @@
-import React, { useState, useContext } from 'react'
-import { Row, Col, Input, Select, Form, Typography, Button } from 'antd'
-import { useMediaQuery } from 'react-responsive'
-import { GlobalContext } from '../../Context/GlobalContext'
-import Alerta from '../Alerta'
+import React, { useState, useContext } from "react";
+import { Row, Col, Input, Select, Form, Typography, Button } from "antd";
+import { useMediaQuery } from "react-responsive";
+import { GlobalContext } from "../../Context/GlobalContext";
+import Alerta from "../Alerta";
 
-const { Title } = Typography
-const { Option } = Select
+const { Title } = Typography;
+const { Option } = Select;
 
 const FormularioDatosEnvio = ({ setEditar }) => {
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
-  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const [modal, setModal] = useState({
-    visible: false
-  })
+    visible: false,
+  });
 
-  const { tiposDocumento, user, guardarDatosCliente } = useContext(
-    GlobalContext
-  )
+  const {
+    tiposDocumento,
+    user,
+    guardarDatosCliente,
+    consultarBancosPSE,
+  } = useContext(GlobalContext);
 
-  const onFinsh = async datos => {
-    let ir = true
+  const onFinsh = async (datos) => {
+    let ir = true;
     if (datos) {
+      consultarBancosPSE();
       ir = await guardarDatosCliente({
         apellidos:
           datos.apellidos !== undefined ? datos.apellidos : user.apellidos,
@@ -33,64 +37,64 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         otrocelular:
           datos.otrocelular !== undefined
             ? datos.otrocelular
-            : user.otrocelular,
+            : user && user.otrocelular,
         tipodocumento:
           datos.tipodocumento !== undefined
             ? datos.tipodocumento
-            : user.tipodocumento
-      })
+            : user.tipodocumento,
+      });
+      setEditar(!ir);
     }
-    //setEditar(!ir)
 
-    const resp = await guardarDatosCliente(datos)
+    const resp = await guardarDatosCliente(datos);
 
     if (resp === true) {
       setModal({
         visible: true,
-        tipo: 'SUCCESS',
+        tipo: "SUCCESS",
         mensaje:
-          'Datos Alamacenados Correctamente, Para Terminar Dale En Finalizar Compra',
-        titulo: 'Guardado Correcto',
-        link: ''
-      })
+          "Datos Alamacenados Correctamente, Para Terminar Dale En Finalizar Compra",
+        titulo: "Guardado Correcto",
+        link: "",
+      });
     } else if (resp === false) {
       setModal({
         visible: true,
-        tipo: 'WARNIN',
-        mensaje: 'No Se Ha Podido Guardar, Intentelo Nuevamente',
-        titulo: 'Error al guardar',
-        link: ''
-      })
+        tipo: "WARNIN",
+        mensaje: "No Se Ha Podido Guardar, Intentelo Nuevamente",
+        titulo: "Error al guardar",
+        link: "",
+      });
     } else {
       setModal({
         visible: true,
-        tipo: 'ERROR',
-        mensaje: 'Error al conectar con el servidor, intentalo mas tarde',
-        titulo: 'Error Interno',
-        link: ''
-      })
+        tipo: "ERROR",
+        mensaje: "Error al conectar con el servidor, intentalo mas tarde",
+        titulo: "Error Interno",
+        link: "",
+      });
     }
-  }
+  };
 
   return isTabletOrMobile || isTabletOrMobileDevice ? (
-    <Col span={24} className='formulario-datosenvio'>
+    <Col span={24} className="formulario-datosenvio">
       <Row>
         <Title level={3}>DATOS ENVIO</Title>
       </Row>
-      <Form layout='vertical' size='small' onFinish={onFinsh}>
+      <Form layout="vertical" size="small" onFinish={onFinsh}>
         <Row>
           <Col span={24}>
             <Form.Item
-              label='Nombres'
-              name='nombres'
+              label="Nombres"
+              name="nombres"
               rules={
                 user && user.nombres
                   ? []
                   : [
                       {
                         required: true,
-                        message: 'Campo Nombres No Puede Estar Vacío'
-                      }
+                        message: "Campo Nombres No Puede Estar Vacío",
+                      },
                     ]
               }
             >
@@ -101,16 +105,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         <Row>
           <Col span={24}>
             <Form.Item
-              label='Apellidos'
-              name='apellidos'
+              label="Apellidos"
+              name="apellidos"
               rules={
                 user && user.apellidos
                   ? []
                   : [
                       {
                         required: true,
-                        message: 'Campo Apellidos No Puede Estar Vacío'
-                      }
+                        message: "Campo Apellidos No Puede Estar Vacío",
+                      },
                     ]
               }
             >
@@ -121,16 +125,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         <Row>
           <Col span={24}>
             <Form.Item
-              label='Teléfono Celular'
-              name='celular'
+              label="Teléfono Celular"
+              name="celular"
               rules={
                 user && user.celular
                   ? []
                   : [
                       {
                         required: true,
-                        message: 'Campo Celular No Puede Estar Vacío'
-                      }
+                        message: "Campo Celular No Puede Estar Vacío",
+                      },
                     ]
               }
             >
@@ -140,21 +144,21 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         </Row>
         <Row>
           <Col span={24}>
-            <Form.Item label='Otro Teléfono (opcional)' name='otrocelular'>
+            <Form.Item label="Otro Teléfono (opcional)" name="otrocelular">
               <Input defaultValue={user && user.celular2} />
             </Form.Item>
           </Col>
         </Row>
         <Row>
           <Col span={24}>
-            <Form.Item label='Tipo De Documento' name='tipo-documento'>
+            <Form.Item label="Tipo De Documento" name="tipo-documento">
               <Select>
-                {tiposDocumento.map(tipoDocumento => {
+                {tiposDocumento.map((tipoDocumento) => {
                   return (
                     <Option key={tipoDocumento.id}>
                       {tipoDocumento.nombre}
                     </Option>
-                  )
+                  );
                 })}
               </Select>
             </Form.Item>
@@ -163,16 +167,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         <Row>
           <Col span={24}>
             <Form.Item
-              label='Número Documento'
-              name='documento'
+              label="Número Documento"
+              name="documento"
               rules={
                 user && user.documento
                   ? []
                   : [
                       {
                         required: true,
-                        message: 'Campo Documento No Puede Estar Vacío'
-                      }
+                        message: "Campo Documento No Puede Estar Vacío",
+                      },
                     ]
               }
             >
@@ -183,16 +187,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         <Row>
           <Col span={24}>
             <Form.Item
-              label='Dirección'
-              name='direccion'
+              label="Dirección"
+              name="direccion"
               rules={
                 user && user.direccion
                   ? []
                   : [
                       {
                         required: true,
-                        message: 'Campo Dirección No Puede Estar Vacío'
-                      }
+                        message: "Campo Dirección No Puede Estar Vacío",
+                      },
                     ]
               }
             >
@@ -203,7 +207,7 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         <Row>
           <Col span={24}>
             <Form.Item>
-              <Button htmlType='submit'>GUARDAR DATOS</Button>
+              <Button htmlType="submit">GUARDAR DATOS</Button>
             </Form.Item>
           </Col>
         </Row>
@@ -211,24 +215,24 @@ const FormularioDatosEnvio = ({ setEditar }) => {
       <Alerta modal={modal} setModal={setModal} />
     </Col>
   ) : (
-    <Col span={24} className='formulario-datosenvio'>
+    <Col span={24} className="formulario-datosenvio">
       <Row>
         <Title level={3}>DATOS ENVIO</Title>
       </Row>
-      <Form layout='vertical' onFinish={onFinsh}>
-        <Row gutter={30} justify='center'>
+      <Form layout="vertical" onFinish={onFinsh}>
+        <Row gutter={30} justify="center">
           <Col span={10}>
             <Form.Item
-              label='Nombres'
-              name='nombres'
+              label="Nombres"
+              name="nombres"
               rules={
                 user && user.nombres
                   ? []
                   : [
                       {
                         required: true,
-                        message: 'Campo Nombres No Puede Estar Vacío'
-                      }
+                        message: "Campo Nombres No Puede Estar Vacío",
+                      },
                     ]
               }
             >
@@ -237,16 +241,16 @@ const FormularioDatosEnvio = ({ setEditar }) => {
           </Col>
           <Col span={10}>
             <Form.Item
-              label='Apellidos'
-              name='apellidos'
+              label="Apellidos"
+              name="apellidos"
               rules={
                 user && user.apellidos
                   ? []
                   : [
                       {
                         required: true,
-                        message: 'Campo Apellidos No Puede Estar Vacío'
-                      }
+                        message: "Campo Apellidos No Puede Estar Vacío",
+                      },
                     ]
               }
             >
@@ -254,19 +258,19 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             </Form.Item>
           </Col>
         </Row>
-        <Row gutter={30} justify='center'>
+        <Row gutter={30} justify="center">
           <Col span={10}>
             <Form.Item
-              label='Teléfono Celular'
-              name='celular'
+              label="Teléfono Celular"
+              name="celular"
               rules={
                 user && user.celular
                   ? []
                   : [
                       {
                         required: true,
-                        message: 'Campo Celular No Puede Estar Vacío'
-                      }
+                        message: "Campo Celular No Puede Estar Vacío",
+                      },
                     ]
               }
             >
@@ -274,41 +278,41 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             </Form.Item>
           </Col>
           <Col span={10}>
-            <Form.Item label='Otro Teléfono (opcional)' name='otrocelular'>
+            <Form.Item label="Otro Teléfono (opcional)" name="otrocelular">
               <Input defaultValue={user && user.celular2} />
             </Form.Item>
           </Col>
         </Row>
-        <Row gutter={30} justify='center'>
+        <Row gutter={30} justify="center">
           <Col span={10}>
             <Form.Item
-              label='Tipo De Documento'
-              name='tipodocumento'
-              rules={[{ required: true, message: 'Debe elegir uno' }]}
+              label="Tipo De Documento"
+              name="tipodocumento"
+              rules={[{ required: true, message: "Debe elegir uno" }]}
             >
               <Select>
-                {tiposDocumento.map(tipoDocumento => {
+                {tiposDocumento.map((tipoDocumento) => {
                   return (
                     <Option key={tipoDocumento.id}>
                       {tipoDocumento.nombre}
                     </Option>
-                  )
+                  );
                 })}
               </Select>
             </Form.Item>
           </Col>
           <Col span={10}>
             <Form.Item
-              label='Número Documento'
-              name='documento'
+              label="Número Documento"
+              name="documento"
               rules={
                 user && user.documento
                   ? []
                   : [
                       {
                         required: true,
-                        message: 'Campo Documento No Puede Estar Vacío'
-                      }
+                        message: "Campo Documento No Puede Estar Vacío",
+                      },
                     ]
               }
             >
@@ -316,29 +320,29 @@ const FormularioDatosEnvio = ({ setEditar }) => {
             </Form.Item>
           </Col>
         </Row>
-        <Row gutter={30} justify='center'>
+        <Row gutter={30} justify="center">
           <Col span={10}>
             <Form.Item
-              label='Dirección'
-              name='direccion'
+              label="Dirección"
+              name="direccion"
               rules={
                 user && user.direccion
                   ? []
                   : [
                       {
                         required: true,
-                        message: 'Campo Dirección No Puede Estar Vacío'
-                      }
+                        message: "Campo Dirección No Puede Estar Vacío",
+                      },
                     ]
               }
             >
               <Input defaultValue={user && user.direccion} />
             </Form.Item>
           </Col>
-          <Col span={10} justify='center'>
-            <Row align='middle' justify='center' style={{ height: '100%' }}>
+          <Col span={10} justify="center">
+            <Row align="middle" justify="center" style={{ height: "100%" }}>
               <Form.Item>
-                <Button htmlType='submit'>GUARDAR DATOS</Button>
+                <Button htmlType="submit">GUARDAR DATOS</Button>
               </Form.Item>
             </Row>
           </Col>
@@ -346,7 +350,7 @@ const FormularioDatosEnvio = ({ setEditar }) => {
       </Form>
       <Alerta modal={modal} setModal={setModal} />
     </Col>
-  )
-}
+  );
+};
 
-export default FormularioDatosEnvio
+export default FormularioDatosEnvio;
