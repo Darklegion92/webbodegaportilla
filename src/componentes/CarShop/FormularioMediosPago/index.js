@@ -101,6 +101,7 @@ function FormularioMediosPago({
             tiposDocumento={tiposDocumento}
             setSelected={setSelected}
             guardarMedio={guardarMedio}
+            setOpen={setOpen}
           />
         </Panel>
         <Panel
@@ -137,6 +138,7 @@ function FormularioMediosPago({
             bancosPSE={bancosPSE}
             tiposDocumento={tiposDocumento}
             setSelected={setSelected}
+            setOpen={setOpen}
             guardarMedio={guardarMedio}
           />
         </Panel>
@@ -162,6 +164,7 @@ function FormularioMediosPago({
                 <EfectyIcon
                   style={{ color: "var(--color-primario)" }}
                   setSelected={setSelected}
+                  setOpen={setOpen}
                 />
               </Col>
               <Col>
