@@ -24,24 +24,40 @@ const Alerta = ({ modal, setModal }) => {
         </Title>
       }
       footer={
-        <Link
-          to={modal.link !== "" && modal.link}
-          onClick={() => {
-            if (modal.link === "") {
-              setModal({ visible: false });
-            }
-          }}
-          style={{
-            border: "solid 1px var(--color-primario)",
-            padding: "10px",
-            borderRadius: "10px",
-            backgroundColor: "var(--color-primario)",
-            color: "white",
-            margin: "10px",
-          }}
-        >
-          ACEPTAR
-        </Link>
+        modal.web === undefined ? (
+          <Link
+            to={modal.link !== "" && modal.link}
+            onClick={() => {
+              if (modal.link === "") {
+                setModal({ visible: false });
+              }
+            }}
+            style={{
+              border: "solid 1px var(--color-primario)",
+              padding: "10px",
+              borderRadius: "10px",
+              backgroundColor: "var(--color-primario)",
+              color: "white",
+              margin: "10px",
+            }}
+          >
+            ACEPTAR
+          </Link>
+        ) : (
+          <a
+            href={modal.web}
+            style={{
+              border: "solid 1px var(--color-primario)",
+              padding: "10px",
+              borderRadius: "10px",
+              backgroundColor: "var(--color-primario)",
+              color: "white",
+              margin: "10px",
+            }}
+          >
+            IR A PAGAR
+          </a>
+        )
       }
     >
       <Row gutter={16} align="middle" justify="center">

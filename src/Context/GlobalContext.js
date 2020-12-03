@@ -12,12 +12,12 @@ const GlobalProvider = ({ children }) => {
 
   const seccionProductos = [
     {
-      img1: 'img/frutossecos.jpeg',
-      titulo1: 'FRUTOS SECOS',
-      link1: '1',
-      link2: '0',
-      img2: 'img/panaderiaypostreria.jpeg',
-      titulo2: 'PANADERÍA Y REPOSTERÍA'
+      img1: "img/frutossecos.jpeg",
+      titulo1: "FRUTOS SECOS",
+      link1: "1",
+      link2: "0",
+      img2: "img/panaderiaypostreria.jpeg",
+      titulo2: "PANADERÍA Y REPOSTERÍA",
     },
     {
       img1: "img/deshidratados.png",
@@ -28,22 +28,22 @@ const GlobalProvider = ({ children }) => {
       titulo2: "SÚPER ALIMENTOS",
     },
     {
-      img1: 'img/semillas.jpeg',
-      link1: '3',
-      link2: '6',
-      titulo1: 'SEMILLAS',
-      img2: 'img/utencilios.jpeg',
-      titulo2: 'UTENSILIOS Y ACCESORIOS'
+      img1: "img/semillas.jpeg",
+      link1: "3",
+      link2: "6",
+      titulo1: "SEMILLAS",
+      img2: "img/utencilios.jpeg",
+      titulo2: "UTENSILIOS Y ACCESORIOS",
     },
     {
-      img1: 'img/salsas.png',
-      link1: '4',
-      link2: '25',
-      titulo1: 'ACEITES 100% NATURALES Y VINAGRES',
-      img2: 'img/topping.png',
-      titulo2: 'TOPPINGS Y DULCES'
-    }
-  ]
+      img1: "img/salsas.png",
+      link1: "4",
+      link2: "25",
+      titulo1: "ACEITES 100% NATURALES Y VINAGRES",
+      img2: "img/topping.png",
+      titulo2: "TOPPINGS Y DULCES",
+    },
+  ];
 
   /**parametros dinamicos */
 
@@ -59,6 +59,8 @@ const GlobalProvider = ({ children }) => {
   const [grupos, setGrupos] = useState([]);
   const [marcas, setMarcas] = useState([]);
   const [bancosPSE, setBancosPSE] = useState([]);
+  const [ordenCliente, setOrdenCliente] = useState();
+
   //uso local
   const [cupon, setCupon] = useState({});
   const [user, setUser] = useState(null);
@@ -68,6 +70,7 @@ const GlobalProvider = ({ children }) => {
   const [nombreBusqueda, setNombreBusqueda] = useState("");
   const [datosOrden, setDatosOrden] = useState();
   const [datosPago, setDatosPago] = useState();
+  const [tipoPago, setTipoPago] = useState();
   /** se cargan todos los datos iniciales para cargar la pagina */
 
   const cargarDatosLocales = async () => {
@@ -84,7 +87,7 @@ const GlobalProvider = ({ children }) => {
         }
       } else {
         const carrito = JSON.parse(localStorage.getItem("carrito"));
-      
+
         if (carrito) setCarrito(carrito);
       }
     } catch (e) {
@@ -214,11 +217,25 @@ const GlobalProvider = ({ children }) => {
       setBancosPSE(json.data);
     }
   };
+  const consultarOrden = async (idorden) => {
+    try {
+      const json = await axios.get(API.URL + "carrito/consultar/" + idorden);
 
+      if (json.status === 200) {
+        setOrdenCliente(json.data);
+      } else if (json.status === 202) {
+        console.log("Se encuentra en despacho o fue rechazado");
+        setOrdenCliente();
+      } else {
+        console.log("algo pasa");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
   const guardarMedio = (values, tipo) => {
-
-
-    console.log(values);
+    setDatosPago(values);
+    setTipoPago(tipo);
   };
 
   const loginFacebook = async (datos) => {
@@ -438,27 +455,38 @@ const GlobalProvider = ({ children }) => {
 
   const enviarOrden = async () => {
     try {
+      setModalCarga(true);
       if (datosOrden.nombres && datosOrden.documento) {
         try {
           const resp = await axios.put(API.URL + "carrito/guardar", {
             user,
             datosOrden,
             carrito,
+            datosPago,
+            tipoPago,
           });
 
           if (resp.status === 200) {
             localStorage.removeItem("carrito");
             setCarrito([]);
             setUser({});
-            return true;
+            setModalCarga(true);
+
+            return { ok: true, datos: resp.data };
           } else {
-            return false;
+            setModalCarga(true);
+            return { ok: false };
           }
         } catch (e) {
-          return e;
+          setModalCarga(true);
+          return { ok: e };
         }
-      } else return false;
+      } else {
+        setModalCarga(true);
+        return false;
+      }
     } catch (e) {
+      setModalCarga(true);
       console.log(e);
       return false;
     }
@@ -505,6 +533,9 @@ const GlobalProvider = ({ children }) => {
         consultarBancosPSE,
         bancosPSE,
         guardarMedio,
+        tipoPago,
+        ordenCliente,
+        consultarOrden,
       }}
     >
       {children}

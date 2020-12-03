@@ -19,7 +19,7 @@ const Resumen = ({ next, current }) => {
     visible: false,
   });
 
-  const { carrito, enviarOrden, cupon, validarCupon } = useContext(
+  const { carrito, enviarOrden, cupon, validarCupon, tipoPago } = useContext(
     GlobalContext
   );
 
@@ -113,30 +113,39 @@ const Resumen = ({ next, current }) => {
   };
 
   const enviar = async () => {
-    const resp = await enviarOrden();
-    if (resp === true) {
-      setModal({
-        visible: true,
-        tipo: "SUCCESS",
-        mensaje:
-          "Su pedido ha sido guardado, Y será despachado en el menor tiempo posible",
-        titulo: "Pedido Guardado Correctamente",
-        link: "/shop",
-      });
-    } else if (resp === false) {
-      setModal({
-        visible: true,
-        tipo: "WARNIN",
-        mensaje: "No se ha podido grabar su pedido, debe llenar los datos",
-        titulo: "Error Al Validar Pedido",
-        link: "",
-      });
+    if (tipoPago) {
+      const resp = await enviarOrden();
+      if (resp.ok === true) {
+        setModal({
+          visible: true,
+          tipo: "SUCCESS",
+          mensaje: "Su pedido ha sido guardado, Ahora Realiza el pago",
+          titulo: "Pedido Guardado Correctamente",
+          web: resp.datos,
+        });
+      } else if (resp.ok === false) {
+        setModal({
+          visible: true,
+          tipo: "WARNIN",
+          mensaje: "No se ha podido grabar su pedido, debe llenar los datos",
+          titulo: "Error Al Validar Pedido",
+          link: "",
+        });
+      } else {
+        setModal({
+          visible: true,
+          tipo: "ERROR",
+          mensaje: "Error al conectar con el servidor, intentalo mas tarde",
+          titulo: "Error Interno",
+          link: "",
+        });
+      }
     } else {
       setModal({
         visible: true,
-        tipo: "ERROR",
-        mensaje: "Error al conectar con el servidor, intentalo mas tarde",
-        titulo: "Error Interno",
+        tipo: "WARNIN",
+        mensaje: "Debe Elegir Un Medio de Pago",
+        titulo: "Error Medio de Pago",
         link: "",
       });
     }
