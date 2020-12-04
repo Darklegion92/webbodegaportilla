@@ -161,11 +161,7 @@ function FormularioMediosPago({
                 </Col>
               )}
               <Col>
-                <EfectyIcon
-                  style={{ color: "var(--color-primario)" }}
-                  setSelected={setSelected}
-                  setOpen={setOpen}
-                />
+                <EfectyIcon style={{ color: "var(--color-primario)" }} />
               </Col>
               <Col>
                 <Title
@@ -182,9 +178,9 @@ function FormularioMediosPago({
           }
         >
           <Efecty
-            setModal={setModal}
             setSelected={setSelected}
             guardarMedio={guardarMedio}
+            setOpen={setOpen}
           />
         </Panel>
       </Collapse>

@@ -25,39 +25,39 @@ function Pie () {
       />
       <Row className='medios-pago'>
         <img
-          src='img/p-01.png'
+          src='../img/p-01.png'
           height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src='img/p-02.png'
+          src='../img/p-02.png'
           height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src='img/p-03.png'
+          src='../img/p-03.png'
           height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src='img/p-04.png'
+          src='../img/p-04.png'
           height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src='img/p-05.png'
+          src='../img/p-05.png'
           height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src='img/p-06.png'
+          src='../img/p-06.png'
           height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src='img/p-07.png'
+          src='../img/p-07.png'
           height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src='img/p-08.png'
+          src='../img/p-08.png'
           height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
         <img
-          src='img/p-09.png'
+          src='../img/p-09.png'
           height={isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '30px'}
         />
       </Row>

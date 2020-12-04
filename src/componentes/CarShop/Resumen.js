@@ -121,7 +121,7 @@ const Resumen = ({ next, current }) => {
           tipo: "SUCCESS",
           mensaje: "Su pedido ha sido guardado, Ahora Realiza el pago",
           titulo: "Pedido Guardado Correctamente",
-          web: resp.datos,
+          web: resp.datos.url,
         });
       } else if (resp.ok === false) {
         setModal({

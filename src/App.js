@@ -19,6 +19,7 @@ import Politicas from "./componentes/Politicas";
 import Terminos from "./componentes/Terminos";
 import VentanaCarga from "./componentes/VentanaCarga";
 import DetallesPedido from "./componentes/DetallesPedido";
+import DetallesPedidoEfectivo from "./componentes/DetallesPedidoEfecty";
 
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -29,7 +30,9 @@ function App() {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   let location = useLocation().pathname;
-  const { articulos, cargarDatos, modalCarga } = useContext(GlobalContext);
+  const { articulos, cargarDatos, modalCarga, ordenCliente } = useContext(
+    GlobalContext
+  );
   useEffect(() => {
     cargarDatos();
   }, []);
@@ -79,7 +82,12 @@ function App() {
               <Tienda />
             </Content>
           </Route>
-          <Route path="/:idorden" exact>
+          <Route path="/pagoefectivo" exact>
+            <Content>
+              <DetallesPedidoEfectivo />
+            </Content>
+          </Route>
+          <Route path="/orden/:idorden" exact>
             <Content>
               <DetallesPedido />
             </Content>

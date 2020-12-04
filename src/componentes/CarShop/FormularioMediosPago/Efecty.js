@@ -1,15 +1,20 @@
-import React from 'react'
-import { Row, Col, Typography, Button } from 'antd'
+import React from "react";
+import { Row, Col, Typography, Button } from "antd";
 
-const { Paragraph } = Typography
+const { Paragraph } = Typography;
 
 const styleBoton = {
-  backgroundColor: 'var(--color-naranja)',
-  color: 'white',
-  fontWeight: 'bold'
-}
+  backgroundColor: "var(--color-naranja)",
+  color: "white",
+  fontWeight: "bold",
+};
 
-function Efecty () {
+function Efecty({ setSelected, setOpen, guardarMedio }) {
+  const onClick = () => {
+    setSelected("efecty");
+    guardarMedio(null, "efecty");
+    setOpen();
+  };
   return (
     <Col>
       <Row>
@@ -28,11 +33,13 @@ function Efecty () {
           </ul>
         </Paragraph>
       </Row>
-      <Row justify='end'>
-        <Button style={styleBoton}>GUARDAR</Button>
+      <Row justify="end">
+        <Button style={styleBoton} onClick={onClick}>
+          GUARDAR
+        </Button>
       </Row>
     </Col>
-  )
+  );
 }
 
-export default Efecty
+export default Efecty;

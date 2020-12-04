@@ -60,7 +60,7 @@ const GlobalProvider = ({ children }) => {
   const [marcas, setMarcas] = useState([]);
   const [bancosPSE, setBancosPSE] = useState([]);
   const [ordenCliente, setOrdenCliente] = useState();
-
+  const [efecty, setEfecty] = useState();
   //uso local
   const [cupon, setCupon] = useState({});
   const [user, setUser] = useState(null);
@@ -197,7 +197,6 @@ const GlobalProvider = ({ children }) => {
             }
           }
         }
-        //pasar a cookies
         localStorage.setItem("Token", resp.data.token);
         return true;
       } else if (resp.status === 201) {
@@ -217,6 +216,7 @@ const GlobalProvider = ({ children }) => {
       setBancosPSE(json.data);
     }
   };
+
   const consultarOrden = async (idorden) => {
     try {
       const json = await axios.get(API.URL + "carrito/consultar/" + idorden);
@@ -471,7 +471,9 @@ const GlobalProvider = ({ children }) => {
             setCarrito([]);
             setUser({});
             setModalCarga(true);
-
+            setEfecty(resp.data.datos);
+            setOrdenCliente(resp.data.orden);
+            console.log(resp);
             return { ok: true, datos: resp.data };
           } else {
             setModalCarga(true);
@@ -496,6 +498,7 @@ const GlobalProvider = ({ children }) => {
     <Provider
       value={{
         user,
+        efecty,
         login,
         loginFacebook,
         datosOrden,

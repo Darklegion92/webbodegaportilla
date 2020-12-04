@@ -229,7 +229,7 @@ function Encabezado() {
       <Row align="middle" justify="center">
         <Col span={4} className="logo">
           <Link to="/">
-            <img src="img/logo.png" alt="logo.png" width="150px" />
+            <img src="../img/logo.png" alt="logo.png" width="150px" />
           </Link>
         </Col>
         <Col span={17}>

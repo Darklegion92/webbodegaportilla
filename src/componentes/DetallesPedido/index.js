@@ -23,11 +23,11 @@ function DetallesPedido() {
 
   return (
     <Row justify="center" align="middle">
-      <Col span={8}>
+      <Col span={8} align="center">
         <Card>
           <Space size={10} direction="vertical">
             <Row justify="center" align="middle">
-              <img src="img/logo.png" alt="logo" width="300px" />
+              <img src="../img/logo.png" alt="logo" width="300px" />
             </Row>
             <Row justify="center" align="middle">
               <Text {...props}>
@@ -54,7 +54,7 @@ function DetallesPedido() {
               <Text {...props}>
                 {ordenCliente && ordenCliente.estado === "APROBADO"
                   ? "SU PEDIDO YA SE ENCUENTRA EN PROCESO DE DESPACHO"
-                  : ""}
+                  : "SU PEDIDO NO FUE PAGADO Y SE HA CANCELADO"}
               </Text>
             </Row>
             <Row justify="center" align="middle">
