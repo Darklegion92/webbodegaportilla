@@ -51,9 +51,7 @@ function FormularioMediosPago({
     visible: false,
   });
   const [open, setOpen] = useState();
-  const onClick = (e) => {
-    console.log(e);
-  };
+
   return (
     <Col
       span={24}
