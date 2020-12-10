@@ -20,6 +20,7 @@ import Terminos from "./componentes/Terminos";
 import VentanaCarga from "./componentes/VentanaCarga";
 import DetallesPedido from "./componentes/DetallesPedido";
 import DetallesPedidoEfectivo from "./componentes/DetallesPedidoEfecty";
+import DetallesPedidoCredito from "./componentes/DetallesPedidoCredito";
 
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -85,6 +86,11 @@ function App() {
           <Route path="/pagoefectivo" exact>
             <Content>
               <DetallesPedidoEfectivo />
+            </Content>
+          </Route>
+          <Route path="/pagocredito" exact>
+            <Content>
+              <DetallesPedidoCredito />
             </Content>
           </Route>
           <Route path="/orden/:idorden" exact>

@@ -25,9 +25,28 @@ const styleBoton = {
   fontWeight: "bold",
 };
 
-function TargetaCredito({ tiposDocumento }) {
+function TargetaCredito({
+  tiposDocumento,
+  setSelected,
+  guardarMedio,
+  setOpen,
+  setModal,
+}) {
+  const onFinish = (values) => {
+    setSelected("credito");
+    setOpen("");
+    setModal({
+      visible: true,
+      tipo: "SUCCESS",
+      mensaje:
+        'Has Seleccionado Pagar Con Tarjeta Crédito, Ve a "Finalizar Compra"',
+      titulo: "Pago Seleccionado",
+      link: "",
+    });
+    guardarMedio(values, "credito");
+  };
   return (
-    <Form layout="vertical">
+    <Form layout="vertical" onFinish={onFinish}>
       <Paragraph>
         Aceptamos tarjetas nacionales de crédito y debito de todos los bancos
         siempre y cuandocuente con CV2. Recuerda ingresar el número de documento
@@ -83,7 +102,7 @@ function TargetaCredito({ tiposDocumento }) {
         <Col span={12}>
           <Form.Item
             label="Número de tarjeta"
-            name="tarjeta"
+            name="numero"
             rules={[
               {
                 required: true,
@@ -120,7 +139,9 @@ function TargetaCredito({ tiposDocumento }) {
         </Col>
         <Row justify="end" style={{ width: "100%" }}>
           <Form.Item>
-            <Button style={styleBoton}>GUARDAR</Button>
+            <Button style={styleBoton} htmlType="submit">
+              GUARDAR
+            </Button>
           </Form.Item>
         </Row>
       </Row>
