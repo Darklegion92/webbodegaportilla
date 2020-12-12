@@ -6,8 +6,7 @@ import { GlobalContext } from '../../Context/GlobalContext'
 const { Text } = Typography
 
 function DetallesPedido () {
-  const { efecty, ordenCliente } = useContext(GlobalContext)
-  console.log(efecty)
+  const { credito } = useContext(GlobalContext)
   const props = {
     style: {
       color: 'var(--color-primario)',
@@ -16,7 +15,7 @@ function DetallesPedido () {
       textAlign: 'center'
     }
   }
-  return efecty ? (
+  return credito ? (
     <Row justify='center' align='middle'>
       <Col span={8} align='center'>
         <Card>
@@ -25,42 +24,54 @@ function DetallesPedido () {
               <img src='../img/logo.png' alt='logo' width='300px' />
             </Row>
             <Row justify='center' align='middle'>
-              <Text {...props}>PAGA EN EFECTY</Text>
+              <Text {...props}>RESUMEN DE PAGO</Text>
             </Row>
             <Row justify='center' align='middle'>
               <Text {...props}>
-                CONVENIO:{' '}
+                VALOR:{' '}
                 <span style={{ fontSize: '20px', color: 'green' }}>
-                  {efecty.transaction.reference}
+                  $ {credito.datos.transaction.amount}
                 </span>
               </Text>
             </Row>
             <Row justify='center' align='middle'>
               <Text {...props}>
-                REFERENCIA:{' '}
+                CODIGO DE AUTORIZACION:{' '}
                 <span style={{ fontSize: '20px', color: 'green' }}>
-                  {efecty.transaction.agreement.efecty}
+                  {credito.datos.transaction.authorization_code}
                 </span>
               </Text>
             </Row>
             <Row justify='center' align='middle'>
               <Text {...props}>
-                VALOR:{'    '}
+                TARJETA:{'    '}
                 <span style={{ fontSize: '20px', color: 'red' }}>
-                  $ {efecty.transaction.amount}
+                  ***********{credito.datos.card.number}
                 </span>
               </Text>
             </Row>
             <Row justify='center' align='middle'>
               <Text {...props}>
-                ESTADO: <span style={{ color: 'RED' }}>PENDIENTE</span>
+                TRANSACCIÓN:{' '}
+                <span
+                  style={{
+                    color:
+                      credito.datos.transaction.status === 'success'
+                        ? 'GREEN'
+                        : 'RED'
+                  }}
+                >
+                  {credito.datos.transaction.status === 'success'
+                    ? 'APROBADA'
+                    : 'RECHAZADA'}
+                </span>
               </Text>
             </Row>
             <Row justify='center' align='middle'>
               <Text {...props}>
-                {ordenCliente && ordenCliente.estado === 'APROBADO'
+                {credito.datos.transaction.status === 'success'
                   ? 'SU PEDIDO YA SE ENCUENTRA EN PROCESO DE DESPACHO'
-                  : 'ESTAMOS A LA ESPERA DEL PAGO'}
+                  : 'SU MEDIO DE PAGO HA SIDO RECHAZADO'}
               </Text>
             </Row>
             <Row justify='center' align='middle'>
@@ -68,9 +79,7 @@ function DetallesPedido () {
                 {' '}
                 SE DESPACHARA A LA DIRECCIÓN:
                 <br />
-                <span style={{ color: 'red' }}>
-                  {ordenCliente && ordenCliente.direccion}
-                </span>
+                <span style={{ color: 'red' }}>{credito.orden.direccion}</span>
               </Text>
             </Row>
             <Row justify='center' align='middle'>
