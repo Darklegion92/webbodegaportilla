@@ -7,11 +7,19 @@
   position: fixed;
   z-index: 100;
   background-color: transparent !important;
-  background-image: url("fondo.png") !important;
+  background-image: url('fondo.png') !important;
 }
 
+.ant-menu-vertical.ant-menu-sub:not(.zoom-big-enter-active):not(.zoom-big-leave-active) {
+  background-color: gainsboro !important;
+  overflow-y: scroll !important;
+  height: 70%!important;
+}
+.ant-menu-vertical.ant-menu-sub::-webkit-scrollbar {
+  display: none !important;
+}
 .headP svg.icon {
-  stroke-width:20px;
+  stroke-width: 20px;
   stroke: var(--color-primario);
   filter: drop-shadow(0 0 1rem white);
   transition: filter 600ms !important;
@@ -90,9 +98,9 @@
 .headP .items code {
   padding: 10px;
 }
-.headP .items code>*{
-  font-size:22px!important;
-  letter-spacing:0.05rem;
+.headP .items code > * {
+  font-size: 22px !important;
+  letter-spacing: 0.05rem;
 }
 .headP .items code:hover,
 .headP .items code:active,
@@ -104,7 +112,6 @@
 .headP .ant-typography code {
   border: 0 !important;
   background-color: transparent !important;
- 
 }
 
 .headP h3.ant-typography {
@@ -324,7 +331,7 @@ li.ant-menu-item.ant-menu-item-only-child {
 
 @media only screen and (max-width: 600px) {
   .headP-movil {
-    background-image: url("fondo.png") !important;
+    background-image: url('fondo.png') !important;
   }
   .menu-carrito .item-menu {
     margin-bottom: 10px;

@@ -51,7 +51,8 @@ function SeccionExtra ({ items, articulos, texto, tipo }) {
     setModalComprado(false)
   }
   const settings = {
-    dots: true,
+    dots: false,
+
     infinite: true,
     slidesToShow: items,
     slidesToScroll: 1,
@@ -100,22 +101,19 @@ function SeccionExtra ({ items, articulos, texto, tipo }) {
           <LeftOutlined onClick={next} className='icons-left' />
         )}
         <div className='multi-carrousel'>
-          <Slider
-            ref={c => (slider = c)}
-            {...settings}
-          >
+          <Slider ref={c => (slider = c)} {...settings}>
             {articulos.map((articulo, i) => {
-             // if (i < 10) {
-                if (tipo === articulo.categoria)
-                  return (
-                    <Item
-                      articulo={articulo}
-                      i={i}
-                      estrellas={estrellas}
-                      agregarArticulo={agregarArticulo}
-                    />
-                  )
-            //  }
+              // if (i < 10) {
+              if (tipo === articulo.categoria)
+                return (
+                  <Item
+                    articulo={articulo}
+                    i={i}
+                    estrellas={estrellas}
+                    agregarArticulo={agregarArticulo}
+                  />
+                )
+              //  }
             })}
           </Slider>
         </div>
