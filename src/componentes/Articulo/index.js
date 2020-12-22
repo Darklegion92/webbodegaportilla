@@ -24,10 +24,12 @@ const Articulo = ({ articulo, onOk }) => {
     setEmbalaje(articulo.embalaje)
     setImg(BANCO.URL + articulo.img)
     setPrecioDescuento(0)
-    setCantidad(articulo.embalaje.toUpperCase() == 'GR' ? 100 : 1)
+    setCantidad(
+      articulo.embalaje.toUpperCase() == 'GR' ? articulo.incremento : 1
+    )
     setTotal(
       articulo.embalaje.toUpperCase() == 'GR'
-        ? articulo.precio * 100
+        ? articulo.precio * articulo.incremento
         : articulo.precio
     )
     try {
@@ -83,9 +85,7 @@ const Articulo = ({ articulo, onOk }) => {
         </Row>
         {articulo.descuento > 0 && (
           <Row justify='center' className='fila3'>
-            <Text>
-              Ahorra $ {Math.round(total - precioDescuento) + ' COP'}
-            </Text>
+            <Text>Ahorra $ {Math.round(total - precioDescuento) + ' COP'}</Text>
           </Row>
         )}
         <Row justify='center' className='fila4'>
@@ -103,16 +103,16 @@ const Articulo = ({ articulo, onOk }) => {
               value={cantidad}
               min={
                 embalaje.toUpperCase() == 'GR'
-                  ? 100
+                  ? articulo.incremento
                   : embalaje.toUpperCase() == 'KG'
-                  ? 0.1
+                  ? articulo.incremento/1000
                   : 1
               }
               step={
                 embalaje.toUpperCase() == 'GR'
-                  ? 100
+                  ? articulo.incremento
                   : embalaje.toUpperCase() == 'KG'
-                  ? 0.1
+                  ? articulo.incremento / 1000
                   : 1
               }
               onChange={e => {
@@ -237,7 +237,9 @@ const Articulo = ({ articulo, onOk }) => {
           </Row>
           {precioDescuento > 0 && (
             <Row className='fila3'>
-              <Text>Ahorra $ {Math.round(total - precioDescuento) + ' COP'}</Text>
+              <Text>
+                Ahorra $ {Math.round(total - precioDescuento) + ' COP'}
+              </Text>
             </Row>
           )}
           <Row className='fila4'>
@@ -257,16 +259,16 @@ const Articulo = ({ articulo, onOk }) => {
                     value={cantidad}
                     min={
                       embalaje.toUpperCase() == 'GR'
-                        ? 100
+                        ? articulo.incremento
                         : embalaje.toUpperCase() == 'KG'
                         ? 0
                         : 1
                     }
                     step={
                       embalaje.toUpperCase() == 'GR'
-                        ? 100
+                        ? articulo.incremento
                         : embalaje.toUpperCase() == 'KG'
-                        ? 0.1
+                        ? articulo.incremento/1000
                         : 1
                     }
                     onChange={e => {

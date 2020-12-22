@@ -108,14 +108,14 @@ const Item = ({ articulo }) => {
                   value={cantidad}
                   min={
                     embalaje.toUpperCase() == 'GR'
-                      ? 100
+                      ? articulo.incremento
                       : embalaje.toUpperCase() == 'KG'
                       ? 0
                       : 1
                   }
                   step={
                     embalaje.toUpperCase() == 'GR'
-                      ? 100
+                      ? articulo.incremento
                       : embalaje.toUpperCase() == 'KG'
                       ? 0.1
                       : 1
@@ -196,14 +196,14 @@ const Item = ({ articulo }) => {
                 value={cantidad}
                 min={
                   embalaje.toUpperCase() == 'GR'
-                    ? 100
+                    ? articulo.incremento
                     : embalaje.toUpperCase() == 'KG'
                     ? 0
                     : 1
                 }
                 step={
                   embalaje.toUpperCase() == 'GR'
-                    ? 100
+                    ? articulo.incremento
                     : embalaje.toUpperCase() == 'KG'
                     ? 0.1
                     : 1

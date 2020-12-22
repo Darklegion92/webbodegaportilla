@@ -7,7 +7,9 @@ const { Text } = Typography
 
 function DetallesPedido () {
   const { efecty, ordenCliente } = useContext(GlobalContext)
-  console.log(efecty)
+
+  localStorage.removeItem('carrito')
+
   const props = {
     style: {
       color: 'var(--color-primario)',

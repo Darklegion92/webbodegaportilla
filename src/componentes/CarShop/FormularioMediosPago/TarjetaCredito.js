@@ -32,6 +32,8 @@ function TargetaCredito ({
   setOpen,
   setModal
 }) {
+
+ 
   const onFinish = values => {
     setSelected('credito')
     setOpen('')

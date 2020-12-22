@@ -472,7 +472,6 @@ const GlobalProvider = ({ children }) => {
             setEfecty(resp.data.datos);
             setCredito(resp.data);
             setOrdenCliente(resp.data.orden);
-            localStorage.removeItem("carrito");
             setModalCarga(false);
             return { ok: true, datos: resp.data };
           } else {

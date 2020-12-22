@@ -7,6 +7,10 @@ const { Text } = Typography
 
 function DetallesPedido () {
   const { credito } = useContext(GlobalContext)
+
+  if (credito && credito.datos.transaction.status === 'success') {
+    localStorage.removeItem('carrito')
+  }
   const props = {
     style: {
       color: 'var(--color-primario)',
