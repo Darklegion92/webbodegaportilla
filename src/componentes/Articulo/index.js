@@ -74,9 +74,9 @@ const Articulo = ({ articulo, onOk }) => {
           {estrellas(articulo.clasificacion)}
         </div>
       )}
-      <Col span={24} className='articulo-tag'>
-        <Row justify='center'>
-          <img src={img} width='60%' style={{height:"20px"}} onError={onError} alt={img} />
+      <Col span={24} className='articulo-tag' >
+        <Row justify='center' style={{height:"10px"}}>
+          <img src={img} width='60%'  onError={onError} alt={img} />
         </Row>
         <Row justify='center' className='fila2'>
           <Text className='nombre'>{articulo.nombre}</Text>
