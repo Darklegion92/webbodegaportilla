@@ -75,7 +75,7 @@ const Articulo = ({ articulo, onOk }) => {
         </div>
       )}
       <Col span={24} className='articulo-tag' >
-        <Row justify='center' style={{height:"40px"}}>
+        <Row justify='center' style={{height:"40%"}}>
           <img src={img} width='60%' style={{height:"100%"}} onError={onError} alt={img} />
         </Row>
         <Row justify='center' className='fila2'>
