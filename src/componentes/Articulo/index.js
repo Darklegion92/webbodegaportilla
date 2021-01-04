@@ -74,14 +74,30 @@ const Articulo = ({ articulo, onOk }) => {
           {estrellas(articulo.clasificacion)}
         </div>
       )}
-      <Col span={24} className='articulo-tag' >
-        <Row justify='center' style={{height:"30%"}}>
-          <img src={img} width='60%' style={{height:"100%"}} onError={onError} alt={img} />
+      <Col span={24} className='articulo-tag'>
+        <Row justify='center' style={{ height: '30%' }}>
+          <img
+            src={img}
+            width='60%'
+            style={{ height: '100%' }}
+            onError={onError}
+            alt={img}
+          />
         </Row>
         <Row justify='center' className='fila2'>
           <Text className='nombre'>{articulo.nombre}</Text>
           <Text className='titulo'>BENEFICIOS</Text>
-          <Text className='cuerpo'>{articulo.descripcion}</Text>
+          <Paragraph className='cuerpo'>
+            <Text>{articulo.descripcion}</Text>
+            {lista.length > 0 &&
+              lista.map(item => (
+                <ul>
+                  <li>
+                    <div>{item}</div>
+                  </li>
+                </ul>
+              ))}
+          </Paragraph>
         </Row>
         {articulo.descuento > 0 && (
           <Row justify='center' className='fila3'>
@@ -105,7 +121,7 @@ const Articulo = ({ articulo, onOk }) => {
                 embalaje.toUpperCase() == 'GR'
                   ? articulo.incremento
                   : embalaje.toUpperCase() == 'KG'
-                  ? articulo.incremento/1000
+                  ? articulo.incremento / 1000
                   : 1
               }
               step={
@@ -268,7 +284,7 @@ const Articulo = ({ articulo, onOk }) => {
                       embalaje.toUpperCase() == 'GR'
                         ? articulo.incremento
                         : embalaje.toUpperCase() == 'KG'
-                        ? articulo.incremento/1000
+                        ? articulo.incremento / 1000
                         : 1
                     }
                     onChange={e => {
