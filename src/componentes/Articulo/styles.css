@@ -159,6 +159,10 @@
     margin-bottom: 50px;
   }
 
+  .articulo-tag .fila2 .cuerpo ul{
+    text-align: start;
+  }
+
   .articulo-tag .fila2 .nombre {
     color: var(--color-primario);
     font-size: 25px;
