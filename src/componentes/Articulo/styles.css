@@ -154,28 +154,24 @@
     align-items: center;
     text-align: center;
   }
-
-  .articulo-tag .fila2 {
-    margin-bottom: 0px;
-  }
-
-  .articulo-tag .fila2 .cuerpo ul{
+  .articulo-tag .fila2 .cuerpo ul {
     text-align: start;
     font-size: 10px;
   }
-  .articulo-tag .fila2 .cuerpo ul li{
+  .articulo-tag .fila2 .cuerpo ul li {
     line-height: 5px;
   }
 
   .articulo-tag .fila2 .nombre {
     color: var(--color-primario);
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
-    line-height: 23px;
+    line-height: 21px;
     margin-top: 20px;
   }
-  .articulo-tag .fila3 .ant-typography {
-    font-size: 10px;
+
+  .articulo-tag .fila4 .ant-typography {
+    font-size: 30px;
   }
 
   .articulo-tag .fila5 {
@@ -193,7 +189,7 @@
     height: max-content;
   }
   .articulo-tag .fila2 .cuerpo {
-    height: 120px !important;
+    height: 75px !important;
   }
   .estrellas-cantidad-articulo {
     top: -4.5%;
@@ -221,7 +217,7 @@
     margin-right: 0%;
     width: 100%;
     height: auto;
-    font-size: 30px;
+    font-size: 25px;
   }
 
   /*estrellas*/

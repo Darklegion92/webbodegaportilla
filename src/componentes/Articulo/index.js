@@ -78,7 +78,7 @@ const Articulo = ({ articulo, onOk }) => {
         <Row justify='center' style={{ height: '30%' }}>
           <img
             src={img}
-            width='60%'
+            width='50%'
             style={{ height: '100%' }}
             onError={onError}
             alt={img}
