@@ -27,7 +27,7 @@ function DetallesPedido () {
 
   return (
     <Row justify='center' align='middle'>
-      <Col span={8} align='center'>
+      <Col span={24} align='center'>
         <Card>
           <Space size={10} direction='vertical'>
             <Row justify='center' align='middle'>

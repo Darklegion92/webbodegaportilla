@@ -22,6 +22,7 @@ const FormularioDatosEnvio = ({ setEditar }) => {
   } = useContext(GlobalContext);
 
   const onFinsh = async (datos) => {
+    console.log(datos);
     let ir = true;
     if (datos) {
       consultarBancosPSE();
@@ -151,7 +152,7 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         </Row>
         <Row>
           <Col span={24}>
-            <Form.Item label="Tipo De Documento" name="tipo-documento">
+            <Form.Item label="Tipo De Documento" name="tipodocumento">
               <Select>
                 {tiposDocumento.map((tipoDocumento) => {
                   return (

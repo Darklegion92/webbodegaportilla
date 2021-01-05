@@ -457,6 +457,7 @@ const GlobalProvider = ({ children }) => {
     try {
       setModalCarga(true);
       if (datosOrden.nombres && datosOrden.documento) {
+        console.log(tipoPago);
         try {
           const resp = await axios.put(API.URL + "carrito/guardar", {
             user,

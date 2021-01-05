@@ -20,11 +20,11 @@ function DetallesPedido () {
   }
   return efecty ? (
     <Row justify='center' align='middle'>
-      <Col span={8} align='center'>
+      <Col span={24} align='center'>
         <Card>
           <Space size={10} direction='vertical'>
             <Row justify='center' align='middle'>
-              <img src='../img/logo.png' alt='logo' width='300px' />
+              <img src='../img/logo.png' alt='logo' width='150px' />
             </Row>
             <Row justify='center' align='middle'>
               <Text {...props}>PAGA EN EFECTY</Text>
@@ -84,7 +84,7 @@ function DetallesPedido () {
                   fontWeight: 'bold',
                   color: 'white',
                   fontSize: '20px',
-                  padding: '10px',
+                  padding: '5px',
                   borderRadius: '10px'
                 }}
               >
