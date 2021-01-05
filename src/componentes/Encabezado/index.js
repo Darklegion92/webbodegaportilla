@@ -131,11 +131,11 @@ function Encabezado () {
                   <Text>TIENDA</Text>
                 </Link>
               </Menu.Item>
-              <SubMenu>
+              <Menu.Item>
                 <a href='#productos'>
                   <Text>PRODUCTOS</Text>
                 </a>
-              </SubMenu>
+              </Menu.Item>
               <Menu.Item>
                 <a href='#nuevo'>
                   <Text>LO NUEVO</Text>

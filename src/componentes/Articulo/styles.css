@@ -156,11 +156,15 @@
   }
 
   .articulo-tag .fila2 {
-    margin-bottom: 50px;
+    margin-bottom: 0px;
   }
 
   .articulo-tag .fila2 .cuerpo ul{
     text-align: start;
+    font-size: 10px;
+  }
+  .articulo-tag .fila2 .cuerpo ul li{
+    line-height: 5px;
   }
 
   .articulo-tag .fila2 .nombre {
@@ -170,8 +174,8 @@
     line-height: 23px;
     margin-top: 20px;
   }
-  .articulo-tag .fila3 span.ant-typography {
-    font-size: 20px;
+  .articulo-tag .fila3 .ant-typography {
+    font-size: 10px;
   }
 
   .articulo-tag .fila5 {
