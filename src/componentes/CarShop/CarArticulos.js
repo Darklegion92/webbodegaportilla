@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { Row, Col, Button, Typography } from 'antd'
+import { Row, Col, Button, Typography, Pagination } from 'antd'
 import { Link } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
-import Paginacion from '../Paginacion'
 import Item from './Item'
 
 const { Title } = Typography
@@ -50,16 +49,26 @@ const CarArticulos = ({ carrito }) => {
           </Col>
         )}
       </Col>
-      <Paginacion
-        cantidad={carrito.length}
-        cantidadItems={pageSize}
-        style={{
-          fontSize: '30px',
-          color: 'gainsboro'
-        }}
-        pagina={pagina}
-        setPagina={setPagina}
-      />
+      <Row className='pagination'>
+        <Pagination
+          style={{
+            paddingTop: '50px',
+            margin: 'auto',
+            border: 'none',
+            fontSize: '25px'
+          }}
+          size='small'
+          total={carrito.length}
+          showQuickJumper={false}
+          showSizeChanger={false}
+          current={pagina}
+          defaultCurrent={1}
+          pageSize={6}
+          onChange={page => {
+            setPagina(page)
+          }}
+        />
+      </Row>
     </>
   )
 }

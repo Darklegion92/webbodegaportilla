@@ -2,6 +2,44 @@
   margin: auto;
   width: 100%;
 }
+
+/*paginacion*/
+
+.car-shop .pagination .ant-pagination-prev,
+.car-shop .pagination .ant-pagination-next,
+.car-shop .pagination .ant-pagination-jump-prev,
+.car-shop .pagination .ant-pagination-jump-next {
+  min-width: 75px;
+}
+
+.car-shop
+  .ant-pagination-jump-prev
+  .ant-pagination-item-container
+  .ant-pagination-item-link-icon,
+.car-shop
+  .ant-pagination-jump-next
+  .ant-pagination-item-container
+  .ant-pagination-item-link-icon {
+  color: var(--color-primario);
+  position: absolute;
+  top: 8px;
+}
+
+.car-shop .ant-pagination-item a:hover {
+  font-weight: bold;
+}
+
+.car-shop .ant-pagination-item-link:hover {
+  color: var(--color-primario) !important;
+}
+
+.car-shop .ant-pagination-item-active {
+  border: none;
+  font-weight: bold;
+}
+
+
+
 /*Resumen*/
 .car-shop .resumen {
   border: solid 1px var(--color-primario);
