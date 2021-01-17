@@ -18,27 +18,11 @@
   padding: 30px;
   margin-bottom: 50px !important;
 }
-.recomendaciones .row {
-  display: flex;
-  flex-direction: row;
-}
 
-.recomendaciones .row .rectangular {
-  width: 150px;
-  height: 300px;
-  margin: 5px;
-}
-
-.recomendaciones .row .cuadrado {
-  width: 300px;
-  height: 300px;
-  margin: 5px;
-}
-
-.recomendaciones .row img:hover {
+.recomendaciones img:hover {
   cursor: pointer;
   transition-duration: 1s;
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 /*recomendacion*/
