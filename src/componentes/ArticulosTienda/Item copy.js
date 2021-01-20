@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Typography, Button, Row, Col, Card } from 'antd'
+import { Typography, Button, Row, Col } from 'antd'
 import { useMediaQuery } from 'react-responsive'
 import { AiFillStar } from 'react-icons/ai'
 import { BANCO } from '../../config'
@@ -74,75 +74,52 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
         </Row>
       </Col>
     </Row>
-  ) :(
-    <div className='estrellas-item'>
-      {articulo.clasificacion > 0 && (
-        <div className='estrellas-cantidad'>
-          {estrellas(articulo.clasificacion)}
-        </div>
-      )}
-      <Card
-        onClick={() => onClick(id)}
-        bodyStyle={{
-          maxWidth: '170px',
-          boxShadow: '0px 0px 17px 5px rgba(133,124,133,1)',
-          borderRadius: '10px',
-          marginLeft:5,
-          marginRight:5,
-          marginBottom: 15,
-          padding: 0,
-          paddingLeft: 10,
-          paddingRight: 10,
-          paddingBottom: 20,
-        }}
-      >
-        <img src={img} width='100%' onError={onError} alt={img} />
-        <Title
-          level={4}
-          style={{
-            color: 'var(--color-primario)',
-            fontSize: '12px',
-            textAlign: 'center',
-            minHeight: 30
-          }}
-        >
-          {articulo.nombre}
-        </Title>
-        <Title
-          level={4}
-          style={{
-            color: 'var(--color-primario)',
-            fontSize: '20px',
-            textAlign: 'center',
-            margin: 0
-          }}
-        >
-          ${' '}
-          {articulo.embalaje.toUpperCase() == 'GR'
-            ? Math.round(articulo.precio * 100)
-            : Math.round(articulo.precio)}{' '}
-          COP
-        </Title>
-        <Row justify="center">
-          <Button
-            style={{
-              backgroundColor: 'var(--color-naranja)',
-              borderRadius: '5px'
-            }}
-          >
-            {enCarrito ? (
-              <Text strong style={{ fontSize: '12px', color: 'white' }}>
-                YA AGREGADO
-              </Text>
-            ) : (
-              <Text strong style={{ fontSize: '12px', color: 'white' }}>
-                AÑADIR AL CARRITO
-              </Text>
-            )}
-          </Button>
+  ) : (
+    <Col
+      className='item'
+      onClick={() => onClick(id)}
+      style={{ maxHeight: '290px' }}
+    >
+      <div className='estrellas-item'>
+        {articulo.clasificacion > 0 && (
+          <div className='estrellas-cantidad'>
+            {estrellas(articulo.clasificacion)}
+          </div>
+        )}
+        <Row gutter={8} justify='center'>
+          <img
+            src={img}
+            width='80%'
+            onError={onError}
+            alt={createImageBitmap}
+          />
         </Row>
-      </Card>
-    </div>
+        <Row justify='center'>
+          <Title level={3}>{articulo.nombre}</Title>
+        </Row>
+        <Row
+          justify='center'
+          align='middle'
+          style={{ visibility: articulo.descuento > 0 ? 'visible' : 'hidden' }}
+        >
+          <Text className='descuento'>
+            $ {Math.round(articulo.precio * 100) + ' COP'}
+          </Text>
+        </Row>
+        <Row justify='center' align='middle'>
+          <Text className='precio'>
+            ${' '}
+            {articulo.embalaje.toUpperCase() == 'GR'
+              ? Math.round(articulo.precio * 100)
+              : Math.round(articulo.precio)}{' '}
+            COP
+          </Text>
+        </Row>
+        <Row justify='center'>
+          <Button>{enCarrito ? 'YA AGREGADO' : 'AÑADIR AL CARRITO'}</Button>
+        </Row>
+      </div>
+    </Col>
   )
 }
 

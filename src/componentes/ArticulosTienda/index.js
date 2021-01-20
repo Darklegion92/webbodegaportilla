@@ -17,7 +17,6 @@ const ArticulosTienda = ({ articulos, onClick, paginacion, subirScroll }) => {
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
 
   useEffect(() => {
-    console.log('se ejecuta articulo')
     subirScroll()
   }, [pagina])
   return (
@@ -25,33 +24,34 @@ const ArticulosTienda = ({ articulos, onClick, paginacion, subirScroll }) => {
       <Row>
         <Head setPagina={setPagina} />
       </Row>
+
       {isTabletOrMobile || isTabletOrMobileDevice ? (
         articulos.mensaje ? (
           <Title style={{ color: 'var(--color-primario)' }}>
             No hay coincidencias en la busqueda
           </Title>
         ) : (
-          articulos.map((articulo, i) => {
-            let enCarrito = false
-            carrito.forEach(item => {
-              if (articulo.codigo === item.codigo) {
-                enCarrito = true
-                return
-              }
-            })
+          <Row gutter={16} align='top' justify="space-around">
+            {articulos.map((articulo, i) => {
+              let enCarrito = false
+              carrito.forEach(item => {
+                if (articulo.codigo === item.codigo) {
+                  enCarrito = true
+                  return
+                }
+              })
 
-            if (i < paginacion * pagina && i >= paginacion * (pagina - 1))
-              return (
-                <Row>
-                  <Item
-                    articulo={articulo}
-                    onClick={onClick}
-                    id={i}
-                    enCarrito={enCarrito}
-                  />
-                </Row>
-              )
-          })
+              if (i < paginacion * pagina && i >= paginacion * (pagina - 1))
+                return (
+                    <Item
+                      articulo={articulo}
+                      onClick={onClick}
+                      id={i}
+                      enCarrito={enCarrito}
+                    />
+                )
+            })}
+          </Row>
         )
       ) : (
         <Row style={{ height: '1200px' }}>
@@ -95,7 +95,7 @@ const ArticulosTienda = ({ articulos, onClick, paginacion, subirScroll }) => {
           showSizeChanger={false}
           current={pagina}
           defaultCurrent={1}
-          pageSize={20}
+          pageSize={paginacion}
           onChange={page => {
             setPagina(page)
           }}
