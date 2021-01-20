@@ -132,19 +132,19 @@ function Encabezado () {
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                <a href='#productos'>
+                <Link to='/index#productos'>
                   <Text>PRODUCTOS</Text>
-                </a>
+                </Link>
               </Menu.Item>
               <Menu.Item>
-                <a href='#nuevo'>
+                <Link to='/index#nuevo'>
                   <Text>LO NUEVO</Text>
-                </a>
+                </Link>
               </Menu.Item>
               <Menu.Item>
-                <a href='#recomendaciones'>
+              <Link to='/index#recomendaciones'>
                   <Text>RECETAS</Text>
-                </a>
+                </Link>
               </Menu.Item>
               <Menu.Item>
                 <Link to='/contacto'>
@@ -286,19 +286,14 @@ function Encabezado () {
                 )
               })}
             </SubMenu>
-            {/*<Menu.Item key='productos'>
-              <Title level={3} className='items' code={true}>
-                <a href='#productos'>PRODUCTOS</a>
-              </Title>
-  </Menu.Item>*/}
             <Menu.Item key='nuevo'>
               <Title level={3} className='items' code={true}>
-                <a href='#nuevo'>LO NUEVO</a>
+                <Link to='/index#nuevo'>LO NUEVO</Link>
               </Title>
             </Menu.Item>
             <Menu.Item key='reco'>
               <Title level={3} className='items' code={true}>
-                <a href='#recomendaciones'>RECETAS</a>
+                <Link to='/index#recomendaciones'>RECETAS</Link>
               </Title>
             </Menu.Item>
             <Menu.Item key='contacto'>

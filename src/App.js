@@ -174,6 +174,82 @@ function App() {
               <div>{<SeccionRecomendaciones />}</div>
             </Content>
           </Route>
+          <Route path="/index" exact>
+          <div
+            id="productos"
+            style={{
+              minHeight: "118px",
+              width: "100%",
+              marginBottom: "118px",
+              position: "absolute",
+              top:
+                isTabletOrMobile || isTabletOrMobileDevice
+                  ? "620px"
+                  : "960px",
+            }}
+          />
+
+          <div
+            id="nuevo"
+            style={{
+              minHeight: "118px",
+              backgroundColor: "black",
+              width: "100%",
+              marginBottom: "118px",
+              position: "absolute",
+              top:
+                isTabletOrMobile || isTabletOrMobileDevice
+                  ? "1600px"
+                  : "2030px",
+              zIndex: 1,
+            }}
+          />
+
+          <div
+            id="recomendaciones"
+            style={{
+              minHeight: "118px",
+              width: "100%",
+              marginBottom: "118px",
+              position: "absolute",
+              top:
+                isTabletOrMobile || isTabletOrMobileDevice
+                  ? "2150px"
+                  : "3130px",
+            }}
+          />
+          <Content>
+            <div>
+              <Carrusel_principal />
+            </div>
+            <div>
+              <SeccionProductos />
+            </div>
+            <div>
+              <SeccionExtra
+                items={isTabletOrMobile || isTabletOrMobileDevice ? 3 : 4}
+                texto={{
+                  texto: "PRODUCTOS NUEVOS",
+                  fondo: "invisible",
+                  color: "var(--color-primario)",
+                }}
+                articulos={articulos}
+                tipo="NUEVO"
+              />
+            </div>
+            <SeccionExtra
+              items={isTabletOrMobile || isTabletOrMobileDevice ? 2 : 3}
+              texto={{
+                texto: "PRODUCTOS DE TEMPORADA",
+                fondo: "invisible",
+                color: "var(--color-primario)",
+              }}
+              articulos={articulos}
+              tipo="REGALO"
+            />
+            <div>{<SeccionRecomendaciones />}</div>
+          </Content>
+        </Route>
         </Route>
       </Switch>
       {location !== "/login" && (
