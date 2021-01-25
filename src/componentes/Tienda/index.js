@@ -1,50 +1,51 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Row, Col, Modal } from "antd";
-import { useMediaQuery } from "react-responsive";
-import FiltrosTienda from "../FiltrosTienda";
-import ArticulosTienda from "../ArticulosTienda";
-import Articulo from "../Articulo";
-import { GlobalContext } from "../../Context/GlobalContext";
-import VentanaCarga from "../VentanaCarga";
-import Comprado from "../ArticuloComprado";
+import React, { useState, useEffect, useContext } from 'react'
+import { Row, Col, Modal } from 'antd'
+import { useMediaQuery } from 'react-responsive'
+import FiltrosTienda from '../FiltrosTienda'
+import ArticulosTienda from '../ArticulosTienda'
+import Articulo from '../Articulo'
+import { GlobalContext } from '../../Context/GlobalContext'
+import VentanaCarga from '../VentanaCarga'
+import Comprado from '../ArticuloComprado'
 
-import "./styles.css";
+import './styles.css'
 
 const Tienda = () => {
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
-  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  const { articulosTienda, modalCarga } = useContext(GlobalContext);
-  const [modalArticulo, setModalArticulo] = useState(false);
-  const [modalComprado, setModalComprado] = useState(false);
-  const [articuloSeleccionado, setArticuloSeleccionado] = useState();
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
+  const { articulosTienda, modalCarga } = useContext(GlobalContext)
+  const [modalArticulo, setModalArticulo] = useState(false)
+  const [modalComprado, setModalComprado] = useState(false)
+  const [articuloSeleccionado, setArticuloSeleccionado] = useState()
+  const [pagina, setPagina] = useState(1)
 
   const subirScroll = () => {
-    window.scrollTo(0, 0);
-  };
+    window.scrollTo(0, 0)
+  }
 
   const cerrarArticulo = () => {
-    setModalArticulo(false);
-  };
+    setModalArticulo(false)
+  }
 
-  const agregarArticulo = (e) => {
-    setArticuloSeleccionado(articulosTienda[e]);
-    setModalArticulo(true);
-  };
-  const agregarCantidad = (cantidad) => {
-    const newArticulo = articuloSeleccionado;
-    newArticulo.setCantidad = cantidad;
-    setArticuloSeleccionado(newArticulo);
-    setModalArticulo(false);
-    setModalComprado(true);
-  };
+  const agregarArticulo = e => {
+    setArticuloSeleccionado(articulosTienda[e])
+    setModalArticulo(true)
+  }
+  const agregarCantidad = cantidad => {
+    const newArticulo = articuloSeleccionado
+    newArticulo.setCantidad = cantidad
+    setArticuloSeleccionado(newArticulo)
+    setModalArticulo(false)
+    setModalComprado(true)
+  }
   const cerrarComprado = () => {
-    setModalComprado(false);
-  };
+    setModalComprado(false)
+  }
   return (
     <Row>
       {(!isTabletOrMobile || !isTabletOrMobileDevice) && (
         <Col span={5}>
-          <FiltrosTienda />
+          <FiltrosTienda setPagina={setPagina} />
         </Col>
       )}
       <Col span={isTabletOrMobile || isTabletOrMobileDevice ? 24 : 19}>
@@ -53,6 +54,8 @@ const Tienda = () => {
           onClick={agregarArticulo}
           paginacion={20}
           subirScroll={subirScroll}
+          pagina={pagina}
+          setPagina={setPagina}
         />
       </Col>
       <Modal
@@ -60,7 +63,7 @@ const Tienda = () => {
         visible={modalArticulo}
         onCancel={cerrarArticulo}
         footer={null}
-        style={{ borderRadius: "50px" }}
+        style={{ borderRadius: '50px' }}
         centered
       >
         <Articulo articulo={articuloSeleccionado} onOk={agregarCantidad} />
@@ -70,7 +73,7 @@ const Tienda = () => {
         visible={modalComprado}
         onCancel={cerrarComprado}
         footer={null}
-        style={{ borderRadius: "50px" }}
+        style={{ borderRadius: '50px' }}
         centered
       >
         <Comprado articulo={articuloSeleccionado} onOk={setModalComprado} />
@@ -85,6 +88,6 @@ const Tienda = () => {
         <VentanaCarga />
       </Modal>
     </Row>
-  );
-};
-export default Tienda;
+  )
+}
+export default Tienda

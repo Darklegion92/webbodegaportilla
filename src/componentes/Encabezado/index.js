@@ -142,7 +142,7 @@ function Encabezado () {
                 </Link>
               </Menu.Item>
               <Menu.Item>
-              <Link to='/index#recomendaciones'>
+                <Link to='/index#recomendaciones'>
                   <Text>RECETAS</Text>
                 </Link>
               </Menu.Item>
@@ -274,15 +274,26 @@ function Encabezado () {
             >
               {grupos.map(grupo => {
                 return (
-                  <Menu.Item key={grupo.id}>
-                    <div onClick={onClickGrupo}>
-                      <Link to='/shop' id={grupo.id}>
-                        <Text style={{ color: 'var(--color-priamrio)' }}>
-                          {grupo.nombre}
-                        </Text>
-                      </Link>
-                    </div>
-                  </Menu.Item>
+                  <SubMenu
+                    key={grupo.id}
+                    title={
+                      <Text style={{ color: 'var(--color-priamrio)' }}>
+                        {grupo.nombre}
+                      </Text>
+                    }
+                  >
+                    {grupo.subgrupos.map(subgrupo => (
+                      <Menu.Item key={subgrupo.id}>
+                        <div onClick={onClickGrupo}>
+                          <Link to='/shop' id={grupo.id} idsubgrupo={subgrupo.id}>
+                            <Text style={{ color: 'var(--color-priamrio)' }}>
+                              {subgrupo.nombre}
+                            </Text>
+                          </Link>
+                        </div>
+                      </Menu.Item>
+                    ))}
+                  </SubMenu>
                 )
               })}
             </SubMenu>

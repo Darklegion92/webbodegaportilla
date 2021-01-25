@@ -30,7 +30,7 @@ const CarArticulos = ({ carrito }) => {
                   isTabletOrMobile || isTabletOrMobileDevice ? '20px' : '150px'
               }}
             >
-              TU CARRITO SE ENCUENTA VACIO
+              TU CARRITO SE ENCUENTRA VACIO
             </Title>
             <Link to='/shop'>
               <Button

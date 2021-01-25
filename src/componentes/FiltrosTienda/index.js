@@ -7,7 +7,7 @@ import "./styles.css";
 
 const { Text, Title } = Typography;
 
-const FiltrosTienda = () => {
+const FiltrosTienda = ({setPagina}) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const {
@@ -18,6 +18,7 @@ const FiltrosTienda = () => {
     subgrupos,
     cargarSubgrupos,
   } = useContext(GlobalContext);
+
   const [subgrupo, setSubgrupo] = useState(false);
 
   const onClickGrupos = async (e) => {
@@ -33,6 +34,7 @@ const FiltrosTienda = () => {
         }
     });
     if (guardar) {
+      setPagina(1)
       cargarSubgrupos(value);
       setSubgrupo(true);
       consultarArticulosTienda([...filtros, { nombre, tipo: "GRUPO",id:value }]);
@@ -51,6 +53,7 @@ const FiltrosTienda = () => {
         }
     });
     if (guardar) {
+      setPagina(1)
       consultarArticulosTienda([...filtros, { nombre, tipo: "MARCA",id:value }]);
     }
   };
@@ -67,6 +70,7 @@ const FiltrosTienda = () => {
         }
     });
     if (guardar) {
+      setPagina(1)
       consultarArticulosTienda([...filtros, { nombre, tipo: "SUBGRUPO",id:value }]);
     }
   };
@@ -83,6 +87,7 @@ const FiltrosTienda = () => {
           eliminado = [...filtrado.slice(0, i), ...filtrado.slice(i + 1)];
         }
       });
+      setPagina(1)
       consultarArticulosTienda(eliminado);
     }
   };

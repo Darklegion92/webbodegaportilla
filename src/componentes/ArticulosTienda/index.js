@@ -8,8 +8,7 @@ import Item from './Item'
 import './styles.css'
 const { Title } = Typography
 
-const ArticulosTienda = ({ articulos, onClick, paginacion, subirScroll }) => {
-  const [pagina, setPagina] = useState(1)
+const ArticulosTienda = ({ articulos, onClick, paginacion, subirScroll,pagina,setPagina }) => {
 
   const { carrito } = useContext(GlobalContext)
 
@@ -54,7 +53,7 @@ const ArticulosTienda = ({ articulos, onClick, paginacion, subirScroll }) => {
           </Row>
         )
       ) : (
-        <Row style={{ height: '1200px' }}>
+        <Row style={{ height: '1200px' }} align="top" className="body">
           {articulos.mensaje ? (
             <Title style={{ color: 'var(--color-primario)' }}>
               No hay coincidencias en la busqueda

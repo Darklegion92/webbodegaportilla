@@ -103,7 +103,7 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
             color: 'var(--color-primario)',
             fontSize: '12px',
             textAlign: 'center',
-            minHeight: 30
+            minHeight: 45
           }}
         >
           {articulo.nombre}

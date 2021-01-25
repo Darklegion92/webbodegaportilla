@@ -73,6 +73,11 @@
   transform: none !important;
 }
 
+.articulos-tienda .body{
+  display:block!important;
+  
+}
+
 /*ITEM*/
 
 .articulos-tienda .item {
