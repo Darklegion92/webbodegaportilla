@@ -55,7 +55,7 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
           <Text className='descuento'>
             ${' '}
             {articulo.embalaje.toUpperCase() == 'GR'
-              ? Math.round(articulo.precio * 100)
+              ? Math.round(articulo.precio * articulo.incremento)
               : Math.round(articulo.precio) + ' COP'}
           </Text>
         </Row>
@@ -63,7 +63,7 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
           <Text strong className='precio'>
             ${' '}
             {articulo.embalaje.toUpperCase() == 'GR'
-              ? Math.round(articulo.precio * 100)
+              ? Math.round(articulo.precio * articulo.incremento)
               : Math.round(articulo.precio)}{' '}
             COP
           </Text>
@@ -119,7 +119,7 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
         >
           ${' '}
           {articulo.embalaje.toUpperCase() == 'GR'
-            ? Math.round(articulo.precio * 100)
+            ? Math.round(articulo.precio * articulo.incremento)
             : Math.round(articulo.precio)}{' '}
           COP
         </Title>
