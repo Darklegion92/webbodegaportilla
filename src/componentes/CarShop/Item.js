@@ -28,17 +28,17 @@ const Item = ({ articulo }) => {
     setImg(BANCO.URL + articulo.img)
     let total
     if (
-      articulo.cant_dcto3 !== null &&
+      articulo.cant_dcto3 !== null && articulo.cant_dcto3 !== 0 &&
       parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto3)
     ) {
       total = articulo.cantidad * articulo.dcto3
     } else if (
-      articulo.cant_dcto2 !== null &&
+      articulo.cant_dcto2 !== null && articulo.cant_dcto2 !== 0 &&
       parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto2)
     ) {
       total = articulo.cantidad * articulo.dcto2
     } else if (
-      articulo.cant_dcto1 !== null &&
+      articulo.cant_dcto1 !== null && articulo.cant_dcto1 !== 0 &&
       parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto1)
     ) {
       total = articulo.cantidad * articulo.dcto1
@@ -136,17 +136,17 @@ const Item = ({ articulo }) => {
                     }
 
                     if (
-                      articulo.cant_dcto3 !== null &&
+                      articulo.cant_dcto3 !== null && articulo.cant_dcto3 !== 0 &&
                       parseInt(cant) >= parseInt(articulo.cant_dcto3)
                     ) {
                       setTotal(articulo.dcto3 * cant)
                     } else if (
-                      articulo.cant_dcto2 !== null &&
+                      articulo.cant_dcto2 !== null && articulo.cant_dcto2 !== 0 &&
                       parseInt(cant) >= parseInt(articulo.cant_dcto2)
                     ) {
                       setTotal(articulo.dcto2 * cant)
                     } else if (
-                      articulo.cant_dcto1 !== null &&
+                      articulo.cant_dcto1 !== null && articulo.cant_dcto1 !== 0 &&
                       parseInt(cant) >= parseInt(articulo.cant_dcto1)
                     ) {
                       setTotal(articulo.dcto1 * cant)
@@ -224,17 +224,17 @@ const Item = ({ articulo }) => {
                   }
 
                   if (
-                    articulo.cant_dcto3 !== null &&
+                    articulo.cant_dcto3 !== null && articulo.cant_dcto3 !== 0 &&
                     parseInt(cant) >= parseInt(articulo.cant_dcto3)
                   ) {
                     setTotal(articulo.dcto3 * cant)
                   } else if (
-                    articulo.cant_dcto2 !== null &&
+                    articulo.cant_dcto2 !== null && articulo.cant_dcto2 !== 0 &&
                     parseInt(cant) >= parseInt(articulo.cant_dcto2)
                   ) {
                     setTotal(articulo.dcto2 * cant)
                   } else if (
-                    articulo.cant_dcto1 !== null &&
+                    articulo.cant_dcto1 !== null && articulo.cant_dcto1 !== 0 &&
                     parseInt(cant) >= parseInt(articulo.cant_dcto1)
                   ) {
                     setTotal(articulo.dcto1 * cant)

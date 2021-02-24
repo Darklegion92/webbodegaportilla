@@ -47,19 +47,19 @@ const Resumen = ({ next, current }) => {
     let tot = 0;
     car.forEach((item) => {
       if (
-        item.cant_dcto3 !== null &&
+        item.cant_dcto3 !== null && item.cant_dcto3 !== 0 &&
         parseInt(item.cantidad) >= parseInt(item.cant_dcto3)
       ) {
         tot += item.cantidad * item.dcto3;
         desc += item.cantidad * (item.precio - item.dcto3);
       } else if (
-        item.cant_dcto2 !== null &&
+        item.cant_dcto2 !== null && item.cant_dcto2 !== 0 &&
         parseInt(item.cantidad) >= parseInt(item.cant_dcto2)
       ) {
         tot += item.cantidad * item.dcto2;
         desc += item.cantidad * (item.precio - item.dcto2);
       } else if (
-        item.cant_dcto1 !== null &&
+        item.cant_dcto1 !== null && item.cant_dcto1 !== 0 &&
         parseInt(item.cantidad) >= parseInt(item.cant_dcto1)
       ) {
         tot += item.cantidad * item.dcto1;

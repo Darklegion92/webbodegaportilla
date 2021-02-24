@@ -72,18 +72,14 @@ function Encabezado () {
     logout,
     carrito,
     grupos,
+    subgrupos,
     consultarArticulosTienda
   } = useContext(GlobalContext)
 
-  const onClickGrupo = async e => {
-    const id = e.target.id
+  const onClickGrupo = async (grupo,subgrupo) => {
 
-    await grupos.forEach((grupo, i) => {
-      if (grupo.id == id) {
-        consultarArticulosTienda([{ nombre: grupo.nombre, tipo: 'GRUPO', id }])
-        return
-      }
-    })
+    consultarArticulosTienda([{ nombre: grupo.nombre, tipo: 'GRUPO', id:grupo.id },{ nombre: subgrupo.nombre, tipo: 'SUBGRUPO', id:subgrupo.id }])
+ 
   }
 
   const handleClick = e => {
@@ -284,8 +280,8 @@ function Encabezado () {
                   >
                     {grupo.subgrupos.map(subgrupo => (
                       <Menu.Item key={subgrupo.id}>
-                        <div onClick={onClickGrupo}>
-                          <Link to='/shop' id={grupo.id} idsubgrupo={subgrupo.id}>
+                        <div onClick={e=>onClickGrupo(grupo,subgrupo)}>
+                          <Link to='/shop'>
                             <Text style={{ color: 'var(--color-priamrio)' }}>
                               {subgrupo.nombre}
                             </Text>

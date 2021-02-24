@@ -346,7 +346,7 @@ const GlobalProvider = ({ children }) => {
       setFiltros(newFiltros);
     }
     const articulos = await axios.get(API.URL + "articulos", {
-      params: { idgrupo, idsubgrupo, idmarca, orden: orden1, nombre },
+      params: { idgrupo, idsubgrupo, idmarca, orden: orden1, nombre,iscar:true },
     });
     setArticulosTienda(articulos.data);
   };
