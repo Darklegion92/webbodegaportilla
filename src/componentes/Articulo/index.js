@@ -164,17 +164,17 @@ const Articulo = ({ articulo, onOk }) => {
                 } else {
                   const cant = e
                   if (
-                    articulo.cant_dcto3 !== null &&
+                    articulo.cant_dcto3 !== null && articulo.cant_dcto3 !== 0 &&
                     parseInt(cant) >= parseInt(articulo.cant_dcto3)
                   ) {
                     setPrecioDescuento(articulo.dcto3 * cant)
                   } else if (
-                    articulo.cant_dcto2 !== null &&
+                    articulo.cant_dcto2 !== null && articulo.cant_dcto2 !== 0 &&
                     parseInt(cant) >= parseInt(articulo.cant_dcto2)
                   ) {
                     setPrecioDescuento(articulo.dcto2 * cant)
                   } else if (
-                    articulo.cant_dcto1 !== null &&
+                    articulo.cant_dcto1 !== null && articulo.cant_dcto1 !== 0 &&
                     parseInt(cant) >= parseInt(articulo.cant_dcto1)
                   ) {
                     setPrecioDescuento(articulo.dcto1 * cant)
@@ -323,17 +323,17 @@ const Articulo = ({ articulo, onOk }) => {
                         const cant = e
 
                         if (
-                          articulo.cant_dcto3 !== null &&
+                          articulo.cant_dcto3 !== null && articulo.cant_dcto3 !== 0 &&
                           parseInt(cant) >= parseInt(articulo.cant_dcto3)
                         ) {
                           setPrecioDescuento(articulo.dcto3 * cant)
                         } else if (
-                          articulo.cant_dcto2 !== null &&
+                          articulo.cant_dcto2 !== null && articulo.cant_dcto2 !== 0 &&
                           parseInt(cant) >= parseInt(articulo.cant_dcto2)
                         ) {
                           setPrecioDescuento(articulo.dcto2 * cant)
                         } else if (
-                          articulo.cant_dcto1 !== null &&
+                          articulo.cant_dcto1 !== null && articulo.cant_dcto1 !== 0 &&
                           parseInt(cant) >= parseInt(articulo.cant_dcto1)
                         ) {
                           setPrecioDescuento(articulo.dcto1 * cant)
