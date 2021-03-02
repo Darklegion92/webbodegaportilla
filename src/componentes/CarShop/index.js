@@ -19,17 +19,13 @@ const CarShop = () => {
     }
   };
 
-  const pagar = () => {
-    console.log("pagando....");
-  };
-
   return isTabletOrMobile || isTabletOrMobileDevice ? (
     <Col span={22} className="car-shop">
       <Row>
         <StepPagos current={current} />
       </Row>
       <Row>
-        <Resumen next={next} current={current} pagar={pagar} />
+        <Resumen next={next} current={current}/>
       </Row>
     </Col>
   ) : (
@@ -38,7 +34,7 @@ const CarShop = () => {
         <StepPagos current={current} />
       </Col>
       <Col span={6}>
-        <Resumen next={next} current={current} pagar={pagar} />
+        <Resumen next={next} current={current} />
       </Col>
     </Row>
   );

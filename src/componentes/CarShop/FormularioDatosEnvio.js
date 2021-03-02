@@ -22,7 +22,6 @@ const FormularioDatosEnvio = ({ setEditar }) => {
   } = useContext(GlobalContext);
 
   const onFinsh = async (datos) => {
-    console.log(datos);
     let ir = true;
     if (datos) {
       consultarBancosPSE();
@@ -42,39 +41,45 @@ const FormularioDatosEnvio = ({ setEditar }) => {
         tipodocumento:
           datos.tipodocumento !== undefined
             ? datos.tipodocumento
-            : user.tipodocumento,
+            : user.idtipo_documento,
       });
       setEditar(!ir);
-    }
-
-    const resp = await guardarDatosCliente(datos);
-
-    if (resp === true) {
-      setModal({
-        visible: true,
-        tipo: "SUCCESS",
-        mensaje:
-          "Datos Alamacenados Correctamente, Para Terminar Dale En Finalizar Compra",
-        titulo: "Guardado Correcto",
-        link: "",
-      });
-    } else if (resp === false) {
-      setModal({
-        visible: true,
-        tipo: "WARNIN",
-        mensaje: "No Se Ha Podido Guardar, Intentelo Nuevamente",
-        titulo: "Error al guardar",
-        link: "",
-      });
-    } else {
+      if (ir === true) {
+        setModal({
+          visible: true,
+          tipo: "SUCCESS",
+          mensaje:
+            "Datos Alamacenados Correctamente, Para Terminar Dale En Finalizar Compra",
+          titulo: "Guardado Correcto",
+          link: "",
+        });
+      } else if (ir === false) {
+        setModal({
+          visible: true,
+          tipo: "WARNIN",
+          mensaje: "No Se Ha Podido Guardar, Intentelo Nuevamente",
+          titulo: "Error al guardar",
+          link: "",
+        });
+      } else {
+        setModal({
+          visible: true,
+          tipo: "ERROR",
+          mensaje: "Error al conectar con el servidor, intentalo mas tarde",
+          titulo: "Error Interno",
+          link: "",
+        });
+      }
+    }else{
       setModal({
         visible: true,
         tipo: "ERROR",
-        mensaje: "Error al conectar con el servidor, intentalo mas tarde",
-        titulo: "Error Interno",
+        mensaje:
+          "Datos Vacíos, Intentelo de nuevo",
+        titulo: "Error Guardando",
         link: "",
       });
-    }
+  }
   };
 
   return isTabletOrMobile || isTabletOrMobileDevice ? (
@@ -82,7 +87,7 @@ const FormularioDatosEnvio = ({ setEditar }) => {
       <Row>
         <Title level={3}>DATOS ENVIO</Title>
       </Row>
-      <Form layout="vertical" size="small" onFinish={onFinsh}>
+      <Form layout="vertical" size="small" onFinish={onFinsh} defaultValue={[{name:"tipodocumento",key:user?.idtipo_documento}]}>
         <Row>
           <Col span={24}>
             <Form.Item
@@ -181,7 +186,7 @@ const FormularioDatosEnvio = ({ setEditar }) => {
                     ]
               }
             >
-              <Input defaultValue={user && user.documento} />
+              <Input defaultValue={user?.documento} />
             </Form.Item>
           </Col>
         </Row>
