@@ -265,6 +265,7 @@
   border-radius: 5px !important;
   color: var(--color-primario) !important;
 }
+
 .car-shop .car-articulos .input-edit:hover,
 .car-shop .car-articulos .input-edit:focus,
 .car-shop .car-articulos .input-edit:active,

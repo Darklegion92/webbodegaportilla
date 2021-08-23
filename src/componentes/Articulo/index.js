@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Typography, Button, Row, Col } from 'antd'
-import NumericInput from 'react-numeric-input'
+import numeral from 'numeral'
 import { AiFillStar } from 'react-icons/ai'
 import { useMediaQuery } from 'react-responsive'
 import { BANCO } from '../../config'
+import InputNumber from '../InputNumber'
 import { GlobalContext } from '../../Context/GlobalContext'
 
 import './styles.css'
@@ -20,6 +21,7 @@ const Articulo = ({ articulo, onOk }) => {
   const [img, setImg] = useState('')
   const [lista, setLista] = useState([])
   const [precioDescuento, setPrecioDescuento] = useState(0)
+
   useEffect(() => {
     setEmbalaje(articulo.embalaje)
     setImg(BANCO.URL + articulo.img)
@@ -32,6 +34,8 @@ const Articulo = ({ articulo, onOk }) => {
         ? articulo.precio * articulo.incremento
         : articulo.precio
     )
+
+    setCantidad(articulo.incremento)
     try {
       let list = articulo.lista.split('*')
       list.splice(0, 1)
@@ -67,6 +71,67 @@ const Articulo = ({ articulo, onOk }) => {
 
     return estrellas
   }
+
+
+  const onChange = async type => {
+
+    let e = articulo.incremento
+    let emb = embalaje
+    if(type==='minus'){
+      if(embalaje.toUpperCase()==='GR' || embalaje.toUpperCase()==='UND'){
+        e = cantidad-articulo.incremento
+      }else if(embalaje.toUpperCase()==='KG'){
+        e = cantidad-articulo.incremento/1000
+      }
+    }else{
+      if(embalaje.toUpperCase()==='GR' || embalaje.toUpperCase()==='UND' ){
+        e = cantidad+articulo.incremento
+      }else if(embalaje.toUpperCase()==='KG'){
+        e = cantidad+articulo.incremento/1000
+      }
+    }
+
+    if(embalaje.toUpperCase()==='GR'){
+      if(e>=1000 && type==='plus'){
+        emb='Kg'
+        e= e/1000
+      }else if(e>=1000 && type==='minus'){
+        console.log(e);
+        emb='Kg'
+        e= -(e/1000)
+      }
+    }
+    if(Math.round(e*10)/10<1 && (['GR','KG'].includes(embalaje.toUpperCase()))){
+      if(type==='plus'){
+        emb='Gr'
+        e= e*1000
+      }else if(type==='minus'){
+        console.log(e);
+        emb='Gr'
+        e= e*1000
+      }
+
+    }
+
+    if(e<0 && type==='minus'){
+      e=articulo.incremento
+    }
+
+    if((emb.toUpperCase() == 'KG' && e*1000>=articulo.incremento)||
+    (emb.toUpperCase() == 'GR' && (e>=articulo.incremento|| e<1))||
+    (emb.toUpperCase() === 'UND' && e>0) ){
+
+      console.log(e);
+
+      articulo.cantidad = embalaje.toUpperCase() == 'KG' ? e * 1000 : e
+      setEmbalaje(emb)
+      setCantidad(emb.toUpperCase() == 'KG' ? Math.round(e*10)/10: e)
+      setPrecioDescuento(articulo.dcto3 * articulo.cantidad)
+      setTotal(articulo.precio * articulo.cantidad)
+    }
+  }
+
+
   return isTabletOrMobile || isTabletOrMobileDevice ? (
     <div className='estrellas-item-articulo'>
       {articulo.clasificacion > 0 && (
@@ -101,93 +166,22 @@ const Articulo = ({ articulo, onOk }) => {
         </Row>
         {articulo.descuento > 0 && (
           <Row justify='center' className='fila3'>
-            <Text>Ahorra $ {Math.round(total - precioDescuento) + ' COP'}</Text>
+            <Text>Ahorra {numeral(total - precioDescuento).format(' 0,0')}</Text>
           </Row>
         )}
         <Row justify='center' className='fila4'>
           <Text>
-            ${' '}
-            {articulo.descuento > 0
+          {numeral(articulo.descuento > 0
               ? Math.round(total - (total * articulo.descuento) / 100)
-              : Math.round(total)}{' '}
-            COP
+              : Math.round(total)).format('$ 0,0')}
           </Text>
         </Row>
         <Row className='fila5' align='middle' justify='center' gutter={5}>
           <Col span={8} align='middle'>
-            <NumericInput
-              value={cantidad}
-              min={
-                embalaje.toUpperCase() == 'GR'
-                  ? articulo.incremento
-                  : embalaje.toUpperCase() == 'KG'
-                  ? articulo.incremento / 1000
-                  : 1
-              }
-              step={
-                embalaje.toUpperCase() == 'GR'
-                  ? articulo.incremento
-                  : embalaje.toUpperCase() == 'KG'
-                  ? articulo.incremento / 1000
-                  : 1
-              }
-              onChange={e => {
-                if (e == 1000) {
-                  setEmbalaje('Kg')
-                  setCantidad(1)
-                } else if (parseInt(e) <= 0) {
-                  setEmbalaje('Gr')
-                  setCantidad(e * 1000)
-                } else setCantidad(e)
-                if (embalaje.toUpperCase() == 'KG') {
-                  const cant = e * 1000
-                  if (
-                    articulo.cant_dcto3 !== null && articulo.cant_dcto3 !== 0 &&
-                    parseInt(cant) >= parseInt(articulo.cant_dcto3)
-                  ) {
-                    setPrecioDescuento(articulo.dcto3 * cant)
-                  } else if (
-                    articulo.cant_dcto2 !== null && articulo.cant_dcto2 !== 0 &&
-                    parseInt(cant) >= parseInt(articulo.cant_dcto2)
-                  ) {
-                    setPrecioDescuento(articulo.dcto2 * cant)
-                  } else if (
-                    articulo.cant_dcto1 !== null && articulo.cant_dcto1 !== 0 &&
-                    parseInt(cant) >= parseInt(articulo.cant_dcto1)
-                  ) {
-                    console.log("se ejecuta", articulo.dcto1);
-                    setPrecioDescuento(articulo.dcto1 * cant)
-                  } else {
-                    setPrecioDescuento(0)
-                  }
-                  setTotal(articulo.precio * cant)
-                } else {
-                  const cant = e
-                  if (
-                    articulo.cant_dcto3 !== null && articulo.cant_dcto3 !== 0 &&
-                    parseInt(cant) >= parseInt(articulo.cant_dcto3)
-                  ) {
-                    setPrecioDescuento(articulo.dcto3 * cant)
-                  } else if (
-                    articulo.cant_dcto2 !== null && articulo.cant_dcto2 !== 0 &&
-                    parseInt(cant) >= parseInt(articulo.cant_dcto2)
-                  ) {
-                    setPrecioDescuento(articulo.dcto2 * cant)
-                  } else if (
-                    articulo.cant_dcto1 !== null && articulo.cant_dcto1 !== 0 &&
-                    parseInt(cant) >= parseInt(articulo.cant_dcto1)
-                  ) {
-                    setPrecioDescuento(articulo.dcto1 * cant)
-                  } else {
-                    setPrecioDescuento(0)
-                  }
-                  setTotal(articulo.precio * cant)
-                }
-              }}
-              mobile={false}
-              className='input-edit'
-              disabled={enCarrito}
-            />
+          <InputNumber
+             value={cantidad}
+             onChange={onChange}
+             />
           </Col>
           <Col span={5}>
             <Text
@@ -254,99 +248,25 @@ const Articulo = ({ articulo, onOk }) => {
           {precioDescuento > 0 && (
             <Row className='fila3'>
               <Text>
-                Ahorra $ {Math.round(total - precioDescuento) + ' COP'}
+                Ahorra {numeral(total - precioDescuento).format('$ 0,0')}
               </Text>
             </Row>
           )}
           <Row className='fila4'>
             <Text>
-              ${' '}
-              {precioDescuento > 0
+            {numeral(precioDescuento > 0
                 ? Math.round(precioDescuento)
-                : Math.round(total)}{' '}
-              COP
+                : Math.round(total)).format('$ 0,0')}
             </Text>
           </Row>
           <Row className='fila5'>
             <Col span={10}>
               <Row align='middle'>
                 <Col span={18}>
-                  <NumericInput
-                    value={cantidad}
-                    min={
-                      embalaje.toUpperCase() == 'GR'
-                        ? articulo.incremento
-                        : embalaje.toUpperCase() == 'KG'
-                        ? 0
-                        : 1
-                    }
-                    step={
-                      embalaje.toUpperCase() == 'GR'
-                        ? articulo.incremento
-                        : embalaje.toUpperCase() == 'KG'
-                        ? articulo.incremento / 1000
-                        : 1
-                    }
-                    onChange={e => {
-                      if (e == 1000) {
-                        setEmbalaje('Kg')
-                        setCantidad(1)
-                      } else if (parseInt(e) <= 0) {
-                        setEmbalaje('Gr')
-                        setCantidad(e * 1000)
-                      } else setCantidad(e)
-
-                      if (embalaje.toUpperCase() == 'KG') {
-                        const cant = e * 1000
-                        if (
-                          articulo.cant_dcto3 !== null && articulo.cant_dcto3 !== 0&&
-                          parseInt(cant) >= parseInt(articulo.cant_dcto3)
-                        ) {
-                          setPrecioDescuento(articulo.dcto3 * cant)
-                        } else if (
-                          articulo.cant_dcto2 !== null && articulo.cant_dcto2 !== 0 &&
-                          parseInt(cant) >= parseInt(articulo.cant_dcto2)
-                        ) {
-                          setPrecioDescuento(articulo.dcto2 * cant)
-                        } else if (
-                          articulo.cant_dcto1 !== null && articulo.cant_dcto1 !== 0 &&
-                          parseInt(cant) >= parseInt(articulo.cant_dcto1)
-                        ) {
-                          console.log(articulo.dcto1, cant);               
-                          console.log(articulo.dcto1 * cant);
-                          setPrecioDescuento(articulo.dcto1 * cant)
-                        } else {
-                          setPrecioDescuento(0)
-                        }
-                        setTotal(articulo.precio * cant)
-                      } else {
-                        const cant = e
-
-                        if (
-                          articulo.cant_dcto3 !== null && articulo.cant_dcto3 !== 0 &&
-                          parseInt(cant) >= parseInt(articulo.cant_dcto3)
-                        ) {
-                          setPrecioDescuento(articulo.dcto3 * cant)
-                        } else if (
-                          articulo.cant_dcto2 !== null && articulo.cant_dcto2 !== 0 &&
-                          parseInt(cant) >= parseInt(articulo.cant_dcto2)
-                        ) {
-                          setPrecioDescuento(articulo.dcto2 * cant)
-                        } else if (
-                          articulo.cant_dcto1 !== null && articulo.cant_dcto1 !== 0 &&
-                          parseInt(cant) >= parseInt(articulo.cant_dcto1)
-                        ) {
-                          setPrecioDescuento(articulo.dcto1 * cant)
-                        } else {
-                          setPrecioDescuento(0)
-                        }
-                        setTotal(articulo.precio * cant)
-                      }
-                    }}
-                    mobile={false}
-                    className='input-edit'
-                    disabled={enCarrito}
-                  />
+                <InputNumber
+                  value={cantidad}
+                  onChange={onChange}
+                />
                 </Col>
                 <Col span={6}>
                   <Text

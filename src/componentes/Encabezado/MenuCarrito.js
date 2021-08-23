@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row, Typography, Button } from "antd";
 import { Link } from "react-router-dom";
 import Item from "./ItemMenu";
+import numeral from "numeral";
 
 const { Text, Title } = Typography;
 
@@ -28,7 +29,7 @@ const MenuCarrito = ({ carrito, cerrar }) => {
       {carrito.length > 0 && (
         <Row className="totales">
           <Title level={4}>TOTAL</Title>
-          <Text>$ {Math.round( total)} COP</Text>
+          <Text> {numeral(total).format('$ 0,0')}</Text>
         </Row>
       )}
       <Row>

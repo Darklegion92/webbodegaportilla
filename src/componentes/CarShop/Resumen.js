@@ -6,6 +6,7 @@ import { useMediaQuery } from "react-responsive";
 import Alerta from "../Alerta";
 
 import "./styles.css";
+import numeral from "numeral";
 
 const { Text, Title } = Typography;
 const { Panel } = Collapse;
@@ -181,7 +182,7 @@ const Resumen = ({ next, current }) => {
             <Text>SUB-TOTAL</Text>
           </Col>
           <Col span={13}>
-            <Text>$ {Math.round(total)}</Text>
+            <Text>{numeral(total).format('$ 0,0')}</Text>
           </Col>
         </Row>
         <Divider />
@@ -190,7 +191,7 @@ const Resumen = ({ next, current }) => {
             <Text>AHORRO</Text>
           </Col>
           <Col span={14}>
-            <Text>$ {ahorro}</Text>
+            <Text>{numeral(ahorro).format('$ 0,0')}</Text>
           </Col>
         </Row>
         <Divider />
@@ -199,7 +200,7 @@ const Resumen = ({ next, current }) => {
             <Text>ENVÍO</Text>
           </Col>
           <Col span={14}>
-            <Text>$ {0}</Text>
+            <Text>{numeral(0).format('$ 0,0')}</Text>
           </Col>
         </Row>
         <Divider />
@@ -240,8 +241,9 @@ const Resumen = ({ next, current }) => {
           <Row>
             <Title level={2}>TOTAL</Title>
             <Title>
-              $
-              {total > 50000
+
+            {numeral(
+              total > 50000
                 ? Math.round(
                     total -
                       (cupon.descuento ? (total * cupon.descuento) / 100 : 0)
@@ -249,7 +251,8 @@ const Resumen = ({ next, current }) => {
                 : Math.round(
                     total -
                       (cupon.descuento ? (total * cupon.descuento) / 100 : 0)
-                  )}
+                  )
+              ).format('$ 0,0')}
             </Title>
           </Row>
         ) : (
@@ -304,7 +307,7 @@ const Resumen = ({ next, current }) => {
             <Row>
               <Title level={2}>TOTAL</Title>
               <Title>
-                ${total > 50000 ? Math.round(total) : Math.round(total)}
+                {numeral(total).format('$ 0,0')}
               </Title>
             </Row>
           </>

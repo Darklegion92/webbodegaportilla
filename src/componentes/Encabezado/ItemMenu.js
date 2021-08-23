@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Typography, Row, Col } from 'antd'
 import { useMediaQuery } from 'react-responsive'
 import { BANCO } from '../../config'
+import numeral from 'numeral'
 const { Text, Title } = Typography
 
 const ItemMenu = ({ articulo }) => {
@@ -55,8 +56,7 @@ const ItemMenu = ({ articulo }) => {
             </Title>
           )}
         <Text>
-          ${' '}
-          {articulo.cant_dcto3 !== null &&
+        {numeral(articulo.cant_dcto3 !== null &&
           parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto3)
             ? Math.round(articulo.dcto3 * articulo.cantidad)
             : articulo.cant_dcto2 !== null &&
@@ -65,8 +65,7 @@ const ItemMenu = ({ articulo }) => {
             : articulo.cant_dcto1 !== null &&
               parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto1)
             ? Math.round(articulo.dcto1 * articulo.cantidad)
-            : Math.round(articulo.precio * articulo.cantidad)}{' '}
-          COP
+            : Math.round(articulo.precio * articulo.cantidad)).format('$ 0,0')}
         </Text>
       </Col>
     </Row>

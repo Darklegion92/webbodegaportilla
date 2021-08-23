@@ -3,6 +3,7 @@ import { Typography, Button, Row, Col, Card } from 'antd'
 import { useMediaQuery } from 'react-responsive'
 import { AiFillStar } from 'react-icons/ai'
 import { BANCO } from '../../config'
+import numeral from 'numeral'
 
 const { Text, Title } = Typography
 const Item = ({ articulo, id, onClick, enCarrito }) => {
@@ -53,19 +54,16 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
           }}
         >
           <Text className='descuento'>
-            ${' '}
-            {articulo.embalaje.toUpperCase() == 'GR'
+          {numeral(articulo.embalaje.toUpperCase() == 'GR'
               ? Math.round(articulo.precio * articulo.incremento)
-              : Math.round(articulo.precio) + ' COP'}
+              : Math.round(articulo.precio)).format('$ 0,0')}
           </Text>
         </Row>
         <Row gutter={5} justify='start'>
           <Text strong className='precio'>
-            ${' '}
-            {articulo.embalaje.toUpperCase() == 'GR'
+          {numeral(articulo.embalaje.toUpperCase() == 'GR'
               ? Math.round(articulo.precio * articulo.incremento)
-              : Math.round(articulo.precio)}{' '}
-            COP
+              : Math.round(articulo.precio)).format('$ 0,0')}
           </Text>
         </Row>
 
@@ -112,16 +110,14 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
           level={4}
           style={{
             color: 'var(--color-primario)',
-            fontSize: '20px',
+            fontSize: '16px',
             textAlign: 'center',
             margin: 0
           }}
         >
-          ${' '}
-          {articulo.embalaje.toUpperCase() == 'GR'
+        {numeral(articulo.embalaje.toUpperCase() == 'GR'
             ? Math.round(articulo.precio * articulo.incremento)
-            : Math.round(articulo.precio)}{' '}
-          COP
+            : Math.round(articulo.precio)).format('$ 0,0') + ' x ' + articulo.incremento + ' ' + articulo.embalaje }
         </Title>
         <Row justify="center">
           <Button

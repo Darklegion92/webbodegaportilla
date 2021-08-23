@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import { BANCO } from '../../config'
 import './styles.css'
+import numeral from 'numeral'
 
 const { Text } = Typography
 
@@ -40,11 +41,9 @@ const Comprado = ({ articulo, onOk }) => {
             </Row>
             <Row className='fila3' justify='center'>
               <Text>
-                ${' '}
-                {articulo.descuento > 0
+              {numeral(articulo.descuento > 0
                   ? Math.round(articulo.cantidad * articulo.descuento)
-                  : Math.round(articulo.precio * articulo.cantidad)}
-                COP
+                  : Math.round(articulo.precio * articulo.cantidad)).format('$ 0,0')}
               </Text>
             </Row>
             <Row className='fila4' justify='center'>
@@ -73,11 +72,9 @@ const Comprado = ({ articulo, onOk }) => {
                   </Row>
                   <Row className='fila3'>
                     <Text>
-                      ${' '}
-                      {articulo.descuento > 0
+                    {numeral(articulo.descuento > 0
                         ? Math.round(articulo.cantidad * articulo.descuento)
-                        : Math.round(articulo.precio * articulo.cantidad)}
-                      COP
+                        : Math.round(articulo.precio * articulo.cantidad)).format('$ 0,0')}
                     </Text>
                   </Row>
                 </Col>
