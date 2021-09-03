@@ -119,7 +119,6 @@ const Articulo = ({ articulo, onOk }) => {
     (emb.toUpperCase() == 'GR' && (e>=articulo.incremento|| e<1))||
     (emb.toUpperCase() === 'UND' && e>0) ){
       
-      console.log(articulo.cantidad);
       articulo.cantidad = embalaje.toUpperCase() == 'KG' ? e * 1000 : e
       setEmbalaje(emb)
       const pru = e.toString().split('.')
