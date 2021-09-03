@@ -63,7 +63,7 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
           <Text strong className='precio'>
           {numeral(articulo.embalaje.toUpperCase() == 'GR'
               ? Math.round(articulo.precio * articulo.incremento)
-              : Math.round(articulo.precio)).format('$ 0,0')}
+              : Math.round(articulo.precio )).format('$ 0,0')}
           </Text>
         </Row>
 

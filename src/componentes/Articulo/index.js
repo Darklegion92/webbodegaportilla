@@ -94,9 +94,8 @@ const Articulo = ({ articulo, onOk }) => {
     if(embalaje.toUpperCase()==='GR'){
       if(e>=1000 && type==='plus'){
         emb='Kg'
-        e= e/1000
+        e= (e/1000)
       }else if(e>=1000 && type==='minus'){
-        console.log(e);
         emb='Kg'
         e= -(e/1000)
       }
@@ -106,7 +105,6 @@ const Articulo = ({ articulo, onOk }) => {
         emb='Gr'
         e= e*1000
       }else if(type==='minus'){
-        console.log(e);
         emb='Gr'
         e= e*1000
       }
@@ -120,14 +118,28 @@ const Articulo = ({ articulo, onOk }) => {
     if((emb.toUpperCase() == 'KG' && e*1000>=articulo.incremento)||
     (emb.toUpperCase() == 'GR' && (e>=articulo.incremento|| e<1))||
     (emb.toUpperCase() === 'UND' && e>0) ){
-
-      console.log(e);
-
+      
+      console.log(articulo.cantidad);
       articulo.cantidad = embalaje.toUpperCase() == 'KG' ? e * 1000 : e
       setEmbalaje(emb)
-      setCantidad(emb.toUpperCase() == 'KG' ? Math.round(e*10)/10: e)
-      setPrecioDescuento(articulo.dcto3 * articulo.cantidad)
-      setTotal(articulo.precio * articulo.cantidad)
+      const pru = e.toString().split('.')
+      if(pru[1] ) e = parseFloat(pru[0]+'.'+pru[1].substring(0,1))
+      setCantidad(e)
+
+      if(articulo.cant_dcto3 > 0 && articulo.cant_dcto3<=(emb.toUpperCase() == 'KG' ?e*1000: e)){
+        console.log('descuento 3');
+        setPrecioDescuento(articulo.dcto3 * e* (emb.toUpperCase() == 'KG'?1000:1))
+      } else if(articulo.cant_dcto2 && articulo.cant_dcto2<=(emb.toUpperCase() == 'KG' ?e*1000: e)){
+        console.log('descuento 2');
+        setPrecioDescuento(articulo.dcto2 * e* (emb.toUpperCase() == 'KG'?1000:1))
+      } else if(articulo.cant_dcto1 && articulo.cant_dcto1<=(emb.toUpperCase() == 'KG' ?e*1000: e)){
+        console.log('descuento 1');
+        setPrecioDescuento(articulo.dcto1 * e * (emb.toUpperCase() == 'KG'?1000:1))
+      }else{
+        setPrecioDescuento(0)
+      }
+
+      setTotal(emb.toUpperCase() == 'KG' && articulo.cantidad === 1 ? articulo.precio * articulo.cantidad *1000:articulo.precio * articulo.cantidad)
     }
   }
 
@@ -181,6 +193,7 @@ const Articulo = ({ articulo, onOk }) => {
           <InputNumber
              value={cantidad}
              onChange={onChange}
+             
              />
           </Col>
           <Col span={5}>
