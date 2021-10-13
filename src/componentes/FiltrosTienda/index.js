@@ -139,7 +139,7 @@ const FiltrosTienda = ({setPagina}) => {
         )}
         <Divider />
       </div>
-      <div className="agrupaciones">
+  {/*    <div className="agrupaciones">
         <Title level={4}>MARCAS</Title>
         <Divider />
         <List
@@ -152,7 +152,7 @@ const FiltrosTienda = ({setPagina}) => {
           onClick={onClickMarcas}
         />
         <Divider />
-      </div>
+      </div>*/}
     </div>
   );
 };
