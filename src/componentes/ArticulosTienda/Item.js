@@ -11,7 +11,8 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
   const [img, setImg] = useState()
   useEffect(() => {
-    setImg(BANCO.URL + articulo.img)
+    const images = articulo.img.split('|')
+    setImg(BANCO.URL + images[0])
   }, [articulo])
   const estrellas = cantidad => {
     const estrellas = []
@@ -54,16 +55,20 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
           }}
         >
           <Text className='descuento'>
-          {numeral(articulo.embalaje.toUpperCase() == 'GR'
-              ? Math.round(articulo.precio * articulo.incremento)
-              : Math.round(articulo.precio)).format('$ 0,0')}
+            {numeral(
+              articulo.embalaje.toUpperCase() == 'GR'
+                ? Math.round(articulo.precio * articulo.incremento)
+                : Math.round(articulo.precio)
+            ).format('$ 0,0')}
           </Text>
         </Row>
         <Row gutter={5} justify='start'>
           <Text strong className='precio'>
-          {numeral(articulo.embalaje.toUpperCase() == 'GR'
-              ? Math.round(articulo.precio * articulo.incremento)
-              : Math.round(articulo.precio )).format('$ 0,0')}
+            {numeral(
+              articulo.embalaje.toUpperCase() == 'GR'
+                ? Math.round(articulo.precio * articulo.incremento)
+                : Math.round(articulo.precio)
+            ).format('$ 0,0')}
           </Text>
         </Row>
 
@@ -72,7 +77,7 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
         </Row>
       </Col>
     </Row>
-  ) :(
+  ) : (
     <div className='estrellas-item'>
       {articulo.clasificacion > 0 && (
         <div className='estrellas-cantidad'>
@@ -85,13 +90,13 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
           maxWidth: '170px',
           boxShadow: '0px 0px 17px 5px rgba(133,124,133,1)',
           borderRadius: '10px',
-          marginLeft:5,
-          marginRight:5,
+          marginLeft: 5,
+          marginRight: 5,
           marginBottom: 15,
           padding: 0,
           paddingLeft: 10,
           paddingRight: 10,
-          paddingBottom: 20,
+          paddingBottom: 20
         }}
       >
         <img src={img} width='100%' onError={onError} alt={img} />
@@ -115,11 +120,17 @@ const Item = ({ articulo, id, onClick, enCarrito }) => {
             margin: 0
           }}
         >
-        {numeral(articulo.embalaje.toUpperCase() == 'GR'
-            ? Math.round(articulo.precio * articulo.incremento)
-            : Math.round(articulo.precio)).format('$ 0,0') + ' x ' + articulo.incremento + ' ' + articulo.embalaje }
+          {numeral(
+            articulo.embalaje.toUpperCase() == 'GR'
+              ? Math.round(articulo.precio * articulo.incremento)
+              : Math.round(articulo.precio)
+          ).format('$ 0,0') +
+            ' x ' +
+            articulo.incremento +
+            ' ' +
+            articulo.embalaje}
         </Title>
-        <Row justify="center">
+        <Row justify='center'>
           <Button
             style={{
               backgroundColor: 'var(--color-naranja)',

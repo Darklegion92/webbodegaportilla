@@ -164,7 +164,7 @@ function App() {
               <SeccionExtra
                 items={isTabletOrMobile || isTabletOrMobileDevice ? 2 : 3}
                 texto={{
-                  texto: "PRODUCTOS DE TEMPORADA",
+                  texto: "PRODUCTOS EN PROMOCIÓN",
                   fondo: "invisible",
                   color: "var(--color-primario)",
                 }}
@@ -240,7 +240,7 @@ function App() {
             <SeccionExtra
               items={isTabletOrMobile || isTabletOrMobileDevice ? 2 : 3}
               texto={{
-                texto: "PRODUCTOS DE TEMPORADA",
+                texto: "PRODUCTOS EN PROMOCIÓN",
                 fondo: "invisible",
                 color: "var(--color-primario)",
               }}

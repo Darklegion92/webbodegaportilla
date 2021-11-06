@@ -109,7 +109,6 @@
 .articulo-tag .input-edit {
   width: 100% !important;
   font-size: 30px !important;
-  text-align: center;
   color: var(--color-primario) !important;
   border: solid 1px var(--color-primario) !important;
   border-radius: 5px !important;
@@ -127,21 +126,6 @@
 }
 .estrellas-cantidad-articulo {
   position: absolute;
-  display: flex;
-  background: var(--color-naranja);
-  width: min-content;
-  max-height: 1000px;
-  border-bottom-right-radius: 30px;
-  justify-content: center;
-  align-items: center;
-  font-size: 13px;
-  font-weight: bold;
-  color: white;
-  padding: 5px 8px 10px 5px;
-  top: -5%;
-  left: -2.9%;
-  border-top-left-radius: 10px;
-  z-index: 100;
 }
 
 /*movile*/
@@ -178,6 +162,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: 'center';
     width: 100%;
     margin-top: 0px;
     margin-bottom: 0px;

@@ -79,10 +79,10 @@ function Pie () {
           </Row>
           <Row>
             <a
-              href='mailto:servicioalcliente@bodegaportilla.com'
+              href='tel:+605836681'
               target='_blank'
             >
-              <Text>servicioalcliente@bodegaportilla.com</Text>
+              <Text>Teléfono: 605836681</Text>
             </a>
           </Row>
           <Row>

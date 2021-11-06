@@ -27,20 +27,24 @@ const Item = ({ articulo }) => {
   } = useContext(GlobalContext)
 
   useEffect(() => {
-    setImg(BANCO.URL + articulo.img)
+    const images = articulo.img.split('|')
+    setImg(BANCO.URL + images[0])
     let total
     if (
-      articulo.cant_dcto3 !== null && articulo.cant_dcto3 !== 0 &&
+      articulo.cant_dcto3 !== null &&
+      articulo.cant_dcto3 !== 0 &&
       parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto3)
     ) {
       total = articulo.cantidad * articulo.dcto3
     } else if (
-      articulo.cant_dcto2 !== null && articulo.cant_dcto2 !== 0 &&
+      articulo.cant_dcto2 !== null &&
+      articulo.cant_dcto2 !== 0 &&
       parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto2)
     ) {
       total = articulo.cantidad * articulo.dcto2
     } else if (
-      articulo.cant_dcto1 !== null && articulo.cant_dcto1 !== 0 &&
+      articulo.cant_dcto1 !== null &&
+      articulo.cant_dcto1 !== 0 &&
       parseInt(articulo.cantidad) >= parseInt(articulo.cant_dcto1)
     ) {
       total = articulo.cantidad * articulo.dcto1
@@ -65,50 +69,51 @@ const Item = ({ articulo }) => {
   }
 
   const onChange = async type => {
-
     let e = articulo.incremento
     let emb = embalaje
-    if(type==='minus'){
-      if(embalaje.toUpperCase()==='GR'){
-        e = cantidad-articulo.incremento
-      }else{
-        e = cantidad-articulo.incremento/1000
+    if (type === 'minus') {
+      if (embalaje.toUpperCase() === 'GR') {
+        e = cantidad - articulo.incremento
+      } else {
+        e = cantidad - articulo.incremento / 1000
       }
-    }else{
-      if(embalaje.toUpperCase()==='GR'){
-        e = cantidad+articulo.incremento
-      }else{
-        e = cantidad+articulo.incremento/1000
+    } else {
+      if (embalaje.toUpperCase() === 'GR') {
+        e = cantidad + articulo.incremento
+      } else {
+        e = cantidad + articulo.incremento / 1000
       }
     }
 
-    if(embalaje.toUpperCase()==='GR'){
-      if(e>=1000 && type==='plus'){
-        emb='Kg'
-        e= e/1000
-      }else if(e>=1000 && type==='minus'){
-        console.log(e);
-        emb='Kg'
-        e= -(e/1000)
+    if (embalaje.toUpperCase() === 'GR') {
+      if (e >= 1000 && type === 'plus') {
+        emb = 'Kg'
+        e = e / 1000
+      } else if (e >= 1000 && type === 'minus') {
+        console.log(e)
+        emb = 'Kg'
+        e = -(e / 1000)
       }
     }
-    if(Math.round(e*10)/10<1){
-      if(type==='plus'){
-        emb='Gr'
-        e= e*1000
-      }else if(type==='minus'){
-        console.log(e);
-        emb='Gr'
-        e= e*1000
+    if (Math.round(e * 10) / 10 < 1) {
+      if (type === 'plus') {
+        emb = 'Gr'
+        e = e * 1000
+      } else if (type === 'minus') {
+        console.log(e)
+        emb = 'Gr'
+        e = e * 1000
       }
-
     }
 
-    if(e<0 && type==='minus'){
-      e=articulo.incremento
+    if (e < 0 && type === 'minus') {
+      e = articulo.incremento
     }
 
-    if((emb.toUpperCase() == 'KG' && e*1000>=articulo.incremento)||(emb.toUpperCase() == 'GR' && (e>=articulo.incremento|| e<1))){
+    if (
+      (emb.toUpperCase() == 'KG' && e * 1000 >= articulo.incremento) ||
+      (emb.toUpperCase() == 'GR' && (e >= articulo.incremento || e < 1))
+    ) {
       articulo.cantidad = embalaje.toUpperCase() == 'KG' ? e * 1000 : e
       await carrito.forEach((item, i) => {
         if (item.codigo === articulo.codigo) {
@@ -117,8 +122,8 @@ const Item = ({ articulo }) => {
         }
       })
       setEmbalaje(emb)
-      console.log(e);
-      setCantidad(emb.toUpperCase() == 'KG' ? Math.round(e*10)/10: e)
+      console.log(e)
+      setCantidad(emb.toUpperCase() == 'KG' ? Math.round(e * 10) / 10 : e)
       actualizarCarrito(carrito, articulo)
       setLoading(!loading)
     }
@@ -154,10 +159,7 @@ const Item = ({ articulo }) => {
           <Col span={19}>
             <Row gutter={10}>
               <Col span={18}>
-              <InputNumber
-             value={cantidad}
-             onChange={onChange}
-             />
+                <InputNumber value={cantidad} onChange={onChange} />
               </Col>
               <Col span={6}>
                 <Text className='embalaje'>{embalaje}</Text>
@@ -192,11 +194,8 @@ const Item = ({ articulo }) => {
           </Col>
           <Col span={10}>
             <Row>
-            <Col span={18}>
-              <InputNumber
-                  value={cantidad}
-                  onChange={onChange}
-             />
+              <Col span={18}>
+                <InputNumber value={cantidad} onChange={onChange} />
               </Col>
               <Col span={6}>
                 <Text className='embalaje'>{embalaje}</Text>
