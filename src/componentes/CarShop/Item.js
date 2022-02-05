@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Col, Row, Typography, Input } from 'antd'
-import NumericInput from 'react-numeric-input'
 import { useMediaQuery } from 'react-responsive'
-import { BsImageAlt, BsTrash } from 'react-icons/bs'
+import {  BsTrash } from 'react-icons/bs'
 import { BANCO } from '../../config'
 
 import { GlobalContext } from '../../Context/GlobalContext'
