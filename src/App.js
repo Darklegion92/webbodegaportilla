@@ -1,6 +1,6 @@
-import React, { useEffect, useContext } from "react";
-import { Switch, Route, useLocation } from "react-router-dom";
-import { Layout, Modal } from "antd";
+import React, { useEffect, useContext, useState } from "react";
+import { Switch, Route, useLocation, Link } from "react-router-dom";
+import { Button, Layout, Modal } from "antd";
 import { useMediaQuery } from "react-responsive";
 import { ImWhatsapp } from "react-icons/im";
 
@@ -30,10 +30,10 @@ const { Header, Footer, Content } = Layout;
 function App() {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
+  const [visible, setVisible] = useState(true);
   let location = useLocation().pathname;
-  const { articulos, cargarDatos, modalCarga, ordenCliente } = useContext(
-    GlobalContext
-  );
+  const { articulos, cargarDatos, modalCarga, ordenCliente } =
+    useContext(GlobalContext);
   useEffect(() => {
     cargarDatos();
   }, []);
@@ -175,81 +175,108 @@ function App() {
             </Content>
           </Route>
           <Route path="/index" exact>
-          <div
-            id="productos"
-            style={{
-              minHeight: "118px",
-              width: "100%",
-              marginBottom: "118px",
-              position: "absolute",
-              top:
-                isTabletOrMobile || isTabletOrMobileDevice
-                  ? "620px"
-                  : "960px",
-            }}
-          />
+            <div
+              id="productos"
+              style={{
+                minHeight: "118px",
+                width: "100%",
+                marginBottom: "118px",
+                position: "absolute",
+                top:
+                  isTabletOrMobile || isTabletOrMobileDevice
+                    ? "620px"
+                    : "960px",
+              }}
+            />
 
-          <div
-            id="nuevo"
-            style={{
-              minHeight: "118px",
-              backgroundColor: "black",
-              width: "100%",
-              marginBottom: "118px",
-              position: "absolute",
-              top:
-                isTabletOrMobile || isTabletOrMobileDevice
-                  ? "1600px"
-                  : "2030px",
-              zIndex: 1,
-            }}
-          />
+            <div
+              id="nuevo"
+              style={{
+                minHeight: "118px",
+                backgroundColor: "black",
+                width: "100%",
+                marginBottom: "118px",
+                position: "absolute",
+                top:
+                  isTabletOrMobile || isTabletOrMobileDevice
+                    ? "1600px"
+                    : "2030px",
+                zIndex: 1,
+              }}
+            />
 
-          <div
-            id="recomendaciones"
-            style={{
-              minHeight: "118px",
-              width: "100%",
-              marginBottom: "118px",
-              position: "absolute",
-              top:
-                isTabletOrMobile || isTabletOrMobileDevice
-                  ? "2150px"
-                  : "3130px",
-            }}
-          />
-          <Content>
-            <div>
-              <Carrusel_principal />
-            </div>
-            <div>
-              <SeccionProductos />
-            </div>
-            <div>
+            <div
+              id="recomendaciones"
+              style={{
+                minHeight: "118px",
+                width: "100%",
+                marginBottom: "118px",
+                position: "absolute",
+                top:
+                  isTabletOrMobile || isTabletOrMobileDevice
+                    ? "2150px"
+                    : "3130px",
+              }}
+            />
+            <Content>
+              <div>
+                <Carrusel_principal />
+              </div>
+              <div>
+                <SeccionProductos />
+              </div>
+              <div>
+                <SeccionExtra
+                  items={isTabletOrMobile || isTabletOrMobileDevice ? 3 : 4}
+                  texto={{
+                    texto: "PRODUCTOS NUEVOS",
+                    fondo: "invisible",
+                    color: "var(--color-primario)",
+                  }}
+                  articulos={articulos}
+                  tipo="NUEVO"
+                />
+              </div>
               <SeccionExtra
-                items={isTabletOrMobile || isTabletOrMobileDevice ? 3 : 4}
+                items={isTabletOrMobile || isTabletOrMobileDevice ? 2 : 3}
                 texto={{
-                  texto: "PRODUCTOS NUEVOS",
+                  texto: "PRODUCTOS EN PROMOCIÓN",
                   fondo: "invisible",
                   color: "var(--color-primario)",
                 }}
                 articulos={articulos}
-                tipo="NUEVO"
+                tipo="REGALO"
               />
-            </div>
-            <SeccionExtra
-              items={isTabletOrMobile || isTabletOrMobileDevice ? 2 : 3}
-              texto={{
-                texto: "PRODUCTOS EN PROMOCIÓN",
-                fondo: "invisible",
-                color: "var(--color-primario)",
-              }}
-              articulos={articulos}
-              tipo="REGALO"
-            />
-            <div>{<SeccionRecomendaciones />}</div>
-          </Content>
-        </Route>
+              <div>{<SeccionRecomendaciones />}</div>
+            </Content>
+          </Route>
+          <Modal
+            visible={visible && !modalCarga}
+            footer={null}
+            centered
+            onCancel={() => setVisible(false)}
+            bodyStyle={{
+              display: "flex",
+              flexDirection:'column',
+              alignItems: "center",
+              paddingTop: 50,
+            }}
+          >
+            "Registrate para recibir grandes descuentos"
+            <Link
+            to="/login"
+            style={{
+              border: "solid 1px var(--color-primario)",
+              padding: "10px",
+              borderRadius: "10px",
+              backgroundColor: "var(--color-primario)",
+              color: "white",
+              margin: "10px",
+            }}
+          >
+            REGISTAR
+          </Link>
+          </Modal>
         </Route>
       </Switch>
       {location !== "/login" && (
