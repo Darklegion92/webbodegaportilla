@@ -55,8 +55,8 @@ function Carrusel_principal() {
                   className="d-block w-100"
                   src={
                     isTabletOrMobile || isTabletOrMobileDevice
-                      ? BANCO.URL + item.imgmovil
-                      : BANCO.URL + item.img
+                      ? `${BANCO.URL}img/carusel/movil/${item.imgmovil}`
+                      : `${BANCO.URL}img/carusel/${item.img}`
                   }
                   onClick={onClick}
                   alt={item.idgrupo}
