@@ -21,6 +21,7 @@ import VentanaCarga from "./componentes/VentanaCarga";
 import DetallesPedido from "./componentes/DetallesPedido";
 import DetallesPedidoEfectivo from "./componentes/DetallesPedidoEfecty";
 import DetallesPedidoCredito from "./componentes/DetallesPedidoCredito";
+import { BANCO } from "./config";
 
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -256,25 +257,24 @@ function App() {
             centered
             onCancel={() => setVisible(false)}
             bodyStyle={{
-              display: "flex",
-              flexDirection:'column',
-              alignItems: "center",
-              paddingTop: 50,
+              width: "100%",
+              height: "100%",
+              padding:0
             }}
           >
-            "Registrate para recibir grandes descuentos"
             <Link
             to="/login"
-            style={{
-              border: "solid 1px var(--color-primario)",
-              padding: "10px",
-              borderRadius: "10px",
-              backgroundColor: "var(--color-primario)",
-              color: "white",
-              margin: "10px",
-            }}
+            
           >
-            REGISTAR
+        <img
+                  className="d-block w-100"
+                  width="100%"
+                  src={
+                    "../img/prom.jpg"
+
+                  }
+                  alt="prom"
+                />
           </Link>
           </Modal>
         </Route>
