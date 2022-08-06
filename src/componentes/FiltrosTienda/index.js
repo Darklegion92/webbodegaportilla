@@ -1,18 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Typography, Divider, Row, List } from "antd";
+import { useHistory, useParams } from "react-router-dom";
 import { CloseOutlined } from "@ant-design/icons";
 import { useMediaQuery } from "react-responsive";
 import { GlobalContext } from "../../Context/GlobalContext";
+import { useQuery } from "../../customHooks/useQuery";
+
 import "./styles.css";
 
 const { Text, Title } = Typography;
 
-const FiltrosTienda = ({setPagina}) => {
+const FiltrosTienda = ({ setPagina }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const {
     grupos,
-    marcas,
     filtros,
     consultarArticulosTienda,
     subgrupos,
@@ -21,8 +23,31 @@ const FiltrosTienda = ({setPagina}) => {
 
   const [subgrupo, setSubgrupo] = useState(false);
 
+  const { group, subgroup } = useParams();
+
+  const query = useQuery();
+
+  const history = useHistory();
+
+  const getDataFilter = () => {
+    const groupId = query.get("groupId");
+    const subgroupId = query.get("subgroupId");
+
+    if (subgroup) {
+      setSubgrupo(true);
+      cargarSubgrupos(groupId);
+      consultarArticulosTienda([
+        { nombre: group, tipo: "GRUPO", id: groupId },
+        { nombre: subgroup, tipo: "SUBGRUPO", id: subgroupId },
+      ]);
+    } else if (group) {
+      setSubgrupo(true);
+      cargarSubgrupos(groupId);
+      consultarArticulosTienda([{ nombre: group, tipo: "GRUPO", id: groupId }]);
+    }
+  };
+
   const onClickGrupos = async (e) => {
-    
     const nombre = e.target.id;
     const value = e.target.value;
     let guardar = true;
@@ -34,27 +59,14 @@ const FiltrosTienda = ({setPagina}) => {
         }
     });
     if (guardar) {
-      setPagina(1)
+      setPagina(1);
       cargarSubgrupos(value);
       setSubgrupo(true);
-      consultarArticulosTienda([...filtros, { nombre, tipo: "GRUPO",id:value }]);
-    }
-  };
-
-  const onClickMarcas = async (e) => {
-    const nombre = e.target.id;
-    const value = e.target.value;
-    let guardar = true;
-    await filtros.forEach((filtro) => {
-      if (filtro.tipo === "MARCA")
-        if (filtro.nombre === nombre) {
-          guardar = false;
-          return;
-        }
-    });
-    if (guardar) {
-      setPagina(1)
-      consultarArticulosTienda([...filtros, { nombre, tipo: "MARCA",id:value }]);
+      history.replace(`/shop/${nombre}?groupId=${value}`);
+      consultarArticulosTienda([
+        ...filtros,
+        { nombre, tipo: "GRUPO", id: value },
+      ]);
     }
   };
 
@@ -69,16 +81,27 @@ const FiltrosTienda = ({setPagina}) => {
           return;
         }
     });
+
     if (guardar) {
-      setPagina(1)
-      consultarArticulosTienda([...filtros, { nombre, tipo: "SUBGRUPO",id:value }]);
+      const groupId = query.get("groupId");
+      setPagina(1);
+      history.replace(
+        `/shop/${group}/${nombre}?groupId=${groupId}&subgroupId=${value}`
+      );
+      consultarArticulosTienda([
+        ...filtros,
+        { nombre, tipo: "SUBGRUPO", id: value },
+      ]);
     }
   };
 
   const eliminar = (i) => {
+    console.log(i);
     let filtrado = [];
     filtrado = [...filtros.slice(0, i), ...filtros.slice(i + 1)];
     consultarArticulosTienda(filtrado);
+    const groupId = query.get("groupId");
+    history.replace(`/shop/${group}?groupId=${groupId}`);
     if (filtros[i].tipo === "GRUPO") {
       setSubgrupo(false);
       let eliminado = [];
@@ -87,10 +110,16 @@ const FiltrosTienda = ({setPagina}) => {
           eliminado = [...filtrado.slice(0, i), ...filtrado.slice(i + 1)];
         }
       });
-      setPagina(1)
+      setPagina(1);
+      history.replace(`/shop`);
       consultarArticulosTienda(eliminado);
     }
   };
+
+  useEffect(() => {
+    getDataFilter();
+  }, []);
+
   return (
     <div className="filtros-tienda">
       {!isTabletOrMobile && !isTabletOrMobileDevice && (
@@ -139,7 +168,7 @@ const FiltrosTienda = ({setPagina}) => {
         )}
         <Divider />
       </div>
-  {/*    <div className="agrupaciones">
+      {/*    <div className="agrupaciones">
         <Title level={4}>MARCAS</Title>
         <Divider />
         <List

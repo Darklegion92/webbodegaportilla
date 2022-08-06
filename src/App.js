@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Switch, Route, useLocation, Link } from "react-router-dom";
-import { Button, Layout, Modal } from "antd";
+import { Layout, Modal } from "antd";
 import { useMediaQuery } from "react-responsive";
 import { ImWhatsapp } from "react-icons/im";
 
@@ -21,7 +21,6 @@ import VentanaCarga from "./componentes/VentanaCarga";
 import DetallesPedido from "./componentes/DetallesPedido";
 import DetallesPedidoEfectivo from "./componentes/DetallesPedidoEfecty";
 import DetallesPedidoCredito from "./componentes/DetallesPedidoCredito";
-import { BANCO } from "./config";
 
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -80,6 +79,16 @@ function App() {
             </Content>
           </Route>
           <Route path="/shop" exact>
+            <Content>
+              <Tienda />
+            </Content>
+          </Route>
+          <Route path="/shop/:group" exact>
+            <Content>
+              <Tienda />
+            </Content>
+          </Route>
+          <Route path="/shop/:group/:subgroup" exact>
             <Content>
               <Tienda />
             </Content>
@@ -259,27 +268,21 @@ function App() {
             bodyStyle={{
               width: "100%",
               height: "100%",
-              padding:0,
-              borderRadius: 10
+              padding: 0,
+              borderRadius: 10,
             }}
           >
-            <Link
-            to="/login"
-            
-          >
-        <img
-                  className="d-block w-100"
-                  width="100%"
-                  style={{
-              borderRadius: 10
-            }}
-                  src={
-                    "../img/prom.jpg"
-
-                  }
-                  alt="prom"
-                />
-          </Link>
+            <Link to="/login">
+              <img
+                className="d-block w-100"
+                width="100%"
+                style={{
+                  borderRadius: 10,
+                }}
+                src={"../img/prom.jpg"}
+                alt="prom"
+              />
+            </Link>
           </Modal>
         </Route>
       </Switch>
