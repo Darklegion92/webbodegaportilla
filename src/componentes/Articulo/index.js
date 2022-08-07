@@ -24,6 +24,7 @@ const Articulo = ({ articulo, onOk }) => {
   const [precioDescuento, setPrecioDescuento] = useState(0)
 
   useEffect(() => {
+
     const images = articulo.img.split('|')
     setEmbalaje(articulo.embalaje)
     setImg(images.map(image => BANCO.URL + image))
