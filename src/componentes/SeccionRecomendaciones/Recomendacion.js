@@ -1,6 +1,8 @@
 import React from 'react'
 import { Row, Col, Typography } from 'antd'
 import { useMediaQuery } from 'react-responsive'
+import ReactHtmlParser from 'react-html-parser';
+
 import { BANCO } from '../../config/'
 
 const { Text, Title } = Typography
@@ -42,7 +44,7 @@ const Modal = ({ recomendacion, tipo }) => {
           <Title>{recomendacion.titulo}</Title>
         </Row>
         <Row>
-          <Text>{recomendacion.texto}</Text>
+          <Text>{ReactHtmlParser(recomendacion.texto)}</Text>
         </Row>
       </Col>
     </Row>
