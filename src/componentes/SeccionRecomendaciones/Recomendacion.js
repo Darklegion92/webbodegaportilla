@@ -40,11 +40,15 @@ const Modal = ({ recomendacion, tipo }) => {
         />
       </Col>
       <Col span={tipo === 'CUADRADO' ? 10 : 14}>
-        <Row>
-          <Title>{recomendacion.titulo}</Title>
+        <Row >
+          <Title level={3}>{recomendacion.titulo}</Title>
         </Row>
-        <Row>
+        <Row style={{
+          width:"95%"
+        }}>
+        <Col span={24}>
           <Text>{ReactHtmlParser(recomendacion.texto)}</Text>
+        </Col>
         </Row>
       </Col>
     </Row>
