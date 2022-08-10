@@ -118,7 +118,7 @@ const FiltrosTienda = ({ setPagina }) => {
 
   useEffect(() => {
     getDataFilter();
-  }, []);
+  }, [group, subgroup]);
 
   return (
     <div className="filtros-tienda">

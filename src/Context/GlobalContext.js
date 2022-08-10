@@ -141,7 +141,9 @@ const GlobalProvider = ({ children }) => {
       }
 
       //cargando articulos tienda
-      consultarArticulosTienda()
+      if(articulos.length<=0){
+        consultarArticulosTienda()
+      }
 
       const datosArticulos = await axios.get(API.URL + 'articulos/categoria')
       if (datosArticulos.status === 200) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState,  useContext } from 'react'
 import { Row, Col, Modal } from 'antd'
 import { useMediaQuery } from 'react-responsive'
 import FiltrosTienda from '../FiltrosTienda'
