@@ -140,11 +140,6 @@ const GlobalProvider = ({ children }) => {
         setMarcas(datosMarcas.data)
       }
 
-      //cargando articulos tienda
-      if(articulos.length<=0){
-        consultarArticulosTienda()
-      }
-
       const datosArticulos = await axios.get(API.URL + 'articulos/categoria')
       if (datosArticulos.status === 200) {
         setArticulos(datosArticulos.data)

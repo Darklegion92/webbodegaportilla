@@ -1,4 +1,4 @@
-import React, { useState,  useContext } from 'react'
+import React, { useState,  useContext, useEffect } from 'react'
 import { Row, Col, Modal } from 'antd'
 import { useMediaQuery } from 'react-responsive'
 import FiltrosTienda from '../FiltrosTienda'
@@ -13,7 +13,7 @@ import './styles.css'
 const Tienda = () => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
-  const { articulosTienda, modalCarga } = useContext(GlobalContext)
+  const { articulosTienda, modalCarga,consultarArticulosTienda } = useContext(GlobalContext)
   const [modalArticulo, setModalArticulo] = useState(false)
   const [modalComprado, setModalComprado] = useState(false)
   const [articuloSeleccionado, setArticuloSeleccionado] = useState()
@@ -41,6 +41,12 @@ const Tienda = () => {
   const cerrarComprado = () => {
     setModalComprado(false)
   }
+
+useEffect(()=>{
+    consultarArticulosTienda()
+
+},[])
+
   return (
     <Row>
       {(!isTabletOrMobile || !isTabletOrMobileDevice) && (

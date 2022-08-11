@@ -32,7 +32,7 @@ function App() {
   const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
   const [visible, setVisible] = useState(true);
   let location = useLocation().pathname;
-  const { articulos, cargarDatos, modalCarga, ordenCliente } =
+  const { articulos, cargarDatos, modalCarga } =
     useContext(GlobalContext);
   useEffect(() => {
     cargarDatos();
@@ -109,6 +109,30 @@ function App() {
             </Content>
           </Route>
           <Route path="/" exact>
+          <Modal
+            visible={visible && !modalCarga}
+            footer={null}
+            centered
+            onCancel={() => setVisible(false)}
+            bodyStyle={{
+              width: "100%",
+              height: "100%",
+              padding: 0,
+              borderRadius: 10,
+            }}
+          >
+            <Link to="/login">
+              <img
+                className="d-block w-100"
+                width="100%"
+                style={{
+                  borderRadius: 10,
+                }}
+                src={"../img/prom.jpg"}
+                alt="prom"
+              />
+            </Link>
+          </Modal>
             <div
               id="productos"
               style={{
@@ -260,30 +284,6 @@ function App() {
               <div>{<SeccionRecomendaciones />}</div>
             </Content>
           </Route>
-          <Modal
-            visible={visible && !modalCarga}
-            footer={null}
-            centered
-            onCancel={() => setVisible(false)}
-            bodyStyle={{
-              width: "100%",
-              height: "100%",
-              padding: 0,
-              borderRadius: 10,
-            }}
-          >
-            <Link to="/login">
-              <img
-                className="d-block w-100"
-                width="100%"
-                style={{
-                  borderRadius: 10,
-                }}
-                src={"../img/prom.jpg"}
-                alt="prom"
-              />
-            </Link>
-          </Modal>
         </Route>
       </Switch>
       {location !== "/login" && (
